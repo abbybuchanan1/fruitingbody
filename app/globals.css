@@ -3421,6 +3421,7 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 }
 
 
+
 .dark-garden-work-stage--3
 .dark-garden-work,
 
@@ -3684,5 +3685,316 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   .dark-garden-exit__link {
     transition:
       none;
+  }
+}/* ========================================
+   GARDEN — CONTINUOUS ENVIRONMENT
+   ======================================== */
+
+.garden-page {
+  position: relative;
+  min-height: 100vh;
+  background: #171812;
+  color: #f4efe4;
+  overflow: clip;
+}
+
+/* ---------- ENVIRONMENT ---------- */
+
+.garden-environment {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.garden-environment__panel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: -2px;
+  line-height: 0;
+}
+
+.garden-environment__panel:first-child {
+  margin-top: 0;
+}
+
+.garden-environment__panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0.72) saturate(0.82);
+}
+
+/* Slight veil so artwork remains dominant */
+.garden-environment__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 16, 12, 0.12),
+      rgba(15, 16, 12, 0.24)
+    );
+}
+
+/* Dark garden */
+.garden-environment__panel--1 img,
+.garden-environment__panel--2 img,
+.garden-environment__panel--3 img,
+.garden-environment__panel--4 img {
+  filter: brightness(0.68) saturate(0.78);
+}
+
+/* Transitional dark-to-warm zone */
+.garden-environment__panel--5 img,
+.garden-environment__panel--6 img,
+.garden-environment__panel--7 img {
+  filter: brightness(0.76) saturate(0.82);
+}
+
+/* Light garden */
+.garden-environment__panel--8 img,
+.garden-environment__panel--9 img {
+  filter: brightness(0.88) saturate(0.88);
+}
+
+.garden-environment__panel--10 img,
+.garden-environment__panel--11 img {
+  filter: brightness(0.98) saturate(0.9);
+}
+
+.garden-environment__panel--12 img {
+  filter: brightness(1.06) saturate(0.88);
+}
+
+/* ---------- CONTENT ---------- */
+
+.garden-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.garden-section {
+  position: relative;
+  min-height: 330vh;
+  padding:
+    14vh
+    clamp(1.25rem, 5vw, 5rem)
+    18vh;
+  scroll-margin-top: 4rem;
+}
+
+.garden-section--daffodils {
+  padding-top: 16vh;
+}
+
+.garden-section--fear-not {
+  min-height: 360vh;
+}
+
+.garden-section--taste-and-see {
+  min-height: 340vh;
+}
+
+/* ---------- INTRO / WALL TEXT ---------- */
+
+.garden-section__intro {
+  width: min(42rem, 92vw);
+  margin: 0 0 22vh;
+  padding: 1.4rem 1.5rem;
+
+  background: rgba(18, 18, 14, 0.42);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.garden-section__eyebrow {
+  margin: 0 0 1.25rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.garden-section__title {
+  margin: 0;
+  max-width: 18ch;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.garden-section__question {
+  margin: 1.5rem 0 0;
+  max-width: 36rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.45;
+
+  color: rgba(244, 239, 228, 0.84);
+}
+
+/* ---------- ARTWORK SEQUENCE ---------- */
+
+.garden-page .art-sequence {
+  display: grid;
+  gap: 28vh;
+}
+
+.garden-page .artwork-image {
+  position: relative;
+
+  width: min(72vw, 58rem);
+  margin-inline: auto;
+
+  background: transparent;
+}
+
+.garden-page .artwork-image:nth-child(3n + 1) {
+  margin-left: 5vw;
+  margin-right: auto;
+}
+
+.garden-page .artwork-image:nth-child(3n + 2) {
+  width: min(56vw, 45rem);
+  margin-left: auto;
+  margin-right: 7vw;
+}
+
+.garden-page .artwork-image:nth-child(3n) {
+  width: min(66vw, 53rem);
+  margin-inline: auto;
+}
+
+.garden-page .artwork-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  box-shadow:
+    0 0 2rem rgba(0, 0, 0, 0.16);
+}
+
+/* ---------- EXIT ---------- */
+
+.garden-page__exit {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  padding:
+    18vh
+    1.5rem
+    10vh;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.garden-page__exit a {
+  color: inherit;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 760px) {
+  .garden-page {
+    overflow-x: hidden;
+  }
+
+  .garden-environment__panel {
+    margin-top: -1px;
+  }
+
+  .garden-environment__panel img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .garden-section {
+    min-height: 280vh;
+    padding:
+      12vh
+      1rem
+      16vh;
+  }
+
+  .garden-section--fear-not,
+  .garden-section--taste-and-see {
+    min-height: 300vh;
+  }
+
+  .garden-section__intro {
+    width: min(92vw, 38rem);
+    margin-bottom: 16vh;
+    padding: 1rem;
+
+    background: rgba(18, 18, 14, 0.48);
+  }
+
+  .garden-section__title {
+    font-size: clamp(1.9rem, 10vw, 3.4rem);
+  }
+
+  .garden-section__question {
+    font-size: 1rem;
+  }
+
+  .garden-page .art-sequence {
+    gap: 22vh;
+  }
+
+  .garden-page .artwork-image,
+  .garden-page .artwork-image:nth-child(3n + 1),
+  .garden-page .artwork-image:nth-child(3n + 2),
+  .garden-page .artwork-image:nth-child(3n) {
+    width: min(92vw, 44rem);
+    margin-inline: auto;
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
