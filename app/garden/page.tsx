@@ -1,36 +1,10 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { artworkSets } from "@/lib/artworks";
 
-const gardenEnvironment = [
-  "/media/architecture/environments/garden/garden-01.jpg",
-  "/media/architecture/environments/garden/garden-02.jpg",
-  "/media/architecture/environments/garden/garden-03.jpg",
-  "/media/architecture/environments/garden/garden-04.jpg",
-  "/media/architecture/environments/garden/garden-05.jpg",
-  "/media/architecture/environments/garden/garden-06.jpg",
-  "/media/architecture/environments/garden/garden-07.jpg",
-  "/media/architecture/environments/garden/garden-08.jpg",
-  "/media/architecture/environments/garden/garden-09.jpg",
-  "/media/architecture/environments/garden/garden-10.jpg",
-  "/media/architecture/environments/garden/garden-11.jpg",
-  "/media/architecture/environments/garden/garden-12.jpg",
-];
-
 export default function GardenPage() {
   return (
     <main className="garden-page">
-      <div className="garden-environment" aria-hidden="true">
-        {gardenEnvironment.map((src, index) => (
-          <div
-            className={`garden-environment__panel garden-environment__panel--${
-              index + 1
-            }`}
-            key={src}
-          >
-            <img src={src} alt="" />
-          </div>
-        ))}
-      </div>
+      <div className="garden-environment" aria-hidden="true" />
 
       <div className="garden-content">
         <section
