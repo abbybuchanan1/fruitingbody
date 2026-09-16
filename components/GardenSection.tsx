@@ -1,9 +1,19 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { artworkSets } from "@/lib/artworks";
 
-export default function GardenPage() {
+export function GardenSection({
+  showExit = false,
+  embedded = false,
+}: {
+  showExit?: boolean;
+  embedded?: boolean;
+}) {
   return (
-    <main className="garden-page">
+    <section
+      className={`garden-page ${
+        embedded ? "garden-page--embedded" : ""
+      }`}
+    >
       <div className="garden-environment" aria-hidden="true" />
 
       <div className="garden-content">
@@ -96,11 +106,16 @@ export default function GardenPage() {
           />
         </section>
 
-        <nav className="garden-page__exit" aria-label="Garden navigation">
-          <a href="/map">Map</a>
-          <a href="/directory">Directory</a>
-        </nav>
+        {showExit ? (
+          <nav
+            className="garden-page__exit"
+            aria-label="Garden navigation"
+          >
+            <a href="/map">Map</a>
+            <a href="/directory">Directory</a>
+          </nav>
+        ) : null}
       </div>
-    </main>
+    </section>
   );
 }

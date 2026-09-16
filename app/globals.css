@@ -3686,7 +3686,10 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
     transition:
       none;
   }
-}/* ========================================
+
+}
+
+/* ========================================
    GARDEN — CONTINUOUS COMPOSITE ENVIRONMENT
    ======================================== */
 
@@ -3717,23 +3720,14 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 
   background-repeat: no-repeat;
 
-  /*
-    Preserve the full horizontal composition.
-    The complete composite runs from top to bottom
-    of the Garden rather than behaving as separate panels.
-  */
-
   background-size: 100% 100%;
   background-position: center top;
 }
 
 
 /*
-  Very restrained veil.
-
-  We can later vary this locally by section if
-  Daffodils / Fear Not / Taste and See need
-  different artwork-to-environment contrast.
+  Existing restrained veil.
+  LEAVE THIS ALONE.
 */
 
 .garden-environment::after {
@@ -3798,37 +3792,25 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 
 
 /* ========================================
-   INTRO / WALL TEXT
+   QUESTION + WALL CARD
    ======================================== */
 
-.garden-section__intro {
-  width: min(42rem, 92vw);
+.garden-section__question-block {
+  width: min(36rem, 82vw);
+  margin-bottom: 34vh;
+}
 
-  margin:
-    0
-    0
-    20vh;
 
-  padding:
-    1.3rem
-    1.45rem;
+/* Daffodils gets more walking distance at entry */
 
-  background:
-    rgba(17, 18, 14, 0.34);
-
-  backdrop-filter:
-    blur(3px);
-
-  -webkit-backdrop-filter:
-    blur(3px);
+.garden-section--daffodils
+.garden-section__question-block {
+  margin-bottom: 50vh;
 }
 
 
 .garden-section__eyebrow {
-  margin:
-    0
-    0
-    1.2rem;
+  margin: 0 0 1.4rem;
 
   font-family:
     "Helvetica Neue",
@@ -3836,54 +3818,20 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
     Arial,
     sans-serif;
 
-  font-size:
-    0.7rem;
+  font-size: 0.7rem;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 
-  line-height:
-    1;
-
-  letter-spacing:
-    0.18em;
-
-  text-transform:
-    uppercase;
-}
-
-
-.garden-section__title {
-  margin: 0;
-
-  max-width:
-    18ch;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size:
-    clamp(2rem, 5vw, 4.3rem);
-
-  font-weight:
-    400;
-
-  line-height:
-    0.98;
-
-  letter-spacing:
-    -0.03em;
+  color:
+    rgba(225, 222, 211, 0.55);
 }
 
 
 .garden-section__question {
-  margin:
-    1.4rem
-    0
-    0;
+  margin: 0;
 
-  max-width:
-    36rem;
+  max-width: 34rem;
 
   font-family:
     "Helvetica Neue",
@@ -3892,33 +3840,214 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
     sans-serif;
 
   font-size:
-    clamp(1rem, 1.5vw, 1.2rem);
+    clamp(1rem, 1.45vw, 1.2rem);
 
-  line-height:
-    1.5;
+  font-weight: 400;
+  line-height: 1.55;
+
+  /*
+    Quieter than white.
+    It should feel discovered in the room,
+    not like interface signage.
+  */
+  color:
+    rgba(226, 222, 211, 0.62);
+
+  text-shadow:
+    0
+    1px
+    1rem
+    rgba(0, 0, 0, 0.28);
+}
+
+/* ========================================
+   GHOST WALL CARD
+   ======================================== */
+
+/*
+  Base wall-card language shared by all three
+  Garden exhibitions.
+
+  Individual sections can vary only the surface
+  opacity so the card responds to its environment.
+*/
+
+.garden-wall-card {
+  width: min(29rem, 78vw);
+
+  margin-bottom: 42vh;
+
+  padding:
+    1.75rem
+    1.9rem;
+
+  background:
+    rgba(231, 227, 214, 0.68);
+
+  backdrop-filter:
+    blur(7px);
+
+  -webkit-backdrop-filter:
+    blur(7px);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0
+    1.2rem
+    3rem
+    rgba(0, 0, 0, 0.12);
 
   color:
-    rgba(244, 239, 228, 0.84);
+    rgba(31, 31, 27, 0.94);
 }
 
 
+/* ========================================
+   SERIES-SPECIFIC CARD SURFACES
+   ======================================== */
+
+/*
+  Daffodils:
+  dark translucent wall label that remains
+  embedded in the shadowed Garden environment.
+*/
+
+/* Daffodils wall card — right-side placement */
+
+.garden-section--daffodils .garden-wall-card {
+  width: min(29rem, 78vw);
+
+  margin-left: auto;
+  margin-right: 14vw;
+  margin-bottom: 58vh;
+
+  padding: 1.75rem 1.9rem;
+
+  background: rgba(19, 23, 17, 0.72);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 1.2rem 3rem rgba(0, 0, 0, 0.12);
+
+  color: rgba(239, 235, 221, 0.94);
+}
+/*
+  Fear Not:
+  slightly warmer and deeper than Daffodils,
+  allowing the label to remain inside the
+  nocturnal vegetal atmosphere.
+*/
+
+.garden-section--fear-not
+.garden-wall-card {
+  background:
+    rgba(43, 39, 29, 0.64);
+
+  border-color:
+    rgba(255, 255, 255, 0.055);
+
+  color:
+    rgba(239, 235, 220, 0.94);
+}
+
+.garden-section--fear-not
+.garden-wall-card h1,
+.garden-section--fear-not
+.garden-wall-card h2 {
+  color:
+    rgba(239, 235, 220, 0.88);
+}
+
+.garden-section--fear-not
+.garden-wall-card p {
+  color:
+    rgba(239, 235, 220, 0.78);
+}
+
+
+/*
+  Taste and See:
+  retain the pale surface because it belongs
+  naturally to this lighter bodily environment.
+*/
+
+.garden-section--taste-and-see
+.garden-wall-card {
+  margin-left: auto;
+  margin-right: 12vw;
+
+  background:
+    rgba(231, 227, 214, 0.64);
+}
+
+/* ========================================
+   WALL CARD TYPOGRAPHY
+   ======================================== */
+
+.garden-wall-card h1,
+.garden-wall-card h2 {
+  margin: 0 0 1.15rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 0.69rem;
+  font-weight: 600;
+  line-height: 1.2;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color:
+    rgba(31, 31, 27, 0.82);
+}
+
+
+.garden-wall-card p {
+  margin: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 0.86rem;
+  line-height: 1.62;
+
+  color:
+    rgba(31, 31, 27, 0.68);
+}
 /* ========================================
    ARTWORK
    ======================================== */
 
 .garden-page .art-sequence {
   display: grid;
-
-  gap:
-    26vh;
+  gap: 26vh;
 }
 
+
+/*
+  Default artwork footprint throughout Garden.
+  Individual series and works can override this below.
+*/
 
 .garden-page .artwork-image {
   position: relative;
 
   width:
-    min(72vw, 58rem);
+    min(82vw, 66rem);
 
   margin-inline:
     auto;
@@ -3928,7 +4057,18 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 }
 
 
+/* ========================================
+   GENERAL GARDEN RHYTHM
+   ======================================== */
+
+/*
+  Large / left
+*/
+
 .garden-page .artwork-image:nth-child(3n + 1) {
+  width:
+    min(82vw, 66rem);
+
   margin-left:
     5vw;
 
@@ -3936,6 +4076,10 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
     auto;
 }
 
+
+/*
+  Narrower / right
+*/
 
 .garden-page .artwork-image:nth-child(3n + 2) {
   width:
@@ -3949,6 +4093,10 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 }
 
 
+/*
+  Medium-large / centered
+*/
+
 .garden-page .artwork-image:nth-child(3n) {
   width:
     min(66vw, 53rem);
@@ -3958,14 +4106,298 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 }
 
 
+/* ========================================
+   GARDEN — INDIVIDUAL INSTALLATION SCALE
+   ======================================== */
+
+/*
+  Individual works are scaled according to their
+  role in the exhibition sequence rather than
+  forced into a uniform gallery template.
+*/
+
+
+/* ----------------------------------------
+   DAFFODILS
+   ---------------------------------------- */
+
+.garden-section--daffodils
+.artwork-image:nth-child(3) {
+  width: min(72vw, 58rem);
+}
+
+
+/*
+  05 — slightly more presence.
+
+  The previous scale made this feel like a small
+  discrete object floating over the environment.
+*/
+
+.garden-section--daffodils
+.artwork-image:nth-child(5) {
+  width: min(70vw, 56rem);
+  margin-inline: auto;
+}
+
+
+/*
+  06 — broad architectural horizontal.
+*/
+
+.garden-section--daffodils
+.artwork-image:nth-child(6) {
+  width: min(82vw, 68rem);
+}
+
+
+/*
+  07 — dense composite.
+*/
+
+.garden-section--daffodils
+.artwork-image:nth-child(7) {
+  width: min(72vw, 58rem);
+  margin-inline: auto;
+}
+
+
+/*
+  08 — still cinematic, but no longer treated
+  as one of the dominant works in the sequence.
+*/
+
+.garden-section--daffodils
+.artwork-image:nth-child(8) {
+  width: min(76vw, 62rem);
+  margin-inline: auto;
+}
+
+
+/*
+  09 — beginning of final movement.
+*/
+
+.garden-section--daffodils
+.artwork-image:nth-child(9) {
+  width: min(74vw, 60rem);
+  margin-inline: auto;
+}
+
+
+/*
+  10 — contraction before the final image.
+*/
+
+.garden-section--daffodils
+.artwork-image:nth-child(10) {
+  width: min(64vw, 52rem);
+  margin-inline: auto;
+}
+
+
+/*
+  11 — terminal shadow image.
+
+  This should feel less like another photograph
+  on the wall and more like the sequence opening
+  outward into the architecture.
+*/
+
+/* ----------------------------------------
+   DAFFODILS — FINAL SHADOW IMAGE
+   ---------------------------------------- */
+
+.garden-section--daffodils
+.artwork-image:nth-child(11) {
+  width: min(40vw, 39rem);
+  margin-inline: auto;
+}
+
+.garden-section--daffodils
+.artwork-image:nth-child(11) img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+  max-height: none;
+
+  margin-inline: auto;
+
+  object-fit: contain;
+}
+
+
+/* ----------------------------------------
+   FEAR NOT
+   ---------------------------------------- */
+
+/*
+  Fear Not is intentionally installed at a larger
+  overall scale. The photographs and environmental
+  field share enough darkness and vegetation that
+  the images can occupy more of the architecture
+  without separating from it.
+*/
+
+
+/* 01 — substantial opening encounter */
+
+.garden-section--fear-not
+.artwork-image:nth-child(1) {
+  width: min(82vw, 67rem);
+  margin-inline: auto;
+}
+
+
+/* 02 — slightly quieter than 01 */
+
+.garden-section--fear-not
+.artwork-image:nth-child(2) {
+  width: min(78vw, 63rem);
+  margin-inline: auto;
+}
+
+
+/*
+  03 — gravitational center of Fear Not.
+
+  Deliberately much larger than the surrounding
+  works.
+*/
+
+.garden-section--fear-not
+.artwork-image:nth-child(3) {
+  width: min(94vw, 82rem);
+  margin-inline: auto;
+}
+
+
+/*
+  04 — contraction after 03, but enlarged relative
+  to the previous installation.
+*/
+
+.garden-section--fear-not
+.artwork-image:nth-child(4) {
+  width: min(66vw, 53rem);
+  margin-inline: auto;
+}
+
+
+/* 05 — strong closing scale */
+
+.garden-section--fear-not
+.artwork-image:nth-child(5) {
+  width: min(76vw, 62rem);
+  margin-inline: auto;
+}
+
+
+/* ----------------------------------------
+   TASTE AND SEE
+   ---------------------------------------- */
+
+
+/*
+  01 — preserve the opening proportion.
+  This relationship with the pale environment
+  is already working particularly well.
+*/
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(1) {
+  width: min(66vw, 53rem);
+  margin-inline: auto;
+}
+
+
+/* 02 — larger full portrait */
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(2) {
+  width: min(72vw, 59rem);
+  margin-inline: auto;
+}
+
+
+/*
+  03 — frontal portrait.
+
+  This is the primary encounter in the portrait
+  sequence and should have considerably greater
+  physical authority.
+*/
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(3) {
+  width: min(88vw, 74rem);
+  margin-inline: auto;
+}
+
+
+/*
+  04 — large, but clearly subordinate to 03.
+*/
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(4) {
+  width: min(74vw, 60rem);
+  margin-inline: auto;
+}
+
+/*
+  03 — frontal portrait.
+
+  Give this the strongest portrait scale in the set.
+  The direct gaze should have noticeably greater
+  physical authority.
+*/
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(3) {
+  width: min(80vw, 66rem);
+  margin-inline: auto;
+}
+
+
+/*
+  04 — third full portrait.
+  Larger than the general template but subordinate
+  to the frontal 03.
+*/
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(4) {
+  width: min(70vw, 57rem);
+  margin-inline: auto;
+}
+
+
+/* ========================================
+   IMAGE ITSELF
+   ======================================== */
+
 .garden-page .artwork-image img {
   display: block;
 
-  width:
-    100%;
+  /*
+    Preserve the original photograph exactly.
+    No crop and no forced aspect ratio.
+  */
 
-  height:
+  width: auto;
+  max-width: 100%;
+
+  height: auto;
+  max-height: 90svh;
+
+  margin-inline:
     auto;
+
+  object-fit: contain;
 
   box-shadow:
     0
@@ -3973,8 +4405,169 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
     3.8rem
     rgba(0, 0, 0, 0.18);
 }
+/* ========================================
+   GARDEN — CURATORIAL SCALE OVERRIDES
+   ======================================== */
+
+/*
+  Final Garden hierarchy pass.
+
+  These rules override the generic Garden rhythm only where
+  the exhibition sequence needs a meaningful difference in scale.
+*/
 
 
+/* ----------------------------------------
+   DAFFODILS
+   ---------------------------------------- */
+
+/*
+  The final shadow work remains a closing event,
+  but comes down slightly from the previous monumental scale.
+*/
+
+
+
+
+
+/* ----------------------------------------
+   FEAR NOT
+   ---------------------------------------- */
+
+/*
+  Fear Not needs more overall physical presence because the
+  dark vegetal photographs naturally recede into the environment.
+*/
+
+.garden-section--fear-not
+.artwork-image {
+  width: min(84vw, 70rem);
+}
+
+
+/* Fear Not 01 — larger, but not dominant */
+
+.garden-section--fear-not
+.artwork-image:nth-child(1) {
+  width: min(86vw, 72rem);
+}
+
+.garden-section--fear-not
+.artwork-image:nth-child(1) img {
+  max-height: 102svh;
+}
+
+
+/* Fear Not 02 — similar authority to 01 */
+
+.garden-section--fear-not
+.artwork-image:nth-child(2) {
+  width: min(86vw, 72rem);
+}
+
+.garden-section--fear-not
+.artwork-image:nth-child(2) img {
+  max-height: 104svh;
+}
+
+
+/*
+  Fear Not 03 — clear visual apex of the sequence.
+  This one should feel substantially larger than its neighbors.
+*/
+
+.garden-section--fear-not
+.artwork-image:nth-child(3) {
+  width: min(96vw, 86rem);
+}
+
+.garden-section--fear-not
+.artwork-image:nth-child(3) img {
+  max-height: 124svh;
+}
+
+
+/*
+  Fear Not 04 — deliberate contraction after 03.
+*/
+
+.garden-section--fear-not
+.artwork-image:nth-child(4) {
+  width: min(68vw, 56rem);
+}
+
+.garden-section--fear-not
+.artwork-image:nth-child(4) img {
+  max-height: 88svh;
+}
+
+
+/*
+  Fear Not 05 — regains presence without competing with 03.
+*/
+
+.garden-section--fear-not
+.artwork-image:nth-child(5) {
+  width: min(84vw, 70rem);
+}
+
+.garden-section--fear-not
+.artwork-image:nth-child(5) img {
+  max-height: 102svh;
+}
+
+
+/* ----------------------------------------
+   TASTE AND SEE
+   ---------------------------------------- */
+
+/*
+  Leave the beginning of Taste and See alone.
+  The opening proportions are already working.
+
+  03 becomes the principal portrait.
+  04 contracts.
+  05 regains enough scale to create a second structural beat.
+*/
+
+
+/* Taste and See 03 — principal portrait */
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(3) {
+  width: min(88vw, 76rem);
+}
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(3) img {
+  max-height: 116svh;
+}
+
+
+/* Taste and See 04 — quieter transitional image */
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(4) {
+  width: min(64vw, 52rem);
+}
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(4) img {
+  max-height: 90svh;
+}
+
+
+/* Taste and See 05 — secondary anchor */
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(5) {
+  width: min(78vw, 64rem);
+}
+
+.garden-section--taste-and-see
+.artwork-image:nth-child(5) img {
+  max-height: 102svh;
+}
 /* ========================================
    EXIT
    ======================================== */
@@ -4030,12 +4623,6 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 
 
   .garden-environment {
-    /*
-      First mobile test:
-      preserve the full sequence rather than
-      inventing a separate mobile crop.
-    */
-
     background-size:
       100% 100%;
 
@@ -4055,10 +4642,11 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   }
 
 
-  .garden-section--daffodils {
-    min-height:
-      280vh;
-  }
+  .garden-section--daffodils
+.garden-section__question-block {
+  width: min(32rem, 78vw);
+  margin-bottom: 58vh;
+}
 
 
   .garden-section--fear-not {
@@ -4084,7 +4672,7 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
       1rem;
 
     background:
-      rgba(17, 18, 14, 0.42);
+      rgba(17, 18, 14, 0.54);
   }
 
 
@@ -4101,8 +4689,9 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 
 
   .garden-page .art-sequence {
-    gap:
-      22vh;
+    display: grid;
+    gap: 28vh;
+    margin-top: 18vh;
   }
 
 
@@ -4131,4 +4720,4251 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
       auto;
   }
 
+}.garden-section--daffodils
+.garden-wall-card h1,
+.garden-section--daffodils
+.garden-wall-card h2 {
+  color: rgba(239, 236, 224, 0.94);
+}
+
+.garden-section--daffodils
+.garden-wall-card p {
+  color: rgba(239, 236, 224, 0.86);
+}
+/* ========================================
+   RELATIVE — CONTINUOUS ENVIRONMENT
+   ======================================== */
+
+.relative-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+    #d5d0c5;
+
+  color:
+    #20201d;
+}
+
+
+/* ========================================
+   CONTINUOUS ENVIRONMENT
+   ======================================== */
+
+.relative-environment {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url("/media/architecture/environments/relative/relative-environment-composite.jpg");
+
+  background-repeat:
+    no-repeat;
+
+  /*
+    First test intentionally behaves like Garden:
+    the complete environmental composite is stretched
+    through the entire exhibition sequence.
+
+    We are testing the environmental relationship first,
+    not perfecting individual architectural transitions yet.
+  */
+
+  background-size:
+    100% 100%;
+
+  background-position:
+    center top;
+}
+
+
+/*
+  Very restrained atmospheric veil.
+
+  Relative should retain the warmth of the environment,
+  while allowing the black-and-white photographs to remain
+  perceptually separate from it.
+*/
+
+.relative-environment::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(242, 238, 228, 0.05) 0%,
+      rgba(228, 222, 209, 0.12) 25%,
+      rgba(222, 216, 203, 0.18) 55%,
+      rgba(214, 208, 196, 0.12) 78%,
+      rgba(205, 200, 188, 0.08) 100%
+    );
+}
+
+
+/* ========================================
+   CONTENT
+   ======================================== */
+
+.relative-content {
+  position: relative;
+
+  z-index: 1;
+
+  min-height: 100vh;
+}
+
+
+/* ========================================
+
+   RELATIVE — INTRO / ARRIVAL
+
+   ======================================== */
+
+.relative-intro {
+  position: relative;
+
+  min-height: 122vh;
+
+  padding:
+    23vh
+    clamp(1.5rem, 5vw, 5rem)
+    18vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /*
+    Local tonal support only.
+
+    This protects the text without darkening
+    the whole Relative environment.
+  */
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(214, 207, 194, 0.34) 0%,
+      rgba(214, 207, 194, 0.20) 34%,
+      rgba(214, 207, 194, 0.04) 60%,
+      rgba(214, 207, 194, 0) 78%
+    );
+}
+
+
+.relative-intro__eyebrow {
+  margin: 0 0 2.8rem;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: rgba(27, 27, 24, 0.68);
+}
+
+
+.relative-intro h1 {
+  margin: 0 0 2.8rem;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(3.8rem, 5.5vw, 5.8rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 0.95;
+
+  letter-spacing: -0.035em;
+
+  color: rgba(24, 23, 21, 0.88);
+}
+
+
+.relative-intro__question {
+  margin: 0;
+
+  width: min(46rem, 82vw);
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(1.10rem, 1.35vw, 1.22rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.55;
+
+  color: rgba(28, 27, 24, 0.78);
+}
+
+
+.relative-intro__content-note {
+  margin: 7rem 0 0;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+
+  letter-spacing: 0.01em;
+
+  color: rgba(34, 32, 28, 0.58);
+}
+/* ========================================
+   ARTWORK SEQUENCE
+   ======================================== */
+
+.relative-page .art-sequence {
+  position:
+    relative;
+
+  display:
+    grid;
+
+  gap:
+    34vh;
+
+  padding:
+    8vh
+    clamp(1.25rem, 5vw, 5rem)
+    55vh;
+}
+
+
+/*
+  First-pass scale only.
+
+  Do not choreograph individual Relative works yet.
+  We want to judge the background / photograph relationship
+  before establishing final exhibition hierarchy.
+*/
+
+.relative-page .artwork-image {
+  position:
+    relative;
+
+  width:
+    min(82vw, 68rem);
+
+  margin-inline:
+    auto;
+
+  background:
+    transparent;
+}
+
+
+.relative-page .artwork-image img {
+  display:
+    block;
+
+  width:
+    auto;
+
+  max-width:
+    100%;
+
+  height:
+    auto;
+
+  max-height:
+    92svh;
+
+  margin-inline:
+    auto;
+
+  object-fit:
+    contain;
+
+  box-shadow:
+    0
+    1.25rem
+    3.5rem
+    rgba(44, 39, 31, 0.1);
+}
+
+
+/* ========================================
+   EXITS
+   ======================================== */
+
+/* ========================================
+   RELATIVE — CONTINUOUS ENVIRONMENT
+   ======================================== */
+
+.relative-environment {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+    Stretch the complete authored composite through
+    the full Relative exhibition.
+
+    This is deliberate for the first environmental test:
+    the composite itself controls the architectural-to-
+    abstract progression.
+  */
+  object-fit: fill;
+  object-position: center top;
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+
+/*
+  Atmospheric veil belongs on the page rather than the image.
+  This keeps the environment visible while giving the
+  black-and-white photographs enough separation.
+*/
+
+.relative-page::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(242, 238, 228, 0.03) 0%,
+      rgba(228, 222, 209, 0.07) 25%,
+      rgba(222, 216, 203, 0.10) 55%,
+      rgba(214, 208, 196, 0.07) 78%,
+      rgba(205, 200, 188, 0.04) 100%
+    );
+}
+
+/* ========================================
+   RELATIVE — DIPTYCH INSTALLATION
+   ======================================== */
+
+.relative-pairs {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  gap: 65vh;
+
+  padding:
+    8vh
+    clamp(1.25rem, 4vw, 4rem)
+    28vh;
+}
+
+
+/* ----------------------------------------
+   EACH PAIR
+   ---------------------------------------- */
+
+.relative-pair {
+  position: relative;
+
+  width: min(94vw, 92rem);
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  column-gap:
+    clamp(1rem, 3vw, 3.5rem);
+
+  row-gap:
+    2rem;
+}
+
+
+.relative-pair__image {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-width: 0;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  margin-inline: auto;
+
+  background: transparent;
+}
+
+
+.relative-pair__image img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+
+  height: auto;
+  max-height: 94svh;
+
+  object-fit: contain;
+
+  background: transparent;
+
+  box-shadow:
+    0
+    1.3rem
+    3.6rem
+    rgba(44, 39, 31, 0.11);
+}
+
+/* ----------------------------------------
+   SIDE BY SIDE
+   ---------------------------------------- */
+
+.relative-pair--side-by-side {
+  align-items: center;
+}
+
+
+/* ----------------------------------------
+   STAGGER A
+   ---------------------------------------- */
+
+.relative-pair--stagger-a
+.relative-pair__image--a {
+  transform:
+    translateY(-9vh);
+}
+
+
+.relative-pair--stagger-a
+.relative-pair__image--b {
+  transform:
+    translateY(9vh);
+}
+
+
+/* ----------------------------------------
+   STAGGER B
+   ---------------------------------------- */
+
+.relative-pair--stagger-b
+.relative-pair__image--a {
+  transform:
+    translateY(8vh);
+}
+
+
+.relative-pair--stagger-b
+.relative-pair__image--b {
+  transform:
+    translateY(-8vh);
+}
+
+
+/* ----------------------------------------
+   WIDE / MAJOR PAIR
+   ---------------------------------------- */
+
+.relative-pair--wide {
+  width:
+    min(97vw, 100rem);
+
+  column-gap:
+    clamp(0.8rem, 2vw, 2.25rem);
+}
+
+
+.relative-pair--wide
+.relative-pair__image img {
+  max-height:
+    100svh;
+}
+
+
+.relative-wall-card {
+  width:
+    min(31rem, 78vw);
+
+  margin-top:
+    22vh;
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+
+  align-self:
+    center;
+
+  padding:
+    1.6rem
+    1.8rem;
+
+
+  background:
+    rgba(239, 236, 226, 0.72);
+
+  backdrop-filter:
+    blur(7px);
+
+  -webkit-backdrop-filter:
+    blur(7px);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0
+    1.2rem
+    3rem
+    rgba(44, 39, 31, 0.08);
+
+  color:
+    rgba(30, 29, 26, 0.86);
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.86rem;
+
+  line-height:
+    1.62;
+}
+
+
+.relative-wall-card p {
+  margin: 0;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 760px) {
+
+  .relative-pairs {
+    gap:
+      80vh;
+
+    padding:
+      6vh
+      1rem
+      20vh;
+  }
+
+
+  .relative-pair,
+  .relative-pair--wide {
+    width:
+      92vw;
+
+    grid-template-columns:
+      1fr;
+
+    row-gap:
+      4vh;
+  }
+
+
+  .relative-pair--stagger-a
+  .relative-pair__image--a,
+
+  .relative-pair--stagger-a
+  .relative-pair__image--b,
+
+  .relative-pair--stagger-b
+  .relative-pair__image--a,
+
+  .relative-pair--stagger-b
+  .relative-pair__image--b {
+    transform:
+      none;
+  }
+
+
+  .relative-pair__image img,
+  .relative-pair--wide
+  .relative-pair__image img {
+    max-height:
+      82svh;
+  }
+
+
+  .relative-wall-card {
+    width:
+      min(88vw, 31rem);
+
+    margin-top:
+      14vh;
+
+    margin-inline:
+      auto;
+  }
+
+}
+/* ========================================
+
+   RELATIVE — PAIR 09 / STACKED CLOSER
+
+   ======================================== */
+
+/*
+  Pair 09 deliberately breaks out of the normal
+  Relative pair container.
+
+  This gives us true viewport-based control over
+  the final body / sky sequence.
+*/
+
+.relative-pair--stacked {
+  width: 100vw;
+
+  position: relative;
+
+  left: 50%;
+  margin-left: -50vw;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 34vh;
+
+  margin-bottom: 28vh;
+}
+
+
+/* ----------------------------------------
+   09A — CLOSE FLESH
+   ---------------------------------------- */
+
+/*
+  Still large and intimate, but noticeably
+  more contained than the sky image.
+*/
+
+.relative-pair--stacked
+.relative-pair__image--a {
+  width: min(54vw, 52rem);
+
+  max-width: none;
+
+  margin: 0 auto;
+}
+
+
+.relative-pair--stacked
+.relative-pair__image--a img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+  max-height: none;
+
+  object-fit: contain;
+}
+
+
+/* ----------------------------------------
+   09B — OPEN SKY
+   ---------------------------------------- */
+
+/*
+  Nearly full-width, but with a real 4vw
+  margin on both sides of the viewport.
+*/
+
+.relative-pair--stacked
+.relative-pair__image--b {
+  width: 92vw;
+
+  max-width: none;
+
+  margin: 0 auto;
+}
+
+
+.relative-pair--stacked
+.relative-pair__image--b img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  height: auto;
+  max-height: none;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 760px) {
+
+  .relative-pair--stacked {
+    gap: 18vh;
+
+    margin-bottom: 20vh;
+  }
+
+
+  .relative-pair--stacked
+  .relative-pair__image--a {
+    width: 82vw;
+  }
+
+
+  .relative-pair--stacked
+  .relative-pair__image--b {
+    width: 92vw;
+  }
+
+}
+/* ========================================
+
+   EXHIBITION — RELATIVE → GARDEN TRANSITION
+
+   ======================================== */
+
+/*
+  TRANSITION PROTOTYPE
+
+  The transition overlaps the actual end of Relative.
+
+  The dedicated transition composite does NOT appear
+  at full opacity immediately. Instead, it fades in
+  gradually over the real Relative environment.
+
+  This avoids having to perfectly match two photographic
+  textures at one horizontal seam.
+*/
+
+
+.exhibition-transition--relative-garden {
+  position: relative;
+
+  width: 100%;
+
+  height: 185vh;
+
+  /*
+    Pull the transition upward over the real
+    Relative environment.
+  */
+
+  margin-top: -42vh;
+
+  margin-bottom: -2px;
+
+  overflow: hidden;
+
+  /*
+    Important:
+    the base itself stays transparent so Relative
+    can remain visible beneath the upper transition.
+  */
+
+  background: transparent;
+}
+
+
+/* ----------------------------------------
+
+   TRANSITION COMPOSITE
+
+   ---------------------------------------- */
+
+/*
+  The actual material transition image.
+
+  It begins transparent, allowing the real Relative
+  room to remain visible underneath.
+
+  Over roughly the first third of the passage,
+  the composite gradually becomes fully opaque.
+*/
+
+.exhibition-transition--relative-garden::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url("/media/architecture/relative-garden-transition.jpg");
+
+  background-repeat:
+    no-repeat;
+
+  background-position:
+    center top;
+
+  background-size:
+    100% 100%;
+
+  /*
+    Fade the composite IN instead of exposing
+    its top edge.
+
+    This is the main seam-softening mechanism.
+  */
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.08) 5%,
+
+      rgba(0, 0, 0, 0.22) 10%,
+
+      rgba(0, 0, 0, 0.42) 16%,
+
+      rgba(0, 0, 0, 0.68) 23%,
+
+      rgba(0, 0, 0, 0.88) 30%,
+
+      black 38%,
+
+      black 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.08) 5%,
+
+      rgba(0, 0, 0, 0.22) 10%,
+
+      rgba(0, 0, 0, 0.42) 16%,
+
+      rgba(0, 0, 0, 0.68) 23%,
+
+      rgba(0, 0, 0, 0.88) 30%,
+
+      black 38%,
+
+      black 100%
+    );
+
+  z-index: 1;
+}
+
+
+/* ----------------------------------------
+
+   MOVING LEAF SHADOW
+
+   ---------------------------------------- */
+
+/*
+  Garden begins affecting the space before
+  the visitor has fully entered it.
+
+  Keep .32 opacity — that strength is working.
+*/
+
+.exhibition-transition--relative-garden::after {
+  content: "";
+
+  position: absolute;
+
+  inset:
+    -8%
+    -10%;
+
+  pointer-events: none;
+
+  background-image:
+    url("/media/architecture/relative-garden-shadow.jpg");
+
+  background-repeat:
+    no-repeat;
+
+  background-position:
+    center;
+
+  background-size:
+    cover;
+
+  mix-blend-mode:
+    multiply;
+
+  opacity:
+    0.32;
+
+  filter:
+    blur(1px);
+
+  /*
+    Let foliage appear gradually,
+    remain present through the middle,
+    then soften again near Garden.
+  */
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.08) 6%,
+
+      rgba(0, 0, 0, 0.28) 14%,
+
+      rgba(0, 0, 0, 0.62) 24%,
+
+      black 38%,
+
+      black 78%,
+
+      rgba(0, 0, 0, 0.76) 88%,
+
+      rgba(0, 0, 0, 0.34) 96%,
+
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.08) 6%,
+
+      rgba(0, 0, 0, 0.28) 14%,
+
+      rgba(0, 0, 0, 0.62) 24%,
+
+      black 38%,
+
+      black 78%,
+
+      rgba(0, 0, 0, 0.76) 88%,
+
+      rgba(0, 0, 0, 0.34) 96%,
+
+      transparent 100%
+    );
+
+  transform:
+    scale(1.06)
+    translate3d(0, 0, 0);
+
+  animation:
+    relativeGardenShadowDrift
+    36s
+    ease-in-out
+    infinite
+    alternate;
+
+  z-index: 2;
+}
+
+
+/* ----------------------------------------
+
+   SHADOW MOVEMENT
+
+   ---------------------------------------- */
+
+@keyframes relativeGardenShadowDrift {
+
+  0% {
+    transform:
+      scale(1.06)
+      translate3d(-1.2%, -0.6%, 0)
+      rotate(-0.35deg);
+  }
+
+  50% {
+    transform:
+      scale(1.075)
+      translate3d(0.4%, 0.8%, 0)
+      rotate(0.15deg);
+  }
+
+  100% {
+    transform:
+      scale(1.06)
+      translate3d(1.1%, -0.2%, 0)
+      rotate(0.4deg);
+  }
+
+}
+
+
+/* ========================================
+
+   REDUCED MOTION
+
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .exhibition-transition--relative-garden::after {
+    animation: none;
+
+    transform:
+      scale(1.06);
+  }
+
+}
+/* ========================================
+
+   EXHIBITION — GARDEN ENTRY OVERLAP
+
+   ======================================== */
+
+/*
+  On the continuous exhibition route only,
+  allow the existing Garden environment to
+  reach upward into the final part of the
+  Relative → Garden passage.
+
+  Garden content itself does not move.
+*/
+
+.garden-page--embedded {
+  position: relative;
+
+  overflow: visible;
+}
+
+
+/*
+  Extend the Garden environment upward without
+  moving the Garden text or artworks.
+
+  The upper portion begins transparent and
+  gradually becomes fully visible.
+*/
+
+.garden-page--embedded
+.garden-environment {
+  top: -42vh;
+
+  height:
+    calc(100% + 42vh);
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.08) 10%,
+
+      rgba(0, 0, 0, 0.24) 22%,
+
+      rgba(0, 0, 0, 0.48) 38%,
+
+      rgba(0, 0, 0, 0.72) 56%,
+
+      rgba(0, 0, 0, 0.90) 74%,
+
+      black 90%,
+
+      black 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.08) 10%,
+
+      rgba(0, 0, 0, 0.24) 22%,
+
+      rgba(0, 0, 0, 0.48) 38%,
+
+      rgba(0, 0, 0, 0.72) 56%,
+
+      rgba(0, 0, 0, 0.90) 74%,
+
+      black 90%,
+
+      black 100%
+    );
+}
+/* ========================================
+
+   CENTRAL AXIS — GARDEN → GROTTO → THRESHOLD
+
+   Revised first-pass installation
+
+   ======================================== */
+
+
+/* ========================================
+   GARDEN → GROTTO TRANSITION
+   ======================================== */
+
+.exhibition-transition--garden-grotto {
+  position: relative;
+
+  width: 100%;
+  height: 170vh;
+
+  margin-top: -24vh;
+  margin-bottom: -2px;
+
+  overflow: hidden;
+
+  background-image:
+    url("/media/architecture/garden-grotto-transition-v2.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+}
+
+
+/*
+  Quiet tonal veil.
+
+  The Garden → Grotto descent was already working,
+  so this remains intentionally restrained.
+*/
+
+.exhibition-transition--garden-grotto::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 18, 14, 0) 0%,
+      rgba(15, 18, 14, 0.04) 12%,
+      rgba(15, 18, 14, 0.10) 28%,
+      rgba(15, 18, 14, 0.18) 48%,
+      rgba(15, 18, 14, 0.10) 72%,
+      rgba(15, 18, 14, 0) 100%
+    );
+}
+
+
+/* ========================================
+
+   GROTTO — ENVIRONMENT + INSTALLATION
+
+   ======================================== */
+
+
+/* ========================================
+
+   GROTTO — ENVIRONMENT + INSTALLATION
+
+   ======================================== */
+
+
+/* ========================================
+   GROTTO — BASE ENVIRONMENT
+   ======================================== */
+
+.exhibition-scroll .grotto-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    #101211;
+}
+
+
+/*
+  Quiet charcoal Grotto chamber.
+
+  The physical stone composite remains visible,
+  but recedes enough that the illuminated alcoves
+  become the primary events in Miscarriage.
+*/
+
+.exhibition-scroll .grotto-environment {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url("/media/architecture/environments/grotto/grotto-environment-composite.jpg");
+
+  background-repeat:
+    no-repeat;
+
+  background-position:
+    center top;
+
+  background-size:
+    100% 100%;
+
+  filter:
+    brightness(0.42)
+    contrast(0.82)
+    saturate(0.48);
+
+  opacity:
+    0.72;
+}
+
+
+/*
+  Charcoal atmospheric veil.
+
+  This preserves faint material texture while
+  preventing the olive wall from dominating.
+*/
+
+.exhibition-scroll .grotto-page::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      rgba(8, 10, 9, 0.38) 0%,
+
+      rgba(9, 11, 10, 0.48) 28%,
+
+      rgba(7, 9, 8, 0.54) 58%,
+
+      rgba(8, 10, 9, 0.48) 82%,
+
+      rgba(9, 11, 10, 0.42) 100%
+    );
+}
+
+
+.exhibition-scroll .grotto-content {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* ========================================
+   GROTTO — SHARED SECTION STRUCTURE
+   ======================================== */
+
+.exhibition-scroll .grotto-section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    20vh
+    clamp(1.5rem, 5vw, 5rem)
+    30vh;
+}
+
+
+/* ========================================
+   GROTTO — QUESTION BLOCKS
+   ======================================== */
+
+.exhibition-scroll .grotto-section__question-block {
+  position: relative;
+
+  width:
+    min(38rem, 82vw);
+
+  margin-bottom:
+    26vh;
+
+  padding: 0;
+
+  background:
+    transparent;
+
+  backdrop-filter:
+    none;
+
+  -webkit-backdrop-filter:
+    none;
+}
+
+
+.exhibition-scroll .grotto-section__eyebrow {
+  margin:
+    0
+    0
+    1.8rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.19em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(238, 231, 217, 0.46);
+}
+
+
+.exhibition-scroll .grotto-section__question {
+  margin: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(0.98rem, 1.2vw, 1.12rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.58;
+
+  color:
+    rgba(243, 236, 222, 0.72);
+
+  text-shadow:
+    0
+    1px
+    12px
+    rgba(0, 0, 0, 0.34);
+}
+
+
+/* ========================================
+   GROTTO — WALL CARDS
+   ======================================== */
+
+/*
+  Grotto uses the same broad museum-card language
+  as Garden, but translated into a darker chamber.
+
+  The environment should remain visible through
+  the card. The panel is a quiet material surface,
+  not a solid interface element.
+*/
+
+.exhibition-scroll .grotto-wall-card {
+  position: relative;
+
+  width:
+    min(38rem, 78vw);
+
+  padding:
+    clamp(1.8rem, 3vw, 2.7rem)
+    clamp(2rem, 4vw, 3.4rem);
+
+  background:
+    rgba(39, 40, 36, 0.42);
+
+  border:
+    1px solid
+    rgba(232, 225, 212, 0.08);
+
+  box-shadow:
+    none;
+
+  backdrop-filter:
+    blur(5px);
+
+  -webkit-backdrop-filter:
+    blur(5px);
+
+  color:
+    rgba(239, 233, 221, 0.88);
+}
+
+
+/* ----------------------------------------
+   MISCARRIAGE CARD
+   ---------------------------------------- */
+
+.exhibition-scroll
+.grotto-section--miscarriage
+.grotto-wall-card {
+  margin:
+    0
+    10vw
+    42vh
+    auto;
+}
+
+
+/* ----------------------------------------
+   PHASE CARD
+   ---------------------------------------- */
+
+.exhibition-scroll
+.grotto-section--phase
+.grotto-wall-card {
+  margin:
+    0
+    auto
+    42vh
+    8vw;
+
+  background:
+    rgba(25, 39, 36, 0.40);
+
+  border-color:
+    rgba(213, 226, 218, 0.07);
+}
+
+
+/* ----------------------------------------
+   CARD TITLES
+   ---------------------------------------- */
+
+.exhibition-scroll .grotto-wall-card h1,
+.exhibition-scroll .grotto-wall-card h2 {
+  margin:
+    0
+    0
+    1.7rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.76rem;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.25;
+
+  letter-spacing:
+    0.16em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(245, 239, 228, 0.90);
+}
+
+
+/* ----------------------------------------
+   CARD TEXT
+   ---------------------------------------- */
+
+.exhibition-scroll .grotto-wall-card p {
+  margin: 0;
+
+  max-width:
+    31rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(0.92rem, 1.15vw, 1.05rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.62;
+
+  color:
+    rgba(235, 229, 217, 0.76);
+}
+
+
+/* ----------------------------------------
+   MOBILE
+   ---------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .exhibition-scroll
+  .grotto-section--miscarriage
+  .grotto-wall-card,
+
+  .exhibition-scroll
+  .grotto-section--phase
+  .grotto-wall-card {
+    width:
+      min(86vw, 34rem);
+
+    margin:
+      0
+      auto
+      34vh;
+
+    padding:
+      1.6rem
+      1.5rem;
+  }
+
+}
+/* ========================================
+   A MISCARRIAGE — SEQUENCE
+   ======================================== */
+
+.exhibition-scroll .miscarriage-sequence {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 0;
+}
+
+
+/* ========================================
+   A MISCARRIAGE — SHARED WORK
+   ======================================== */
+
+/*
+  Every work retains its illuminated alcove.
+
+  Stay, Want and Drift increase approximately
+  15% from the previous installation.
+
+  Slide and Follicle, Portal, Drain become
+  deliberate close encounters.
+*/
+
+.exhibition-scroll .miscarriage-work {
+  position: relative;
+
+  width:
+    min(44vw, 39rem);
+
+  margin: 0;
+
+  transform: none;
+
+  text-align: left;
+}
+
+
+.exhibition-scroll .miscarriage-work::before {
+  display: none;
+}
+
+
+.exhibition-scroll .miscarriage-work img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: none;
+
+  object-fit: contain;
+
+  filter: none;
+}
+
+
+/* ========================================
+   A MISCARRIAGE — INDIVIDUAL PLACEMENT
+   ======================================== */
+
+
+/* ----------------------------------------
+   01 — STAY
+
+   First encounter.
+   Larger, but still relatively intimate.
+   ---------------------------------------- */
+
+.exhibition-scroll .miscarriage-work--1 {
+  width:
+    min(60vw, 50rem);
+
+  align-self:
+    center;
+
+  transform:
+    translateX(-8vw);
+
+  margin-bottom:
+    46vh;
+}
+
+
+/* ----------------------------------------
+   02 — WANT
+
+   Moderate scale and isolated toward the right.
+   ---------------------------------------- */
+
+.exhibition-scroll .miscarriage-work--2 {
+  width:
+    min(55vw, 46rem);
+
+  align-self:
+    center;
+
+  transform:
+    translateX(11vw);
+
+  margin-bottom:
+    30vh;
+}
+
+
+/* ----------------------------------------
+   03 — SLIDE
+
+   Major close encounter.
+
+   The full alcove is intentionally larger than
+   an easy single-screen view. The photograph is
+   encountered before the complete recess.
+   ---------------------------------------- */
+
+.exhibition-scroll .miscarriage-work--3 {
+  width:
+    min(83vw, 90rem);
+
+  align-self:
+    center;
+
+  transform:
+    translateX(-3vw);
+
+  margin-bottom:
+    58vh;
+}
+
+
+/* ----------------------------------------
+   04 — FOLLICLE, PORTAL, DRAIN
+
+   The strongest close encounter.
+
+   Large enough that the photograph becomes
+   almost spatial while the alcove is revealed
+   through scrolling.
+   ---------------------------------------- */
+
+.exhibition-scroll .miscarriage-work--4 {
+  width:
+    min(132vw, 100rem);
+
+  align-self:
+    center;
+
+  transform:
+    translateX(2vw);
+
+  margin-bottom:
+    58vh;
+}
+
+
+/* ----------------------------------------
+   05 — DRIFT
+
+   Returns to a more distant/intimate scale
+   after the two major encounters.
+   ---------------------------------------- */
+
+.exhibition-scroll .miscarriage-work--5 {
+  width:
+    min(45vw, 42rem);
+
+  align-self:
+    center;
+
+  transform:
+    none;
+
+  margin-top:
+    20vh;
+
+  margin-bottom:
+    46vh;
+}
+
+/* ========================================
+   A MISCARRIAGE — TITLES
+   ======================================== */
+
+/*
+  Typography is shared across the series.
+
+  Position is tuned individually because each
+  composite has a different photograph / glow /
+  mat / alcove geometry.
+*/
+
+.exhibition-scroll .miscarriage-work__title {
+  position: absolute;
+
+  z-index: 2;
+
+  margin: 0;
+  padding: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.06em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(238, 232, 219, 0.78);
+
+  background:
+    transparent;
+
+  text-shadow:
+    0
+    1px
+    4px
+    rgba(0, 0, 0, 0.42);
+
+  pointer-events:
+    none;
+}
+
+
+/* ----------------------------------------
+   STAY
+   ---------------------------------------- */
+
+.exhibition-scroll
+.miscarriage-work--1
+.miscarriage-work__title {
+  left: 14%;
+  bottom: 23%;
+}
+/* ----------------------------------------
+   WANT
+   ---------------------------------------- */
+
+.exhibition-scroll
+.miscarriage-work--2
+.miscarriage-work__title {
+  left:
+    14%;
+
+  bottom:
+    22%;
+}
+
+
+/* ----------------------------------------
+   SLIDE
+   ---------------------------------------- */
+
+/*
+  Slide's photograph occupies much more of the
+  composite, so the title needs to sit considerably
+  higher than the universal setting did.
+*/
+
+.exhibition-scroll
+.miscarriage-work--3
+.miscarriage-work__title {
+  left:
+    14%;
+
+  bottom:
+    20%;
+}
+
+
+/* ----------------------------------------
+   FOLLICLE, PORTAL, DRAIN
+   ---------------------------------------- */
+
+/*
+  The largest close encounter.
+
+  Title belongs to the lower-left mat rather than
+  the outer architectural field.
+*/
+
+.exhibition-scroll
+.miscarriage-work--4
+.miscarriage-work__title {
+  left:
+    11%;
+
+  bottom:
+    27%;
+}
+
+
+/* ----------------------------------------
+   DRIFT
+   ---------------------------------------- */
+
+.exhibition-scroll
+.miscarriage-work--5
+.miscarriage-work__title {
+  left:
+    14%;
+
+  bottom:
+    25%;
+}
+/* ========================================
+   MISCARRIAGE → PHASE TRANSITION
+   ======================================== */
+
+/*
+  Stone / charcoal gradually becomes submerged
+  blue-green atmosphere.
+
+  The composite remains materially present through
+  the middle, but both ends now dissolve across
+  substantially longer distances.
+
+  Most importantly, the lower edge disappears
+  before Phase becomes fully opaque, creating an
+  overlap rather than a stacked-image seam.
+*/
+
+.exhibition-scroll .grotto-transition--miscarriage-phase {
+  position: relative;
+
+  width: 100vw;
+  height: 175vh;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  margin-top: -18vh;
+  margin-bottom: -28vh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background-color: #08100f;
+
+  background-image:
+    url("/media/architecture/environments/grotto/grotto-miscarriage-phase-composite.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+
+  opacity: 0.88;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.10) 5%,
+
+      rgba(0, 0, 0, 0.38) 13%,
+
+      rgba(0, 0, 0, 0.76) 23%,
+
+      black 34%,
+
+      black 62%,
+
+      rgba(0, 0, 0, 0.88) 70%,
+
+      rgba(0, 0, 0, 0.62) 79%,
+
+      rgba(0, 0, 0, 0.30) 89%,
+
+      rgba(0, 0, 0, 0.08) 96%,
+
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(0, 0, 0, 0.10) 5%,
+
+      rgba(0, 0, 0, 0.38) 13%,
+
+      rgba(0, 0, 0, 0.76) 23%,
+
+      black 34%,
+
+      black 62%,
+
+      rgba(0, 0, 0, 0.88) 70%,
+
+      rgba(0, 0, 0, 0.62) 79%,
+
+      rgba(0, 0, 0, 0.30) 89%,
+
+      rgba(0, 0, 0, 0.08) 96%,
+
+      transparent 100%
+    );
+}
+
+
+/*
+  Dark atmospheric contamination at the top.
+
+  Broad enough that stone appears to emerge from
+  the existing Grotto rather than begin as an asset.
+*/
+
+.exhibition-scroll
+.grotto-transition--miscarriage-phase::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      rgba(8, 10, 9, 0.72) 0%,
+      rgba(8, 10, 9, 0.50) 12%,
+      rgba(8, 11, 10, 0.24) 27%,
+      rgba(6, 15, 14, 0.08) 43%,
+      rgba(4, 25, 23, 0.02) 58%,
+      rgba(3, 32, 29, 0) 100%
+    );
+}
+
+
+/*
+  Cool submerged contamination begins well before
+  the bottom edge.
+
+  This creates a long tonal bridge into Phase.
+*/
+
+.exhibition-scroll
+.grotto-transition--miscarriage-phase::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 115% 30% at 30% 72%,
+      rgba(12, 72, 64, 0.00) 0%,
+      rgba(10, 65, 58, 0.11) 38%,
+      rgba(7, 51, 46, 0.20) 72%,
+      transparent 100%
+    ),
+
+    linear-gradient(
+      to bottom,
+
+      rgba(2, 23, 21, 0) 0%,
+      rgba(3, 31, 28, 0) 42%,
+      rgba(5, 48, 43, 0.08) 57%,
+      rgba(5, 54, 48, 0.18) 70%,
+      rgba(4, 48, 43, 0.28) 82%,
+      rgba(3, 39, 36, 0.36) 92%,
+      rgba(2, 31, 29, 0.42) 100%
+    );
+
+  filter: blur(10px);
+}
+
+
+/* ========================================
+   PHASE — DARKER INNER CHAMBER
+   ======================================== */
+
+.exhibition-scroll .grotto-section--phase {
+  position: relative;
+
+  isolation: isolate;
+
+  padding-top: 48vh;
+  padding-bottom: 34vh;
+}
+
+
+/*
+  Phase now begins more transparently.
+
+  The upper portion permits the dying transition
+  composite to remain perceptible underneath it
+  before the chamber becomes fully submerged.
+*/
+
+.exhibition-scroll
+.grotto-section--phase::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 100vw;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+
+    linear-gradient(
+      to bottom,
+
+      rgba(3, 27, 25, 0.18) 0%,
+      rgba(3, 31, 29, 0.32) 9%,
+      rgba(3, 34, 31, 0.52) 20%,
+      rgba(2, 29, 27, 0.72) 34%,
+      rgba(1, 20, 19, 0.88) 52%,
+      rgba(1, 15, 14, 0.94) 100%
+    ),
+
+    radial-gradient(
+      ellipse 120% 32% at 30% 13%,
+      rgba(10, 68, 60, 0.70) 0%,
+      rgba(7, 48, 43, 0.42) 31%,
+      rgba(0, 0, 0, 0) 65%
+    ),
+
+    radial-gradient(
+      ellipse 125% 36% at 72% 44%,
+      rgba(8, 66, 58, 0.62) 0%,
+      rgba(5, 41, 37, 0.38) 32%,
+      rgba(0, 0, 0, 0) 66%
+    ),
+
+    radial-gradient(
+      ellipse 120% 32% at 27% 75%,
+      rgba(7, 52, 47, 0.56) 0%,
+      rgba(4, 31, 29, 0.32) 35%,
+      rgba(0, 0, 0, 0) 67%
+    );
+
+  opacity: 0.94;
+}
+
+
+/*
+  Secondary shadow field.
+
+  Softer and broader than before so Phase retains
+  depth without producing obvious horizontal bands.
+*/
+
+.exhibition-scroll
+.grotto-section--phase::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 100vw;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 85% 22% at 20% 28%,
+      rgba(0, 0, 0, 0.30) 0%,
+      transparent 72%
+    ),
+
+    radial-gradient(
+      ellipse 90% 25% at 82% 62%,
+      rgba(0, 0, 0, 0.34) 0%,
+      transparent 74%
+    ),
+
+    linear-gradient(
+      154deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(17, 72, 64, 0.06) 28%,
+      rgba(0, 0, 0, 0.20) 51%,
+      rgba(16, 67, 60, 0.05) 73%,
+      rgba(0, 0, 0, 0.25) 100%
+    );
+
+  filter: blur(32px);
+
+  opacity: 0.58;
+}
+
+
+.exhibition-scroll
+.grotto-section--phase
+> * {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* ========================================
+   PHASE — ARTWORK INSTALLATION
+   ======================================== */
+
+.exhibition-scroll
+.grotto-section--phase
+.artwork-sequence {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 50vh;
+}
+
+
+.exhibition-scroll
+.grotto-section--phase
+.artwork-image {
+  width:
+    min(40vw, 35rem);
+
+  margin:
+    0
+    auto;
+}
+
+
+.exhibition-scroll
+.grotto-section--phase
+.artwork-image:nth-child(even) {
+  transform:
+    translateX(-8vw);
+}
+
+
+.exhibition-scroll
+.grotto-section--phase
+.artwork-image:nth-child(odd) {
+  transform:
+    translateX(7vw);
+}
+
+
+.exhibition-scroll
+.grotto-section--phase
+.artwork-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: none;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   GROTTO — MOBILE
+   ======================================== */
+/* ========================================
+   GROTTO / PHASE → THRESHOLD TRANSITION
+   ======================================== */
+
+/*
+  Long atmospheric passage out of Phase.
+
+  The physical asset remains primary, but its
+  lower portion now dissolves toward Threshold
+  rather than terminating at a horizontal edge.
+
+  Movement is intentionally stronger than final
+  but remains extremely slow.
+*/
+
+.exhibition-transition--grotto-threshold {
+  position: relative;
+
+  width: 100%;
+
+  height: 275vh;
+
+  margin-top: -18vh;
+  margin-bottom: -34vh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background-color: #071715;
+
+  background-image:
+    url("/media/architecture/environments/threshold/grotto-threshold-transition.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+
+      black 0%,
+      black 67%,
+
+      rgba(0, 0, 0, 0.94) 73%,
+      rgba(0, 0, 0, 0.78) 80%,
+      rgba(0, 0, 0, 0.54) 87%,
+      rgba(0, 0, 0, 0.28) 94%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+
+      black 0%,
+      black 67%,
+
+      rgba(0, 0, 0, 0.94) 73%,
+      rgba(0, 0, 0, 0.78) 80%,
+      rgba(0, 0, 0, 0.54) 87%,
+      rgba(0, 0, 0, 0.28) 94%,
+      transparent 100%
+    );
+}
+
+
+/*
+  Luminous submerged field.
+
+  It increases through the transition and begins
+  breaking the photographic surface into light.
+*/
+
+.exhibition-transition--grotto-threshold::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -14% -12%;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 58% 27% at 20% 70%,
+      rgba(244, 232, 211, 0.44) 0%,
+      rgba(223, 220, 199, 0.20) 38%,
+      transparent 72%
+    ),
+
+    radial-gradient(
+      ellipse 52% 31% at 77% 61%,
+      rgba(221, 231, 216, 0.34) 0%,
+      rgba(203, 219, 207, 0.15) 40%,
+      transparent 74%
+    ),
+
+    linear-gradient(
+      to bottom,
+
+      rgba(239, 228, 208, 0) 0%,
+      rgba(239, 228, 208, 0) 45%,
+      rgba(239, 228, 208, 0.06) 60%,
+      rgba(239, 228, 208, 0.18) 74%,
+      rgba(239, 228, 208, 0.36) 87%,
+      rgba(239, 228, 208, 0.54) 100%
+    );
+
+  filter: blur(44px);
+
+  mix-blend-mode: screen;
+
+  opacity: 0.86;
+
+  animation:
+    grottoThresholdLightDrift
+    58s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/*
+  Ghost of botanical shadow.
+
+  Noticeable in this first pass, but blurred enough
+  that it reads as remembered foliage / transmitted
+  shadow rather than literal leaves.
+*/
+
+.exhibition-transition--grotto-threshold::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -18% -20%;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 22% 30% at 12% 65%,
+      rgba(70, 62, 45, 0.46) 0%,
+      rgba(70, 62, 45, 0.23) 34%,
+      transparent 70%
+    ),
+
+    radial-gradient(
+      ellipse 27% 22% at 37% 74%,
+      rgba(67, 61, 47, 0.38) 0%,
+      rgba(67, 61, 47, 0.18) 37%,
+      transparent 72%
+    ),
+
+    radial-gradient(
+      ellipse 20% 31% at 63% 61%,
+      rgba(61, 59, 46, 0.40) 0%,
+      rgba(61, 59, 46, 0.18) 34%,
+      transparent 70%
+    ),
+
+    radial-gradient(
+      ellipse 28% 24% at 88% 77%,
+      rgba(72, 62, 45, 0.42) 0%,
+      rgba(72, 62, 45, 0.19) 36%,
+      transparent 72%
+    );
+
+  filter: blur(38px);
+
+  mix-blend-mode: multiply;
+
+  opacity: 0.62;
+
+  transform-origin: center;
+
+  animation:
+    grottoThresholdShadowDrift
+    64s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes grottoThresholdLightDrift {
+
+  0% {
+    transform:
+      translate3d(-3%, 1%, 0)
+      scale(1.05);
+
+    opacity: 0.72;
+  }
+
+  50% {
+    transform:
+      translate3d(1%, -1%, 0)
+      scale(1.09);
+
+    opacity: 0.94;
+  }
+
+  100% {
+    transform:
+      translate3d(4%, 1%, 0)
+      scale(1.06);
+
+    opacity: 0.80;
+  }
+}
+
+
+@keyframes grottoThresholdShadowDrift {
+
+  0% {
+    transform:
+      translate3d(-5%, -1%, 0)
+      rotate(-0.6deg)
+      scale(1.04);
+  }
+
+  50% {
+    transform:
+      translate3d(0.5%, 1%, 0)
+      rotate(0.2deg)
+      scale(1.08);
+  }
+
+  100% {
+    transform:
+      translate3d(6%, -0.5%, 0)
+      rotate(0.8deg)
+      scale(1.05);
+  }
+}
+
+
+/* ========================================
+   THRESHOLD — ENVIRONMENT
+   ======================================== */
+
+.exhibition-scroll .threshold-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    #eee6d8;
+}
+
+
+/*
+  The physical Threshold environment begins behind
+  the dying transition because the transition now
+  carries a negative lower margin.
+
+  This is the architectural overlap we were missing.
+*/
+
+.exhibition-scroll .threshold-environment {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  background-image:
+    url("/media/architecture/environments/threshold/threshold-environment-composite.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+}
+
+
+/*
+  Transmitted luminous field.
+
+  Deliberately strong first pass. Large enough that
+  it should feel like illumination within material,
+  not a watercolor-paper texture.
+*/
+
+.exhibition-scroll .threshold-environment::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -15% -14%;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 52% 30% at 14% 19%,
+      rgba(255, 250, 238, 0.68) 0%,
+      rgba(251, 238, 222, 0.32) 36%,
+      transparent 72%
+    ),
+
+    radial-gradient(
+      ellipse 48% 35% at 82% 35%,
+      rgba(219, 232, 220, 0.48) 0%,
+      rgba(211, 224, 213, 0.22) 38%,
+      transparent 74%
+    ),
+
+    radial-gradient(
+      ellipse 60% 30% at 48% 74%,
+      rgba(255, 240, 221, 0.42) 0%,
+      rgba(239, 224, 208, 0.19) 39%,
+      transparent 76%
+    );
+
+  filter: blur(58px);
+
+  mix-blend-mode: soft-light;
+
+  opacity: 0.94;
+
+  animation:
+    thresholdLuminousBreath
+    54s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/*
+  Continuing shadow memory from the transition.
+
+  Strong enough to establish the idea now.
+  This is the layer I expect we'll probably reduce
+  once we've seen it moving over the actual works.
+*/
+
+.exhibition-scroll .threshold-environment::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -18% -20%;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse 19% 27% at 8% 16%,
+      rgba(77, 66, 49, 0.42) 0%,
+      rgba(77, 66, 49, 0.20) 36%,
+      transparent 72%
+    ),
+
+    radial-gradient(
+      ellipse 26% 19% at 31% 27%,
+      rgba(71, 65, 50, 0.34) 0%,
+      rgba(71, 65, 50, 0.16) 38%,
+      transparent 72%
+    ),
+
+    radial-gradient(
+      ellipse 20% 29% at 61% 14%,
+      rgba(67, 65, 52, 0.36) 0%,
+      rgba(67, 65, 52, 0.17) 35%,
+      transparent 71%
+    ),
+
+    radial-gradient(
+      ellipse 25% 21% at 87% 32%,
+      rgba(79, 68, 50, 0.38) 0%,
+      rgba(79, 68, 50, 0.18) 37%,
+      transparent 73%
+    ),
+
+    radial-gradient(
+      ellipse 23% 28% at 43% 72%,
+      rgba(73, 66, 53, 0.25) 0%,
+      rgba(73, 66, 53, 0.11) 38%,
+      transparent 73%
+    );
+
+  filter: blur(42px);
+
+  mix-blend-mode: multiply;
+
+  opacity: 0.58;
+
+  animation:
+    thresholdLeafMemory
+    68s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes thresholdLuminousBreath {
+
+  0% {
+    transform:
+      translate3d(-3%, 0, 0)
+      scale(1.05);
+
+    opacity: 0.78;
+  }
+
+  50% {
+    transform:
+      translate3d(1%, -1%, 0)
+      scale(1.09);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate3d(4%, 1%, 0)
+      scale(1.06);
+
+    opacity: 0.84;
+  }
+}
+
+
+@keyframes thresholdLeafMemory {
+
+  0% {
+    transform:
+      translate3d(-5%, -1%, 0)
+      rotate(-0.5deg)
+      scale(1.04);
+
+    opacity: 0.48;
+  }
+
+  48% {
+    transform:
+      translate3d(1%, 1.2%, 0)
+      rotate(0.2deg)
+      scale(1.08);
+
+    opacity: 0.66;
+  }
+
+  100% {
+    transform:
+      translate3d(6%, -0.5%, 0)
+      rotate(0.7deg)
+      scale(1.05);
+
+    opacity: 0.54;
+  }
+}
+
+
+.exhibition-scroll .threshold-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ========================================
+   THRESHOLD — ENVIRONMENT
+   ======================================== */
+
+.exhibition-scroll .threshold-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    #eee6d8;
+}
+
+
+.exhibition-scroll .threshold-environment {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url("/media/architecture/environments/threshold/threshold-environment-composite.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+}
+
+
+.exhibition-scroll .threshold-content {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* ========================================
+   THRESHOLD — INTRO
+   ======================================== */
+
+.exhibition-scroll .threshold-section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    22vh
+    clamp(1.5rem, 5vw, 5rem)
+    30vh;
+}
+
+
+.exhibition-scroll .threshold-section__question-block {
+  width:
+    min(40rem, 82vw);
+
+  margin-bottom:
+    24vh;
+}
+
+
+.exhibition-scroll .threshold-section__eyebrow {
+  margin:
+    0
+    0
+    2rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.18em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(48, 40, 30, 0.58);
+}
+
+
+.exhibition-scroll .threshold-section__question {
+  margin: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(1rem, 1.25vw, 1.15rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.55;
+
+  color:
+    rgba(48, 40, 30, 0.78);
+}
+
+
+/* ========================================
+   THRESHOLD — WALL TEXT
+   ======================================== */
+
+/*
+  Threshold should not read as a web card.
+
+  The text sits directly in the pale environment,
+  slightly left of center and with enough breathing
+  room that it feels architectural rather than UI.
+*/
+
+.exhibition-scroll .threshold-wall-card {
+  position: relative;
+
+  width:
+    min(38rem, 76vw);
+
+  margin:
+    0
+    auto
+    48vh;
+
+  transform:
+    translateX(-14vw);
+
+  padding:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    rgba(54, 47, 39, 0.72);
+
+  z-index:
+    2;
+}
+
+
+/*
+  Room identifier.
+  Matches the restrained language used elsewhere
+  in the exhibition rather than behaving as a
+  conventional page heading.
+*/
+
+.exhibition-scroll .threshold-wall-card h1 {
+  margin:
+    0
+    0
+    2.1rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(0.68rem, 0.78vw, 0.82rem);
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.18em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(54, 47, 39, 0.60);
+}
+
+
+/*
+  Threshold question.
+*/
+
+.exhibition-scroll .threshold-wall-card p {
+  margin:
+    0;
+
+  max-width:
+    35rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(0.94rem, 1.15vw, 1.08rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.55;
+
+  letter-spacing:
+    -0.01em;
+
+  color:
+    rgba(54, 47, 39, 0.76);
+}
+
+
+/* Keep placement sensible on smaller screens. */
+
+@media (max-width: 760px) {
+
+  .exhibition-scroll .threshold-wall-card {
+    width:
+      calc(100% - 3rem);
+
+    margin-bottom:
+      34vh;
+
+    transform:
+      none;
+  }
+
+  .exhibition-scroll .threshold-wall-card h1 {
+    margin-bottom:
+      1.5rem;
+  }
+}
+
+/* ========================================
+   THRESHOLD — DIPTYCH INSTALLATION
+   ======================================== */
+
+.exhibition-scroll .threshold-pairs {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    58vh;
+}
+
+
+.exhibition-scroll .threshold-pair {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: center;
+
+  gap:
+    clamp(2rem, 6vw, 7rem);
+
+  width:
+    min(78vw, 78rem);
+
+  margin:
+    0
+    auto;
+}
+
+
+.exhibition-scroll .threshold-pair__image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: none;
+
+  object-fit: contain;
+}
+
+
+.exhibition-scroll .threshold-pair--01 {
+  width:
+    min(74vw, 72rem);
+}
+
+
+.exhibition-scroll .threshold-pair--02 {
+  width:
+    min(82vw, 82rem);
+
+  transform:
+    translateX(2vw);
+}
+
+
+.exhibition-scroll .threshold-pair--03 {
+  width:
+    min(76vw, 75rem);
+
+  transform:
+    translateX(-2vw);
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 760px) {
+
+  .exhibition-transition--garden-grotto {
+    height:
+      125vh;
+
+    margin-top:
+      -12vh;
+  }
+
+
+  .exhibition-transition--grotto-threshold {
+    height:
+      155vh;
+
+    margin-top:
+      -12vh;
+  }
+
+
+  .exhibition-scroll .grotto-section,
+  .exhibition-scroll .threshold-section {
+    padding-left:
+      1.25rem;
+
+    padding-right:
+      1.25rem;
+  }
+
+
+  .exhibition-scroll .miscarriage-work {
+    width:
+      min(54vw, 17rem);
+  }
+
+
+  .exhibition-scroll .miscarriage-work:nth-child(even),
+  .exhibition-scroll .miscarriage-work:nth-child(odd) {
+    transform:
+      none;
+  }
+
+
+  .exhibition-scroll
+  .grotto-section--phase
+  .artwork-image {
+    width:
+      72vw;
+  }
+
+
+  .exhibition-scroll
+  .grotto-section--phase
+  .artwork-image:nth-child(even),
+  .exhibition-scroll
+  .grotto-section--phase
+  .artwork-image:nth-child(odd) {
+    transform:
+      none;
+  }
+
+
+  .exhibition-scroll .threshold-pair {
+    grid-template-columns:
+      1fr;
+
+    width:
+      82vw;
+
+    gap:
+      12vh;
+  }
+
+
+  .exhibition-scroll .threshold-pair--01,
+  .exhibition-scroll .threshold-pair--02,
+  .exhibition-scroll .threshold-pair--03 {
+    width:
+      82vw;
+
+    transform:
+      none;
+  }
+
+}
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .exhibition-transition--garden-grotto::after,
+
+  .exhibition-transition--grotto-threshold::before,
+  .exhibition-transition--grotto-threshold::after,
+
+  .exhibition-scroll .threshold-environment::before,
+  .exhibition-scroll .threshold-environment::after {
+
+    animation: none !important;
+  }
+}
+/* ============================================================
+
+
+   RED ROOM — FULL INSTALLATION OVERRIDE
+   Canonical environment:
+   red-room-environment-composite-v2.jpg
+
+   Paste this entire block at the END of globals.css.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   ROOM / ENVIRONMENT
+
+   The environment begins as recognizable architecture,
+   then progressively loses architectural specificity as
+   the viewer moves through the room.
+   ---------------------------------------------------------- */
+
+.room[data-environment="textile"] {
+  position: relative;
+  overflow: hidden;
+
+  background-color: #ead1cc;
+
+  background-image:
+    url("/media/architecture/red-room-environment-composite-v2.jpg");
+
+  background-repeat: no-repeat;
+
+  /*
+    Preserve the vertical logic of the authored composite.
+
+    Width is allowed to fill the viewport while the image
+    retains its natural proportions.
+  */
+  background-size: 100% auto;
+
+  background-position: center top;
+
+  color: rgba(37, 30, 27, 0.88);
+}
+
+
+/*
+  Remove / neutralize any older textile-environment layers
+  that may still be sitting over the new composite.
+*/
+
+.room[data-environment="textile"]::before,
+.room[data-environment="textile"]::after {
+  opacity: 0 !important;
+  background: none !important;
+  pointer-events: none;
+}
+
+
+/*
+  The normal Room component constrains content.
+
+  Red Room needs to behave like an exhibition environment,
+  so its inner architecture occupies the viewport.
+*/
+
+.room[data-environment="textile"] .room__inner {
+  position: relative;
+
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+
+  padding:
+    0
+    0
+    24vh;
+
+  background: transparent;
+}
+
+
+/* ----------------------------------------------------------
+   RED ROOM — ENTRY / ROOM TITLE
+
+   Treat this as architectural identification rather than
+   an editorial hero.
+   ---------------------------------------------------------- */
+
+.room[data-environment="textile"] .room__header {
+  position: relative;
+  z-index: 2;
+
+  width:
+    min(28rem, 72vw);
+
+  min-height:
+    72vh;
+
+  margin:
+    0;
+
+  padding:
+    13vh
+    0
+    0
+    clamp(2rem, 6vw, 6rem);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  align-items: flex-start;
+
+  color:
+    rgba(47, 38, 34, 0.74);
+}
+
+
+/*
+  "CONTINUOUS EXHIBITION"
+*/
+
+.room[data-environment="textile"]
+.room__header
+.eyebrow {
+  margin:
+    0
+    0
+    1.1rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.18em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(48, 38, 34, 0.60);
+}
+
+
+/*
+  RED ROOM
+*/
+
+.room[data-environment="textile"]
+.room__header
+h1 {
+  margin: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(2.1rem, 4vw, 3.6rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.035em;
+
+  color:
+    rgba(42, 34, 31, 0.76);
+}
+
+
+/* ----------------------------------------------------------
+   MAIN FLOW
+   ---------------------------------------------------------- */
+
+.room[data-environment="textile"]
+.red-room-flow {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+}
+
+
+/* ----------------------------------------------------------
+   PROJECT HEADERS
+
+   These should feel like quiet museum information appearing
+   within the environment — not website section headings.
+   ---------------------------------------------------------- */
+
+.room[data-environment="textile"]
+.red-room-project__header {
+  position: relative;
+
+  width:
+    min(37rem, 82vw);
+
+  margin-left:
+    clamp(2rem, 7vw, 7rem);
+
+  margin-right:
+    auto;
+
+  color:
+    rgba(47, 38, 34, 0.76);
+}
+
+
+.room[data-environment="textile"]
+.red-room-project__eyebrow {
+  margin:
+    0
+    0
+    1.35rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.70rem;
+
+  font-weight:
+    500;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.16em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(47, 38, 34, 0.58);
+}
+
+
+.room[data-environment="textile"]
+.red-room-project__header
+h2 {
+  margin: 0;
+
+  max-width:
+    34rem;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:
+    clamp(1.45rem, 2.5vw, 2.25rem);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.22;
+
+  letter-spacing:
+    -0.025em;
+
+  color:
+    rgba(43, 35, 31, 0.76);
+}
+
+
+/* ==========================================================
+   RED THREAD
+   ========================================================== */
+
+.room[data-environment="textile"]
+.red-room-project--thread {
+  position: relative;
+
+  padding-top:
+    12vh;
+}
+
+
+.room[data-environment="textile"]
+.red-room-project--thread
+.red-room-project__header {
+  margin-bottom:
+    28vh;
+}
+
+
+/*
+  Red Thread remains recognizably "installed."
+
+  We want substantial breathing room around individual works
+  so the viewer remains conscious of the room itself.
+*/
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-sequence {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap:
+    42vh;
+
+  width: 100%;
+}
+
+
+/*
+  Baseline Red Thread artwork.
+*/
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image {
+  width:
+    min(52vw, 46rem);
+
+  margin:
+    0
+    auto;
+}
+
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image
+img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  max-height:
+    84vh;
+
+  object-fit:
+    contain;
+}
+
+
+/* ----------------------------------------------------------
+   RED THREAD — INDIVIDUAL INSTALLATION RHYTHM
+
+   Deliberately irregular.
+
+   This is the first strong pass; we'll evaluate the actual
+   images in-browser and tune from there.
+   ---------------------------------------------------------- */
+
+
+/* 01 — generous opening work */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(1) {
+  width:
+    min(68vw, 62rem);
+
+  transform:
+    translateX(6vw);
+}
+
+
+/* 02 — contraction */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(2) {
+  width:
+    min(38vw, 33rem);
+
+  transform:
+    translateX(-16vw);
+}
+
+
+/* 03 — grimace */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(3) {
+  width:
+    min(50vw, 43rem);
+
+  transform:
+    translateX(12vw);
+}
+
+
+/* 04 */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(4) {
+  width:
+    min(42vw, 37rem);
+
+  transform:
+    translateX(-11vw);
+}
+
+
+/* 05 */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(5) {
+  width:
+    min(57vw, 51rem);
+
+  transform:
+    translateX(7vw);
+}
+
+
+/* 06 */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(6) {
+  width:
+    min(35vw, 31rem);
+
+  transform:
+    translateX(-17vw);
+}
+
+
+/* 07 */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(7) {
+  width:
+    min(48vw, 42rem);
+
+  transform:
+    translateX(13vw);
+}
+
+
+/* 08 */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(8) {
+  width:
+    min(39vw, 35rem);
+
+  transform:
+    translateX(-13vw);
+}
+
+
+/*
+  09 — intentionally very large.
+
+  We discussed giving the ear/thread image unusually strong
+  physical presence. If the ear is a different sequence
+  number, we'll move this treatment after seeing the page.
+*/
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(9) {
+  width:
+    min(88vw, 78rem);
+
+  transform:
+    translateX(0);
+}
+
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(9)
+img {
+  max-height:
+    94vh;
+}
+
+
+/* 10 — quiet release after the large work */
+
+.room[data-environment="textile"]
+.red-thread-installation
+.artwork-image:nth-child(10) {
+  width:
+    min(43vw, 38rem);
+
+  transform:
+    translateX(10vw);
+}
+
+
+/* ==========================================================
+   ARCHITECTURE → MEMBRANE PASSAGE
+
+   Give the viewer enough duration to feel the room becoming
+   material rather than simply arriving at another section.
+   ========================================================== */
+
+.room[data-environment="textile"]
+.red-room-passage {
+  position: relative;
+
+  width: 100%;
+
+  height:
+    145vh;
+
+  margin-top:
+    26vh;
+
+  margin-bottom:
+    -4vh;
+
+  overflow:
+    hidden;
+
+  pointer-events:
+    none;
+}
+
+
+/*
+  Soft overlapping textile field.
+
+  This does NOT replace the authored composite beneath it.
+  It gently reduces architectural legibility as we approach
+  Membrane.
+*/
+
+.room[data-environment="textile"]
+.red-room-passage::before {
+  content: "";
+
+  position: absolute;
+
+  inset:
+    -20vh
+    -10vw;
+
+  background:
+
+    radial-gradient(
+      ellipse 65% 55% at 25% 32%,
+      rgba(250, 229, 225, 0.34) 0%,
+      rgba(246, 216, 212, 0.17) 38%,
+      rgba(240, 202, 199, 0) 72%
+    ),
+
+    radial-gradient(
+      ellipse 60% 70% at 78% 62%,
+      rgba(225, 167, 169, 0.24) 0%,
+      rgba(230, 184, 184, 0.11) 42%,
+      rgba(230, 184, 184, 0) 76%
+    );
+
+  filter:
+    blur(34px);
+
+  opacity:
+    0.92;
+}
+
+
+/*
+  A very faint veil creates the sensation of passing behind
+  another translucent layer.
+*/
+
+.room[data-environment="textile"]
+.red-room-passage::after {
+  content: "";
+
+  position: absolute;
+
+  top:
+    10%;
+
+  bottom:
+    5%;
+
+  left:
+    14%;
+
+  width:
+    58%;
+
+  background:
+    linear-gradient(
+      102deg,
+
+      rgba(255, 242, 237, 0) 0%,
+
+      rgba(255, 237, 233, 0.13) 24%,
+
+      rgba(244, 205, 203, 0.25) 52%,
+
+      rgba(235, 190, 191, 0.10) 76%,
+
+      rgba(235, 190, 191, 0) 100%
+    );
+
+  filter:
+    blur(22px);
+
+  transform:
+    skewX(-4deg);
+
+  opacity:
+    0.88;
+}
+
+
+/* ==========================================================
+   MEMBRANE
+   ========================================================== */
+
+.room[data-environment="textile"]
+.red-room-project--membrane {
+  position: relative;
+
+  padding-top:
+    16vh;
+
+  padding-bottom:
+    20vh;
+}
+
+
+/*
+  The Membrane question gets more empty space than Red Thread.
+
+  We are crossing from "works installed in a room" toward
+  images behaving almost as the room itself.
+*/
+
+.room[data-environment="textile"]
+.red-room-project--membrane
+.red-room-project__header {
+  width:
+    min(48rem, 84vw);
+
+  margin-bottom:
+    38vh;
+}
+
+
+.room[data-environment="textile"]
+.red-room-project--membrane
+.red-room-project__header
+h2 {
+  max-width:
+    46rem;
+}
+
+
+/* ----------------------------------------------------------
+   MEMBRANE INSTALLATION
+
+   Large, engulfing, little neutral wall remaining.
+   ---------------------------------------------------------- */
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-sequence {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap:
+    24vh;
+
+  width: 100%;
+}
+
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image {
+  width:
+    min(92vw, 92rem);
+
+  margin:
+    0
+    auto;
+
+  transform:
+    none;
+}
+
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image
+img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  max-height:
+    96vh;
+
+  object-fit:
+    contain;
+}
+
+
+/*
+  Slight breathing variation prevents six giant photographs
+  from becoming a mechanical slideshow.
+*/
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image:nth-child(2) {
+  width:
+    min(84vw, 84rem);
+
+  transform:
+    translateX(-4vw);
+}
+
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image:nth-child(3) {
+  width:
+    min(96vw, 96rem);
+
+  transform:
+    translateX(2vw);
+}
+
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image:nth-child(4) {
+  width:
+    min(88vw, 88rem);
+
+  transform:
+    translateX(-2vw);
+}
+
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image:nth-child(5) {
+  width:
+    min(96vw, 96rem);
+
+  transform:
+    translateX(1vw);
+}
+
+
+.room[data-environment="textile"]
+.membrane-installation
+.artwork-image:nth-child(6) {
+  width:
+    min(90vw, 90rem);
+
+  transform:
+    translateX(-3vw);
+}
+
+
+/* ==========================================================
+   RED ROOM — EXITS
+   ========================================================== */
+
+.room[data-environment="textile"]
+.red-room-exits {
+  position: relative;
+
+  z-index: 3;
+
+  width:
+    min(52rem, 84vw);
+
+  margin:
+    40vh
+    auto
+    12vh;
+
+  padding-top:
+    2rem;
+
+  border-top:
+    1px solid rgba(57, 43, 39, 0.16);
+}
+
+
+/* ==========================================================
+   RED ROOM — MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+  .room[data-environment="textile"] {
+    /*
+      Allow the architecture to remain legible rather than
+      aggressively cropping it on narrow screens.
+    */
+
+    background-size:
+      auto 100%;
+
+    background-position:
+      top center;
+  }
+
+
+  .room[data-environment="textile"]
+  .room__header {
+    width:
+      82vw;
+
+    min-height:
+      64vh;
+
+    padding:
+      12vh
+      0
+      0
+      7vw;
+  }
+
+
+  .room[data-environment="textile"]
+  .room__header
+  h1 {
+    font-size:
+      clamp(2rem, 11vw, 3.2rem);
+  }
+
+
+  .room[data-environment="textile"]
+  .red-room-project__header {
+    width:
+      84vw;
+
+    margin-left:
+      7vw;
+  }
+
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-sequence {
+    gap:
+      30vh;
+  }
+
+
+  /*
+    Remove desktop lateral staggering.
+
+    Scale variation remains.
+  */
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image {
+    transform:
+      none !important;
+  }
+
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(1) {
+    width: 88vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(2) {
+    width: 67vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(3) {
+    width: 79vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(4) {
+    width: 70vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(5) {
+    width: 84vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(6) {
+    width: 66vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(7) {
+    width: 80vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(8) {
+    width: 70vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(9) {
+    width: 96vw;
+  }
+
+  .room[data-environment="textile"]
+  .red-thread-installation
+  .artwork-image:nth-child(10) {
+    width: 78vw;
+  }
+
+
+  .room[data-environment="textile"]
+  .red-room-passage {
+    height:
+      105vh;
+  }
+
+
+  .room[data-environment="textile"]
+  .red-room-project--membrane
+  .red-room-project__header {
+    margin-bottom:
+      28vh;
+  }
+
+
+  .room[data-environment="textile"]
+  .membrane-installation
+  .artwork-sequence {
+    gap:
+      18vh;
+  }
+
+
+  .room[data-environment="textile"]
+  .membrane-installation
+  .artwork-image {
+    width:
+      96vw !important;
+
+    transform:
+      none !important;
+  }
+}
+
+
+/* ==========================================================
+   RED ROOM — REDUCED MOTION
+
+   Currently no essential animation is required.
+   This is here so later atmospheric motion can be added
+   without compromising the static installation.
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .room[data-environment="textile"] *,
+  .room[data-environment="textile"] *::before,
+  .room[data-environment="textile"] *::after {
+    animation:
+      none !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+}
+/* ==========================================================
+   RED ROOM — THREE-PANEL ENVIRONMENT TEST
+   ========================================================== */
+
+.room[data-environment="textile"] .red-room-environment {
+  position: absolute;
+  z-index: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: auto;
+
+  pointer-events: none;
+}
+
+.room[data-environment="textile"] .red-room-environment img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+}
+
+.room[data-environment="textile"] .room__header,
+.room[data-environment="textile"] .red-room-flow,
+.room[data-environment="textile"] .red-room-exits {
+  position: relative;
+  z-index: 2;
 }
