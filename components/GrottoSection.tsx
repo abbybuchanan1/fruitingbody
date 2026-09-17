@@ -1,51 +1,32 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
-import {
-  artworkSets,
-  miscarriageWorks,
-} from "@/lib/artworks";
+import { artworkSets, miscarriageWorks } from "@/lib/artworks";
 
 export function GrottoSection() {
   return (
-    <section className="grotto-page">
-      <div
-        className="grotto-environment"
-        aria-hidden="true"
-      />
+    <section id="grotto" className="grotto-page">
+      <div className="grotto-environment" aria-hidden="true" />
 
       <div className="grotto-content">
-
-        {/* ========================================
-            A MISCARRIAGE
-            ======================================== */}
-
         <section
           id="a-miscarriage"
           className="grotto-section grotto-section--miscarriage"
           aria-labelledby="miscarriage-title"
         >
           <div className="grotto-section__question-block">
-            <p className="grotto-section__eyebrow">
-              Grotto
-            </p>
-
+            <p className="grotto-section__eyebrow">Grotto</p>
             <p className="grotto-section__question">
-              How does a body continue becoming through loss,
-              longing, and interrupted passage?
+              How does a body continue becoming through loss, longing, and
+              interrupted passage?
             </p>
           </div>
 
           <div className="grotto-wall-card">
-            <h1 id="miscarriage-title">
-              A Miscarriage
-            </h1>
-
+            <h1 id="miscarriage-title">A Miscarriage</h1>
             <p>
-              The work investigates transformation through
-              interruption, exploring longing, absence, and
-              passage as conditions of becoming.
+              The work investigates transformation through interruption,
+              exploring longing, absence, and passage as conditions of becoming.
             </p>
           </div>
-
 
           <div
             className="miscarriage-sequence"
@@ -53,9 +34,7 @@ export function GrottoSection() {
           >
             {miscarriageWorks.map((work, index) => (
               <figure
-                className={`miscarriage-work miscarriage-work--${
-                  index + 1
-                }`}
+                className={`miscarriage-work miscarriage-work--${index + 1}`}
                 key={work.src}
               >
                 <img
@@ -74,14 +53,11 @@ export function GrottoSection() {
             ))}
           </div>
         </section>
-<div
-  className="grotto-transition grotto-transition--miscarriage-phase"
-  aria-hidden="true"
-/>
 
-        {/* ========================================
-            PHASE
-            ======================================== */}
+        <div
+          className="grotto-transition grotto-transition--miscarriage-phase"
+          aria-hidden="true"
+        />
 
         <section
           id="phase"
@@ -90,20 +66,16 @@ export function GrottoSection() {
         >
           <div className="grotto-section__question-block">
             <p className="grotto-section__question">
-              Who are we while we are becoming someone we
-              cannot yet recognize?
+              Who are we while we are becoming someone we cannot yet recognize?
             </p>
           </div>
 
           <div className="grotto-wall-card">
-            <h2 id="phase-title">
-              Phase
-            </h2>
-
+            <h2 id="phase-title">Phase</h2>
             <p>
-              The work investigates identity during periods
-              of dissolution, attending to the unstable
-              interval between one state of being and another.
+              The work investigates identity during periods of dissolution,
+              attending to the unstable interval between one state of being and
+              another.
             </p>
           </div>
 
@@ -113,7 +85,6 @@ export function GrottoSection() {
             mode="varied"
           />
         </section>
-
       </div>
     </section>
   );

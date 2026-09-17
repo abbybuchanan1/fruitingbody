@@ -29,6 +29,8 @@ export type MuseumRoom = {
     | "narthex"
     | "hidden";
   showOnMap: boolean;
+  parent?: MuseumRoomId;
+  mapRole?: "room" | "nested" | "surrounding";
   audioEnvironment?: string;
   circadian?: boolean;
 };
@@ -48,6 +50,7 @@ export const museumRooms: MuseumRoom[] = [
     href: "/",
     mapGroup: "exterior",
     showOnMap: true,
+    mapRole: "room",
     circadian: true,
   },
   {
@@ -56,17 +59,21 @@ export const museumRooms: MuseumRoom[] = [
     href: "/vestibule",
     mapGroup: "main",
     showOnMap: true,
+    parent: "exterior",
+    mapRole: "room",
     audioEnvironment: "vestibule",
     circadian: true,
   },
 
-  // MAIN SPINE
+  // PRIMARY CONTINUOUS ROUTE
   {
     id: "front-gallery",
     title: "Front Gallery",
     href: "/exhibition#relative",
     mapGroup: "main",
     showOnMap: true,
+    parent: "vestibule",
+    mapRole: "room",
     audioEnvironment: "front-gallery",
   },
   {
@@ -75,6 +82,8 @@ export const museumRooms: MuseumRoom[] = [
     href: "/exhibition#garden",
     mapGroup: "main",
     showOnMap: true,
+    parent: "front-gallery",
+    mapRole: "room",
     audioEnvironment: "garden",
   },
   {
@@ -83,6 +92,8 @@ export const museumRooms: MuseumRoom[] = [
     href: "/exhibition#grotto",
     mapGroup: "main",
     showOnMap: true,
+    parent: "garden",
+    mapRole: "room",
     audioEnvironment: "grotto",
   },
   {
@@ -91,16 +102,20 @@ export const museumRooms: MuseumRoom[] = [
     href: "/exhibition#threshold",
     mapGroup: "main",
     showOnMap: true,
+    parent: "grotto",
+    mapRole: "room",
     audioEnvironment: "rear-gallery",
   },
 
-  // SIDE WINGS
+  // SIDE WINGS FROM THE VESTIBULE
   {
     id: "red-room",
     title: "Red Room",
     href: "/red-room",
     mapGroup: "red",
     showOnMap: true,
+    parent: "vestibule",
+    mapRole: "room",
     audioEnvironment: "red-room",
   },
   {
@@ -109,6 +124,8 @@ export const museumRooms: MuseumRoom[] = [
     href: "/water-room",
     mapGroup: "water",
     showOnMap: true,
+    parent: "vestibule",
+    mapRole: "room",
     audioEnvironment: "water-room",
   },
   {
@@ -117,6 +134,8 @@ export const museumRooms: MuseumRoom[] = [
     href: "/film-room",
     mapGroup: "water",
     showOnMap: true,
+    parent: "water-room",
+    mapRole: "nested",
     audioEnvironment: "film-room",
   },
   {
@@ -125,16 +144,34 @@ export const museumRooms: MuseumRoom[] = [
     href: "/current",
     mapGroup: "current",
     showOnMap: true,
+    parent: "vestibule",
+    mapRole: "room",
     audioEnvironment: "current",
   },
 
-  // NARTHEX + REFERENCE SPACES
+  // THE CLOISTERS SURROUND THE INNER GARDEN / GROTTO PATH.
+  // They remain discoverable from the Map rather than ordinary Index navigation.
+  {
+    id: "cloisters",
+    title: "Cloisters",
+    href: "/cloisters",
+    mapGroup: "main",
+    showOnMap: true,
+    parent: "garden",
+    mapRole: "surrounding",
+    audioEnvironment: "cloisters",
+    circadian: true,
+  },
+
+  // TERMINAL INFORMATIONAL / NAVIGATION SPACE
   {
     id: "narthex",
     title: "Narthex",
     href: "/narthex",
     mapGroup: "narthex",
     showOnMap: true,
+    parent: "rear-gallery",
+    mapRole: "room",
     audioEnvironment: "narthex",
     circadian: true,
   },
@@ -144,6 +181,8 @@ export const museumRooms: MuseumRoom[] = [
     href: "/reading-room",
     mapGroup: "narthex",
     showOnMap: true,
+    parent: "narthex",
+    mapRole: "nested",
   },
   {
     id: "index",
@@ -151,6 +190,8 @@ export const museumRooms: MuseumRoom[] = [
     href: "/index",
     mapGroup: "narthex",
     showOnMap: true,
+    parent: "narthex",
+    mapRole: "nested",
   },
   {
     id: "archive",
@@ -158,26 +199,18 @@ export const museumRooms: MuseumRoom[] = [
     href: "/archive",
     mapGroup: "narthex",
     showOnMap: true,
+    parent: "narthex",
+    mapRole: "nested",
   },
 
-  // MAP-ONLY RESPITE
-  {
-    id: "cloisters",
-    title: "Cloisters",
-    href: "/cloisters",
-    mapGroup: "hidden",
-    showOnMap: true,
-    audioEnvironment: "cloisters",
-    circadian: true,
-  },
-
-  // POSSIBLE REAR EXTERIOR
   {
     id: "exit-exterior",
     title: "Exterior",
     href: "/exit",
     mapGroup: "exterior",
     showOnMap: false,
+    parent: "narthex",
+    mapRole: "room",
     circadian: true,
   },
 ];
@@ -200,28 +233,28 @@ export const museumCollections: MuseumCollection[] = [
   {
     id: "fear-not",
     title: "Fear Not",
-    href: "/exhibition#garden",
+    href: "/exhibition#fear-not",
     room: "garden",
     showInIndex: true,
   },
   {
     id: "taste-and-see",
     title: "Taste and See",
-    href: "/exhibition#garden",
+    href: "/exhibition#taste-and-see",
     room: "garden",
     showInIndex: true,
   },
   {
     id: "miscarriage",
     title: "A Miscarriage",
-    href: "/exhibition#grotto",
+    href: "/exhibition#a-miscarriage",
     room: "grotto",
     showInIndex: true,
   },
   {
     id: "phase",
     title: "Phase",
-    href: "/exhibition#grotto",
+    href: "/exhibition#phase",
     room: "grotto",
     showInIndex: true,
   },
@@ -258,5 +291,5 @@ export const museumCollections: MuseumCollection[] = [
 export const mapRooms = museumRooms.filter((room) => room.showOnMap);
 
 export const indexedCollections = museumCollections.filter(
-  (collection) => collection.showInIndex
+  (collection) => collection.showInIndex,
 );

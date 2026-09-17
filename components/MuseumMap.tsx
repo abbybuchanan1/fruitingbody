@@ -49,10 +49,7 @@ export function MuseumMap({
         onClick={onClose}
       />
 
-      <div
-        className="museum-map"
-        data-current-location={currentLocation}
-      >
+      <div className="museum-map" data-current-location={currentLocation}>
         <div className="museum-map__topline">
           <p className="museum-map__label">Fruiting Body</p>
 
@@ -76,6 +73,8 @@ export function MuseumMap({
                 className="museum-map__room"
                 data-room={room.id}
                 data-group={room.mapGroup}
+                data-map-role={room.mapRole ?? "room"}
+                data-parent={room.parent}
                 data-current={isCurrent ? "true" : "false"}
                 aria-current={isCurrent ? "location" : undefined}
                 onClick={onClose}

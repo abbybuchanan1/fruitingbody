@@ -7,16 +7,13 @@ export default function VestibulePage() {
       <div className="vestibule__shadow" aria-hidden="true" />
       <div className="vestibule__light" aria-hidden="true" />
 
-      <section
-        className="vestibule__space"
-        aria-label="Vestibule"
-      >
+      <section className="vestibule__space" aria-label="Vestibule">
         <div className="vestibule__quiet-mark" aria-hidden="true">
           Arrival
         </div>
 
         <div className="vestibule__primary-passage">
-          <ArchitecturalLink href="/membrane">
+          <ArchitecturalLink href="/exhibition">
             Through the arch
           </ArchitecturalLink>
         </div>
@@ -25,20 +22,16 @@ export default function VestibulePage() {
           className="vestibule__side-passages"
           aria-label="Paths from the vestibule"
         >
-          <ArchitecturalLink href="/collections/relative">
-            Relative
-          </ArchitecturalLink>
-
           <ArchitecturalLink href="/red-room">
             Red Room
           </ArchitecturalLink>
 
-          <ArchitecturalLink href="/collections/selected">
-            Selected Works
+          <ArchitecturalLink href="/water-room">
+            Water Room
           </ArchitecturalLink>
 
-          <ArchitecturalLink href="/collections/body-of-water">
-            Body of Water
+          <ArchitecturalLink href="/current">
+            Current
           </ArchitecturalLink>
         </nav>
       </section>

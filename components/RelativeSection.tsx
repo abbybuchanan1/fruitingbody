@@ -15,7 +15,7 @@ export function RelativeSection({
   exits?: Exit[];
 }) {
   return (
-    <section className="relative-page">
+    <section id="relative" className="relative-page">
       <img
         className="relative-environment"
         src="/media/architecture/environments/relative/relative-environment-composite.jpg"
@@ -25,13 +25,9 @@ export function RelativeSection({
 
       <div className="relative-content">
         <header className="relative-intro">
-          <p className="relative-intro__eyebrow">
-            Collection
-          </p>
+          <p className="relative-intro__eyebrow">Collection</p>
 
-          <h1>
-            Relative
-          </h1>
+          <h1>Relative</h1>
 
           <p className="relative-intro__question">
             What becomes visible when the body is understood as part of the
@@ -51,20 +47,12 @@ export function RelativeSection({
           </div>
         </header>
 
-        <RelativeDiptychSequence
-          pairs={relativePairs}
-        />
+        <RelativeDiptychSequence pairs={relativePairs} />
 
         {showExits ? (
-          <nav
-            className="relative-exits"
-            aria-label="Exits from Relative"
-          >
+          <nav className="relative-exits" aria-label="Exits from Relative">
             {exits.map((exit) => (
-              <ArchitecturalLink
-                key={exit.href}
-                href={exit.href}
-              >
+              <ArchitecturalLink key={exit.href} href={exit.href}>
                 {exit.label}
               </ArchitecturalLink>
             ))}

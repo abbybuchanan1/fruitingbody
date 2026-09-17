@@ -10,9 +10,8 @@ export function GardenSection({
 }) {
   return (
     <section
-      className={`garden-page ${
-        embedded ? "garden-page--embedded" : ""
-      }`}
+      id="garden"
+      className={`garden-page ${embedded ? "garden-page--embedded" : ""}`}
     >
       <div className="garden-environment" aria-hidden="true" />
 
@@ -24,7 +23,6 @@ export function GardenSection({
         >
           <div className="garden-section__question-block">
             <p className="garden-section__eyebrow">Garden</p>
-
             <p className="garden-section__question">
               What forms of freedom remain available inside the conditions that
               make us?
@@ -35,7 +33,6 @@ export function GardenSection({
             <h1 id="daffodils-title">
               This Morning I Was Gathering Daffodils
             </h1>
-
             <p>
               The work investigates the relationship between agency and
               inevitability, exploring forms of sovereignty that emerge through
@@ -63,7 +60,6 @@ export function GardenSection({
 
           <div className="garden-wall-card">
             <h2 id="fear-not-title">Fear Not</h2>
-
             <p>
               The work investigates curiosity as a transformative force,
               reclaiming knowledge, desire, and participation from narratives
@@ -91,7 +87,6 @@ export function GardenSection({
 
           <div className="garden-wall-card">
             <h2 id="taste-and-see-title">Taste and See</h2>
-
             <p>
               The work investigates beauty as an embodied experience rather
               than a performed identity, asking what remains when beauty is no
@@ -107,12 +102,8 @@ export function GardenSection({
         </section>
 
         {showExit ? (
-          <nav
-            className="garden-page__exit"
-            aria-label="Garden navigation"
-          >
-            <a href="/map">Map</a>
-            <a href="/directory">Directory</a>
+          <nav className="garden-page__exit" aria-label="Garden navigation">
+            <a href="/index">Index</a>
           </nav>
         ) : null}
       </div>
