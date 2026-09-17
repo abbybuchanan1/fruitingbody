@@ -8968,3 +8968,346 @@ img {
   position: relative;
   z-index: 2;
 }
+/* ============================================================
+   FRUITING BODY — MUSEUM MAP OVERLAY
+   Canonical blueprint map layer
+   ============================================================ */
+
+.museum-map-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 56px);
+}
+
+.museum-map-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: rgba(232, 226, 214, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: default;
+}
+
+.museum-map {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 94vw);
+  height: min(760px, 88vh);
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(74, 68, 61, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 68, 61, 0.035) 1px, transparent 1px),
+    rgba(241, 236, 225, 0.82);
+
+  background-size: 28px 28px;
+
+  border: 1px solid rgba(71, 65, 58, 0.34);
+  box-shadow:
+    0 24px 80px rgba(42, 37, 32, 0.18),
+    inset 0 0 80px rgba(255, 255, 255, 0.22);
+
+  color: rgba(59, 53, 48, 0.9);
+}
+
+.museum-map__topline {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid rgba(71, 65, 58, 0.2);
+}
+
+.museum-map__label {
+  margin: 0;
+
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.museum-map__close {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid rgba(71, 65, 58, 0.4);
+  background: transparent;
+  padding: 3px 0;
+
+  color: inherit;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.museum-map__blueprint {
+  position: absolute;
+  inset: 72px 34px 30px;
+}
+
+/* ---------- shared room treatment ---------- */
+
+.museum-map__room {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 112px;
+  min-height: 46px;
+  padding: 10px 14px;
+
+  border: 1px solid rgba(67, 61, 55, 0.48);
+  background: rgba(242, 237, 227, 0.34);
+
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.museum-map__room:hover,
+.museum-map__room:focus-visible {
+  background: rgba(255, 252, 244, 0.72);
+  border-color: rgba(60, 54, 48, 0.78);
+  outline: none;
+}
+
+/* Current physical location */
+.museum-map__room[data-current="true"] {
+  background: rgba(255, 249, 225, 0.72);
+  border-color: rgba(119, 96, 54, 0.78);
+
+  box-shadow:
+    0 0 0 4px rgba(196, 164, 94, 0.1),
+    0 0 22px rgba(196, 164, 94, 0.38),
+    inset 0 0 18px rgba(255, 244, 196, 0.28);
+}
+
+/* ============================================================
+   BUILDING PLAN
+
+                       NARTHEX
+                         ↑
+                    REAR GALLERY
+                         ↑
+                       GROTTO
+                         ↑
+                       GARDEN
+                         ↑
+                    FRONT GALLERY
+                         ↑
+                      VESTIBULE
+
+   RED ROOM ←──────── VESTIBULE ────────→ WATER ROOM
+                                            ↓
+                                         FILM ROOM
+
+   CURRENT branches from Vestibule.
+   Reading / Index / Archive branch from Narthex.
+   Cloisters deliberately sit outside ordinary circulation.
+   ============================================================ */
+
+/* Main central axis */
+
+.museum-map__room[data-room="vestibule"] {
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  width: 180px;
+}
+
+.museum-map__room[data-room="front-gallery"] {
+  left: 50%;
+  bottom: 17%;
+  transform: translateX(-50%);
+  width: 190px;
+}
+
+.museum-map__room[data-room="garden"] {
+  left: 50%;
+  bottom: 33%;
+  transform: translateX(-50%);
+  width: 220px;
+  min-height: 64px;
+}
+
+.museum-map__room[data-room="grotto"] {
+  left: 50%;
+  bottom: 49%;
+  transform: translateX(-50%);
+  width: 190px;
+}
+
+.museum-map__room[data-room="rear-gallery"] {
+  left: 50%;
+  bottom: 64%;
+  transform: translateX(-50%);
+  width: 190px;
+}
+
+.museum-map__room[data-room="narthex"] {
+  left: 50%;
+  top: 1%;
+  transform: translateX(-50%);
+  width: 230px;
+}
+
+/* Vestibule side rooms */
+
+.museum-map__room[data-room="red-room"] {
+  left: 4%;
+  bottom: 11%;
+  width: 155px;
+  min-height: 108px;
+}
+
+.museum-map__room[data-room="water-room"] {
+  right: 4%;
+  bottom: 11%;
+  width: 155px;
+  min-height: 108px;
+}
+
+.museum-map__room[data-room="current"] {
+  left: 23%;
+  bottom: 2%;
+  width: 132px;
+}
+
+/* Moving image nested beyond Water Room */
+
+.museum-map__room[data-room="film-room"] {
+  right: 5%;
+  bottom: 34%;
+  width: 145px;
+}
+
+/* Narthex reference rooms */
+
+.museum-map__room[data-room="reading-room"] {
+  left: 20%;
+  top: 2%;
+  width: 145px;
+}
+
+.museum-map__room[data-room="index"] {
+  right: 22%;
+  top: 2%;
+  width: 115px;
+}
+
+.museum-map__room[data-room="archive"] {
+  right: 6%;
+  top: 2%;
+  width: 125px;
+}
+
+/* Exterior */
+
+.museum-map__room[data-room="exterior"] {
+  left: 50%;
+  bottom: -7%;
+  transform: translateX(-50%);
+  width: 150px;
+  opacity: 0.68;
+}
+
+/* Map-only sensory space */
+
+.museum-map__room[data-room="cloisters"] {
+  left: 3%;
+  top: 29%;
+  width: 145px;
+
+  border-style: dashed;
+  opacity: 0.72;
+}
+
+/* ---------- architectural circulation lines ---------- */
+
+.museum-map__blueprint::before {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  top: 8%;
+  bottom: 8%;
+
+  width: 1px;
+
+  background: rgba(67, 61, 55, 0.28);
+
+  z-index: -1;
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 720px) {
+  .museum-map-overlay {
+    padding: 10px;
+  }
+
+  .museum-map {
+    width: 100%;
+    height: 94vh;
+  }
+
+  .museum-map__blueprint {
+    inset: 64px 12px 18px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .museum-map__blueprint::before {
+    display: none;
+  }
+
+  .museum-map__room {
+    position: static !important;
+    transform: none !important;
+
+    width: 100% !important;
+    min-height: 44px !important;
+  }
+
+  .museum-map__room[data-room="cloisters"] {
+    margin-top: 16px;
+  }
+
+  .museum-map__room[data-room="exterior"] {
+    order: -1;
+  }
+}
