@@ -6,7 +6,6 @@ import { mapRooms, museumCollections, type MuseumRoomId } from "@/lib/museum";
 
 const supplementalCollections: Partial<Record<MuseumRoomId, string[]>> = {
   current: ["Maria Burns Her Wedding Dress"],
-  "film-room": ["Body of Water — film"],
 };
 
 function roomCollections(roomId: MuseumRoomId) {
@@ -85,23 +84,39 @@ export function MuseumMap({
             const collections = roomCollections(room.id);
 
             if (room.id === "cloisters") {
+              const passageEvents = {
+                onMouseEnter: () => setHoveredRoom(room.id),
+                onMouseLeave: () => setHoveredRoom(undefined),
+                onFocus: () => setHoveredRoom(room.id),
+                onBlur: () => setHoveredRoom(undefined),
+              };
+
               return (
-                <Link
+                <div
                   key={room.id}
-                  href={room.href}
-                  className="museum-map__room museum-map__room--cloisters"
+                  className="museum-map__cloisters-group"
                   data-room={room.id}
                   data-current={isCurrent ? "true" : "false"}
-                  aria-current={isCurrent ? "location" : undefined}
-                  onClick={onClose}
-                  onMouseEnter={() => setHoveredRoom(room.id)}
-                  onMouseLeave={() => setHoveredRoom(undefined)}
-                  onFocus={() => setHoveredRoom(room.id)}
-                  onBlur={() => setHoveredRoom(undefined)}
                 >
-                  <span className="museum-map__cloister-label museum-map__cloister-label--left">Cloisters</span>
-                  <span className="museum-map__cloister-label museum-map__cloister-label--right">Cloisters</span>
-                </Link>
+                  <Link
+                    href={room.href}
+                    className="museum-map__cloister-passage museum-map__cloister-passage--left"
+                    aria-current={isCurrent ? "location" : undefined}
+                    onClick={onClose}
+                    {...passageEvents}
+                  >
+                    <span className="museum-map__cloister-label">Cloisters</span>
+                  </Link>
+                  <Link
+                    href={room.href}
+                    className="museum-map__cloister-passage museum-map__cloister-passage--right"
+                    aria-current={isCurrent ? "location" : undefined}
+                    onClick={onClose}
+                    {...passageEvents}
+                  >
+                    <span className="museum-map__cloister-label">Cloisters</span>
+                  </Link>
+                </div>
               );
             }
 
