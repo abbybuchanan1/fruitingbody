@@ -1,10 +1,12 @@
 import { ArchitecturalLink } from "@/components/ArchitecturalLink";
+import { VestibuleDapple } from "@/components/VestibuleDapple";
 
 export default function VestibulePage() {
   return (
     <main className="vestibule">
       <div className="vestibule__stone" aria-hidden="true" />
       <div className="vestibule__shadow" aria-hidden="true" />
+      <VestibuleDapple />
       <div className="vestibule__light" aria-hidden="true" />
 
       <section className="vestibule__space" aria-label="Vestibule">
