@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { artistStatement, fruitingBodyStatement, processStatement } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 
@@ -40,14 +41,7 @@ export default function ArchivePage() {
               <Link href={work.href}>View installed work</Link>
             </header>
 
-            <div className="archive-work__grid">
-              {work.archive.map((image, index) => (
-                <figure className="archive-image" key={`${work.id}-archive-${image.src}-${index}`}>
-                  <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-                  {image.title ? <figcaption>{image.title}</figcaption> : null}
-                </figure>
-              ))}
-            </div>
+            <ArtworkLightboxGrid images={work.archive} mode="archive" />
 
             {work.reflection?.length ? (
               <details className="archive-reflection">
