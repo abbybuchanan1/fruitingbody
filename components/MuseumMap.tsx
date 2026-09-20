@@ -49,36 +49,41 @@ export function MuseumMap({
         </div>
 
         <div className="museum-map__blueprint">
-          {currentLocation ? <div className="museum-map__current-surface" data-room={currentLocation} aria-hidden="true" /> : null}
-          {hoveredRoom && hoveredRoom !== currentLocation ? <div className="museum-map__hover-surface" data-room={hoveredRoom} aria-hidden="true" /> : null}
+          {currentLocation ? (
+            <div className="museum-map__current-surface" data-room={currentLocation} aria-hidden="true" />
+          ) : null}
+          {hoveredRoom && hoveredRoom !== currentLocation ? (
+            <div className="museum-map__hover-surface" data-room={hoveredRoom} aria-hidden="true" />
+          ) : null}
+
           <svg className="museum-map__drawing" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
             <g className="museum-map__drawing-primary">
-              <path d="M292 42 H708 V120 H292 Z" />
-              <path d="M292 120 C246 120 218 151 218 194 V574 C218 616 245 638 292 638" />
-              <path d="M708 120 C754 120 782 151 782 194 V574 C782 616 755 638 708 638" />
-              <path d="M292 638 H708" />
-              <path d="M126 196 H218 V574 H126 Z" />
-              <path d="M782 196 H874 V574 H782 Z" />
-              <path d="M397 142 H603 V188 H397 Z" />
-              <path d="M414 208 H586 V548 H414 Z" />
-              <path d="M414 360 H586" />
-              <path d="M397 566 H603 V614 H397 Z" />
-              <path d="M365 224 H344 V532 H365" />
-              <path d="M635 224 H656 V532 H635" />
-              <path d="M292 638 H708 V686 H292 Z" />
-              <path d="M454 638 C466 620 534 620 546 638" />
-              <path d="M708 626 H902 V678 H708" />
-              <ellipse cx="828" cy="288" rx="29" ry="51" transform="rotate(-18 828 288)" />
-              {/* Narthex subspaces stay quiet: room labels do the work rather than decorative bubbles. */}
-              <path d="M306 64 Q306 52 318 52 H392 Q404 52 404 64 V99 H306 Z" />
-              <path d="M586 64 Q586 52 598 52 H632 Q644 52 644 64 V99 H586 Z" />
-              <path d="M650 64 Q650 52 662 52 H682 Q694 52 694 64 V99 H650 Z" />
+              <path d="M292 30 H708 V118 H292 Z" />
+              <path d="M292 118 C246 118 218 149 218 192 V564 C218 608 245 630 292 630" />
+              <path d="M708 118 C754 118 782 149 782 192 V564 C782 608 755 630 708 630" />
+              <path d="M292 630 H708" />
+              <path d="M126 190 H218 V564 H126 Z" />
+              <path d="M782 190 H874 V564 H782 Z" />
+              <path d="M397 136 H603 V184 H397 Z" />
+              <path d="M414 204 H586 V538 H414 Z" />
+              <path d="M414 354 H586" />
+              <path d="M397 556 H603 V604 H397 Z" />
+              <path d="M365 220 H344 V522 H365" />
+              <path d="M635 220 H656 V522 H635" />
+              <path d="M292 630 H708 V680 H292 Z" />
+              <path d="M454 630 C466 612 534 612 546 630" />
+              <path d="M708 616 H902 V670 H708" />
+              <rect x="808" y="242" width="62" height="94" rx="24" />
+              <path d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />
+              <path d="M570 53 Q570 43 582 43 H626 Q638 43 638 53 V98 H570 Z" />
+              <path d="M652 53 Q652 43 664 43 H708 Q720 43 720 53 V98 H652 Z" />
             </g>
           </svg>
 
           {mapRooms.map((room) => {
             const isCurrent = room.id === currentLocation;
             const collections = roomCollections(room.id);
+
             return (
               <Link
                 key={room.id}
@@ -99,7 +104,9 @@ export function MuseumMap({
                 <span className="museum-map__room-name">{room.title}</span>
                 {collections.length ? (
                   <span className="museum-map__collections">
-                    {collections.map((title) => <span className="museum-map__collection" key={title}>{title}</span>)}
+                    {collections.map((title) => (
+                      <span className="museum-map__collection" key={title}>{title}</span>
+                    ))}
                   </span>
                 ) : null}
               </Link>

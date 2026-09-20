@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./next-pass.css";
 import { SiteNav } from "@/components/SiteNav";
 
 export const metadata: Metadata = {

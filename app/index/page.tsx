@@ -1,41 +1,58 @@
 import Link from "next/link";
-import { indexedCollections } from "@/lib/museum";
+import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
 export default function IndexPage() {
   return (
-    <main className="utility-page">
-      <p className="eyebrow">Collections</p>
-      <h1>Index</h1>
+    <main className="index-page">
+      <header className="utility-header">
+        <p className="utility-header__eyebrow">Fruiting Body</p>
+        <h1>Index</h1>
+        <p>
+          A fast view of the installed work. Image order follows the museum rooms.
+        </p>
+      </header>
 
-      <section aria-labelledby="index-collections-title">
-        <h2 id="index-collections-title">Installed works</h2>
-        <ul className="index-list">
-          {indexedCollections.map((collection) => (
-            <li key={collection.id}>
-              <Link href={collection.href}>{collection.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div className="index-page__groups">
+        {indexGroups.map((group) => (
+          <section className="index-room-group" key={group.room}>
+            <h2>{group.room}</h2>
 
-      <section aria-labelledby="index-spaces-title">
-        <h2 id="index-spaces-title">Museum</h2>
-        <ul className="index-list">
-          <li>
-            <Link href="/current">Current</Link>
-          </li>
-          <li>
-            <Link href="/reading-room">Reading Room</Link>
-          </li>
-          <li>
-            <Link href="/archive">Archive</Link>
-          </li>
-          <li>
-            <Link href="/narthex">Narthex</Link>
-          </li>
-        </ul>
-      </section>
-          <Link className="utility-return-to-narthex" href="/narthex?arrived=1">Return to Narthex</Link>
+            {group.ids.map((id) => {
+              const work = museumWorksById[id as WorkId];
+              return (
+                <article className="index-work" key={work.id}>
+                  <header className="index-work__header">
+                    <div>
+                      <p className="index-work__meta">{work.year} · {work.medium}</p>
+                      <h3><Link href={work.href}>{work.title}</Link></h3>
+                    </div>
+                    <p className="index-work__statement">{work.statement}</p>
+                    <p className="index-work__question">{work.question}</p>
+                  </header>
+
+                  <div className="index-work__grid">
+                    {work.exhibition.map((image, index) => (
+                      <figure className="index-thumb" key={`${work.id}-${image.src}-${index}`}>
+                        <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+                        {image.title ? <figcaption>{image.title}</figcaption> : null}
+                      </figure>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </section>
+        ))}
+      </div>
+
+      <aside className="index-moving-image">
+        <p className="index-work__meta">Water Room · Moving image</p>
+        <Link href="/film-room?from=water-room">Body of Water — film</Link>
+      </aside>
+
+      <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
+        Return to Narthex
+      </Link>
     </main>
   );
 }

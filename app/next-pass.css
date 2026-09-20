@@ -1,0 +1,739 @@
+/* ============================================
+   FRUITING BODY — INTEGRATED PRE-LAUNCH PASS
+   This file intentionally overrides prototype CSS
+   without destabilizing the existing room builds.
+   ============================================ */
+
+:root {
+  --paper: #eee8dc;
+  --paper-deep: #ded4c3;
+  --ink: #27241f;
+  --ink-soft: #5c574e;
+  --cream: #f2eadc;
+  --warm-line: rgba(63, 51, 38, 0.18);
+  --current-glow: rgba(179, 179, 126, 0.28);
+  --hover-glow: rgba(186, 124, 83, 0.28);
+}
+
+/* Shared opening hierarchy */
+.room-opening {
+  position: relative;
+  z-index: 4;
+  width: min(92vw, 1180px);
+  margin: 0 auto;
+  padding: clamp(9rem, 16vh, 15rem) 4vw clamp(10rem, 20vh, 18rem);
+}
+
+.room-opening--secondary {
+  padding-top: clamp(12rem, 22vh, 20rem);
+}
+
+.work-intro-card {
+  width: min(720px, 86vw);
+  padding: clamp(1.4rem, 2.8vw, 2.5rem);
+  background: rgba(240, 233, 220, 0.72);
+  color: var(--ink);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 14px 50px rgba(22, 18, 14, 0.08);
+}
+
+.work-intro-card__room {
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: rgba(39, 36, 31, 0.66);
+}
+
+.work-intro-card h1,
+.work-intro-card h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.6rem, 6vw, 6rem);
+  line-height: 0.96;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.work-intro-card__statement {
+  max-width: 58ch;
+  margin: 1.35rem 0 0;
+  line-height: 1.6;
+  color: rgba(39, 36, 31, 0.9);
+}
+
+.work-intro-card__note {
+  margin: 1rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(39, 36, 31, 0.14);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(39, 36, 31, 0.62);
+}
+
+.room-opening__question {
+  width: min(660px, 82vw);
+  margin: clamp(7rem, 15vh, 12rem) auto 0;
+  font-size: clamp(1.35rem, 2.4vw, 2.4rem);
+  line-height: 1.35;
+  font-weight: 400;
+  text-align: center;
+  color: var(--cream);
+  text-wrap: balance;
+}
+
+.relative-page .room-opening__question,
+.garden-page .room-opening__question {
+  color: #39372f;
+}
+
+.room-opening--red .work-intro-card {
+  background: rgba(246, 220, 215, 0.73);
+}
+
+.room-opening--water .work-intro-card {
+  background: rgba(22, 31, 29, 0.58);
+  color: #f1eadc;
+}
+
+.room-opening--water .work-intro-card h1,
+.room-opening--water .work-intro-card h2,
+.room-opening--water .work-intro-card__statement {
+  color: #f3ecdf;
+}
+
+.room-opening--water .work-intro-card__room,
+.room-opening--water .work-intro-card__note {
+  color: rgba(243, 236, 223, 0.72);
+}
+
+.room-opening--water .work-intro-card__note {
+  border-top-color: rgba(243, 236, 223, 0.18);
+}
+
+/* Relative: opening now matches the shared room language */
+.relative-intro,
+.relative-wall-card {
+  display: none !important;
+}
+
+/* Red Room spacing + seam suppression */
+.environmental-panel-sequence__panel-wrap {
+  overflow: hidden;
+  margin-top: -3px;
+}
+
+.environmental-panel-sequence__panel-wrap:first-child {
+  margin-top: 0;
+}
+
+.environmental-panel-sequence__panel {
+  display: block;
+  width: 100%;
+  transform: scaleY(1.006);
+  transform-origin: center;
+}
+
+.red-thread-installation .art-sequence {
+  gap: clamp(8rem, 18vh, 15rem) !important;
+}
+
+.red-thread-installation .artwork-image,
+.red-thread-installation .artwork-image::before,
+.red-thread-installation .artwork-image::after {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.red-thread-installation .artwork-image::before,
+.red-thread-installation .artwork-image::after {
+  display: none !important;
+}
+
+.red-room-project--membrane .art-sequence {
+  gap: clamp(8rem, 16vh, 14rem) !important;
+}
+
+/* Water Room: card/question first, first work nearer the environment seam */
+.water-room__header {
+  min-height: 112vh;
+}
+
+.water-room__header .room-opening {
+  padding-top: clamp(7rem, 12vh, 10rem);
+  padding-bottom: clamp(4rem, 8vh, 7rem);
+}
+
+.water-room-installation {
+  margin-top: clamp(-8rem, -8vh, -3rem);
+}
+
+/* Narthex transition continuity */
+.narthex-transition__video,
+.narthex-room__environment {
+  object-position: 50% 50% !important;
+}
+
+/* Site navigation: quiet museum text, no pills */
+.site-nav {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.site-nav a,
+.site-nav button,
+.site-nav__map {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.35rem 0.45rem !important;
+}
+
+/* Museum map */
+.museum-map-overlay {
+  background: rgba(26, 24, 21, 0.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.museum-map {
+  background:
+    linear-gradient(rgba(239, 235, 225, 0.88), rgba(239, 235, 225, 0.88)),
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,0.7), transparent 55%) !important;
+  color: #282620 !important;
+  box-shadow: 0 20px 70px rgba(20, 17, 13, 0.18) !important;
+}
+
+.museum-map__blueprint {
+  transform: translateY(-12px);
+}
+
+.museum-map__drawing {
+  stroke: rgba(39, 37, 31, 0.62) !important;
+  stroke-width: 1.15 !important;
+}
+
+.museum-map__room,
+.museum-map__room-name {
+  color: #24231f !important;
+}
+
+.museum-map__collection {
+  color: rgba(36, 35, 31, 0.56) !important;
+}
+
+.museum-map__room-name {
+  font-weight: 500;
+}
+
+.museum-map__current-surface,
+.museum-map__hover-surface {
+  position: absolute;
+  z-index: 0;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.museum-map__current-surface {
+  background: var(--current-glow);
+  box-shadow: 0 0 28px rgba(171, 170, 112, 0.18);
+}
+
+.museum-map__hover-surface {
+  background: var(--hover-glow);
+  box-shadow: 0 0 26px rgba(186, 124, 83, 0.16);
+}
+
+.museum-map__current-surface[data-room="front-gallery"],
+.museum-map__hover-surface[data-room="front-gallery"] { left: 39.7%; top: 19.4%; width: 20.6%; height: 7%; }
+.museum-map__current-surface[data-room="garden"],
+.museum-map__hover-surface[data-room="garden"] { left: 41.4%; top: 29.1%; width: 17.2%; height: 21.4%; }
+.museum-map__current-surface[data-room="grotto"],
+.museum-map__hover-surface[data-room="grotto"] { left: 41.4%; top: 50.5%; width: 17.2%; height: 26.4%; }
+.museum-map__current-surface[data-room="rear-gallery"],
+.museum-map__hover-surface[data-room="rear-gallery"] { left: 39.7%; top: 79.4%; width: 20.6%; height: 7%; }
+.museum-map__current-surface[data-room="red-room"],
+.museum-map__hover-surface[data-room="red-room"] { left: 12.6%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="water-room"],
+.museum-map__hover-surface[data-room="water-room"] { left: 78.2%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="film-room"],
+.museum-map__hover-surface[data-room="film-room"] { left: 80.8%; top: 34.6%; width: 6.2%; height: 13.4%; border-radius: 24px; }
+.museum-map__current-surface[data-room="vestibule"],
+.museum-map__hover-surface[data-room="vestibule"] { left: 29.2%; top: 90%; width: 41.6%; height: 7.1%; }
+.museum-map__current-surface[data-room="exterior"],
+.museum-map__hover-surface[data-room="exterior"] { left: 45.4%; top: 90%; width: 9.2%; height: 7%; opacity: .65; }
+.museum-map__current-surface[data-room="current"],
+.museum-map__hover-surface[data-room="current"] { left: 70.8%; top: 88%; width: 19.4%; height: 7.7%; }
+.museum-map__current-surface[data-room="narthex"],
+.museum-map__hover-surface[data-room="narthex"] { left: 29.2%; top: 4.3%; width: 41.6%; height: 12.6%; }
+.museum-map__current-surface[data-room="reading-room"],
+.museum-map__hover-surface[data-room="reading-room"] { left: 31%; top: 6.1%; width: 12.2%; height: 6.5%; border-radius: 16px 16px 2px 2px; }
+.museum-map__current-surface[data-room="index"],
+.museum-map__hover-surface[data-room="index"] { left: 57%; top: 6.1%; width: 6.8%; height: 6.5%; border-radius: 16px 16px 2px 2px; }
+.museum-map__current-surface[data-room="archive"],
+.museum-map__hover-surface[data-room="archive"] { left: 65.2%; top: 6.1%; width: 6.8%; height: 6.5%; border-radius: 16px 16px 2px 2px; }
+
+.museum-map__current-surface[data-room="cloisters"],
+.museum-map__hover-surface[data-room="cloisters"] {
+  background: transparent;
+  box-shadow: none;
+  left: 34.2%;
+  top: 31.4%;
+  width: 31.4%;
+  height: 43.2%;
+}
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 6.8%;
+  height: 100%;
+  background: inherit;
+  background-color: var(--current-glow);
+}
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::before { left: 0; }
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::after { right: 0; }
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after { background-color: var(--hover-glow); }
+
+/* Cloisters */
+.cloisters-film {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #080908;
+}
+
+.cloisters-film__video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cloisters-film__veil {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 38%, rgba(5, 7, 6, 0.28) 100%),
+    linear-gradient(to bottom, rgba(7, 8, 7, 0.05), rgba(7, 8, 7, 0.18));
+  pointer-events: none;
+}
+
+.cloisters-film__label {
+  position: fixed;
+  left: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  color: rgba(245, 238, 222, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+}
+
+/* Current */
+.current-exhibition {
+  min-height: 100vh;
+  background: #16130f;
+  color: var(--cream);
+}
+
+.current-exhibition__inner {
+  padding-bottom: 12vh;
+}
+
+.current-exhibition .room-opening__question {
+  color: var(--cream);
+}
+
+.current-exhibition .art-sequence {
+  padding-inline: 5vw;
+}
+
+.current-room__return {
+  display: block;
+  width: max-content;
+  margin: 12vh auto 0;
+  color: var(--cream);
+}
+
+/* INDEX */
+.index-page,
+.archive-page {
+  min-height: 100vh;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,.48), transparent 28rem),
+    radial-gradient(circle at 78% 58%, rgba(170,143,102,.10), transparent 32rem),
+    repeating-linear-gradient(0deg, rgba(80,66,49,.018) 0 1px, transparent 1px 4px);
+  padding: clamp(6rem, 12vh, 10rem) clamp(1.2rem, 5vw, 5rem) 7rem;
+}
+
+.utility-header {
+  width: min(960px, 100%);
+  margin: 0 auto clamp(5rem, 10vh, 9rem);
+}
+
+.utility-header__eyebrow,
+.archive-work__room,
+.index-work__meta {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  color: rgba(39,36,31,.58);
+}
+
+.utility-header h1 {
+  margin: .45rem 0 1rem;
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.utility-header > p:last-child {
+  max-width: 52ch;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.index-page__groups {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+.index-room-group {
+  border-top: 1px solid var(--warm-line);
+  padding: 2rem 0 clamp(6rem, 11vh, 10rem);
+}
+
+.index-room-group > h2 {
+  margin: 0 0 3rem;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-weight: 500;
+}
+
+.index-work + .index-work {
+  margin-top: clamp(6rem, 12vh, 11rem);
+}
+
+.index-work__header {
+  display: grid;
+  grid-template-columns: minmax(220px, .75fr) minmax(260px, 1fr) minmax(260px, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+.index-work__header h3 {
+  margin: .35rem 0 0;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.index-work__header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.index-work__statement,
+.index-work__question {
+  margin: 0;
+  max-width: 42ch;
+  line-height: 1.55;
+}
+
+.index-work__question {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.index-work__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: clamp(.45rem, 1vw, .9rem);
+  align-items: start;
+}
+
+.index-thumb {
+  margin: 0;
+}
+
+.index-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  background: rgba(255,255,255,.18);
+}
+
+.index-thumb figcaption {
+  padding-top: .45rem;
+  font-size: .72rem;
+  color: var(--ink-soft);
+}
+
+.index-moving-image {
+  width: min(1500px, 100%);
+  margin: 0 auto 6rem;
+  border-top: 1px solid var(--warm-line);
+  padding-top: 2rem;
+}
+
+.index-moving-image a {
+  color: inherit;
+  font-size: 1.4rem;
+}
+
+/* ARCHIVE */
+.archive-practice {
+  width: min(1180px, 100%);
+  margin: 0 auto clamp(7rem, 14vh, 12rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 4rem);
+  border-top: 1px solid var(--warm-line);
+  border-bottom: 1px solid var(--warm-line);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.archive-text-block h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+
+.archive-text-block p,
+.archive-work__header p,
+.archive-reflection p {
+  line-height: 1.68;
+}
+
+.archive-works {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+.archive-work {
+  border-top: 1px solid var(--warm-line);
+  padding: clamp(3rem, 7vh, 6rem) 0 clamp(7rem, 14vh, 12rem);
+}
+
+.archive-work__header {
+  width: min(760px, 100%);
+  margin-bottom: 3rem;
+}
+
+.archive-work__header h2 {
+  margin: .4rem 0 .7rem;
+  font-size: clamp(2.4rem, 5vw, 5.2rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+
+.archive-work__meta {
+  color: var(--ink-soft);
+}
+
+.archive-work__history {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(107,82,60,.35);
+  color: var(--ink-soft);
+}
+
+.archive-work__header a {
+  display: inline-block;
+  margin-top: .8rem;
+  color: inherit;
+}
+
+.archive-work__grid {
+  columns: 4 240px;
+  column-gap: clamp(.65rem, 1.4vw, 1.25rem);
+}
+
+.archive-image {
+  break-inside: avoid;
+  margin: 0 0 clamp(.65rem, 1.4vw, 1.25rem);
+}
+
+.archive-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.archive-image figcaption {
+  padding-top: .45rem;
+  font-size: .76rem;
+  color: var(--ink-soft);
+}
+
+.archive-reflection {
+  width: min(760px, 100%);
+  margin-top: clamp(3rem, 7vh, 6rem);
+  border-top: 1px solid var(--warm-line);
+  border-bottom: 1px solid var(--warm-line);
+}
+
+.archive-reflection summary {
+  cursor: pointer;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .75rem;
+}
+
+.archive-reflection__body {
+  padding: 0 0 1.5rem;
+}
+
+/* READING ROOM */
+.reading-room-page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #2b2116;
+  color: #f4ead8;
+}
+
+.reading-room-page__image {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(35,26,17,.06) 0 45%, rgba(20,16,12,.48) 74%, rgba(12,10,8,.75) 100%),
+    radial-gradient(circle at 34% 24%, rgba(222,167,80,.54), transparent 30rem),
+    linear-gradient(145deg, #8f5b25 0%, #4b351f 38%, #1b1712 100%);
+  background-image:
+    linear-gradient(90deg, rgba(35,26,17,.02) 0 45%, rgba(20,16,12,.46) 74%, rgba(12,10,8,.76) 100%),
+    url("/media/reading-room/reading-room-background.jpg"),
+    radial-gradient(circle at 34% 24%, rgba(222,167,80,.54), transparent 30rem);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(.82) brightness(.82);
+  transform: scale(1.025);
+}
+
+.reading-room-page__veil {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 36% 33%, transparent 0 20%, rgba(15,12,9,.08) 47%, rgba(15,12,9,.42) 100%),
+    linear-gradient(to bottom, rgba(9,8,7,.03), rgba(9,8,7,.28));
+  backdrop-filter: blur(1.8px);
+}
+
+.reading-room-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(680px, 88vw);
+  margin-left: auto;
+  padding: clamp(7rem, 13vh, 11rem) clamp(1.4rem, 5vw, 5rem) 6rem;
+  min-height: 100svh;
+  background: linear-gradient(90deg, transparent, rgba(23,19,14,.3) 12%, rgba(23,19,14,.52));
+}
+
+.reading-room-page__header > p:first-child {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: rgba(244,234,216,.66);
+}
+
+.reading-room-page__header h1 {
+  margin: .5rem 0 1rem;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.reading-room-page__header > p:last-child {
+  max-width: 44ch;
+  line-height: 1.6;
+  color: rgba(244,234,216,.78);
+}
+
+.reading-room-shelf {
+  margin-top: clamp(4rem, 9vh, 7rem);
+  border-top: 1px solid rgba(244,234,216,.22);
+}
+
+.reading-room-poem {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(244,234,216,.18);
+}
+
+.reading-room-poem h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
+  font-weight: 400;
+}
+
+.reading-room-poem p {
+  margin: .3rem 0 0;
+  font-size: .72rem;
+  color: rgba(244,234,216,.56);
+}
+
+.reading-room-poem a,
+.reading-room-page__return {
+  color: rgba(244,234,216,.86);
+  text-underline-offset: .25em;
+  white-space: nowrap;
+}
+
+.reading-room-page__return {
+  display: inline-block;
+  margin-top: 4rem;
+}
+
+/* Keep utility return language consistent */
+.utility-return-to-narthex {
+  color: inherit;
+  text-underline-offset: .25em;
+}
+
+/* Responsive utility rooms */
+@media (max-width: 860px) {
+  .index-work__header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .archive-practice {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-work__grid {
+    columns: 2 150px;
+  }
+
+  .reading-room-page__content {
+    width: 100%;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    background: rgba(23,19,14,.46);
+  }
+
+  .reading-room-page__image {
+    background-position: 40% center;
+  }
+}

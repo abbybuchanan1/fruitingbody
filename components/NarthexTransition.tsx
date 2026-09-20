@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 type Source = "red-room" | "water-room" | "exhibition";
 type Props = { from: Source; startImmediately?: boolean; id?: string };
 
-const VIDEO_HOLD_MS = 2600;
+const SETTLE_MS = 120;
 
 export function NarthexTransition({ from, startImmediately = false, id }: Props) {
   const router = useRouter();
@@ -15,10 +15,9 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const arrivedRef = useRef(false);
-  const holdTimerRef = useRef<number | null>(null);
+  const timerRef = useRef<number | null>(null);
   const [started, setStarted] = useState(startImmediately && !returning);
   const [armed, setArmed] = useState(!returning);
-  const [holding, setHolding] = useState(false);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
   }, [startImmediately, returning, armed, started]);
 
   useEffect(() => () => {
-    if (holdTimerRef.current) window.clearTimeout(holdTimerRef.current);
+    if (timerRef.current) window.clearTimeout(timerRef.current);
   }, []);
 
   const arrive = () => {
@@ -67,17 +66,16 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
     router.replace(`/narthex?from=${encodeURIComponent(from)}&arrived=1`);
   };
 
-  const holdThenArrive = () => {
-    if (holding || arrivedRef.current) return;
-    setHolding(true);
-    holdTimerRef.current = window.setTimeout(arrive, VIDEO_HOLD_MS);
+  const finish = () => {
+    if (arrivedRef.current) return;
+    timerRef.current = window.setTimeout(arrive, SETTLE_MS);
   };
 
   return (
     <section
       id={id}
       ref={sectionRef}
-      className={`narthex-transition${started ? " is-playing" : ""}${holding ? " is-holding" : ""}`}
+      className={`narthex-transition${started ? " is-playing" : ""}`}
       aria-label="Passage into the Narthex"
     >
       <div className="narthex-transition__wash" aria-hidden="true" />
@@ -89,7 +87,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
           muted
           playsInline
           preload="auto"
-          onEnded={holdThenArrive}
+          onEnded={finish}
           onError={() => setFailed(true)}
         />
       </div>

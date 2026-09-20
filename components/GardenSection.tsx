@@ -1,5 +1,6 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
-import { artworkSets } from "@/lib/artworks";
+import { WorkIntroCard } from "@/components/WorkIntroCard";
+import { museumWorksById } from "@/lib/works";
 
 export function GardenSection({
   showExit = false,
@@ -8,6 +9,10 @@ export function GardenSection({
   showExit?: boolean;
   embedded?: boolean;
 }) {
+  const daffodils = museumWorksById.daffodils;
+  const fearNot = museumWorksById["fear-not"];
+  const taste = museumWorksById["taste-and-see"];
+
   return (
     <section
       id="garden"
@@ -16,89 +21,33 @@ export function GardenSection({
       <div className="garden-environment" aria-hidden="true" />
 
       <div className="garden-content">
-        <section
-          id="daffodils"
-          className="garden-section garden-section--daffodils"
-          aria-labelledby="daffodils-title"
-        >
-          <div className="garden-section__question-block">
-            <p className="garden-section__eyebrow">Garden</p>
-            <p className="garden-section__question">
-              What forms of freedom remain available inside the conditions that
-              make us?
-            </p>
+        <section id="daffodils" className="garden-section garden-section--daffodils">
+          <div className="room-opening">
+            <WorkIntroCard
+              room="Garden"
+              title={daffodils.title}
+              statement={daffodils.statement}
+              headingLevel={1}
+            />
+            <p className="room-opening__question">{daffodils.question}</p>
           </div>
-
-          <div className="garden-wall-card">
-            <h1 id="daffodils-title">
-              This Morning I Was Gathering Daffodils
-            </h1>
-            <p>
-              The work investigates the relationship between agency and
-              inevitability, exploring forms of sovereignty that emerge through
-              participation rather than escape.
-            </p>
-          </div>
-
-          <ArtworkSequence
-            artworks={artworkSets.daffodils}
-            label="This Morning I Was Gathering Daffodils"
-            mode="varied"
-          />
+          <ArtworkSequence artworks={daffodils.exhibition} label={daffodils.title} mode="varied" />
         </section>
 
-        <section
-          id="fear-not"
-          className="garden-section garden-section--fear-not"
-          aria-labelledby="fear-not-title"
-        >
-          <div className="garden-section__question-block">
-            <p className="garden-section__question">
-              What becomes possible when curiosity matters more than certainty?
-            </p>
+        <section id="fear-not" className="garden-section garden-section--fear-not">
+          <div className="room-opening room-opening--secondary">
+            <WorkIntroCard room="Garden" title={fearNot.title} statement={fearNot.statement} />
+            <p className="room-opening__question">{fearNot.question}</p>
           </div>
-
-          <div className="garden-wall-card">
-            <h2 id="fear-not-title">Fear Not</h2>
-            <p>
-              The work investigates curiosity as a transformative force,
-              reclaiming knowledge, desire, and participation from narratives
-              of transgression and fear.
-            </p>
-          </div>
-
-          <ArtworkSequence
-            artworks={artworkSets.fearNot}
-            label="Fear Not"
-            mode="varied"
-          />
+          <ArtworkSequence artworks={fearNot.exhibition} label={fearNot.title} mode="varied" />
         </section>
 
-        <section
-          id="taste-and-see"
-          className="garden-section garden-section--taste-and-see"
-          aria-labelledby="taste-and-see-title"
-        >
-          <div className="garden-section__question-block">
-            <p className="garden-section__question">
-              What is beauty when it no longer exists for the gaze of others?
-            </p>
+        <section id="taste-and-see" className="garden-section garden-section--taste-and-see">
+          <div className="room-opening room-opening--secondary">
+            <WorkIntroCard room="Garden" title={taste.title} statement={taste.statement} />
+            <p className="room-opening__question">{taste.question}</p>
           </div>
-
-          <div className="garden-wall-card">
-            <h2 id="taste-and-see-title">Taste and See</h2>
-            <p>
-              The work investigates beauty as an embodied experience rather
-              than a performed identity, asking what remains when beauty is no
-              longer organized around spectatorship.
-            </p>
-          </div>
-
-          <ArtworkSequence
-            artworks={artworkSets.taste}
-            label="Taste and See"
-            mode="varied"
-          />
+          <ArtworkSequence artworks={taste.exhibition} label={taste.title} mode="varied" />
         </section>
 
         {showExit ? (
