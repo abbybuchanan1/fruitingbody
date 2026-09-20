@@ -532,6 +532,7 @@ hope returns.
 The month
 I wonder
 if I can write a poem.`,
+  },
   {
     slug: "that-it-was",
     title: "That It Was",
