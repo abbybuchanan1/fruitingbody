@@ -13,26 +13,13 @@ export default function VestibulePage() {
         </div>
 
         <div className="vestibule__primary-passage">
-          <ArchitecturalLink href="/exhibition">
-            Through the arch
-          </ArchitecturalLink>
+          <ArchitecturalLink href="/exhibition">Exhibition</ArchitecturalLink>
         </div>
 
-        <nav
-          className="vestibule__side-passages"
-          aria-label="Paths from the vestibule"
-        >
-          <ArchitecturalLink href="/red-room">
-            Red Room
-          </ArchitecturalLink>
-
-          <ArchitecturalLink href="/water-room">
-            Water Room
-          </ArchitecturalLink>
-
-          <ArchitecturalLink href="/current">
-            Current
-          </ArchitecturalLink>
+        <nav className="vestibule__side-passages" aria-label="Paths from the vestibule">
+          <ArchitecturalLink href="/red-room">Red Room</ArchitecturalLink>
+          <ArchitecturalLink href="/water-room">Water Room</ArchitecturalLink>
+          <ArchitecturalLink href="/current">Current</ArchitecturalLink>
         </nav>
       </section>
     </main>

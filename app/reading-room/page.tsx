@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Room } from "@/components/Room";
 
 export default function ReadingRoomPage() {
@@ -7,6 +8,7 @@ export default function ReadingRoomPage() {
         <h2>Poetry will live here</h2>
         <p>The first build uses real semantic text and generous measure. No simulated bookshelves or page-turning interface.</p>
       </article>
+      <Link className="utility-return-to-narthex" href="/narthex?arrived=1">Return to Narthex</Link>
     </Room>
   );
 }

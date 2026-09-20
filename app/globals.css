@@ -7913,1053 +7913,169 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   }
 }
 /* ============================================================
+   RED ROOM — CANONICAL ENVIRONMENT + INSTALLATION
 
-
-   RED ROOM — FULL INSTALLATION OVERRIDE
-   Canonical environment:
-   red-room-environment-composite-v2.jpg
-
-   Paste this entire block at the END of globals.css.
-   ========================================================== */
-
-
-/* ----------------------------------------------------------
-   ROOM / ENVIRONMENT
-
-   The environment begins as recognizable architecture,
-   then progressively loses architectural specificity as
-   the viewer moves through the room.
-   ---------------------------------------------------------- */
+   One environmental strategy only:
+   EnvironmentalPanelSequence renders V2 → B → C → D.
+   Full-bleed panels overlap and feather at their seams so the
+   architecture reads as one continuous room.
+   ============================================================ */
 
 .room[data-environment="textile"] {
   position: relative;
   overflow: hidden;
-
-  background-color: #ead1cc;
-
-  background-image:
-    url("/media/architecture/red-room-environment-composite-v2.jpg");
-
-  background-repeat: no-repeat;
-
-  /*
-    Preserve the vertical logic of the authored composite.
-
-    Width is allowed to fill the viewport while the image
-    retains its natural proportions.
-  */
-  background-size: 100% auto;
-
-  background-position: center top;
-
+  padding: 0;
+  background: #ead1cc;
   color: rgba(37, 30, 27, 0.88);
 }
 
-
-/*
-  Remove / neutralize any older textile-environment layers
-  that may still be sitting over the new composite.
-*/
-
 .room[data-environment="textile"]::before,
 .room[data-environment="textile"]::after {
-  opacity: 0 !important;
-  background: none !important;
-  pointer-events: none;
+  content: none;
 }
-
-
-/*
-  The normal Room component constrains content.
-
-  Red Room needs to behave like an exhibition environment,
-  so its inner architecture occupies the viewport.
-*/
 
 .room[data-environment="textile"] .room__inner {
   position: relative;
-
   width: 100%;
   max-width: none;
-
   margin: 0;
-
-  padding:
-    0
-    0
-    24vh;
-
+  padding: 0 0 10vh;
   background: transparent;
 }
 
-
-/* ----------------------------------------------------------
-   RED ROOM — ENTRY / ROOM TITLE
-
-   Treat this as architectural identification rather than
-   an editorial hero.
-   ---------------------------------------------------------- */
-
-.room[data-environment="textile"] .room__header {
-  position: relative;
-  z-index: 2;
-
-  width:
-    min(28rem, 72vw);
-
-  min-height:
-    72vh;
-
-  margin:
-    0;
-
-  padding:
-    13vh
-    0
-    0
-    clamp(2rem, 6vw, 6rem);
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: flex-start;
-
-  align-items: flex-start;
-
-  color:
-    rgba(47, 38, 34, 0.74);
-}
-
-
-/*
-  "CONTINUOUS EXHIBITION"
-*/
-
-.room[data-environment="textile"]
-.room__header
-.eyebrow {
-  margin:
-    0
-    0
-    1.1rem;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size:
-    0.68rem;
-
-  font-weight:
-    500;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    0.18em;
-
-  text-transform:
-    uppercase;
-
-  color:
-    rgba(48, 38, 34, 0.60);
-}
-
-
-/*
-  RED ROOM
-*/
-
-.room[data-environment="textile"]
-.room__header
-h1 {
-  margin: 0;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size:
-    clamp(2.1rem, 4vw, 3.6rem);
-
-  font-weight:
-    400;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    -0.035em;
-
-  color:
-    rgba(42, 34, 31, 0.76);
-}
-
-
-/* ----------------------------------------------------------
-   MAIN FLOW
-   ---------------------------------------------------------- */
-
-.room[data-environment="textile"]
-.red-room-flow {
-  position: relative;
-
-  z-index: 2;
-
-  width: 100%;
-}
-
-
-/* ----------------------------------------------------------
-   PROJECT HEADERS
-
-   These should feel like quiet museum information appearing
-   within the environment — not website section headings.
-   ---------------------------------------------------------- */
-
-.room[data-environment="textile"]
-.red-room-project__header {
-  position: relative;
-
-  width:
-    min(37rem, 82vw);
-
-  margin-left:
-    clamp(2rem, 7vw, 7rem);
-
-  margin-right:
-    auto;
-
-  color:
-    rgba(47, 38, 34, 0.76);
-}
-
-
-.room[data-environment="textile"]
-.red-room-project__eyebrow {
-  margin:
-    0
-    0
-    1.35rem;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size:
-    0.70rem;
-
-  font-weight:
-    500;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    0.16em;
-
-  text-transform:
-    uppercase;
-
-  color:
-    rgba(47, 38, 34, 0.58);
-}
-
-
-.room[data-environment="textile"]
-.red-room-project__header
-h2 {
-  margin: 0;
-
-  max-width:
-    34rem;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size:
-    clamp(1.45rem, 2.5vw, 2.25rem);
-
-  font-weight:
-    400;
-
-  line-height:
-    1.22;
-
-  letter-spacing:
-    -0.025em;
-
-  color:
-    rgba(43, 35, 31, 0.76);
-}
-
-
-/* ==========================================================
-   RED THREAD
-   ========================================================== */
-
-.room[data-environment="textile"]
-.red-room-project--thread {
-  position: relative;
-
-  padding-top:
-    12vh;
-}
-
-
-.room[data-environment="textile"]
-.red-room-project--thread
-.red-room-project__header {
-  margin-bottom:
-    28vh;
-}
-
-
-/*
-  Red Thread remains recognizably "installed."
-
-  We want substantial breathing room around individual works
-  so the viewer remains conscious of the room itself.
-*/
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-sequence {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  gap:
-    42vh;
-
-  width: 100%;
-}
-
-
-/*
-  Baseline Red Thread artwork.
-*/
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image {
-  width:
-    min(52vw, 46rem);
-
-  margin:
-    0
-    auto;
-}
-
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image
-img {
-  display: block;
-
-  width: 100%;
-
-  height: auto;
-
-  max-height:
-    84vh;
-
-  object-fit:
-    contain;
-}
-
-
-/* ----------------------------------------------------------
-   RED THREAD — INDIVIDUAL INSTALLATION RHYTHM
-
-   Deliberately irregular.
-
-   This is the first strong pass; we'll evaluate the actual
-   images in-browser and tune from there.
-   ---------------------------------------------------------- */
-
-
-/* 01 — generous opening work */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(1) {
-  width:
-    min(68vw, 62rem);
-
-  transform:
-    translateX(6vw);
-}
-
-
-/* 02 — contraction */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(2) {
-  width:
-    min(38vw, 33rem);
-
-  transform:
-    translateX(-16vw);
-}
-
-
-/* 03 — grimace */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(3) {
-  width:
-    min(50vw, 43rem);
-
-  transform:
-    translateX(12vw);
-}
-
-
-/* 04 */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(4) {
-  width:
-    min(42vw, 37rem);
-
-  transform:
-    translateX(-11vw);
-}
-
-
-/* 05 */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(5) {
-  width:
-    min(57vw, 51rem);
-
-  transform:
-    translateX(7vw);
-}
-
-
-/* 06 */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(6) {
-  width:
-    min(35vw, 31rem);
-
-  transform:
-    translateX(-17vw);
-}
-
-
-/* 07 */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(7) {
-  width:
-    min(48vw, 42rem);
-
-  transform:
-    translateX(13vw);
-}
-
-
-/* 08 */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(8) {
-  width:
-    min(39vw, 35rem);
-
-  transform:
-    translateX(-13vw);
-}
-
-
-/*
-  09 — intentionally very large.
-
-  We discussed giving the ear/thread image unusually strong
-  physical presence. If the ear is a different sequence
-  number, we'll move this treatment after seeing the page.
-*/
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(9) {
-  width:
-    min(88vw, 78rem);
-
-  transform:
-    translateX(0);
-}
-
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(9)
-img {
-  max-height:
-    94vh;
-}
-
-
-/* 10 — quiet release after the large work */
-
-.room[data-environment="textile"]
-.red-thread-installation
-.artwork-image:nth-child(10) {
-  width:
-    min(43vw, 38rem);
-
-  transform:
-    translateX(10vw);
-}
-
-
-/* ==========================================================
-   ARCHITECTURE → MEMBRANE PASSAGE
-
-   Give the viewer enough duration to feel the room becoming
-   material rather than simply arriving at another section.
-   ========================================================== */
-
-.room[data-environment="textile"]
-.red-room-passage {
-  position: relative;
-
-  width: 100%;
-
-  height:
-    145vh;
-
-  margin-top:
-    26vh;
-
-  margin-bottom:
-    -4vh;
-
-  overflow:
-    hidden;
-
-  pointer-events:
-    none;
-}
-
-
-/*
-  Soft overlapping textile field.
-
-  This does NOT replace the authored composite beneath it.
-  It gently reduces architectural legibility as we approach
-  Membrane.
-*/
-
-.room[data-environment="textile"]
-.red-room-passage::before {
-  content: "";
-
-  position: absolute;
-
-  inset:
-    -20vh
-    -10vw;
-
-  background:
-
-    radial-gradient(
-      ellipse 65% 55% at 25% 32%,
-      rgba(250, 229, 225, 0.34) 0%,
-      rgba(246, 216, 212, 0.17) 38%,
-      rgba(240, 202, 199, 0) 72%
-    ),
-
-    radial-gradient(
-      ellipse 60% 70% at 78% 62%,
-      rgba(225, 167, 169, 0.24) 0%,
-      rgba(230, 184, 184, 0.11) 42%,
-      rgba(230, 184, 184, 0) 76%
-    );
-
-  filter:
-    blur(34px);
-
-  opacity:
-    0.92;
-}
-
-
-/*
-  A very faint veil creates the sensation of passing behind
-  another translucent layer.
-*/
-
-.room[data-environment="textile"]
-.red-room-passage::after {
-  content: "";
-
-  position: absolute;
-
-  top:
-    10%;
-
-  bottom:
-    5%;
-
-  left:
-    14%;
-
-  width:
-    58%;
-
-  background:
-    linear-gradient(
-      102deg,
-
-      rgba(255, 242, 237, 0) 0%,
-
-      rgba(255, 237, 233, 0.13) 24%,
-
-      rgba(244, 205, 203, 0.25) 52%,
-
-      rgba(235, 190, 191, 0.10) 76%,
-
-      rgba(235, 190, 191, 0) 100%
-    );
-
-  filter:
-    blur(22px);
-
-  transform:
-    skewX(-4deg);
-
-  opacity:
-    0.88;
-}
-
-
-/* ==========================================================
-   MEMBRANE
-   ========================================================== */
-
-.room[data-environment="textile"]
-.red-room-project--membrane {
-  position: relative;
-
-  padding-top:
-    16vh;
-
-  padding-bottom:
-    20vh;
-}
-
-
-/*
-  The Membrane question gets more empty space than Red Thread.
-
-  We are crossing from "works installed in a room" toward
-  images behaving almost as the room itself.
-*/
-
-.room[data-environment="textile"]
-.red-room-project--membrane
-.red-room-project__header {
-  width:
-    min(48rem, 84vw);
-
-  margin-bottom:
-    38vh;
-}
-
-
-.room[data-environment="textile"]
-.red-room-project--membrane
-.red-room-project__header
-h2 {
-  max-width:
-    46rem;
-}
-
-
-/* ----------------------------------------------------------
-   MEMBRANE INSTALLATION
-
-   Large, engulfing, little neutral wall remaining.
-   ---------------------------------------------------------- */
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-sequence {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  gap:
-    24vh;
-
-  width: 100%;
-}
-
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image {
-  width:
-    min(92vw, 92rem);
-
-  margin:
-    0
-    auto;
-
-  transform:
-    none;
-}
-
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image
-img {
-  display: block;
-
-  width: 100%;
-
-  height: auto;
-
-  max-height:
-    96vh;
-
-  object-fit:
-    contain;
-}
-
-
-/*
-  Slight breathing variation prevents six giant photographs
-  from becoming a mechanical slideshow.
-*/
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image:nth-child(2) {
-  width:
-    min(84vw, 84rem);
-
-  transform:
-    translateX(-4vw);
-}
-
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image:nth-child(3) {
-  width:
-    min(96vw, 96rem);
-
-  transform:
-    translateX(2vw);
-}
-
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image:nth-child(4) {
-  width:
-    min(88vw, 88rem);
-
-  transform:
-    translateX(-2vw);
-}
-
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image:nth-child(5) {
-  width:
-    min(96vw, 96rem);
-
-  transform:
-    translateX(1vw);
-}
-
-
-.room[data-environment="textile"]
-.membrane-installation
-.artwork-image:nth-child(6) {
-  width:
-    min(90vw, 90rem);
-
-  transform:
-    translateX(-3vw);
-}
-
-
-/* ==========================================================
-   RED ROOM — EXITS
-   ========================================================== */
-
-.room[data-environment="textile"]
-.red-room-exits {
-  position: relative;
-
-  z-index: 3;
-
-  width:
-    min(52rem, 84vw);
-
-  margin:
-    40vh
-    auto
-    12vh;
-
-  padding-top:
-    2rem;
-
-  border-top:
-    1px solid rgba(57, 43, 39, 0.16);
-}
-
-
-/* ==========================================================
-   RED ROOM — MOBILE
-   ========================================================== */
-
-@media (max-width: 700px) {
-
-  .room[data-environment="textile"] {
-    /*
-      Allow the architecture to remain legible rather than
-      aggressively cropping it on narrow screens.
-    */
-
-    background-size:
-      auto 100%;
-
-    background-position:
-      top center;
-  }
-
-
-  .room[data-environment="textile"]
-  .room__header {
-    width:
-      82vw;
-
-    min-height:
-      64vh;
-
-    padding:
-      12vh
-      0
-      0
-      7vw;
-  }
-
-
-  .room[data-environment="textile"]
-  .room__header
-  h1 {
-    font-size:
-      clamp(2rem, 11vw, 3.2rem);
-  }
-
-
-  .room[data-environment="textile"]
-  .red-room-project__header {
-    width:
-      84vw;
-
-    margin-left:
-      7vw;
-  }
-
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-sequence {
-    gap:
-      30vh;
-  }
-
-
-  /*
-    Remove desktop lateral staggering.
-
-    Scale variation remains.
-  */
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image {
-    transform:
-      none !important;
-  }
-
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(1) {
-    width: 88vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(2) {
-    width: 67vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(3) {
-    width: 79vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(4) {
-    width: 70vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(5) {
-    width: 84vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(6) {
-    width: 66vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(7) {
-    width: 80vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(8) {
-    width: 70vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(9) {
-    width: 96vw;
-  }
-
-  .room[data-environment="textile"]
-  .red-thread-installation
-  .artwork-image:nth-child(10) {
-    width: 78vw;
-  }
-
-
-  .room[data-environment="textile"]
-  .red-room-passage {
-    height:
-      105vh;
-  }
-
-
-  .room[data-environment="textile"]
-  .red-room-project--membrane
-  .red-room-project__header {
-    margin-bottom:
-      28vh;
-  }
-
-
-  .room[data-environment="textile"]
-  .membrane-installation
-  .artwork-sequence {
-    gap:
-      18vh;
-  }
-
-
-  .room[data-environment="textile"]
-  .membrane-installation
-  .artwork-image {
-    width:
-      96vw !important;
-
-    transform:
-      none !important;
-  }
-}
-
-
-/* ==========================================================
-   RED ROOM — REDUCED MOTION
-
-   Currently no essential animation is required.
-   This is here so later atmospheric motion can be added
-   without compromising the static installation.
-   ========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .room[data-environment="textile"] *,
-  .room[data-environment="textile"] *::before,
-  .room[data-environment="textile"] *::after {
-    animation:
-      none !important;
-
-    transition-duration:
-      0.01ms !important;
-  }
-}
-/* ==========================================================
-   RED ROOM — THREE-PANEL ENVIRONMENT TEST
-   ========================================================== */
-
-.room[data-environment="textile"] .red-room-environment {
+/* Reusable still-environment primitive. */
+.environmental-panel-sequence {
   position: absolute;
   z-index: 0;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: hidden;
+}
 
+.environmental-panel-sequence__panel-wrap {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+}
+
+.environmental-panel-sequence__panel-wrap + .environmental-panel-sequence__panel-wrap {
+  margin-top: -30vh;
+}
+
+.environmental-panel-sequence__panel {
+  display: block;
+  width: 100vw;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Soft overlap between architectural panels. Later panels feather
+   in over the previous panel instead of producing a hard seam. */
+.environmental-panel-sequence__panel-wrap:not(:first-child) {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,.06) 3%,
+    rgba(0,0,0,.34) 8%,
+    rgba(0,0,0,.72) 13%,
+    #000 19%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,.06) 3%,
+    rgba(0,0,0,.34) 8%,
+    rgba(0,0,0,.72) 13%,
+    #000 19%,
+    #000 100%
+  );
+}
+
+.environmental-panel-sequence__panel-wrap:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
-
   width: 100%;
-  height: auto;
-
+  height: 46vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(235, 205, 202, 0),
+    rgba(235, 205, 202, 0.18) 30%,
+    rgba(235, 205, 202, 0.10) 62%,
+    rgba(235, 205, 202, 0)
+  );
+  filter: blur(42px);
   pointer-events: none;
 }
 
-.room[data-environment="textile"] .red-room-environment img {
-  display: block;
+/* Panel C → D needs a longer dissolve; its source images carry the most
+   visible tonal discontinuity. */
 
-  width: 100%;
-  height: auto;
+/* Bridge the bottom of panel C into panel D so the source-image tonal
+   change reads as atmosphere rather than a horizontal join. */
+.environmental-panel-sequence__panel-wrap[data-panel-index="2"]::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: -4vw;
+  right: -4vw;
+  bottom: -28vh;
+  height: 64vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(235, 205, 202, 0),
+    rgba(235, 205, 202, 0.12) 22%,
+    rgba(235, 205, 202, 0.26) 46%,
+    rgba(235, 205, 202, 0.14) 68%,
+    rgba(235, 205, 202, 0)
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
 
-  margin: 0;
-  padding: 0;
+.environmental-panel-sequence__panel-wrap[data-panel-index="3"] {
+  margin-top: -44vh;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,.06) 4%,
+    rgba(0,0,0,.28) 10%,
+    rgba(0,0,0,.62) 16%,
+    rgba(0,0,0,.88) 22%,
+    #000 28%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,.06) 4%,
+    rgba(0,0,0,.28) 10%,
+    rgba(0,0,0,.62) 16%,
+    rgba(0,0,0,.88) 22%,
+    #000 28%,
+    #000 100%
+  );
+}
+
+.environmental-panel-sequence__panel-wrap[data-panel-index="3"]::before {
+  height: 60vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(235, 205, 202, 0),
+    rgba(235, 205, 202, 0.28) 26%,
+    rgba(235, 205, 202, 0.18) 58%,
+    rgba(235, 205, 202, 0.06) 80%,
+    rgba(235, 205, 202, 0)
+  );
+  filter: blur(44px);
 }
 
 .room[data-environment="textile"] .room__header,
@@ -8968,346 +8084,1181 @@ img {
   position: relative;
   z-index: 2;
 }
-/* ============================================================
-   FRUITING BODY — MUSEUM MAP OVERLAY
-   Canonical blueprint map layer
-   ============================================================ */
 
-.museum-map-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: grid;
-  place-items: center;
-  padding: clamp(18px, 4vw, 56px);
-}
+/* ----------------------------------------------------------
+   ENTRY / ROOM TITLE
+   ---------------------------------------------------------- */
 
-.museum-map-overlay__backdrop {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  padding: 0;
-  background: rgba(232, 226, 214, 0.42);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  cursor: default;
-}
-
-.museum-map {
-  position: relative;
-  z-index: 1;
-  width: min(1040px, 94vw);
-  height: min(760px, 88vh);
-  overflow: hidden;
-
-  background:
-    linear-gradient(rgba(74, 68, 61, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74, 68, 61, 0.035) 1px, transparent 1px),
-    rgba(241, 236, 225, 0.82);
-
-  background-size: 28px 28px;
-
-  border: 1px solid rgba(71, 65, 58, 0.34);
-  box-shadow:
-    0 24px 80px rgba(42, 37, 32, 0.18),
-    inset 0 0 80px rgba(255, 255, 255, 0.22);
-
-  color: rgba(59, 53, 48, 0.9);
-}
-
-.museum-map__topline {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 20px 24px;
-
-  border-bottom: 1px solid rgba(71, 65, 58, 0.2);
-}
-
-.museum-map__label {
+.room[data-environment="textile"] .room__header {
+  width: min(28rem, 72vw);
+  min-height: 58vh;
   margin: 0;
-
-  font-size: 11px;
-  line-height: 1;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.museum-map__close {
-  appearance: none;
-  border: 0;
-  border-bottom: 1px solid rgba(71, 65, 58, 0.4);
-  background: transparent;
-  padding: 3px 0;
-
-  color: inherit;
-  font: inherit;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-
-  cursor: pointer;
-}
-
-.museum-map__blueprint {
-  position: absolute;
-  inset: 72px 34px 30px;
-}
-
-/* ---------- shared room treatment ---------- */
-
-.museum-map__room {
-  position: absolute;
-
+  padding: 10vh 0 0 clamp(2rem, 6vw, 6rem);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: rgba(47, 38, 34, 0.74);
+}
 
-  min-width: 112px;
-  min-height: 46px;
-  padding: 10px 14px;
-
-  border: 1px solid rgba(67, 61, 55, 0.48);
-  background: rgba(242, 237, 227, 0.34);
-
-  color: inherit;
-  text-decoration: none;
-  text-align: center;
-
-  font-size: 11px;
-  line-height: 1.25;
-  letter-spacing: 0.12em;
+.room[data-environment="textile"] .room__header .eyebrow {
+  margin: 0 0 1.1rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-
-  transition:
-    background 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    opacity 180ms ease;
+  color: rgba(48, 38, 34, 0.60);
 }
 
-.museum-map__room:hover,
-.museum-map__room:focus-visible {
-  background: rgba(255, 252, 244, 0.72);
-  border-color: rgba(60, 54, 48, 0.78);
-  outline: none;
+.room[data-environment="textile"] .room__header h1 {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: rgba(42, 34, 31, 0.76);
 }
 
-/* Current physical location */
-.museum-map__room[data-current="true"] {
-  background: rgba(255, 249, 225, 0.72);
-  border-color: rgba(119, 96, 54, 0.78);
+/* ----------------------------------------------------------
+   MAIN FLOW / PROJECT HEADERS
+   ---------------------------------------------------------- */
 
-  box-shadow:
-    0 0 0 4px rgba(196, 164, 94, 0.1),
-    0 0 22px rgba(196, 164, 94, 0.38),
-    inset 0 0 18px rgba(255, 244, 196, 0.28);
+.room[data-environment="textile"] .red-room-flow {
+  width: 100%;
 }
 
-/* ============================================================
-   BUILDING PLAN
-
-                       NARTHEX
-                         ↑
-                    REAR GALLERY
-                         ↑
-                       GROTTO
-                         ↑
-                       GARDEN
-                         ↑
-                    FRONT GALLERY
-                         ↑
-                      VESTIBULE
-
-   RED ROOM ←──────── VESTIBULE ────────→ WATER ROOM
-                                            ↓
-                                         FILM ROOM
-
-   CURRENT branches from Vestibule.
-   Reading / Index / Archive branch from Narthex.
-   Cloisters deliberately sit outside ordinary circulation.
-   ============================================================ */
-
-/* Main central axis */
-
-.museum-map__room[data-room="vestibule"] {
-  left: 50%;
-  bottom: 2%;
-  transform: translateX(-50%);
-  width: 180px;
+.room[data-environment="textile"] .red-room-project__header {
+  position: relative;
+  width: min(37rem, 82vw);
+  margin-left: clamp(2rem, 7vw, 7rem);
+  margin-right: auto;
+  color: rgba(47, 38, 34, 0.76);
 }
 
-.museum-map__room[data-room="front-gallery"] {
-  left: 50%;
-  bottom: 17%;
-  transform: translateX(-50%);
-  width: 190px;
+.room[data-environment="textile"] .red-room-project__eyebrow {
+  margin: 0 0 1.35rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.70rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(47, 38, 34, 0.58);
 }
 
-.museum-map__room[data-room="garden"] {
-  left: 50%;
-  bottom: 33%;
-  transform: translateX(-50%);
-  width: 220px;
-  min-height: 64px;
+.room[data-environment="textile"] .red-room-project__header h2 {
+  margin: 0;
+  max-width: 34rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(1.45rem, 2.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: rgba(43, 35, 31, 0.76);
 }
 
-.museum-map__room[data-room="grotto"] {
-  left: 50%;
-  bottom: 49%;
-  transform: translateX(-50%);
-  width: 190px;
+/* ==========================================================
+   RED THREAD
+   ========================================================== */
+
+.room[data-environment="textile"] .red-room-project--thread {
+  position: relative;
+  padding-top: 2vh;
 }
 
-.museum-map__room[data-room="rear-gallery"] {
-  left: 50%;
-  bottom: 64%;
-  transform: translateX(-50%);
-  width: 190px;
+.room[data-environment="textile"] .red-room-project--thread .red-room-project__header {
+  width: min(42rem, 84vw);
+  margin: -5vh auto 8vh;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  background: rgba(246, 226, 216, .30);
+  border: 1px solid rgba(93, 61, 54, .10);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 0 1.5rem 5rem rgba(104, 61, 53, .05);
 }
 
-.museum-map__room[data-room="narthex"] {
-  left: 50%;
-  top: 1%;
-  transform: translateX(-50%);
-  width: 230px;
+.room[data-environment="textile"] .red-thread-installation .artwork-sequence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 38vh;
+  width: 100%;
 }
 
-/* Vestibule side rooms */
-
-.museum-map__room[data-room="red-room"] {
-  left: 4%;
-  bottom: 11%;
-  width: 155px;
-  min-height: 108px;
+.room[data-environment="textile"] .red-thread-installation .artwork-image {
+  width: min(52vw, 46rem);
+  margin: 0 auto;
 }
 
-.museum-map__room[data-room="water-room"] {
-  right: 4%;
-  bottom: 11%;
-  width: 155px;
-  min-height: 108px;
+.room[data-environment="textile"] .red-thread-installation .artwork-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 84vh;
+  object-fit: contain;
 }
 
-.museum-map__room[data-room="current"] {
-  left: 23%;
-  bottom: 2%;
-  width: 132px;
+/* First Red Thread work sits decisively inside the opening rather
+   than clipping the bottom edge of the first architectural view. */
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(1) {
+  width: min(72vw, 66rem);
+  transform: translate(4vw, 0);
+  margin-bottom: 5vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(2) {
+  width: min(50vw, 44rem);
+  transform: translateX(-14vw);
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(3) {
+  width: min(79vw, 71rem);
+  transform: translateX(10vw);
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(4) {
+  width: min(112vw, 98rem);
+  transform: translateX(-8vw);
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(5) {
+  width: min(58vw, 52rem);
+  transform: translateX(6vw);
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(6) {
+  width: min(86vw, 76rem);
+  transform: translateX(-3vw);
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(7) {
+  width: min(101vw, 91rem);
+  transform: translateX(10vw);
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(8) {
+  width: min(106vw, 95rem);
+  transform: translateX(-5vw);
+  margin-top: -12vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(9) {
+  width: min(106vw, 95rem);
+  transform: translateX(4vw);
+  margin-top: -16vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(9) img {
+  max-height: 94vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(8) img,
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(10) img {
+  max-height: 94vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(10) {
+  width: min(106vw, 95rem);
+  transform: translateX(-2vw);
+  margin-top: -18vh;
 }
 
-/* Moving image nested beyond Water Room */
+/* ==========================================================
+   ARCHITECTURE → MEMBRANE PASSAGE
+   ========================================================== */
 
-.museum-map__room[data-room="film-room"] {
-  right: 5%;
-  bottom: 34%;
-  width: 145px;
+.room[data-environment="textile"] .red-room-passage {
+  position: relative;
+  width: 100%;
+  height: 54vh;
+  margin-top: 10vh;
+  margin-bottom: -4vh;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-/* Narthex reference rooms */
-
-.museum-map__room[data-room="reading-room"] {
-  left: 20%;
-  top: 2%;
-  width: 145px;
-}
-
-.museum-map__room[data-room="index"] {
-  right: 22%;
-  top: 2%;
-  width: 115px;
-}
-
-.museum-map__room[data-room="archive"] {
-  right: 6%;
-  top: 2%;
-  width: 125px;
-}
-
-/* Exterior */
-
-.museum-map__room[data-room="exterior"] {
-  left: 50%;
-  bottom: -7%;
-  transform: translateX(-50%);
-  width: 150px;
-  opacity: 0.68;
-}
-
-/* Map-only sensory space */
-
-.museum-map__room[data-room="cloisters"] {
-  left: 3%;
-  top: 29%;
-  width: 145px;
-
-  border-style: dashed;
-  opacity: 0.72;
-}
-
-/* ---------- architectural circulation lines ---------- */
-
-.museum-map__blueprint::before {
+.room[data-environment="textile"] .red-room-passage::before {
   content: "";
   position: absolute;
-
-  left: 50%;
-  top: 8%;
-  bottom: 8%;
-
-  width: 1px;
-
-  background: rgba(67, 61, 55, 0.28);
-
-  z-index: -1;
+  inset: -12vh -10vw;
+  background:
+    radial-gradient(ellipse 65% 55% at 25% 32%, rgba(250,229,225,.26) 0%, rgba(246,216,212,.13) 38%, rgba(240,202,199,0) 72%),
+    radial-gradient(ellipse 60% 70% at 78% 62%, rgba(225,167,169,.18) 0%, rgba(230,184,184,.08) 42%, rgba(230,184,184,0) 76%);
+  filter: blur(28px);
+  opacity: .80;
 }
 
-/* ---------- mobile ---------- */
+.room[data-environment="textile"] .red-room-passage::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  bottom: 2%;
+  left: 14%;
+  width: 58%;
+  background: linear-gradient(102deg, rgba(255,242,237,0) 0%, rgba(255,237,233,.09) 24%, rgba(244,205,203,.18) 52%, rgba(235,190,191,.07) 76%, rgba(235,190,191,0) 100%);
+  filter: blur(18px);
+  transform: skewX(-4deg);
+  opacity: .76;
+}
 
-@media (max-width: 720px) {
-  .museum-map-overlay {
-    padding: 10px;
+/* ==========================================================
+   MEMBRANE
+   ========================================================== */
+
+.room[data-environment="textile"] .red-room-project--membrane {
+  position: relative;
+  padding-top: 2vh;
+  padding-bottom: 12vh;
+}
+
+.room[data-environment="textile"] .red-room-project--membrane .red-room-project__header {
+  width: min(48rem, 84vw);
+  margin-bottom: 24vh;
+}
+
+.room[data-environment="textile"] .red-room-project--membrane .red-room-project__header h2 {
+  max-width: 46rem;
+}
+
+.room[data-environment="textile"] .membrane-installation .artwork-sequence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 31vh;
+  width: 100%;
+}
+
+.room[data-environment="textile"] .membrane-installation .artwork-image {
+  width: min(92vw, 92rem);
+  margin: 0 auto;
+  transform: none;
+}
+
+.room[data-environment="textile"] .membrane-installation .artwork-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 96vh;
+  object-fit: contain;
+}
+
+.room[data-environment="textile"] .membrane-installation .artwork-image:nth-child(2) {
+  width: min(102vw, 106rem);
+  transform: none;
+}
+.room[data-environment="textile"] .membrane-installation .artwork-image:nth-child(2) img {
+  max-height: 108vh;
+}
+.room[data-environment="textile"] .membrane-installation .artwork-image:nth-child(3) {
+  width: min(96vw, 96rem);
+  transform: translateX(2vw);
+}
+.room[data-environment="textile"] .membrane-installation .artwork-image:nth-child(4) {
+  width: min(36vw, 36rem);
+  transform: translateX(-1vw);
+}
+.room[data-environment="textile"] .membrane-installation .artwork-image:nth-child(5) {
+  width: min(96vw, 96rem);
+  transform: translateX(1vw);
+}
+.room[data-environment="textile"] .membrane-installation .artwork-image:nth-child(6) {
+  width: min(90vw, 90rem);
+  transform: translateX(-3vw);
+}
+
+/* ==========================================================
+   RED ROOM — EXIT
+   ========================================================== */
+
+.room[data-environment="textile"] .red-room-exits {
+  position: relative;
+  z-index: 3;
+  width: min(52rem, 84vw);
+  margin: 22vh auto 8vh;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(57, 43, 39, 0.16);
+}
+
+/* ==========================================================
+   RED ROOM — MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+  .room[data-environment="textile"] .room__header {
+    width: 82vw;
+    min-height: 54vh;
+    padding: 10vh 0 0 7vw;
   }
 
-  .museum-map {
-    width: 100%;
-    height: 94vh;
+  .room[data-environment="textile"] .room__header h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
   }
 
-  .museum-map__blueprint {
-    inset: 64px 12px 18px;
-    overflow-y: auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .room[data-environment="textile"] .red-room-project__header {
+    width: 84vw;
+    margin-left: 7vw;
   }
 
-  .museum-map__blueprint::before {
-    display: none;
+  .room[data-environment="textile"] .red-thread-installation .artwork-sequence {
+    gap: 29vh;
   }
 
-  .museum-map__room {
-    position: static !important;
+  .room[data-environment="textile"] .red-thread-installation .artwork-image {
     transform: none !important;
-
-    width: 100% !important;
-    min-height: 44px !important;
   }
 
-  .museum-map__room[data-room="cloisters"] {
-    margin-top: 16px;
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(1) { width: 88vw; margin-bottom: 4vh; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(2) { width: 67vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(3) { width: 79vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(4) { width: 88vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(5) { width: 84vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(6) { width: 94vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(7) { width: 80vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(8) { width: 96vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(9) { width: 96vw; }
+  .room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(10) { width: 96vw; }
+
+  .environmental-panel-sequence__panel-wrap + .environmental-panel-sequence__panel-wrap {
+    margin-top: -7vh;
   }
 
-  .museum-map__room[data-room="exterior"] {
-    order: -1;
+  .room[data-environment="textile"] .red-room-passage {
+    height: 38vh;
+    margin-top: 8vh;
   }
+
+  .room[data-environment="textile"] .red-room-project--membrane .red-room-project__header {
+    margin-bottom: 18vh;
+  }
+
+  .room[data-environment="textile"] .membrane-installation .artwork-sequence {
+    gap: 20vh;
+  }
+
+  .room[data-environment="textile"] .membrane-installation .artwork-image {
+    width: 96vw !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room[data-environment="textile"] *,
+  .room[data-environment="textile"] *::before,
+  .room[data-environment="textile"] *::after {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ============================================================
+   FRUITING BODY — MUSEUM MAP OVERLAY
+   Hand-drawn architectural plan / canonical room manifest
+   ============================================================ */
+
+.museum-map-overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:clamp(12px,3vw,40px)}
+.museum-map-overlay__backdrop{position:absolute;inset:0;border:0;width:100%;height:100%;background:rgba(42,38,34,.20);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.museum-map{position:relative;z-index:1;width:min(1120px,96vw);height:min(790px,92vh);overflow:hidden;background:linear-gradient(rgba(71,65,58,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(71,65,58,.025) 1px,transparent 1px),rgba(240,235,224,.60);background-size:32px 32px;border:1px solid rgba(70,63,57,.22);box-shadow:0 28px 90px rgba(24,21,19,.18);color:rgba(43,38,34,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.museum-map__topline{position:absolute;z-index:6;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid rgba(60,54,49,.12)}
+.museum-map__label,.museum-map__close{font:500 10px/1.1 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.19em;text-transform:uppercase}
+.museum-map__label{margin:0}.museum-map__close{appearance:none;border:0;background:transparent;color:inherit;padding:.35rem 0;border-bottom:1px solid rgba(55,49,45,.28);cursor:pointer}
+.museum-map__blueprint{position:absolute;inset:60px 26px 20px;aspect-ratio:1000/700;max-height:calc(100% - 80px);margin:auto}
+.museum-map__drawing{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke:rgba(48,43,39,.74);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;opacity:.72;pointer-events:none}
+.museum-map__room{position:absolute;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-width:90px;max-width:180px;padding:.35rem .5rem;border:0;background:transparent;color:rgba(40,35,31,.93);text-decoration:none;text-align:center;text-shadow:0 1px 8px rgba(248,244,236,.96),0 0 18px rgba(248,244,236,.72);transition:opacity .2s ease,transform .2s ease,background .2s ease,box-shadow .2s ease}
+.museum-map__room-name{font:600 10px/1.15 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.museum-map__collections{font:400 9px/1.25 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.035em;text-transform:none;opacity:.72}
+.museum-map__room:hover,.museum-map__room:focus-visible{outline:none;background:rgba(248,244,236,.36);box-shadow:0 0 0 1px rgba(61,53,47,.10);transform:translateY(-1px)}
+.museum-map__room[data-current="true"]{background:rgba(255,247,212,.40);box-shadow:0 0 26px rgba(203,169,91,.42),inset 0 0 20px rgba(255,248,216,.36)}
+
+.museum-map__room[data-room="narthex"]{left:43%;top:6%;width:14%}
+.museum-map__room[data-room="reading-room"]{left:27%;top:7%;width:12%}
+.museum-map__room[data-room="index"]{left:57%;top:7%;width:9%}
+.museum-map__room[data-room="archive"]{left:64%;top:7%;width:10%}
+.museum-map__room[data-room="rear-gallery"]{left:42%;top:20%;width:16%}
+.museum-map__room[data-room="grotto"]{left:43%;top:34%;width:14%}
+.museum-map__room[data-room="garden"]{left:42%;top:52%;width:16%}
+.museum-map__room[data-room="front-gallery"]{left:42%;top:80%;width:16%}
+.museum-map__room[data-room="vestibule"]{left:43%;top:90%;width:14%}
+.museum-map__room[data-room="red-room"]{left:10%;top:52%;width:12%}
+.museum-map__room[data-room="water-room"]{left:78%;top:52%;width:12%}
+.museum-map__room[data-room="film-room"]{left:79%;top:36%;width:11%}
+.museum-map__room[data-room="current"]{left:74%;top:90%;width:17%}
+.museum-map__room[data-room="cloisters"]{left:31%;top:51%;width:10%;transform:rotate(-90deg)}
+.museum-map__room[data-room="exterior"]{left:44%;top:97%;width:12%;opacity:.58}
+
+@media(max-width:760px){.museum-map-overlay{padding:8px}.museum-map{width:100%;height:95vh}.museum-map__blueprint{inset:58px 10px 14px;aspect-ratio:auto;overflow-y:auto;display:flex;flex-direction:column;gap:6px}.museum-map__drawing{display:none}.museum-map__room{position:static!important;transform:none!important;width:100%!important;max-width:none;min-height:44px;padding:.55rem;border-bottom:1px solid rgba(61,54,48,.10)}.museum-map__collections{max-width:32rem}.museum-map__room[data-room="exterior"]{order:-1}}
+
+/* ==========================================================
+   CORE CIRCULATION POLISH — NARTHEX / WATER / FILM / RETURNS
+   ========================================================== */
+
+.exhibition-content-note{position:relative;z-index:3;width:min(34rem,82vw);margin:0 auto 14vh;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.74rem;line-height:1.5;letter-spacing:.02em;color:rgba(56,47,43,.70)}
+.return-anchor{scroll-margin-top:8vh}
+
+/* Persistent utilities: legible over light or dark rooms without a hard white box. */
+.site-nav{gap:1rem;top:1rem;right:1.2rem;align-items:center}
+.site-nav__map,.site-nav a{appearance:none;border:1px solid rgba(42,38,34,.13);border-radius:2px;background:rgba(244,241,234,.42);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);color:rgba(32,29,27,.88);padding:.48rem .62rem;font:600 .72rem/1 "Helvetica Neue",Helvetica,Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;text-shadow:0 1px 9px rgba(255,255,255,.92);cursor:pointer;transition:background .2s ease,opacity .2s ease}
+.site-nav__map:hover,.site-nav__map:focus-visible,.site-nav a:hover,.site-nav a:focus-visible{background:rgba(249,247,241,.66);opacity:1;outline:none}
+
+/* Vestibule follows the plan: Red to viewer's left; Water + Current to right. */
+.vestibule__side-passages{grid-template-columns:repeat(4,1fr)}
+.vestibule__side-passages .architectural-link:nth-child(1){grid-column:1;justify-content:flex-start;text-align:left}
+.vestibule__side-passages .architectural-link:nth-child(2){grid-column:3;justify-content:flex-end;text-align:right}
+.vestibule__side-passages .architectural-link:nth-child(3){grid-column:4;justify-content:flex-end;text-align:right}
+.vestibule__side-passages .architectural-link:nth-child(2)::before,.vestibule__side-passages .architectural-link:nth-child(3)::before{left:calc(100% + 10px);right:auto}
+
+.current-room__return{position:fixed;z-index:4;right:clamp(1rem,3vw,2.5rem);bottom:clamp(1rem,3vh,2rem);color:inherit;text-decoration:none;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;opacity:.62;border-bottom:1px solid currentColor;padding-bottom:.3rem}
+
+/* Red Room entry hierarchy. */
+.room[data-environment="textile"] .red-room-flow>.exhibition-content-note{margin:-20vh auto 4vh;color:rgba(61,45,41,.78);background:rgba(247,231,220,.18);padding:.45rem .7rem;width:max-content;max-width:82vw;backdrop-filter:blur(3px)}
+.room[data-environment="textile"] .red-room-project--thread{padding-top:0}
+
+/* Single-video threshold shared by Exhibition, Red Room, and Water Room. */
+.narthex-transition{position:relative;z-index:5;width:100vw;min-height:108svh;margin-left:calc(50% - 50vw);overflow:hidden;background:#7c8277}
+.narthex-transition__frame{position:sticky;top:0;width:100vw;height:100svh;overflow:hidden;opacity:.06;transform:scale(1.025);transition:opacity 1.35s ease,transform 2.1s cubic-bezier(.2,.75,.2,1)}
+.narthex-transition.is-playing .narthex-transition__frame{opacity:1;transform:scale(1)}
+.narthex-transition__video{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.86) contrast(.92) brightness(.94) blur(.18px)}
+.narthex-transition__wash{position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(232,205,196,.36),rgba(147,157,145,.12) 42%,rgba(115,126,117,0) 74%);opacity:1;transition:opacity 1.5s ease}
+.narthex-transition.is-playing .narthex-transition__wash{opacity:.08}
+.room[data-environment="textile"] .narthex-transition__wash{background:linear-gradient(to bottom,rgba(227,167,166,.78),rgba(227,167,166,.22) 38%,rgba(126,139,127,0) 76%)}
+.water-room .narthex-transition__wash{background:linear-gradient(to bottom,rgba(139,154,143,.62),rgba(123,139,129,.20) 42%,rgba(123,139,129,0) 78%)}
+.narthex-transition__fallback{position:absolute;z-index:5;left:50%;bottom:7vh;transform:translateX(-50%);border:1px solid rgba(255,255,255,.28);background:rgba(45,38,34,.18);color:rgba(255,255,255,.9);padding:.7rem 1rem;font:inherit;letter-spacing:.08em;text-transform:uppercase}
+
+/* Narthex settles on a held frame after a brief movement; UI fades up over it. */
+.narthex-room{position:relative;min-height:100svh;overflow:hidden;display:grid;place-items:center;color:rgba(247,242,232,.92);background:#788176}
+.narthex-room__environment-stack{position:fixed;inset:0;overflow:hidden;background:#788176}
+.narthex-room__environment{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:blur(.25px) saturate(.84) contrast(.91) brightness(.90);transform:scale(1.008)}
+.narthex-room__veil{position:fixed;inset:0;background:radial-gradient(ellipse 64% 58% at 50% 50%,rgba(34,30,27,0),rgba(30,27,25,.24) 92%),linear-gradient(to bottom,rgba(31,28,26,.04),rgba(31,28,26,.17));pointer-events:none}
+.narthex-room__ui{position:relative;z-index:3;width:100%;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;opacity:0;animation:narthex-ui-arrive .9s ease 1.65s forwards}
+@keyframes narthex-ui-arrive{to{opacity:1}}
+.narthex-room__label{position:absolute;top:clamp(3.5rem,7vh,5.5rem);left:50%;transform:translateX(-50%);margin:0;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,242,232,.64)}
+.narthex-room__paths{position:relative;width:min(40rem,84vw);margin:0 0 15vh;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}
+.narthex-room__paths .architectural-link{justify-content:center;min-height:3.4rem;padding:.75rem .6rem;font-size:.66rem;letter-spacing:.13em;color:rgba(247,242,232,.82);background:rgba(34,31,28,.08);border-color:rgba(247,242,232,.20);backdrop-filter:blur(4px)}
+.narthex-room__returns{position:absolute;left:50%;bottom:clamp(1.5rem,4vh,3rem);transform:translateX(-50%);display:flex;align-items:center;gap:clamp(.8rem,2vw,1.8rem);padding:.55rem .8rem;background:rgba(236,237,230,.045);border:1px solid rgba(240,241,235,.10);backdrop-filter:blur(7px)}
+.narthex-room__returns-label{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;opacity:.40}.narthex-room__return{color:inherit;text-decoration:none;font-size:.61rem;letter-spacing:.12em;text-transform:uppercase;opacity:.66;transition:opacity .2s ease}.narthex-room__return:hover,.narthex-room__return:focus-visible{opacity:1}
+
+/* Water Room: establish room first, separate wall text from the question, enter art later. */
+.water-room{position:relative;min-height:100vh;overflow:hidden;color:rgba(238,243,236,.90);background:#879486}
+.water-room__environment{position:absolute;inset:0 0 auto;width:100%;z-index:0;pointer-events:none;overflow:hidden}
+.water-room__environment-panel{position:relative;width:100vw;margin-top:-30vh;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 4%,rgba(0,0,0,.42) 10%,rgba(0,0,0,.78) 16%,#000 22%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 4%,rgba(0,0,0,.42) 10%,rgba(0,0,0,.78) 16%,#000 22%,#000 100%)}
+.water-room__environment-panel:first-child{margin-top:0;-webkit-mask-image:none;mask-image:none}
+.water-room__environment-panel::before{content:"";position:absolute;z-index:2;left:-4vw;right:-4vw;top:0;height:52vh;background:linear-gradient(to bottom,rgba(171,183,170,0),rgba(171,183,170,.15) 38%,rgba(171,183,170,.05) 72%,rgba(171,183,170,0));filter:blur(38px);pointer-events:none}
+.water-room__environment-panel img{display:block;width:100vw;height:auto;filter:saturate(.88) contrast(.94) brightness(.93) blur(.12px)}
+.water-room__header,.water-room-installation,.water-room-junction{position:relative;z-index:2}
+.water-room__header{min-height:158vh;width:100%;padding:15vh 5vw 22vh;display:flex;flex-direction:column;align-items:center;text-align:center}
+.water-room__intro-card{width:min(43rem,82vw);padding:clamp(1.5rem,3vw,2.5rem);background:rgba(24,29,26,.17);border:1px solid rgba(238,243,236,.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 2rem 6rem rgba(19,23,21,.08)}
+.water-room__eyebrow{margin:0 0 1rem;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;opacity:.72}.water-room__intro-card h1{margin:0 0 1.5rem;font-weight:400;font-size:clamp(2.2rem,5vw,4.6rem);line-height:.98;letter-spacing:-.04em}.water-room__statement{max-width:33rem;margin:0 auto;font-size:clamp(.96rem,1.25vw,1.12rem);line-height:1.65}
+.water-room__question{width:min(38rem,80vw);margin:28vh auto 0;font-size:clamp(1.2rem,2vw,1.85rem);font-weight:400;line-height:1.35;letter-spacing:-.015em;text-shadow:0 1px 18px rgba(25,31,27,.22)}
+.water-room__content-note{margin:20vh auto 0!important;color:rgba(241,246,239,.82)!important;background:rgba(23,29,25,.15);padding:.48rem .72rem;backdrop-filter:blur(4px);width:max-content;max-width:82vw}
+.water-room-installation{padding-top:58vh}.water-room-installation .artwork-sequence{display:flex;flex-direction:column;align-items:center;gap:34vh;width:100%}.water-room-installation .artwork-image{width:min(78vw,72rem);margin:0 auto}.water-room-installation .artwork-image img{display:block;width:100%;max-height:94vh;object-fit:contain}.water-room-installation .artwork-image:nth-child(1){width:min(90vw,84rem);transform:translateX(-3vw)}.water-room-installation .artwork-image:nth-child(2){width:min(65vw,58rem);transform:translateX(10vw)}.water-room-installation .artwork-image:nth-child(3){width:min(92vw,88rem);transform:translateX(-2vw)}.water-room-installation .artwork-image:nth-child(4){width:min(58vw,52rem);transform:translateX(-12vw)}.water-room-installation .artwork-image:nth-child(5){width:min(88vw,82rem);transform:translateX(5vw)}.water-room-installation .artwork-image:nth-child(6){width:min(70vw,64rem);transform:translateX(-8vw)}.water-room-installation .artwork-image:nth-child(7){width:min(94vw,90rem);transform:translateX(1vw)}.water-room-installation .artwork-image:nth-child(8){width:min(82vw,76rem);transform:translateX(-4vw)}
+
+/* Passage glimpses: architecture first, labels emerge on focus/hover. */
+.water-room-junction{width:100%;margin-top:26vh;padding-top:14vh}.water-room-junction__eyebrow{margin:0 0 6vh;text-align:center;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;opacity:.58}.water-room-junction__choices{display:grid;grid-template-columns:1fr 1fr;min-height:68vh}.water-room-junction__choice{position:relative;overflow:hidden;display:grid;place-items:center;border:0;background:rgba(28,36,32,.08);color:rgba(244,247,241,.92);text-decoration:none;font:inherit;cursor:pointer}.water-room-junction__choice+.water-room-junction__choice{border-left:1px solid rgba(238,243,236,.12)}
+.water-room-junction__moving-glimpse{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;opacity:.25;filter:saturate(.72) contrast(.88) brightness(.76) blur(.4px);transform:scale(1.02);transition:opacity .65s ease,filter .65s ease,transform 1.2s ease}.water-room-junction__moving-glimpse--film{opacity:.18;filter:grayscale(1) contrast(1.05) brightness(.48) blur(.4px)}
+.water-room-junction__choice-label{position:relative;z-index:2;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;opacity:.18;transition:opacity .35s ease;text-shadow:0 1px 18px rgba(0,0,0,.55)}
+.water-room-junction__choice:hover .water-room-junction__moving-glimpse,.water-room-junction__choice:focus-visible .water-room-junction__moving-glimpse{opacity:.48;filter:saturate(.78) contrast(.92) brightness(.82) blur(.2px);transform:scale(1)}.water-room-junction__choice:hover .water-room-junction__choice-label,.water-room-junction__choice:focus-visible .water-room-junction__choice-label{opacity:.92}
+
+/* Film pod: one work for launch. */
+.film-room{position:relative;min-height:100vh;overflow:hidden;background:#101615;color:rgba(239,241,235,.88);padding-top:10vh}.film-room__header{width:min(28rem,80vw);margin:0 auto 7vh;text-align:center}.film-room__eyebrow{margin:0 0 .8rem;font-size:.62rem;letter-spacing:.19em;text-transform:uppercase;opacity:.48}.film-room__header h1{margin:0 0 .65rem;font-weight:400;font-size:clamp(1.35rem,2.3vw,2rem);letter-spacing:-.015em}.film-room__note{margin:0;font-size:.78rem;line-height:1.5;opacity:.52}.film-installation{width:min(78rem,92vw);margin:0 auto 18vh;perspective:1400px}.film-installation__screen{position:relative;padding:clamp(.55rem,1vw,.9rem);border-radius:48%/8%;background:rgba(239,241,235,.03);box-shadow:0 2rem 7rem rgba(0,0,0,.48),inset 0 0 3rem rgba(208,227,216,.05);transform:rotateX(2deg);overflow:hidden}.film-installation__video{display:block;width:100%;max-height:78vh;background:#080b0b;object-fit:contain;border-radius:48%/7%}.film-room__return-wrap{display:flex;justify-content:center;padding:0 0 10vh}.film-room__return{color:rgba(239,241,235,.68);text-decoration:none;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(239,241,235,.22);padding-bottom:.35rem}
+
+@media(max-width:700px){.narthex-room__paths{grid-template-columns:repeat(2,minmax(0,1fr));width:86vw;margin-bottom:18vh}.narthex-room__returns{width:min(90vw,28rem);flex-wrap:wrap;justify-content:center}.water-room__header{min-height:126vh;padding-left:5vw;padding-right:5vw}.water-room-installation{padding-top:24vh}.water-room-installation .artwork-sequence{gap:22vh}.water-room-installation .artwork-image{width:88vw!important;transform:none!important}.water-room-junction__choices{grid-template-columns:1fr}.water-room-junction__choice+.water-room-junction__choice{border-left:0;border-top:1px solid rgba(238,243,236,.12)}.water-room-junction__choice-label{opacity:.72}.vestibule__side-passages .architectural-link:nth-child(1),.vestibule__side-passages .architectural-link:nth-child(2),.vestibule__side-passages .architectural-link:nth-child(3){grid-column:auto}}
+
+@media(prefers-reduced-motion:reduce){.narthex-transition__frame,.narthex-transition__wash,.narthex-room__ui,.water-room-junction__moving-glimpse{transition:none!important;animation:none!important}.narthex-room__ui{opacity:1}}
+
+/* ==========================================================
+   CORE CIRCULATION POLISH — RETURN ANCHORS / NARTHEX / MAP
+   ========================================================== */
+.route-start-anchor{position:absolute;top:0;left:0;width:1px;height:1px;scroll-margin-top:0}
+.return-anchor{display:block;width:1px;height:1px;scroll-margin-top:88svh}
+
+/* Narthex: transition plays once; the room settles onto the final frame. */
+.narthex-room__environment-still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:blur(.22px) saturate(.84) contrast(.91) brightness(.90);transform:scale(1.006)}
+.narthex-room__environment{transition:opacity .9s ease}
+.narthex-room__environment-stack.is-settled .narthex-room__environment{opacity:0}
+.narthex-room__ui{animation-delay:.55s}
+
+/* Give Return its own hierarchy instead of making it look like a fourth destination. */
+.narthex-room__returns{position:absolute;left:50%;bottom:clamp(1.35rem,3.5vh,2.6rem);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.55rem;padding:.7rem 1rem .78rem;background:rgba(236,237,230,.035);border:1px solid rgba(240,241,235,.09);backdrop-filter:blur(7px)}
+.narthex-room__returns-label{display:block;font-size:.50rem;letter-spacing:.20em;text-transform:uppercase;opacity:.34}
+.narthex-room__return-links{display:flex;align-items:center;justify-content:center;gap:clamp(1.15rem,2.7vw,2.4rem)}
+.narthex-room__return{color:inherit;text-decoration:none;font-size:.59rem;letter-spacing:.13em;text-transform:uppercase;opacity:.64;transition:opacity .2s ease}
+.narthex-room__return:hover,.narthex-room__return:focus-visible{opacity:1}
+
+/* Refined map: an architectural drawing, not a literal transcription of the sketch. */
+.museum-map{background:linear-gradient(rgba(71,65,58,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(71,65,58,.018) 1px,transparent 1px),rgba(240,235,224,.46);background-size:38px 38px;border:1px solid rgba(70,63,57,.14);box-shadow:0 26px 90px rgba(24,21,19,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.museum-map__topline{border-bottom:1px solid rgba(60,54,49,.08)}
+.museum-map__drawing{stroke:rgba(48,43,39,.62);stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round;opacity:.74;filter:none}
+.museum-map__drawing *{vector-effect:non-scaling-stroke}
+.museum-map__room{gap:.18rem;min-width:84px;max-width:190px;padding:.30rem .46rem;color:rgba(40,35,31,.92);text-shadow:0 1px 1px rgba(250,247,241,.82),0 0 10px rgba(250,247,241,.72);transition:opacity .2s ease,transform .2s ease,background .2s ease,box-shadow .2s ease}
+.museum-map__room-name{font-size:8.5px;font-weight:600;letter-spacing:.15em;opacity:.74}
+.museum-map__collections{font-size:10px;line-height:1.22;letter-spacing:.018em;opacity:.92}
+.museum-map__room:hover,.museum-map__room:focus-visible{background:rgba(248,244,236,.24);box-shadow:0 0 0 1px rgba(61,53,47,.08)}
+.museum-map__room[data-current="true"]{background:rgba(255,247,212,.30);box-shadow:0 0 22px rgba(203,169,91,.34),inset 0 0 18px rgba(255,248,216,.28)}
+/* Keep provisional architectural gallery labels quiet; the installed collection is the primary read. */
+.museum-map__room[data-room="front-gallery"] .museum-map__room-name,
+.museum-map__room[data-room="rear-gallery"] .museum-map__room-name{font-size:7.5px;opacity:.48}
+.museum-map__room[data-room="front-gallery"] .museum-map__collections,
+.museum-map__room[data-room="rear-gallery"] .museum-map__collections{font-size:10.5px;font-weight:500;opacity:.96}
+
+/* Water Room: quieter wall-card language and clearer text hierarchy. */
+.water-room__intro-card{width:min(40rem,80vw);padding:clamp(1.25rem,2.6vw,2.05rem);background:rgba(27,34,30,.12);border:1px solid rgba(238,243,236,.11);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);box-shadow:none}
+.water-room__eyebrow{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.62rem;letter-spacing:.18em}
+.water-room__intro-card h1{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(2rem,4.2vw,3.55rem);font-weight:400;line-height:1;letter-spacing:-.035em}
+.water-room__statement{max-width:31rem;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(.86rem,1.05vw,.98rem);line-height:1.62;opacity:.84}
+.water-room__question{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(1.12rem,1.7vw,1.58rem);line-height:1.42}
+
+/* Film pod: keep the film primary; metadata behaves like a discreet wall card. */
+.film-room__header{width:min(30rem,82vw);margin:0 auto 5.5vh;text-align:left;padding-left:clamp(.8rem,2vw,1.4rem);border-left:1px solid rgba(239,241,235,.16)}
+.film-room__eyebrow{font-size:.56rem;opacity:.42}.film-room__header h1{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(1.15rem,1.9vw,1.65rem);font-weight:400;letter-spacing:-.01em}.film-room__note{font-size:.72rem;opacity:.46}
+
+@media(max-width:700px){.narthex-room__return-links{flex-wrap:wrap;gap:.7rem 1.2rem}.museum-map__room-name{font-size:9px}.museum-map__collections{font-size:10px}}
+
+/* ==========================================================
+   CORE CONTINUITY FIX — DIRECT PLACEMENT / MAP / THRESHOLDS
+   ========================================================== */
+
+/* Utility buttons become quiet architectural tabs rather than square UI. */
+.site-nav__map,.site-nav a{
+  border-radius:999px;
+  background:rgba(244,241,234,.24);
+  border-color:rgba(42,38,34,.16);
+  padding:.48rem .78rem;
+}
+.site-nav__map:hover,.site-nav__map:focus-visible,.site-nav a:hover,.site-nav a:focus-visible{
+  background:rgba(249,247,241,.52);
+}
+
+/* The plan stays superimposed while the room behind it may continue to scroll. */
+.museum-map-overlay{pointer-events:none}
+.museum-map{pointer-events:none;background:linear-gradient(rgba(71,65,58,.014) 1px,transparent 1px),linear-gradient(90deg,rgba(71,65,58,.014) 1px,transparent 1px),rgba(240,235,224,.56);background-size:42px 42px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.museum-map__close,.museum-map__room{pointer-events:auto}
+.museum-map__drawing{stroke-width:1.18;stroke:rgba(48,43,39,.54);opacity:.76}
+.museum-map__room[data-room="reading-room"]{left:27.5%;top:6.8%;width:11%}
+.museum-map__room[data-room="index"]{left:57.3%;top:6.8%;width:8%}
+.museum-map__room[data-room="archive"]{left:64.8%;top:6.8%;width:9%}
+
+/* Stronger dappled motion in the vestibule; the textured photo visually softens it. */
+.vestibule__light{
+  width:min(82vw,1220px);
+  height:90vh;
+  opacity:.92;
+  background:
+    radial-gradient(ellipse at 41% 35%,rgba(229,239,231,.16) 0 8%,transparent 22%),
+    radial-gradient(ellipse at 62% 47%,rgba(196,216,205,.12) 0 10%,transparent 26%),
+    radial-gradient(ellipse at 50% 59%,rgba(207,220,212,.10) 0 12%,transparent 34%);
+  animation:vestibule-dapple 9s ease-in-out infinite alternate;
+  filter:blur(7px);
+}
+@keyframes vestibule-dapple{
+  0%{transform:translateX(-52%) translateY(-1.5%) scale(1.00);opacity:.66}
+  45%{transform:translateX(-48%) translateY(1.5%) scale(1.035);opacity:1}
+  100%{transform:translateX(-51%) translateY(-.5%) scale(1.015);opacity:.78}
+}
+
+/* Water Room: left-set title, later artwork entry, tighter exit into Passages. */
+.water-room__header{
+  min-height:168vh;
+  padding:15vh 7vw 18vh;
+  align-items:flex-start;
+  text-align:left;
+}
+.water-room__intro-card{
+  width:min(40rem,76vw);
+  margin-left:0;
+  background:rgba(27,34,30,.10);
+}
+.water-room__statement{margin-left:0;margin-right:0}
+.water-room__question{
+  width:min(42rem,80vw);
+  margin:32vh 0 0;
+  text-align:left;
+}
+.water-room__content-note{
+  margin:20vh 0 0!important;
+  color:rgba(241,246,239,.94)!important;
+  background:rgba(23,29,25,.28);
+}
+.water-room-installation{padding-top:82vh}
+.water-room-junction{
+  margin-top:10vh;
+  padding-top:8vh;
+  background:linear-gradient(to bottom,rgba(111,126,116,0),rgba(91,105,98,.30) 18%,rgba(55,67,62,.58) 56%,rgba(44,52,49,.76));
+}
+.water-room-junction__eyebrow{margin-bottom:4vh}
+.water-room-junction__choices{min-height:62vh}
+
+/* Blend the threshold into the Narthex rather than cutting to a new rectangle. */
+.narthex-transition{
+  min-height:100svh;
+  margin-top:-12vh;
+  background:transparent;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.16) 5%,rgba(0,0,0,.48) 11%,rgba(0,0,0,.82) 18%,#000 27%,#000 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.16) 5%,rgba(0,0,0,.48) 11%,rgba(0,0,0,.82) 18%,#000 27%,#000 100%);
+}
+.narthex-transition__frame{height:100svh;opacity:0;transform:scale(1.015);transition:opacity 1.8s ease,transform 2.6s cubic-bezier(.2,.75,.2,1)}
+.narthex-transition.is-playing .narthex-transition__frame{opacity:1;transform:scale(1)}
+.narthex-transition.is-holding .narthex-transition__frame{opacity:1}
+.narthex-transition__wash{transition:opacity 1.8s ease}
+.room[data-environment="textile"] .narthex-transition{margin-top:-18vh}
+.water-room .narthex-transition{margin-top:-14vh}
+
+/* Return controls read as a caption + choices, not four peer buttons. */
+.narthex-room__returns{
+  gap:.7rem;
+  padding:.65rem .9rem .8rem;
+  background:rgba(236,237,230,.025);
+  border-color:rgba(240,241,235,.07);
+}
+.narthex-room__returns-label{opacity:.26;font-size:.46rem;letter-spacing:.23em}
+.narthex-room__return{font-size:.61rem;opacity:.72}
+
+/* Reading / Archive retain a direct route back to their parent room. */
+.utility-return-to-narthex{
+  display:inline-block;
+  margin-top:clamp(3rem,8vh,6rem);
+  color:inherit;
+  text-decoration:none;
+  font:.62rem/1.2 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:.62;
+  border-bottom:1px solid currentColor;
+  padding-bottom:.3rem;
+}
+
+@media(max-width:700px){
+  .water-room__header{min-height:140vh;padding-left:6vw;padding-right:6vw}
+  .water-room-installation{padding-top:40vh}
+  .narthex-transition{margin-top:-7vh}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .vestibule__light{animation:none}
+}
+
+/* ==========================================================
+   CORE VISUAL POLISH — OPENINGS / MAP / EXIT
+   ========================================================== */
+
+/* Persistent utility navigation: present but nearly unboxed. */
+.site-nav__map,.site-nav a{
+  border:1px solid rgba(244,241,234,.10);
+  border-radius:999px;
+  background:rgba(244,241,234,.08);
+  padding:.42rem .68rem;
+  box-shadow:none;
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+.site-nav__map:hover,.site-nav__map:focus-visible,.site-nav a:hover,.site-nav a:focus-visible{
+  background:rgba(244,241,234,.26);
+  border-color:rgba(244,241,234,.20);
+}
+
+/* Vestibule light has to move decisively in code to remain subtle on the photograph. */
+.vestibule__light{
+  width:min(96vw,1380px);
+  height:108vh;
+  opacity:1;
+  filter:blur(5px);
+  background:
+    radial-gradient(ellipse at 34% 28%,rgba(238,244,235,.24) 0 7%,transparent 22%),
+    radial-gradient(ellipse at 61% 40%,rgba(212,229,216,.20) 0 9%,transparent 27%),
+    radial-gradient(ellipse at 48% 61%,rgba(226,235,228,.16) 0 12%,transparent 34%),
+    radial-gradient(ellipse at 72% 58%,rgba(190,214,199,.13) 0 10%,transparent 29%);
+  animation:vestibule-dapple-strong 7.5s ease-in-out infinite alternate;
+}
+@keyframes vestibule-dapple-strong{
+  0%{transform:translateX(-56%) translateY(-4%) scale(.98) rotate(-1deg);opacity:.58}
+  42%{transform:translateX(-45%) translateY(3%) scale(1.055) rotate(.8deg);opacity:1}
+  100%{transform:translateX(-51%) translateY(-1%) scale(1.02) rotate(-.4deg);opacity:.72}
+}
+
+/* Water Room opening: title + note together, then a later question, then the work. */
+.water-room__header{
+  min-height:176vh;
+  padding:24vh 7vw 16vh;
+  align-items:flex-start;
+  text-align:left;
+}
+.water-room__intro-card{
+  width:min(42rem,78vw);
+  margin:0;
+  padding:clamp(1.3rem,2.4vw,2.2rem);
+  background:rgba(22,28,25,.12);
+  border:1px solid rgba(235,242,236,.12);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.water-room__content-note{
+  order:2;
+  margin:2.2vh 0 0!important;
+  padding:.35rem .55rem;
+  background:rgba(18,23,20,.22);
+  color:rgba(245,248,244,.94)!important;
+  font-size:.72rem;
+}
+.water-room__question{
+  order:3;
+  width:min(45rem,82vw);
+  margin:34vh 0 0;
+  font-size:clamp(1.45rem,2.15vw,2.25rem);
+  line-height:1.3;
+  text-align:left;
+}
+.water-room-installation{padding-top:126vh}
+
+/* Red Room adopts the same opening cadence as Water Room. */
+.room[data-environment="textile"] .red-room-flow{margin-top:0}
+.room[data-environment="textile"] .red-room-project--thread{padding-top:0}
+.red-room-opening{
+  min-height:124vh;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:24vh 0 10vh clamp(2rem,7vw,7rem);
+  box-sizing:border-box;
+}
+.room[data-environment="textile"] .red-room-opening__title{
+  width:min(44rem,78vw);
+  margin:0;
+  padding:clamp(1.15rem,2vw,1.8rem);
+  background:rgba(247,231,220,.16);
+  border:1px solid rgba(79,61,55,.09);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+.room[data-environment="textile"] .red-room-opening__title .red-room-project__eyebrow{margin:0}
+.room[data-environment="textile"] .red-room-opening__note{
+  margin:2.1vh 0 0;
+  color:rgba(61,45,41,.82);
+  background:rgba(247,231,220,.22);
+  padding:.38rem .58rem;
+  width:max-content;
+  max-width:78vw;
+  backdrop-filter:blur(4px);
+}
+.room[data-environment="textile"] .red-room-opening__question{
+  margin:35vh 0 0;
+  max-width:38rem;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.65rem,2.8vw,2.7rem);
+  font-weight:400;
+  line-height:1.15;
+  letter-spacing:-.025em;
+  color:rgba(43,35,31,.80);
+}
+.room[data-environment="textile"] .red-thread-installation{margin-top:4vh}
+
+/* Map: slightly denser drafting paper, darker text, and a whole-room current glow. */
+.museum-map{
+  background:
+    linear-gradient(rgba(71,65,58,.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(71,65,58,.012) 1px,transparent 1px),
+    rgba(240,235,224,.64);
+  background-size:44px 44px;
+  backdrop-filter:blur(17px);
+  -webkit-backdrop-filter:blur(17px);
+}
+.museum-map__room{
+  color:rgba(28,25,23,.96);
+  text-shadow:0 1px 2px rgba(250,247,241,.90),0 0 12px rgba(250,247,241,.78);
+}
+.museum-map__collections{display:flex;flex-direction:column;align-items:center;gap:.08rem;line-height:1.16}
+.museum-map__collection{display:block;white-space:normal}
+.museum-map__current-surface{
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+  border:1px solid rgba(173,145,78,.20);
+  background:rgba(255,247,214,.24);
+  box-shadow:0 0 34px rgba(206,176,98,.30),inset 0 0 30px rgba(255,249,222,.28);
+  transition:all .25s ease;
+}
+.museum-map__current-surface[data-room="narthex"]{left:29%;top:4%;width:42%;height:14%}
+.museum-map__current-surface[data-room="reading-room"]{left:30.5%;top:6%;width:11%;height:8%}
+.museum-map__current-surface[data-room="index"]{left:57.5%;top:6%;width:7%;height:8%}
+.museum-map__current-surface[data-room="archive"]{left:65%;top:6%;width:7%;height:8%}
+.museum-map__current-surface[data-room="rear-gallery"]{left:39.5%;top:18%;width:21%;height:9%}
+.museum-map__current-surface[data-room="grotto"]{left:41.3%;top:29%;width:17.4%;height:24%}
+.museum-map__current-surface[data-room="garden"]{left:41.3%;top:53%;width:17.4%;height:25%}
+.museum-map__current-surface[data-room="front-gallery"]{left:39.5%;top:80%;width:21%;height:8%}
+.museum-map__current-surface[data-room="vestibule"]{left:29%;top:88%;width:42%;height:9%}
+.museum-map__current-surface[data-room="red-room"]{left:9%;top:27%;width:14%;height:56%}
+.museum-map__current-surface[data-room="water-room"]{left:77%;top:27%;width:14%;height:56%}
+.museum-map__current-surface[data-room="film-room"]{left:78.3%;top:31%;width:11%;height:22%;border-radius:46%}
+.museum-map__current-surface[data-room="current"]{left:70%;top:89%;width:22%;height:7%}
+.museum-map__current-surface[data-room="cloisters"]{left:34%;top:31%;width:32%;height:47%;background:rgba(255,247,214,.12)}
+.museum-map__current-surface[data-room="exterior"]{left:29%;top:96%;width:42%;height:4%}
+
+.museum-map__room[data-current="true"]{
+  background:transparent;
+  box-shadow:none;
+}
+.museum-map__room[data-room="reading-room"],
+.museum-map__room[data-room="index"],
+.museum-map__room[data-room="archive"]{align-items:center;text-align:center}
+
+/* Narthex final frame now comes from the exact last frame of the active video. */
+.narthex-room__environment-still{object-fit:cover;object-position:center center}
+
+/* Exit: a distinct living exterior, not the landing exterior. */
+.exit-exterior{
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  background:#1c2418;
+  color:#f0efe7;
+}
+.exit-exterior__video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 52%;
+  filter:saturate(.86) contrast(.96) brightness(.88);
+}
+.exit-exterior__veil{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(16,20,14,.10),rgba(16,20,14,.28));
+}
+.exit-exterior__ui{
+  position:absolute;
+  left:50%;
+  bottom:clamp(2.2rem,7vh,5rem);
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.1rem;
+  text-align:center;
+}
+.exit-exterior__label{
+  margin:0;
+  font:.54rem/1 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  opacity:.55;
+}
+.exit-exterior__return{
+  color:inherit;
+  text-decoration:none;
+  font:.68rem/1.2 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  padding-bottom:.28rem;
+  border-bottom:1px solid rgba(240,239,231,.48);
+}
+
+@media(max-width:700px){
+  .water-room__header{min-height:150vh;padding-top:20vh}
+  .water-room__question{margin-top:28vh}
+  .water-room-installation{padding-top:58vh}
+  .red-room-opening{min-height:110vh;padding-top:20vh;padding-left:6vw}
+  .room[data-environment="textile"] .red-room-opening__question{margin-top:28vh}
+  .museum-map__current-surface{display:none}
+}
+
+/* ==========================================================
+   FOCUSED VISUAL REFINEMENT — MAP / OPENINGS / TRANSITIONS
+   ========================================================== */
+
+/* Utility navigation should read as type, not interface chrome. */
+.site-nav__map,.site-nav a{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  padding:.34rem .18rem!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  text-shadow:0 1px 10px rgba(255,255,255,.92),0 0 22px rgba(255,255,255,.68)!important;
+  opacity:.78;
+}
+.site-nav__map:hover,.site-nav__map:focus-visible,.site-nav a:hover,.site-nav a:focus-visible{
+  opacity:1;
+  background:transparent!important;
+  box-shadow:inset 0 -1px 0 rgba(40,35,31,.46);
+}
+
+/* More light reaches the pale center of the vestibule arch. */
+.vestibule__light::after{
+  content:"";
+  position:absolute;
+  inset:4% 17% 8%;
+  background:
+    radial-gradient(ellipse at 48% 34%,rgba(255,250,224,.31) 0 7%,transparent 26%),
+    radial-gradient(ellipse at 58% 52%,rgba(220,235,216,.22) 0 10%,transparent 32%),
+    radial-gradient(ellipse at 42% 69%,rgba(247,239,210,.18) 0 9%,transparent 28%);
+  filter:blur(9px);
+  mix-blend-mode:screen;
+  animation:vestibule-center-dapple 6.6s ease-in-out infinite alternate;
+}
+@keyframes vestibule-center-dapple{
+  0%{transform:translate(-4%,-3%) scale(.97);opacity:.42}
+  48%{transform:translate(6%,4%) scale(1.08);opacity:.88}
+  100%{transform:translate(-1%,1%) scale(1.02);opacity:.58}
+}
+
+/* Water Room: preserve hierarchy, but let the architecture establish itself first. */
+.water-room__header{
+  min-height:190vh;
+  padding-top:31vh;
+}
+.water-room__question{margin-top:39vh}
+.water-room-installation{padding-top:158vh}
+
+/* Red Room: remove the unrelated generic room header and build one coherent opening. */
+.room[data-environment="textile"] > .room__inner > .room__header{display:none}
+.red-room-opening{
+  min-height:154vh;
+  padding:27vh 0 8vh clamp(2rem,7vw,7rem);
+}
+.room[data-environment="textile"] .red-room-opening__title{
+  width:min(38rem,76vw);
+  margin:0;
+  padding:clamp(1.3rem,2.3vw,2.05rem);
+  background:rgba(247,231,220,.17);
+  border:1px solid rgba(79,61,55,.08);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+.red-room-opening__room-label{
+  margin:0 0 .65rem;
+  font:500 .62rem/1 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(58,45,41,.56);
+}
+.room[data-environment="textile"] .red-room-opening__title h2{
+  margin:0;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(2.2rem,4.5vw,4rem);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:-.04em;
+  color:rgba(43,35,31,.78);
+}
+.room[data-environment="textile"] .red-room-opening__note{
+  margin:2.4vh 0 0;
+  color:rgba(61,45,41,.82);
+  background:rgba(247,231,220,.23);
+}
+.room[data-environment="textile"] .red-room-opening__question{
+  margin:40vh 0 0;
+  font-size:clamp(1.7rem,2.85vw,2.75rem);
+}
+.room[data-environment="textile"] .red-thread-installation{margin-top:16vh}
+
+/* Map hover: illuminate the physical room, not merely its label. */
+.museum-map__hover-surface{
+  position:absolute;
+  z-index:2;
+  pointer-events:none;
+  border:1px solid rgba(176,148,83,.22);
+  background:rgba(255,248,216,.31);
+  box-shadow:0 0 38px rgba(207,177,98,.36),inset 0 0 34px rgba(255,250,226,.30);
+  transition:all .18s ease;
+}
+.museum-map__room:hover,.museum-map__room:focus-visible{
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.museum-map__current-surface,.museum-map__hover-surface{border-radius:1px}
+.museum-map__hover-surface[data-room="narthex"],.museum-map__current-surface[data-room="narthex"]{left:29%;top:4%;width:42%;height:14%}
+.museum-map__hover-surface[data-room="reading-room"],.museum-map__current-surface[data-room="reading-room"]{left:30.5%;top:6%;width:11%;height:8%}
+.museum-map__hover-surface[data-room="index"],.museum-map__current-surface[data-room="index"]{left:57.5%;top:6%;width:7%;height:8%}
+.museum-map__hover-surface[data-room="archive"],.museum-map__current-surface[data-room="archive"]{left:65%;top:6%;width:7%;height:8%}
+.museum-map__hover-surface[data-room="rear-gallery"],.museum-map__current-surface[data-room="rear-gallery"]{left:39.5%;top:18%;width:21%;height:9%}
+.museum-map__hover-surface[data-room="grotto"],.museum-map__current-surface[data-room="grotto"]{left:41.3%;top:29%;width:17.4%;height:24%}
+.museum-map__hover-surface[data-room="garden"],.museum-map__current-surface[data-room="garden"]{left:41.3%;top:53%;width:17.4%;height:25%}
+.museum-map__hover-surface[data-room="front-gallery"],.museum-map__current-surface[data-room="front-gallery"]{left:39.5%;top:80%;width:21%;height:8%}
+.museum-map__hover-surface[data-room="vestibule"],.museum-map__current-surface[data-room="vestibule"]{left:29%;top:88%;width:42%;height:9%}
+.museum-map__hover-surface[data-room="red-room"],.museum-map__current-surface[data-room="red-room"]{left:9%;top:27%;width:14%;height:56%}
+.museum-map__hover-surface[data-room="water-room"],.museum-map__current-surface[data-room="water-room"]{left:77%;top:27%;width:14%;height:56%}
+.museum-map__hover-surface[data-room="film-room"],.museum-map__current-surface[data-room="film-room"]{left:78.3%;top:31%;width:11%;height:22%;border-radius:46%}
+.museum-map__hover-surface[data-room="current"],.museum-map__current-surface[data-room="current"]{left:70%;top:89%;width:22%;height:7%}
+.museum-map__hover-surface[data-room="cloisters"],.museum-map__current-surface[data-room="cloisters"]{left:34%;top:31%;width:32%;height:47%;background:rgba(255,247,214,.16)}
+.museum-map__hover-surface[data-room="exterior"],.museum-map__current-surface[data-room="exterior"]{left:29%;top:96%;width:42%;height:4%}
+
+/* Narthex subspace labels align to the architectural cells instead of floating above them. */
+.museum-map__room[data-room="reading-room"]{left:30.2%;top:6.6%;width:11.5%;min-width:0}
+.museum-map__room[data-room="index"]{left:57.2%;top:6.6%;width:7.7%;min-width:0}
+.museum-map__room[data-room="archive"]{left:64.6%;top:6.6%;width:8.1%;min-width:0}
+.museum-map__room[data-room="narthex"]{left:43%;top:5.8%;width:14%}
+.museum-map__room[data-room="reading-room"] .museum-map__room-name,
+.museum-map__room[data-room="index"] .museum-map__room-name,
+.museum-map__room[data-room="archive"] .museum-map__room-name{font-size:9px;letter-spacing:.10em;white-space:nowrap}
+
+/* Match the end of the passage and the settled Narthex exactly to reduce route-change jump. */
+.narthex-transition__video,
+.narthex-room__environment,
+.narthex-room__environment-still{
+  object-position:50% 50%!important;
+  filter:blur(.18px) saturate(.84) contrast(.91) brightness(.92)!important;
+  transform:scale(1.004)!important;
+}
+.narthex-transition__frame{transition:opacity 2.1s ease,transform 3s cubic-bezier(.2,.75,.2,1)}
+.narthex-room__ui{animation-delay:1.05s}
+
+/* Exit exterior: slower motion reads as atmosphere rather than a clip. */
+.exit-exterior__video{filter:saturate(.84) contrast(.94) brightness(.86)}
+
+@media(max-width:700px){
+  .water-room__header{min-height:148vh;padding-top:23vh}
+  .water-room-installation{padding-top:52vh}
+  .red-room-opening{min-height:122vh;padding-top:20vh}
+  .room[data-environment="textile"] .red-thread-installation{margin-top:8vh}
+  .vestibule__light::after{display:none}
+}
+
+/* ==========================================================
+   FOCUSED CURATORIAL REFINEMENT — Red Room / Water Room / Map
+   ========================================================== */
+
+/* Red Room opening: use the new architectural panel and follow the same
+   visual grammar as Water Room — card, note, breathing space, question. */
+.red-room-opening{
+  min-height:178vh;
+  padding:23vh 0 10vh clamp(2rem,7vw,7rem);
+}
+.room[data-environment="textile"] .red-room-opening__title{
+  width:min(34rem,74vw);
+  padding:clamp(1.15rem,2vw,1.75rem);
+  background:rgba(248,235,226,.34);
+  border:1px solid rgba(78,58,53,.08);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  box-shadow:0 1.2rem 4rem rgba(104,61,53,.035);
+}
+.red-room-opening__room-label{margin-bottom:.62rem}
+.room[data-environment="textile"] .red-room-opening__title h2{
+  font-size:clamp(2rem,3.55vw,3.3rem);
+  margin-bottom:.85rem;
+}
+.red-room-opening__statement{
+  margin:0;
+  max-width:29rem;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(.84rem,1.05vw,1rem);
+  font-weight:400;
+  line-height:1.5;
+  color:rgba(51,40,36,.72);
+}
+.room[data-environment="textile"] .red-room-opening__note{
+  display:inline-block;
+  margin:1rem 0 0;
+  padding:.34rem .48rem;
+  background:rgba(248,235,226,.28);
+  font-size:.68rem;
+  line-height:1.35;
+  color:rgba(56,43,39,.72);
+}
+.room[data-environment="textile"] .red-room-opening__question{
+  width:min(37rem,80vw);
+  margin:45vh 0 0 clamp(1rem,6vw,5rem);
+  font-size:clamp(1.8rem,3vw,2.9rem);
+  font-weight:400;
+  line-height:1.08;
+  color:rgba(45,35,32,.86);
+}
+.room[data-environment="textile"] .red-thread-installation{
+  margin-top:32vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-sequence{
+  gap:48vh;
+}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(8){margin-top:-4vh}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(9){margin-top:-6vh}
+.room[data-environment="textile"] .red-thread-installation .artwork-image:nth-child(10){margin-top:-8vh}
+
+/* Water Room: let the room establish itself longer before text and image 01. */
+.water-room__header{
+  min-height:218vh;
+  padding-top:43vh;
+}
+.water-room__question{margin-top:50vh}
+.water-room-installation{padding-top:194vh}
+
+/* Map: make hover/read location operate on the architectural zone itself. */
+.museum-map__hover-surface{
+  z-index:2;
+  border:0;
+  background:rgba(255,248,216,.48);
+  box-shadow:0 0 48px rgba(207,177,98,.38),inset 0 0 44px rgba(255,250,226,.40);
+}
+.museum-map__current-surface{
+  background:rgba(255,247,212,.38)!important;
+  box-shadow:0 0 38px rgba(203,169,91,.32),inset 0 0 34px rgba(255,248,216,.34)!important;
+}
+.museum-map__room{
+  color:rgba(32,29,26,.96);
+  text-shadow:0 1px 2px rgba(250,247,241,.88),0 0 10px rgba(250,247,241,.76);
+}
+/* Center labels inside the three Narthex subspaces, and pull the small
+   Index/Archive cells inward so the group mirrors Reading Room. */
+.museum-map__room[data-room="reading-room"]{
+  left:30.6%;top:8.3%;width:11.2%;height:6.8%;min-width:0;padding:0;
+}
+.museum-map__room[data-room="index"]{
+  left:58.4%;top:8.3%;width:5.9%;height:6.8%;min-width:0;padding:0;
+}
+.museum-map__room[data-room="archive"]{
+  left:65.0%;top:8.3%;width:5.8%;height:6.8%;min-width:0;padding:0;
+}
+.museum-map__room[data-room="narthex"]{left:43%;top:6.0%;width:14%}
+.museum-map__room[data-room="reading-room"],
+.museum-map__room[data-room="index"],
+.museum-map__room[data-room="archive"]{
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.museum-map__room[data-room="reading-room"] .museum-map__room-name,
+.museum-map__room[data-room="index"] .museum-map__room-name,
+.museum-map__room[data-room="archive"] .museum-map__room-name{
+  display:block;
+  width:100%;
+  text-align:center;
+  white-space:nowrap;
+  font-size:8.8px;
+  letter-spacing:.095em;
+}
+.museum-map__hover-surface[data-room="index"],.museum-map__current-surface[data-room="index"]{left:58.0%;top:6.2%;width:6.7%;height:8.3%}
+.museum-map__hover-surface[data-room="archive"],.museum-map__current-surface[data-room="archive"]{left:64.7%;top:6.2%;width:6.7%;height:8.3%}
+
+/* Vestibule: leaf-like dapple and moving branch shadows through the bright arch. */
+.vestibule__light{
+  background:
+    radial-gradient(ellipse 9% 15% at 18% 24%,rgba(255,248,218,.23) 0 45%,transparent 72%),
+    radial-gradient(ellipse 7% 11% at 28% 37%,rgba(255,246,212,.19) 0 43%,transparent 74%),
+    radial-gradient(ellipse 8% 13% at 74% 22%,rgba(255,246,214,.21) 0 44%,transparent 73%),
+    radial-gradient(ellipse 6% 10% at 83% 36%,rgba(255,246,214,.18) 0 42%,transparent 75%),
+    radial-gradient(ellipse 10% 16% at 62% 53%,rgba(255,247,221,.18) 0 40%,transparent 72%);
+  filter:blur(13px);
+  opacity:.9;
+}
+.vestibule__light::after{
+  inset:7% 20% 14%;
+  background:
+    radial-gradient(ellipse 14% 22% at 30% 26%,rgba(31,37,26,.18) 0 40%,transparent 68%),
+    radial-gradient(ellipse 11% 18% at 47% 43%,rgba(27,34,23,.15) 0 42%,transparent 70%),
+    radial-gradient(ellipse 9% 16% at 66% 30%,rgba(27,34,23,.14) 0 40%,transparent 68%),
+    radial-gradient(ellipse 13% 20% at 73% 58%,rgba(28,36,24,.13) 0 43%,transparent 72%);
+  mix-blend-mode:multiply;
+  filter:blur(12px);
+  opacity:.72;
+  animation:vestibule-branch-shadows 5.8s ease-in-out infinite alternate;
+}
+@keyframes vestibule-branch-shadows{
+  0%{transform:translate(-4%,-2%) rotate(-1deg) scale(1.03);opacity:.48}
+  42%{transform:translate(3%,3%) rotate(1.3deg) scale(1.08);opacity:.82}
+  100%{transform:translate(-1%,1%) rotate(-.4deg) scale(1.05);opacity:.62}
+}
+
+/* Slightly longer Narthex settle. */
+.narthex-transition__frame{transition:opacity 2.4s ease,transform 3.35s cubic-bezier(.2,.75,.2,1)}
+.narthex-room__ui{animation-delay:1.35s}
+
+@media(max-width:700px){
+  .red-room-opening{min-height:136vh;padding-top:18vh}
+  .room[data-environment="textile"] .red-room-opening__question{margin-top:28vh;margin-left:0}
+  .room[data-environment="textile"] .red-thread-installation{margin-top:12vh}
+  .room[data-environment="textile"] .red-thread-installation .artwork-sequence{gap:34vh}
+  .water-room__header{min-height:166vh;padding-top:31vh}
+  .water-room-installation{padding-top:78vh}
 }

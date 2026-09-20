@@ -1,17 +1,16 @@
+import Link from "next/link";
 import { Room } from "@/components/Room";
 
 export default function CurrentPage() {
   return (
-    <Room
-      eyebrow="Current exhibition"
-      title="Current"
-      environment="current"
-    >
-      <div data-museum-location="current">
-        {/* Current exhibition title, wall card,
-            works, location and event information
-            will be data-driven here. */}
+    <Room eyebrow="Current exhibition" title="Current" environment="current">
+      <div data-museum-location="current" className="current-room__content">
+        {/* Current exhibition content remains data-driven in the next utility pass. */}
       </div>
+
+      <Link className="current-room__return" href="/vestibule">
+        Return to Vestibule
+      </Link>
     </Room>
   );
 }

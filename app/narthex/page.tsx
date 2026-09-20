@@ -1,19 +1,28 @@
+import { Suspense } from "react";
 import { ArchitecturalLink } from "@/components/ArchitecturalLink";
-import { Room } from "@/components/Room";
+import { NarthexAmbientVideo } from "@/components/NarthexAmbientVideo";
+import { NarthexReturn } from "@/components/NarthexReturn";
 
 export default function NarthexPage() {
   return (
-    <Room eyebrow="Connector" title="Narthex" environment="narthex">
-      <p className="room__body">
-        A quieter stone passage near the back of the museum. From here the visitor can leave,
-        return toward the main vestibule, or move into the back corridor.
-      </p>
-      <div className="branch-grid" aria-label="Paths from the narthex">
-        <ArchitecturalLink href="/exit">Exit</ArchitecturalLink>
-        <ArchitecturalLink href="/back-corridor">Back corridor</ArchitecturalLink>
-        <ArchitecturalLink href="/vestibule">Main vestibule</ArchitecturalLink>
-        <ArchitecturalLink href="/threshold">Threshold</ArchitecturalLink>
+    <main id="narthex-start" className="narthex-room" data-museum-location="narthex">
+      <Suspense fallback={null}>
+        <NarthexAmbientVideo />
+      </Suspense>
+      <div className="narthex-room__veil" aria-hidden="true" />
+
+      <div className="narthex-room__ui">
+        <p className="narthex-room__label">Narthex</p>
+
+        <nav className="narthex-room__paths" aria-label="Narthex destinations">
+          <ArchitecturalLink href="/reading-room">Reading Room</ArchitecturalLink>
+          <ArchitecturalLink href="/index">Index</ArchitecturalLink>
+          <ArchitecturalLink href="/archive">Archive</ArchitecturalLink>
+          <ArchitecturalLink href="/exit">Exit</ArchitecturalLink>
+        </nav>
+
+        <NarthexReturn />
       </div>
-    </Room>
+    </main>
   );
 }

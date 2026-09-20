@@ -35,6 +35,7 @@ export default function IndexPage() {
           </li>
         </ul>
       </section>
+          <Link className="utility-return-to-narthex" href="/narthex?arrived=1">Return to Narthex</Link>
     </main>
   );
 }

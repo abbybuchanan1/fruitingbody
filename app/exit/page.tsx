@@ -2,14 +2,20 @@ import Link from "next/link";
 
 export default function ExitPage() {
   return (
-    <main className="exit-page">
-      <p className="eyebrow">Narthex</p>
-      <h1>Departure</h1>
-      <p>The exterior gradually returns. The museum remains available for another visit.</p>
-      <div className="exit-links">
-        <Link href="/">Step outside</Link>
-        <Link href="/reading-room">Reading Room</Link>
-        <Link href="/index">Index</Link>
+    <main className="exit-exterior" data-museum-location="exit-exterior">
+      <video
+        className="exit-exterior__video"
+        src="/media/video/exterior/exit-exterior.mp4"
+        muted
+        playsInline
+        autoPlay
+        loop
+        preload="metadata"
+      />
+      <div className="exit-exterior__veil" aria-hidden="true" />
+      <div className="exit-exterior__ui">
+        <p className="exit-exterior__label">Exterior</p>
+        <Link className="exit-exterior__return" href="/narthex?arrived=1">Return to Narthex</Link>
       </div>
     </main>
   );

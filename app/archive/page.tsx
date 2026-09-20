@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ArchivePage() {
   return (
     <main className="utility-page">
@@ -10,6 +12,7 @@ export default function ArchivePage() {
         <li>Curriculum vitae</li>
         <li>Publications</li>
       </ul>
+      <Link className="utility-return-to-narthex" href="/narthex?arrived=1">Return to Narthex</Link>
     </main>
   );
 }
