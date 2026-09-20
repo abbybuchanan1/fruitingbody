@@ -2092,3 +2092,181 @@
     transform: rotate(180deg) !important;
   }
 }
+
+
+/* ============================================================
+   MEDIA INTEGRATION — entrance / vestibule / cloisters / exit
+   ============================================================ */
+
+/* Entrance: the fungal image should register as a faint apparition on the
+   masonry, not as a second full-strength picture. */
+.museum-exterior__projection {
+  position: absolute;
+  inset: -2%;
+  z-index: 1;
+  width: 104%;
+  height: 104%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: .19;
+  mix-blend-mode: soft-light;
+  filter: saturate(.55) contrast(.88) brightness(1.04) blur(.6px);
+  transform: scale(1.015);
+  pointer-events: none;
+  -webkit-mask-image:
+    radial-gradient(ellipse 82% 88% at 56% 48%, #000 0 62%, rgba(0,0,0,.82) 75%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 82% 88% at 56% 48%, #000 0 62%, rgba(0,0,0,.82) 75%, transparent 100%);
+}
+
+/* Keep the title and door interaction above the projection. */
+.museum-exterior__sign { z-index: 4 !important; }
+.museum-exterior__door { z-index: 5 !important; }
+
+/* One quiet sound control serves the media rooms for now.  It can later be
+   absorbed into the site-wide interior audio system. */
+.ambient-sound-control {
+  position: fixed;
+  z-index: 80;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: .3rem 0;
+  background: transparent;
+  color: rgba(244, 240, 229, .62);
+  font: 500 .58rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: .72;
+  transition: opacity .2s ease;
+}
+
+.ambient-sound-control:hover,
+.ambient-sound-control:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+.ambient-sound-control--exterior {
+  color: rgba(247, 242, 231, .72);
+  text-shadow: 0 1px 7px rgba(18,14,10,.55);
+}
+
+/* Vestibule: use the supplied moving-shadow footage only in the brighter
+   opening. The older generated dapple remains extremely faint on the dark
+   perimeter so the whole room does not become static. */
+.vestibule__dapple-window {
+  position: absolute;
+  z-index: 1;
+  inset: 3% 21% 10%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .52;
+  mix-blend-mode: multiply;
+  -webkit-mask-image:
+    radial-gradient(ellipse 46% 66% at 50% 46%, #000 0 56%, rgba(0,0,0,.9) 66%, rgba(0,0,0,.3) 79%, transparent 92%);
+  mask-image:
+    radial-gradient(ellipse 46% 66% at 50% 46%, #000 0 56%, rgba(0,0,0,.9) 66%, rgba(0,0,0,.3) 79%, transparent 92%);
+}
+
+.vestibule__dapple-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+  filter: grayscale(1) contrast(.82) brightness(1.12) blur(3px);
+  transform: scale(1.09);
+}
+
+.vestibule__light {
+  mix-blend-mode: screen !important;
+  opacity: .52 !important;
+}
+
+.vestibule__light::before {
+  opacity: .18 !important;
+  filter: blur(11px) !important;
+  animation-duration: 17s !important;
+}
+
+.vestibule__light::after {
+  display: none !important;
+}
+
+/* Cloisters: visual loop remains independent; the new field recording lives
+   underneath it and can be enabled without changing the film treatment. */
+.ambient-sound-control--cloisters {
+  color: rgba(245, 238, 222, .60);
+}
+
+/* Exit: two video planes crossfade, while each film keeps its native sound.
+   Only the active plane receives full visual opacity. */
+.exit-exterior__video-stack {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #1c2418;
+}
+
+.exit-exterior__video-stack .exit-exterior__video {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 52%;
+  opacity: 0;
+  filter: saturate(.86) contrast(.96) brightness(.88);
+  transition: opacity 1.6s ease;
+  will-change: opacity;
+}
+
+.exit-exterior__video-stack .exit-exterior__video.is-active {
+  opacity: 1;
+}
+
+.exit-exterior__veil {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.exit-exterior__ui {
+  z-index: 4;
+}
+
+.ambient-sound-control--exit {
+  z-index: 5;
+  color: rgba(240,239,231,.62);
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection {
+    opacity: .15;
+    object-position: 52% center;
+  }
+
+  .vestibule__dapple-window {
+    inset: 7% 8% 18%;
+    opacity: .46;
+  }
+
+  .ambient-sound-control {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__projection,
+  .vestibule__dapple-video {
+    display: none !important;
+  }
+
+  .exit-exterior__video-stack .exit-exterior__video {
+    transition: none !important;
+  }
+}
