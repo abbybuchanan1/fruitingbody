@@ -1,6 +1,7 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 export function GardenSection({
   showExit = false,
@@ -29,7 +30,7 @@ export function GardenSection({
               statement={daffodils.statement}
               headingLevel={1}
             />
-            <p className="room-opening__question">{daffodils.question}</p>
+            <QuestionPrompt>{daffodils.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={daffodils.exhibition} label={daffodils.title} mode="varied" />
         </section>
@@ -37,7 +38,7 @@ export function GardenSection({
         <section id="fear-not" className="garden-section garden-section--fear-not">
           <div className="room-opening room-opening--secondary">
             <WorkIntroCard room="Garden" title={fearNot.title} statement={fearNot.statement} />
-            <p className="room-opening__question">{fearNot.question}</p>
+            <QuestionPrompt>{fearNot.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={fearNot.exhibition} label={fearNot.title} mode="varied" />
         </section>
@@ -45,7 +46,7 @@ export function GardenSection({
         <section id="taste-and-see" className="garden-section garden-section--taste-and-see">
           <div className="room-opening room-opening--secondary">
             <WorkIntroCard room="Garden" title={taste.title} statement={taste.statement} />
-            <p className="room-opening__question">{taste.question}</p>
+            <QuestionPrompt>{taste.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={taste.exhibition} label={taste.title} mode="varied" />
         </section>
