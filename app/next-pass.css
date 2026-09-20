@@ -1878,3 +1878,59 @@
     transform: none;
   }
 }
+
+
+/* ============================================================
+   INTERPRETIVE PROMPTS — spatial placement + scroll reveal
+   ============================================================ */
+
+/* Keep the text itself left-aligned, but place the prompt as a separate
+   wall event on the opposite side of the title card. Right-justified text
+   would make the line endings feel designed rather than read. */
+.room-opening__question {
+  margin-left: auto !important;
+  margin-right: clamp(7vw, 12vw, 15vw) !important;
+  text-align: left !important;
+}
+
+/* The question should arrive only when the visitor reaches it. */
+.question-prompt {
+  opacity: 0;
+  filter: blur(3px);
+  transition:
+    opacity 1.15s ease,
+    filter 1.35s ease;
+  will-change: opacity, filter;
+}
+
+.question-prompt.is-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Give the shorter prompts a slightly narrower wall footprint. */
+.red-room-project--thread .room-opening__question {
+  width: min(24rem, 68vw) !important;
+}
+
+.garden-section--fear-not .room-opening__question,
+.garden-section--taste-and-see .room-opening__question,
+.threshold-page .room-opening__question {
+  width: min(31rem, 72vw) !important;
+}
+
+@media (max-width: 760px) {
+  .room-opening__question {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: min(31rem, 82vw) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question-prompt {
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
