@@ -245,7 +245,164 @@ a little way down the road.`,
     title: "May, 2024",
     year: "2024",
     preview: ["The yard where my mother", "plants flowers.", "Where my sister hangs", "window boxes."],
-    body: `The yard where my mother
+    body: `It is the month
+the thirteen-year and seventeen-year cycles synchronize.
+Cicada broods XIII and XIX
+co-emerge
+from the ground
+for the first time in
+221 years.
+Seven states
+across the Midwest and Southeast
+will reverberate with cicada song
+until mid-June,
+when the mothers lay their eggs
+on the ends
+of tree branches.
+The newly minted nymphs hatch
+one month later.
+They chew through the branches,
+free-fall to the roots,
+feast on sap,
+then follow
+their ancestral path
+down
+deep
+into
+the earth:
+to burrow,
+incubate,
+wait.
+
+Jupiter enters Gemini
+for the first time in twelve years.
+Rafah is on fire.
+I rage,
+make calls,
+watch the videos to the end
+until my cheeks burn,
+knowing it is both
+the most
+and the least
+I can do.
+
+She gets her first loose tooth.
+He gets his first pimple.
+
+It is the month
+I see my mother
+look genuinely happy
+in a photo
+for the first time.
+
+When the largest solar storm
+since 2003
+erupts above us.
+We wake the kids at midnight,
+run down to the riverbank—
+pajamas and bare feet—
+to gawk at the aurora.
+They are hard to see
+with the naked eye,
+but strangely brilliant
+through my iPhone’s lens:
+pink, green, gold.
+
+We visit the Field Museum in Chicago.
+We sit on a bench in front of Sue,
+the world’s largest
+fully intact T-rex fossil.
+She dominates an entire wing
+of the top floor.
+We stare silently for
+thirty minutes,
+then hold up photos
+of chicken skeletons,
+then human skeletons,
+comparing them to Sue’s.
+None are wildly different
+from the other.
+We wonder if apex predators
+get a bad rap.
+
+In a quiet corner
+of the museum’s basement
+we see a mummy
+with our own eyes.
+She is smaller than I anticipated,
+not much bigger than a large child.
+I fall in love
+with the wide gold wings
+gilding her chest,
+glinting in the late afternoon light.
+I wonder
+how her afterlife is going.
+And whether it is disgust or fascination
+rippling through my belly
+when I see her
+partially exposed
+Maxilla.
+
+On a sunny Tuesday
+at the Shedd Aquarium
+I pet a stingray
+with my bare hands.
+Its skin is impossibly smooth.
+Tears spring unexpectedly
+when I see
+the white beluga whales
+somersault
+through the blue water.
+And again
+when I realize:
+my boy is crying too.
+
+We gather
+three generations of relatives
+for a family reunion
+in rural Illinois.
+Forty of us emerge
+from both coasts.
+We swarm the platform
+at my uncle’s tiny church.
+We sing How Great Thou Art
+for the local congregation
+of twenty-three souls.
+We learn our great-great-grandmother
+used to sneak cigarettes and magazines.
+I get called a cheater during trivia.
+We debate parenting philosophies
+with the cousins.
+Then we fly home.
+
+It is the month
+I start taking voice lessons again.
+
+The month I sit in the clinic
+every week,
+IV in my left arm,
+as iron is pumped back
+into my watery blood.
+
+It is the month
+I remember I love sex.
+
+The month I bleed with the full moon.
+I hear that makes me a red witch.
+
+It is not
+the month we finish construction
+on our house.
+But it is the month
+my brother—
+intrepid archaeologist—
+hauls away
+2,500 pounds
+of trash and debris,
+unearthing, presenting:
+the yard.
+
+The yard where my mother
 plants flowers.
 Where my sister hangs
 window boxes.
@@ -375,7 +532,6 @@ hope returns.
 The month
 I wonder
 if I can write a poem.`,
-  },
   {
     slug: "that-it-was",
     title: "That It Was",
@@ -702,7 +858,7 @@ a ziplock bag of feathers in her hand`,
   {
     slug: "rosary",
     title: "Rosary",
-    year: "2026",
+    year: "2025",
     preview: ["Earth rotating like a bead", "The bead orbiting a silk cord", "Who is the mantra for—", "Lakshmi or me?"],
     body: `Earth rotating like a bead
 The bead orbiting a silk cord
