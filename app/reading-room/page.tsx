@@ -11,9 +11,6 @@ export default function ReadingRoomPage() {
         <header className="reading-room-title-card">
           <p className="reading-room-title-card__room">Reading Room</p>
           <h1>Poems</h1>
-          <p>
-            A parallel language for embodiment, relation, grief, time, and return.
-          </p>
         </header>
 
         <div className="reading-room-shelf">
