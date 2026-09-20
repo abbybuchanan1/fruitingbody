@@ -1,6 +1,7 @@
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { thresholdPairs } from "@/lib/artworks";
 import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 export function ThresholdSection() {
   const work = museumWorksById.threshold;
@@ -17,7 +18,7 @@ export function ThresholdSection() {
               statement={work.statement}
               headingLevel={1}
             />
-            <p className="room-opening__question">{work.question}</p>
+            <QuestionPrompt>{work.question}</QuestionPrompt>
           </div>
 
           <div className="threshold-pairs" aria-label="Threshold diptychs">
