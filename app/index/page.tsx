@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
 export default function IndexPage() {
@@ -19,10 +20,11 @@ export default function IndexPage() {
 
             {group.ids.map((id) => {
               const work = museumWorksById[id as WorkId];
+              const images = work.id === "miscarriage" ? work.archive : work.exhibition;
               return (
                 <article className="index-work" key={work.id}>
                   <header className="index-work__header">
-                    <div>
+                    <div className="index-work__identity">
                       <p className="index-work__meta">{work.year} · {work.medium}</p>
                       <h3><Link href={work.href}>{work.title}</Link></h3>
                     </div>
@@ -30,14 +32,7 @@ export default function IndexPage() {
                     <p className="index-work__question">{work.question}</p>
                   </header>
 
-                  <div className="index-work__grid">
-                    {work.exhibition.map((image, index) => (
-                      <figure className="index-thumb" key={`${work.id}-${image.src}-${index}`}>
-                        <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-                        {image.title ? <figcaption>{image.title}</figcaption> : null}
-                      </figure>
-                    ))}
-                  </div>
+                  <ArtworkLightboxGrid images={images} mode="index" />
                 </article>
               );
             })}
