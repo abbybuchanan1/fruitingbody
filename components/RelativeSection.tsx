@@ -3,6 +3,7 @@ import { RelativeDiptychSequence } from "@/components/RelativeDiptychSequence";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { relativePairs } from "@/lib/artworks";
 import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 type Exit = { href: string; label: string };
 
@@ -33,7 +34,7 @@ export function RelativeSection({
             note="Some works contain nudity and close studies of the human body."
             headingLevel={1}
           />
-          <p className="room-opening__question">{work.question}</p>
+          <QuestionPrompt>{work.question}</QuestionPrompt>
         </div>
 
         <RelativeDiptychSequence pairs={relativePairs} />
