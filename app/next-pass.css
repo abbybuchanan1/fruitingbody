@@ -1934,3 +1934,161 @@
     transition: none !important;
   }
 }
+
+
+/* ============================================================
+   MUSEUM MAP — canonical geometry reset
+   One coordinate system now drives the drawing, hit areas, and highlights.
+   Do not nudge individual map rooms in later CSS passes.
+   ============================================================ */
+
+.museum-map__svg-highlight {
+  stroke: none !important;
+  pointer-events: none;
+}
+
+.museum-map__svg-highlight--current {
+  fill: rgba(190, 194, 151, .32) !important;
+}
+
+.museum-map__svg-highlight--hover {
+  fill: rgba(218, 181, 139, .36) !important;
+}
+
+.museum-map__room--canonical[data-map-box="true"] {
+  left: var(--map-left) !important;
+  top: var(--map-top) !important;
+  width: var(--map-width) !important;
+  height: var(--map-height) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  transform: none !important;
+  z-index: var(--map-z) !important;
+  margin: 0 !important;
+  padding: .35rem .45rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .28rem !important;
+  text-align: center !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.museum-map__room--canonical[data-map-box="true"]:hover,
+.museum-map__room--canonical[data-map-box="true"]:focus-visible {
+  background: transparent !important;
+  outline: none !important;
+}
+
+.museum-map__room--canonical .museum-map__room-name,
+.museum-map__room--canonical .museum-map__collections,
+.museum-map__room--canonical .museum-map__collection {
+  width: 100%;
+  max-width: 100%;
+  text-align: center !important;
+}
+
+.museum-map__room-name--stacked {
+  display: grid !important;
+  gap: 0 !important;
+  place-items: center !important;
+  line-height: 1.08 !important;
+}
+
+/* The Garden text sits below its dividing line instead of crowding it. */
+.museum-map__room--canonical[data-room="garden"] {
+  justify-content: flex-start !important;
+  padding-top: 1.15rem !important;
+}
+
+/* Narthex is the enclosing room; its label belongs in the lower open band. */
+.museum-map__room--canonical[data-room="narthex"] {
+  justify-content: flex-end !important;
+  padding-bottom: .45rem !important;
+}
+
+/* Keep the two side rooms optically centered in their architectural wings. */
+.museum-map__room--canonical[data-room="red-room"],
+.museum-map__room--canonical[data-room="water-room"] {
+  padding-left: .3rem !important;
+  padding-right: .3rem !important;
+}
+
+/* Current is a true annex off the Vestibule, not a box laid over the corner. */
+.museum-map__room--canonical[data-room="current"] {
+  padding-left: .65rem !important;
+  padding-right: .65rem !important;
+}
+
+/* Cloisters occupy only the two drawn passages. The central Garden/Grotto
+   remains fully hoverable and clickable. */
+.museum-map__cloisters-group--canonical {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 12 !important;
+  pointer-events: none !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+  top: 31.4286% !important;
+  width: 2.1% !important;
+  height: 43.1429% !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage--left {
+  left: 34.4% !important;
+  right: auto !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage--right {
+  left: 63.5% !important;
+  right: auto !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage:hover,
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage:focus-visible {
+  background: transparent !important;
+}
+
+/* Retire the old detached HTML highlight surfaces. */
+.museum-map__current-surface,
+.museum-map__hover-surface {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .museum-map__room--canonical[data-map-box="true"] {
+    position: absolute !important;
+    display: flex !important;
+  }
+
+  .museum-map__cloisters-group--canonical {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+    position: absolute !important;
+    min-height: 0 !important;
+    border: 0 !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-label {
+    writing-mode: vertical-rl !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--left .museum-map__cloister-label {
+    transform: rotate(180deg) !important;
+  }
+}
