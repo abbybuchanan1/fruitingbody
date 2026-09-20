@@ -82,7 +82,11 @@ export function ArtworkLightboxGrid({
               <button
                 className="artwork-lightbox__nav artwork-lightbox__nav--prev"
                 type="button"
-                onClick={() => setOpenIndex((openIndex - 1 + images.length) % images.length)}
+                onClick={() =>
+                  setOpenIndex((current) =>
+                    current === null ? null : (current - 1 + images.length) % images.length,
+                  )
+                }
                 aria-label="Previous image"
               >
                 Previous
@@ -90,7 +94,11 @@ export function ArtworkLightboxGrid({
               <button
                 className="artwork-lightbox__nav artwork-lightbox__nav--next"
                 type="button"
-                onClick={() => setOpenIndex((openIndex + 1) % images.length)}
+                onClick={() =>
+                  setOpenIndex((current) =>
+                    current === null ? null : (current + 1) % images.length,
+                  )
+                }
                 aria-label="Next image"
               >
                 Next
