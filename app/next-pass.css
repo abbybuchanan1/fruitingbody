@@ -1608,3 +1608,273 @@
   background-position: 45% center !important;
   filter: saturate(.72) brightness(.62) blur(2px) !important;
 }
+
+
+/* ============================================================
+   CURATORIAL ALIGNMENT — interpretive prompts / Index / Map
+   ============================================================ */
+
+/* Questions should read as quiet interpretive wall prompts, not second headlines. */
+.room-opening__question {
+  width: min(35rem, 74vw) !important;
+  margin: clamp(14rem, 28vh, 23rem) auto 0 !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(.72rem, .92vw, .9rem) !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  line-height: 1.72 !important;
+  letter-spacing: .145em !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+  text-wrap: pretty !important;
+  text-shadow: none !important;
+}
+
+/* Keep contrast responsive to the physical room rather than forcing one color sitewide. */
+.relative-page .room-opening__question {
+  color: rgba(49, 45, 39, .82) !important;
+}
+
+.garden-section--daffodils .room-opening__question,
+.garden-section--fear-not .room-opening__question {
+  color: rgba(239, 234, 219, .88) !important;
+  text-shadow: 0 1px 10px rgba(13, 18, 14, .55) !important;
+}
+
+.garden-section--taste-and-see .room-opening__question {
+  color: rgba(214, 220, 191, .9) !important;
+  text-shadow: 0 1px 10px rgba(24, 34, 26, .48) !important;
+}
+
+.grotto-page .room-opening__question {
+  color: rgba(231, 225, 213, .76) !important;
+  text-shadow: 0 1px 9px rgba(0, 0, 0, .45) !important;
+}
+
+.threshold-page .room-opening__question {
+  color: rgba(64, 55, 46, .74) !important;
+  text-shadow: 0 1px 10px rgba(246, 240, 228, .72) !important;
+}
+
+.red-room-project--thread .room-opening__question {
+  color: rgba(59, 42, 39, .8) !important;
+  text-shadow: 0 1px 10px rgba(248, 229, 224, .66) !important;
+}
+
+.red-room-project--membrane .room-opening__question {
+  color: rgba(239, 226, 219, .78) !important;
+  text-shadow: 0 1px 9px rgba(48, 25, 29, .42) !important;
+}
+
+.water-room__header .room-opening__question {
+  margin-top: clamp(17rem, 34vh, 27rem) !important;
+  color: rgba(239, 235, 221, .84) !important;
+  text-shadow: 0 1px 9px rgba(18, 30, 29, .46) !important;
+}
+
+.current-exhibition .room-opening__question {
+  color: rgba(239, 231, 216, .8) !important;
+}
+
+/* INDEX: follow Archive's one-column editorial hierarchy before the image field. */
+.index-work__header {
+  display: block !important;
+  margin-bottom: clamp(2.8rem, 5vh, 4.5rem) !important;
+}
+
+.index-work__identity {
+  width: min(760px, 100%) !important;
+  max-width: 760px !important;
+  padding-right: 0 !important;
+}
+
+.index-work__header h3 {
+  margin: .35rem 0 1.25rem !important;
+}
+
+.index-work__statement,
+.index-work__question {
+  width: min(68ch, 100%) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+.index-work__statement {
+  margin-top: 0 !important;
+  line-height: 1.55 !important;
+}
+
+.index-work__question {
+  margin-top: .9rem !important;
+  color: rgba(72, 65, 57, .76) !important;
+  font-style: italic !important;
+  line-height: 1.5 !important;
+}
+
+/* MAP: keep the Narthex rooms inside their architecture and quiet the Water Room labels. */
+.museum-map__room[data-room="index"] {
+  left: 55.8% !important;
+}
+
+.museum-map__room[data-room="archive"] {
+  left: 62.4% !important;
+}
+
+.museum-map__room[data-room="garden"] {
+  top: 53.5% !important;
+}
+
+.museum-map__room[data-room="film-room"] {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  padding: 0 .2rem !important;
+}
+
+.museum-map__room[data-room="film-room"] .museum-map__room-name {
+  width: 100%;
+  text-align: center;
+}
+
+.museum-map__room[data-room="current"] {
+  left: 73.2% !important;
+  top: 89.4% !important;
+  width: 15.8% !important;
+}
+
+.museum-map__current-surface[data-room="current"],
+.museum-map__hover-surface[data-room="current"] {
+  left: 73.2% !important;
+  top: 89.4% !important;
+  width: 15.8% !important;
+  height: 6.2% !important;
+}
+
+/* Cloisters are two passages. The central Garden/Grotto remains independently clickable. */
+.museum-map__cloisters-group {
+  position: absolute;
+  left: 33.8%;
+  top: 31.2%;
+  width: 32.4%;
+  height: 44%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.museum-map__cloister-passage {
+  position: absolute;
+  top: 0;
+  width: 9%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: rgba(36, 35, 31, .82);
+  text-decoration: none;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.museum-map__cloister-passage--left { left: 0; }
+.museum-map__cloister-passage--right { right: 0; }
+
+.museum-map__cloister-label {
+  position: static !important;
+  top: auto !important;
+  writing-mode: vertical-rl;
+  font: 600 9px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.museum-map__cloister-passage--left .museum-map__cloister-label {
+  transform: rotate(180deg);
+}
+
+.museum-map__cloister-passage--right .museum-map__cloister-label {
+  transform: none;
+}
+
+.museum-map__cloister-passage:hover,
+.museum-map__cloister-passage:focus-visible {
+  outline: none;
+  background: rgba(248, 244, 236, .22);
+}
+
+.museum-map__current-surface[data-room="cloisters"],
+.museum-map__hover-surface[data-room="cloisters"] {
+  left: 33.8% !important;
+  top: 31.2% !important;
+  width: 32.4% !important;
+  height: 44% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 9%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::before {
+  left: 0;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  right: 0;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__current-surface[data-room="cloisters"]::after {
+  background: rgba(190, 194, 151, .32);
+  box-shadow: 0 0 24px rgba(171, 172, 126, .26);
+}
+
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  background: rgba(218, 181, 139, .34);
+  box-shadow: 0 0 24px rgba(193, 145, 105, .28);
+}
+
+@media (max-width: 760px) {
+  .room-opening__question {
+    width: min(31rem, 82vw) !important;
+    margin-top: clamp(9rem, 22vh, 14rem) !important;
+    font-size: .7rem !important;
+    letter-spacing: .12em !important;
+  }
+
+  .museum-map__cloisters-group {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    gap: 6px;
+    pointer-events: auto;
+  }
+
+  .museum-map__cloister-passage {
+    position: static;
+    width: 100%;
+    min-height: 44px;
+    writing-mode: horizontal-tb;
+    border-bottom: 1px solid rgba(61,54,48,.10);
+  }
+
+  .museum-map__cloister-label,
+  .museum-map__cloister-passage--left .museum-map__cloister-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}
