@@ -4,6 +4,7 @@ import { WaterRoomJunction } from "@/components/WaterRoomJunction";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 const panels = ["A", "B", "C", "D"];
 
@@ -31,7 +32,7 @@ export default function WaterRoomPage() {
             note="Some works contain nudity and close studies of the human body."
             headingLevel={1}
           />
-          <p className="room-opening__question">{work.question}</p>
+          <QuestionPrompt>{work.question}</QuestionPrompt>
         </div>
       </header>
 
