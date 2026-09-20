@@ -109,7 +109,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=garden",
     statement:
-      "The work investigates the relationship between agency and inevitability, exploring forms of sovereignty that emerge through participation rather than escape.",
+      "The work investigates the relationship between agency and inevitability, exploring forms of sovereignty that emerge through participation rather than\u00a0escape.",
     question:
       "What forms of freedom remain available inside the conditions that make us?",
     exhibition: artworkSets.daffodils,
