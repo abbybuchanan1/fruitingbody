@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";
 
 export default function ExteriorPage() {
   return (
@@ -12,6 +13,8 @@ export default function ExteriorPage() {
         sizes="100vw"
         className="museum-exterior__image"
       />
+
+      <ExteriorAtmosphere />
 
       <div className="museum-exterior__sign">
         Fruiting Body
