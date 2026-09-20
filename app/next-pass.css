@@ -737,3 +737,696 @@
     background-position: 40% center;
   }
 }
+
+
+/* ============================================================
+   QA POLISH PASS — September 2026
+   ============================================================ */
+
+/* --- VESTIBULE: leaf-shadow movement rather than spotlights --- */
+.vestibule__light {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  filter: none !important;
+  overflow: hidden;
+  background: transparent !important;
+  mix-blend-mode: screen;
+  opacity: .9;
+}
+
+.vestibule__light::before,
+.vestibule__light::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 9% 18%, rgba(221,230,211,.14) 0 2.7%, transparent 3.6%),
+    radial-gradient(ellipse at 22% 31%, rgba(235,238,216,.13) 0 2.2%, transparent 3.3%),
+    radial-gradient(ellipse at 38% 14%, rgba(216,227,204,.10) 0 3%, transparent 4%),
+    radial-gradient(ellipse at 53% 38%, rgba(235,237,215,.13) 0 2.5%, transparent 3.5%),
+    radial-gradient(ellipse at 68% 20%, rgba(217,229,207,.12) 0 2.8%, transparent 3.9%),
+    radial-gradient(ellipse at 81% 45%, rgba(235,239,220,.13) 0 2.3%, transparent 3.4%),
+    radial-gradient(ellipse at 93% 26%, rgba(218,230,208,.10) 0 2.6%, transparent 3.7%),
+    radial-gradient(ellipse at 17% 62%, rgba(235,239,220,.12) 0 2.5%, transparent 3.7%),
+    radial-gradient(ellipse at 34% 74%, rgba(216,228,207,.11) 0 2.6%, transparent 3.8%),
+    radial-gradient(ellipse at 57% 66%, rgba(238,241,220,.12) 0 2.4%, transparent 3.6%),
+    radial-gradient(ellipse at 73% 78%, rgba(218,231,209,.10) 0 2.8%, transparent 3.9%),
+    radial-gradient(ellipse at 88% 67%, rgba(237,240,218,.11) 0 2.5%, transparent 3.6%);
+  background-size: 52% 58%, 47% 54%, 58% 61%, 49% 56%, 57% 63%, 48% 52%,
+                   55% 60%, 50% 56%, 60% 64%, 48% 57%, 54% 59%, 51% 55%;
+  background-repeat: repeat;
+  filter: blur(7px);
+  animation: vestibule-dapple-drift 11s ease-in-out infinite alternate;
+}
+
+.vestibule__light::before {
+  opacity: .58;
+}
+
+.vestibule__light::after {
+  inset: 7% 26% 15%;
+  opacity: .82;
+  filter: blur(5px) brightness(1.22);
+  -webkit-mask-image: radial-gradient(ellipse 48% 72% at 50% 50%, #000 0 66%, transparent 82%);
+  mask-image: radial-gradient(ellipse 48% 72% at 50% 50%, #000 0 66%, transparent 82%);
+  animation-duration: 8s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes vestibule-dapple-drift {
+  0%   { transform: translate3d(-1.7%, -1.1%, 0) rotate(-.5deg) scale(1.02); background-position: 0 0, 7% 2%, 2% 8%, 10% 6%, 3% 3%, 6% 11%, 2% 5%, 8% 0, 1% 9%, 5% 4%, 9% 7%, 0 3%; }
+  45%  { transform: translate3d(.9%, 1.4%, 0) rotate(.35deg) scale(1.04); }
+  100% { transform: translate3d(2.2%, -.7%, 0) rotate(.8deg) scale(1.03); background-position: 9% 5%, 0 8%, 7% 1%, 2% 10%, 8% 6%, 1% 3%, 10% 9%, 3% 7%, 6% 0, 9% 9%, 1% 5%, 7% 10%; }
+}
+
+/* --- SHARED CARD / QUESTION LEGIBILITY --- */
+.work-intro-card__statement {
+  text-wrap: pretty;
+  hyphens: none;
+}
+
+.room-opening--relative {
+  padding-top: clamp(13rem, 24vh, 19rem);
+}
+
+.room-opening--relative .room-opening__question {
+  margin-top: clamp(11rem, 22vh, 18rem);
+}
+
+.garden-section--fear-not .work-intro-card,
+.garden-section--taste-and-see .work-intro-card {
+  background: rgba(236, 230, 213, .47);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.garden-section--daffodils .room-opening__question {
+  color: rgba(43, 45, 36, .94);
+  text-shadow: 0 1px 14px rgba(242,239,224,.82), 0 0 28px rgba(242,239,224,.56);
+}
+
+.garden-section--fear-not .room-opening__question {
+  color: rgba(242, 238, 217, .94);
+  text-shadow: 0 1px 8px rgba(19,25,19,.78), 0 0 26px rgba(19,25,19,.52);
+}
+
+.garden-section--taste-and-see .room-opening__question {
+  color: rgba(214, 220, 191, .96);
+  text-shadow: 0 1px 8px rgba(27,39,29,.75), 0 0 25px rgba(27,39,29,.48);
+}
+
+/* Dark chambers: quieter type and more permeable cards */
+.grotto-page .work-intro-card {
+  background: rgba(34, 36, 33, .28);
+  color: rgba(238, 232, 220, .82);
+  border: 1px solid rgba(236,230,216,.055);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.grotto-section--phase .work-intro-card {
+  background: rgba(25, 42, 39, .25);
+}
+
+.grotto-page .work-intro-card h1,
+.grotto-page .work-intro-card h2 {
+  color: rgba(240, 234, 222, .84);
+}
+
+.grotto-page .work-intro-card__room {
+  color: rgba(235, 230, 220, .54);
+}
+
+.grotto-page .work-intro-card__statement {
+  color: rgba(236, 230, 218, .72);
+}
+
+.grotto-page .room-opening__question {
+  color: rgba(239, 233, 221, .82);
+  text-shadow: 0 1px 7px rgba(0,0,0,.72), 0 0 24px rgba(0,0,0,.38);
+}
+
+.threshold-page .work-intro-card {
+  background: rgba(235, 226, 209, .43);
+  box-shadow: none;
+}
+
+.threshold-page .room-opening__question {
+  color: rgba(54, 47, 39, .84);
+  text-shadow: 0 1px 12px rgba(246,240,226,.92), 0 0 26px rgba(246,240,226,.62);
+}
+
+/* --- RED ROOM --- */
+.red-room-project--thread .room-opening {
+  padding-top: clamp(12rem, 21vh, 17rem);
+}
+
+.red-room-project--thread .room-opening__question {
+  margin-top: clamp(10rem, 19vh, 15rem);
+  color: rgba(49, 35, 34, .9);
+  text-shadow: 0 1px 12px rgba(246,223,220,.9), 0 0 24px rgba(246,223,220,.7);
+}
+
+.red-room-project--membrane .room-opening__question {
+  margin-top: clamp(10rem, 19vh, 15rem);
+  color: rgba(238, 224, 216, .88);
+  text-shadow: 0 1px 8px rgba(48,25,29,.74), 0 0 24px rgba(48,25,29,.46);
+}
+
+/* restore the intended feathered overlap between Red Room environment panels */
+.red-room-environment .environmental-panel-sequence__panel-wrap + .environmental-panel-sequence__panel-wrap {
+  margin-top: -28vh !important;
+}
+
+.red-room-environment .environmental-panel-sequence__panel-wrap:not(:first-child) {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.22) 7vh, #000 25vh, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.22) 7vh, #000 25vh, #000 100%);
+}
+
+.red-room-environment .environmental-panel-sequence__panel {
+  transform: scaleY(1.015);
+}
+
+.red-thread-installation .artwork-image,
+.membrane-installation .artwork-image,
+.red-thread-installation .artwork-image img,
+.membrane-installation .artwork-image img {
+  border: 0 !important;
+  border-bottom: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* --- WATER ROOM --- */
+.water-room__header .room-opening__question {
+  margin-top: clamp(15rem, 29vh, 23rem);
+  color: rgba(237, 235, 219, .9);
+  text-shadow: 0 1px 8px rgba(15,28,27,.72), 0 0 25px rgba(15,28,27,.46);
+}
+
+.water-room__header .room-opening {
+  padding-bottom: 0;
+}
+
+/* --- NARTHEX HANDOFF: match final moving frame to the settled room --- */
+.narthex-transition__frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.narthex-transition__handoff {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0;
+  transition: opacity 180ms linear;
+  pointer-events: none;
+}
+
+.narthex-transition.is-finishing .narthex-transition__handoff {
+  opacity: 1;
+}
+
+/* --- MAP TYPOGRAPHY / GEOMETRY --- */
+.museum-map__room {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.museum-map__room-name {
+  font: 600 10px/1.15 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+.museum-map__collections {
+  gap: .32rem !important;
+  line-height: 1.32 !important;
+}
+
+.museum-map__collection {
+  display: block;
+  margin-top: .13rem;
+}
+
+.museum-map__room[data-room="rear-gallery"] { left: 41%; top: 19.4%; width: 18%; }
+.museum-map__room[data-room="grotto"] { left: 42%; top: 34%; width: 16%; }
+.museum-map__room[data-room="garden"] { left: 40.5%; top: 49.5%; width: 19%; }
+.museum-map__room[data-room="front-gallery"] { left: 41%; top: 79.3%; width: 18%; }
+.museum-map__room[data-room="vestibule"] { left: 40%; top: 90.2%; width: 20%; }
+
+.museum-map__room[data-room="red-room"] {
+  left: 12.7%;
+  top: 40%;
+  width: 9.1%;
+  height: 30%;
+  max-width: none;
+}
+.museum-map__room[data-room="water-room"] {
+  left: 78.2%;
+  top: 40%;
+  width: 9.1%;
+  height: 30%;
+  max-width: none;
+}
+.museum-map__room[data-room="film-room"] {
+  left: 80.4%;
+  top: 34.8%;
+  width: 7%;
+  height: 13%;
+  max-width: none;
+}
+.museum-map__room[data-room="current"] {
+  left: 71.8%;
+  top: 88.6%;
+  width: 17.6%;
+  height: 7%;
+}
+.museum-map__room[data-room="reading-room"] { left: 31%; top: 6.3%; width: 12%; }
+.museum-map__room[data-room="index"] { left: 57.4%; top: 6.3%; width: 6.3%; }
+.museum-map__room[data-room="archive"] { left: 65.4%; top: 6.3%; width: 6.3%; }
+.museum-map__room[data-room="narthex"] { left: 43%; top: 13%; width: 14%; }
+
+.museum-map__room--cloisters {
+  left: 33.8% !important;
+  top: 31.2% !important;
+  width: 32.4% !important;
+  height: 44% !important;
+  max-width: none !important;
+  transform: none !important;
+  pointer-events: auto;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.museum-map__cloister-label {
+  position: absolute;
+  top: 50%;
+  font: 600 9px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(36,35,31,.82);
+}
+
+.museum-map__cloister-label--left {
+  left: 0;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.museum-map__cloister-label--right {
+  right: 0;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+/* Garden work titles need visual separation on the plan */
+.museum-map__room[data-room="garden"] .museum-map__collection + .museum-map__collection {
+  margin-top: .34rem;
+}
+
+/* highlight geometry follows the corrected plan */
+.museum-map__current-surface[data-room="red-room"],
+.museum-map__hover-surface[data-room="red-room"] { left: 12.6%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="water-room"],
+.museum-map__hover-surface[data-room="water-room"] { left: 78.2%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="film-room"],
+.museum-map__hover-surface[data-room="film-room"] { left: 80.7%; top: 35.1%; width: 6.5%; height: 12.3%; border-radius: 10px; }
+.museum-map__current-surface[data-room="current"],
+.museum-map__hover-surface[data-room="current"] { left: 71.8%; top: 88.7%; width: 17.6%; height: 6.6%; }
+
+/* --- CLOISTERS: continuous cross-faded loop --- */
+.cloisters-film__video-stack {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #080908;
+}
+
+.cloisters-film__video-stack .cloisters-film__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .8s linear;
+}
+
+.cloisters-film__video-stack .cloisters-film__video.is-active {
+  opacity: 1;
+}
+
+/* --- CURRENT: keep it a quiet annex rather than a fourth environment --- */
+.current-exhibition {
+  background:
+    radial-gradient(circle at 28% 18%, rgba(141,112,79,.12), transparent 36rem),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 5px),
+    #181510;
+}
+
+.current-exhibition .work-intro-card {
+  background: rgba(233,224,207,.52);
+}
+
+.current-exhibition .work-intro-card h1 {
+  color: rgba(38,32,26,.86);
+}
+
+.current-exhibition .work-intro-card__statement {
+  color: rgba(38,32,26,.72);
+}
+
+/* --- INDEX / ARCHIVE ALIGNMENT --- */
+.index-page .utility-header,
+.archive-page .utility-header {
+  width: min(1500px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-work__header {
+  grid-template-columns: minmax(220px, .78fr) minmax(300px, 1.18fr) minmax(270px, .96fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  margin-bottom: clamp(2.8rem, 5vh, 4.5rem);
+}
+
+.index-work__identity {
+  padding-right: 1rem;
+}
+
+.index-work__grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: clamp(.8rem, 1.5vw, 1.4rem);
+}
+
+.index-thumb {
+  min-width: 0;
+}
+
+.artwork-lightbox-trigger {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.index-thumb .artwork-lightbox-trigger {
+  height: clamp(205px, 23vw, 300px);
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.12);
+}
+
+.index-thumb .artwork-lightbox-trigger img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+.archive-image .artwork-lightbox-trigger img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.archive-work__header {
+  margin-left: 0;
+}
+
+/* Lightbox shared by Index + Archive */
+.artwork-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: clamp(3rem, 7vw, 6rem);
+  background: rgba(19,18,16,.93);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f0eadf;
+}
+
+.artwork-lightbox__figure {
+  margin: 0;
+  max-width: min(92vw, 1500px);
+  max-height: 88vh;
+  display: grid;
+  place-items: center;
+  gap: .7rem;
+}
+
+.artwork-lightbox__figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.artwork-lightbox__figure figcaption {
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(240,234,223,.72);
+}
+
+.artwork-lightbox__close,
+.artwork-lightbox__nav {
+  position: fixed;
+  z-index: 2;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(245,240,230,.84);
+  font: 500 .68rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.artwork-lightbox__close { top: 1.5rem; right: 1.7rem; }
+.artwork-lightbox__nav--prev { left: 1.5rem; top: 50%; }
+.artwork-lightbox__nav--next { right: 1.5rem; top: 50%; }
+
+/* --- READING ROOM: soft architectural field + clickable poem cards --- */
+.reading-room-page {
+  overflow: auto;
+  min-height: 100svh;
+}
+
+.reading-room-page__image {
+  background-image: url("/media/reading-room/reading-room-background.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  filter: saturate(.78) brightness(.72) blur(1.5px) !important;
+  transform: scale(1.02) !important;
+}
+
+.reading-room-page__veil {
+  background:
+    linear-gradient(90deg, rgba(19,14,10,.18), rgba(19,14,10,.08) 42%, rgba(19,14,10,.48) 72%, rgba(19,14,10,.68)),
+    radial-gradient(circle at 29% 33%, transparent 0 24%, rgba(12,10,8,.18) 58%, rgba(12,10,8,.42) 100%);
+  backdrop-filter: none;
+}
+
+.reading-room-page__content {
+  width: min(760px, 91vw);
+  padding-top: clamp(7rem, 13vh, 11rem);
+  background: transparent;
+}
+
+.reading-room-title-card {
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+  background: rgba(40,31,22,.44);
+  border: 1px solid rgba(245,231,208,.10);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.reading-room-title-card__room {
+  margin: 0 0 .7rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: rgba(244,234,216,.68);
+}
+
+.reading-room-title-card h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.reading-room-title-card > p:last-child {
+  max-width: 44ch;
+  margin: 1rem 0 0;
+  line-height: 1.6;
+  color: rgba(244,234,216,.8);
+}
+
+.reading-room-shelf {
+  display: grid;
+  gap: .9rem;
+  border: 0;
+  margin-top: clamp(4rem, 8vh, 7rem);
+}
+
+.reading-room-poem-card {
+  display: grid;
+  grid-template-columns: minmax(150px,.8fr) minmax(220px,1.3fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: #f3eadb;
+  text-decoration: none;
+  background: rgba(42,32,23,.38);
+  border: 1px solid rgba(246,234,216,.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.reading-room-poem-card:hover,
+.reading-room-poem-card:focus-visible {
+  background: rgba(52,39,27,.56);
+  transform: translateY(-1px);
+}
+
+.reading-room-poem-card h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-weight: 400;
+}
+
+.reading-room-poem-card__heading p {
+  margin: .35rem 0 0;
+  font-size: .7rem;
+  color: rgba(243,234,219,.55);
+}
+
+.reading-room-poem-card__preview {
+  margin: 0;
+  line-height: 1.48;
+  color: rgba(243,234,219,.76);
+  font-size: .94rem;
+}
+
+/* HTML poem route keeps exact selected PDF inside the museum rather than opening a raw PDF */
+.poem-page {
+  position: relative;
+  min-height: 100svh;
+  color: #f3eadb;
+  background: #2a2118;
+}
+
+.poem-page__environment {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(31,24,17,.55), rgba(31,24,17,.72)),
+    url("/media/reading-room/reading-room-background.jpg") center/cover no-repeat;
+  filter: saturate(.72) brightness(.72) blur(2px);
+  transform: scale(1.015);
+}
+
+.poem-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+  padding: clamp(6rem, 11vh, 9rem) 0 5rem;
+}
+
+.poem-page__header {
+  width: min(640px, 100%);
+  padding: 1.4rem 1.6rem;
+  background: rgba(38,29,21,.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.poem-page__header p,
+.poem-page__header span {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  color: rgba(243,234,219,.62);
+}
+
+.poem-page__header h1 {
+  margin: .45rem 0 .7rem;
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 400;
+}
+
+.poem-page__document {
+  margin-top: 3rem;
+  min-height: 72vh;
+  background: rgba(238,232,220,.9);
+}
+
+.poem-page__document object {
+  display: block;
+  width: 100%;
+  height: 82vh;
+  border: 0;
+}
+
+.poem-page__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.poem-page__nav a {
+  color: inherit;
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  .index-thumb .artwork-lightbox-trigger {
+    height: 190px;
+  }
+  .reading-room-poem-card {
+    grid-template-columns: 1fr;
+  }
+  .artwork-lightbox {
+    padding: 4.5rem 1rem 3rem;
+  }
+  .artwork-lightbox__nav {
+    top: auto;
+    bottom: 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__light::before,
+  .vestibule__light::after {
+    animation: none !important;
+  }
+  .cloisters-film__video-stack .cloisters-film__video {
+    transition: none;
+  }
+}
