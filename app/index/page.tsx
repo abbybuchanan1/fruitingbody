@@ -27,9 +27,9 @@ export default function IndexPage() {
                     <div className="index-work__identity">
                       <p className="index-work__meta">{work.year} · {work.medium}</p>
                       <h3><Link href={work.href}>{work.title}</Link></h3>
+                      <p className="index-work__statement">{work.statement}</p>
+                      <p className="index-work__question">{work.question}</p>
                     </div>
-                    <p className="index-work__statement">{work.statement}</p>
-                    <p className="index-work__question">{work.question}</p>
                   </header>
 
                   <ArtworkLightboxGrid images={images} mode="index" />
