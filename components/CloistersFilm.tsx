@@ -7,7 +7,9 @@ const CROSSFADE_SECONDS = 0.8;
 export function CloistersFilm() {
   const firstRef = useRef<HTMLVideoElement | null>(null);
   const secondRef = useRef<HTMLVideoElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [active, setActive] = useState<0 | 1>(0);
+  const [soundOn, setSoundOn] = useState(false);
   const activeRef = useRef<0 | 1>(0);
   const switchingRef = useRef(false);
 
@@ -22,8 +24,6 @@ export function CloistersFilm() {
       const duration = first.duration;
       if (!Number.isFinite(duration) || duration < 12) return;
 
-      // Start somewhere different on each visit, but never so near the end
-      // that the visitor immediately hits a loop.
       first.currentTime = Math.random() * Math.max(1, duration - 10);
       second.currentTime = 0;
       void first.play().catch(() => undefined);
@@ -69,24 +69,56 @@ export function CloistersFilm() {
     };
   }, []);
 
+  const toggleSound = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (soundOn) {
+      audio.pause();
+      setSoundOn(false);
+      return;
+    }
+
+    audio.volume = 0.48;
+    void audio.play().then(() => setSoundOn(true)).catch(() => undefined);
+  };
+
   return (
-    <div className="cloisters-film__video-stack" aria-hidden="true">
-      <video
-        ref={firstRef}
-        className={`cloisters-film__video${active === 0 ? " is-active" : ""}`}
-        src="/media/films/cloister-film-1.mp4"
-        muted
-        playsInline
+    <>
+      <div className="cloisters-film__video-stack" aria-hidden="true">
+        <video
+          ref={firstRef}
+          className={`cloisters-film__video${active === 0 ? " is-active" : ""}`}
+          src="/media/films/cloister-film-1.mp4"
+          muted
+          playsInline
+          preload="auto"
+        />
+        <video
+          ref={secondRef}
+          className={`cloisters-film__video${active === 1 ? " is-active" : ""}`}
+          src="/media/films/cloister-film-1.mp4"
+          muted
+          playsInline
+          preload="auto"
+        />
+      </div>
+
+      <audio
+        ref={audioRef}
+        src="/media/atmosphere/cloisters-ambient.m4a"
+        loop
         preload="auto"
       />
-      <video
-        ref={secondRef}
-        className={`cloisters-film__video${active === 1 ? " is-active" : ""}`}
-        src="/media/films/cloister-film-1.mp4"
-        muted
-        playsInline
-        preload="auto"
-      />
-    </div>
+
+      <button
+        type="button"
+        className="ambient-sound-control ambient-sound-control--cloisters"
+        onClick={toggleSound}
+        aria-pressed={soundOn}
+      >
+        {soundOn ? "Sound off" : "Sound"}
+      </button>
+    </>
   );
 }
