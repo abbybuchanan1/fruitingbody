@@ -21,6 +21,13 @@ export default async function PoemPage({
 
       <section className="poem-page__content">
         <article className="poem-page__card">
+          <Link
+            href="/reading-room"
+            className="poem-page__close"
+            aria-label="Close poem and return to Reading Room"
+          >
+            ×
+          </Link>
           <header className="poem-page__header">
             <p>Reading Room</p>
             <h1>{poem.title}</h1>
