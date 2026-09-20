@@ -6,6 +6,7 @@ import { NarthexTransition } from "@/components/NarthexTransition";
 import { Room } from "@/components/Room";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 const redRoomEnvironment = [
   { src: "/media/architecture/red-room-alt-01.jpg" },
@@ -34,7 +35,7 @@ export default function RedRoomPage() {
               note="Some works contain nudity and close studies of the human body."
               headingLevel={1}
             />
-            <p className="room-opening__question">{redThread.question}</p>
+            <QuestionPrompt>{redThread.question}</QuestionPrompt>
           </div>
           <div className="red-thread-installation">
             <ArtworkSequence artworks={redThread.exhibition} label="Red Thread works" mode="varied" />
@@ -46,7 +47,7 @@ export default function RedRoomPage() {
         <section id="membrane" className="red-room-project red-room-project--membrane">
           <div className="room-opening room-opening--red room-opening--secondary">
             <WorkIntroCard room="Red Room" title={membrane.title} statement={membrane.statement} />
-            <p className="room-opening__question">{membrane.question}</p>
+            <QuestionPrompt>{membrane.question}</QuestionPrompt>
           </div>
           <div className="membrane-installation">
             <ArtworkSequence artworks={membrane.exhibition} label="Membrane works" mode="immersive" />
