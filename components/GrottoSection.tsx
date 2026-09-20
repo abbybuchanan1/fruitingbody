@@ -1,6 +1,7 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 export function GrottoSection() {
   const miscarriage = museumWorksById.miscarriage;
@@ -19,7 +20,7 @@ export function GrottoSection() {
               statement={miscarriage.statement}
               headingLevel={1}
             />
-            <p className="room-opening__question">{miscarriage.question}</p>
+            <QuestionPrompt>{miscarriage.question}</QuestionPrompt>
           </div>
 
           <div className="miscarriage-sequence" aria-label="A Miscarriage artworks">
@@ -37,7 +38,7 @@ export function GrottoSection() {
         <section id="phase" className="grotto-section grotto-section--phase">
           <div className="room-opening room-opening--secondary">
             <WorkIntroCard room="Grotto" title={phase.title} statement={phase.statement} />
-            <p className="room-opening__question">{phase.question}</p>
+            <QuestionPrompt>{phase.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={phase.exhibition} label="Phase artworks" mode="varied" />
         </section>
