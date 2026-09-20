@@ -72,17 +72,38 @@ export function MuseumMap({
               <path d="M635 220 H656 V522 H635" />
               <path d="M292 630 H708 V680 H292 Z" />
               <path d="M454 630 C466 612 534 612 546 630" />
-              <path d="M708 616 H902 V670 H708" />
-              <rect x="808" y="242" width="62" height="94" rx="24" />
+              <rect x="718" y="621" width="176" height="46" rx="2" />
+              <rect x="807" y="246" width="64" height="86" rx="11" />
               <path d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />
               <path d="M570 53 Q570 43 582 43 H626 Q638 43 638 53 V98 H570 Z" />
-              <path d="M652 53 Q652 43 664 43 H708 Q720 43 720 53 V98 H652 Z" />
+              <path d="M650 53 Q650 43 662 43 H706 Q718 43 718 53 V98 H650 Z" />
             </g>
           </svg>
 
           {mapRooms.map((room) => {
             const isCurrent = room.id === currentLocation;
             const collections = roomCollections(room.id);
+
+            if (room.id === "cloisters") {
+              return (
+                <Link
+                  key={room.id}
+                  href={room.href}
+                  className="museum-map__room museum-map__room--cloisters"
+                  data-room={room.id}
+                  data-current={isCurrent ? "true" : "false"}
+                  aria-current={isCurrent ? "location" : undefined}
+                  onClick={onClose}
+                  onMouseEnter={() => setHoveredRoom(room.id)}
+                  onMouseLeave={() => setHoveredRoom(undefined)}
+                  onFocus={() => setHoveredRoom(room.id)}
+                  onBlur={() => setHoveredRoom(undefined)}
+                >
+                  <span className="museum-map__cloister-label museum-map__cloister-label--left">Cloisters</span>
+                  <span className="museum-map__cloister-label museum-map__cloister-label--right">Cloisters</span>
+                </Link>
+              );
+            }
 
             return (
               <Link
