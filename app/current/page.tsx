@@ -16,7 +16,6 @@ export default function CurrentPage() {
             statement={work.statement}
             headingLevel={1}
           />
-          <p className="room-opening__question">{work.question}</p>
         </div>
 
         <ArtworkSequence artworks={work.exhibition} label={work.title} mode="varied" />
