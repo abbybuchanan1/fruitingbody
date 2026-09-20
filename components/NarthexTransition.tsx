@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 type Source = "red-room" | "water-room" | "exhibition";
 type Props = { from: Source; startImmediately?: boolean; id?: string };
 
-const SETTLE_MS = 120;
+const HANDOFF_MS = 180;
 
 export function NarthexTransition({ from, startImmediately = false, id }: Props) {
   const router = useRouter();
@@ -19,6 +19,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
   const [started, setStarted] = useState(startImmediately && !returning);
   const [armed, setArmed] = useState(!returning);
   const [failed, setFailed] = useState(false);
+  const [finishing, setFinishing] = useState(false);
 
   useEffect(() => {
     router.prefetch("/narthex");
@@ -68,14 +69,15 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
 
   const finish = () => {
     if (arrivedRef.current) return;
-    timerRef.current = window.setTimeout(arrive, SETTLE_MS);
+    setFinishing(true);
+    timerRef.current = window.setTimeout(arrive, HANDOFF_MS);
   };
 
   return (
     <section
       id={id}
       ref={sectionRef}
-      className={`narthex-transition${started ? " is-playing" : ""}`}
+      className={`narthex-transition${started ? " is-playing" : ""}${finishing ? " is-finishing" : ""}`}
       aria-label="Passage into the Narthex"
     >
       <div className="narthex-transition__wash" aria-hidden="true" />
@@ -89,6 +91,12 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
           preload="auto"
           onEnded={finish}
           onError={() => setFailed(true)}
+        />
+        <img
+          className="narthex-transition__handoff"
+          src="/media/video/environment/narthex-arrival.jpg"
+          alt=""
+          aria-hidden="true"
         />
       </div>
 
