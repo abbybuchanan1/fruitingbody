@@ -1,35 +1,92 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const CROSSFADE_SECONDS = 0.8;
 
 export function CloistersFilm() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const firstRef = useRef<HTMLVideoElement | null>(null);
+  const secondRef = useRef<HTMLVideoElement | null>(null);
+  const [active, setActive] = useState<0 | 1>(0);
+  const activeRef = useRef<0 | 1>(0);
+  const switchingRef = useRef(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const first = firstRef.current;
+    const second = secondRef.current;
+    if (!first || !second) return;
 
-    const enterAtRandomPoint = () => {
-      if (!Number.isFinite(video.duration) || video.duration <= 2) return;
-      const safeDuration = Math.max(1, video.duration - 1);
-      video.currentTime = Math.random() * safeDuration;
-      void video.play().catch(() => undefined);
+    const videos = [first, second] as const;
+
+    const start = () => {
+      const duration = first.duration;
+      if (!Number.isFinite(duration) || duration < 12) return;
+
+      // Start somewhere different on each visit, but never so near the end
+      // that the visitor immediately hits a loop.
+      first.currentTime = Math.random() * Math.max(1, duration - 10);
+      second.currentTime = 0;
+      void first.play().catch(() => undefined);
     };
 
-    video.addEventListener("loadedmetadata", enterAtRandomPoint, { once: true });
-    return () => video.removeEventListener("loadedmetadata", enterAtRandomPoint);
+    const handleTime = () => {
+      const current = videos[activeRef.current];
+      if (
+        switchingRef.current ||
+        !Number.isFinite(current.duration) ||
+        current.duration - current.currentTime > CROSSFADE_SECONDS
+      ) return;
+
+      switchingRef.current = true;
+      const nextIndex = activeRef.current === 0 ? 1 : 0;
+      const next = videos[nextIndex];
+      next.currentTime = 0;
+      void next.play().then(() => {
+        activeRef.current = nextIndex;
+        setActive(nextIndex);
+        window.setTimeout(() => {
+          current.pause();
+          current.currentTime = 0;
+          switchingRef.current = false;
+        }, CROSSFADE_SECONDS * 1000 + 80);
+      }).catch(() => {
+        current.currentTime = 0;
+        void current.play().catch(() => undefined);
+        switchingRef.current = false;
+      });
+    };
+
+    first.addEventListener("loadedmetadata", start, { once: true });
+    first.addEventListener("timeupdate", handleTime);
+    second.addEventListener("timeupdate", handleTime);
+
+    if (first.readyState >= 1) start();
+
+    return () => {
+      first.removeEventListener("loadedmetadata", start);
+      first.removeEventListener("timeupdate", handleTime);
+      second.removeEventListener("timeupdate", handleTime);
+    };
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      className="cloisters-film__video"
-      src="/media/films/cloister-film-1.mp4"
-      muted
-      playsInline
-      autoPlay
-      loop
-      preload="auto"
-    />
+    <div className="cloisters-film__video-stack" aria-hidden="true">
+      <video
+        ref={firstRef}
+        className={`cloisters-film__video${active === 0 ? " is-active" : ""}`}
+        src="/media/films/cloister-film-1.mp4"
+        muted
+        playsInline
+        preload="auto"
+      />
+      <video
+        ref={secondRef}
+        className={`cloisters-film__video${active === 1 ? " is-active" : ""}`}
+        src="/media/films/cloister-film-1.mp4"
+        muted
+        playsInline
+        preload="auto"
+      />
+    </div>
   );
 }
