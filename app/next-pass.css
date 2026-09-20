@@ -1569,3 +1569,42 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* Poem overlay close control */
+.poem-page__card {
+  position: relative;
+}
+
+.poem-page__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.15rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(250, 242, 229, .72);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1;
+  opacity: .78;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.poem-page__close:hover,
+.poem-page__close:focus-visible {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Keep the room atmospheric rather than illustrative. */
+.poem-page__environment,
+.reading-room-page__image {
+  background-position: 45% center !important;
+  filter: saturate(.72) brightness(.62) blur(2px) !important;
+}
