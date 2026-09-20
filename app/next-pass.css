@@ -1430,3 +1430,142 @@
     transition: none;
   }
 }
+
+
+/* ============================================================
+   READING ROOM — chair-side placement + native poem text
+   ============================================================ */
+
+.reading-room-page__content {
+  width: min(650px, 84vw) !important;
+  margin-left: clamp(6vw, 10vw, 12vw) !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.reading-room-title-card {
+  background: rgba(45, 31, 22, .50) !important;
+  color: #f5ecdc !important;
+}
+
+.reading-room-shelf {
+  width: 100%;
+}
+
+.reading-room-poem-card {
+  background: rgba(45, 31, 22, .52) !important;
+  color: #f5ecdc !important;
+  border-color: rgba(246, 234, 216, .10) !important;
+}
+
+.reading-room-poem-card:hover,
+.reading-room-poem-card:focus-visible {
+  background: rgba(55, 38, 25, .64) !important;
+}
+
+.reading-room-poem-card__preview {
+  color: rgba(250, 242, 229, .88) !important;
+}
+
+/* Individual poems remain in the room rather than opening a document viewer. */
+.poem-page {
+  position: relative;
+  min-height: 100svh;
+  color: #f5ecdc;
+  background: #21170f;
+}
+
+.poem-page__environment {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(17,12,8,.08), rgba(17,12,8,.18) 55%, rgba(17,12,8,.48)),
+    url("/media/reading-room/reading-room-background.jpg") center/cover no-repeat;
+  filter: saturate(.78) brightness(.70) blur(1.5px);
+  transform: scale(1.02);
+}
+
+.poem-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(650px, 84vw);
+  margin-left: clamp(6vw, 10vw, 12vw);
+  margin-right: auto;
+  padding: clamp(7rem, 12vh, 10rem) 0 5rem;
+}
+
+.poem-page__card {
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  background: rgba(45, 31, 22, .56);
+  border: 1px solid rgba(246,234,216,.10);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.poem-page__header {
+  width: 100%;
+  padding: 0 0 2rem;
+  background: transparent;
+  border-bottom: 1px solid rgba(246,234,216,.14);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.poem-page__header p {
+  margin: 0 0 .7rem;
+}
+
+.poem-page__header h1 {
+  margin: 0 0 .6rem;
+  color: #f7efdf;
+}
+
+.poem-page__header span {
+  color: rgba(247,239,223,.58);
+}
+
+.poem-page__poem {
+  padding-top: clamp(2rem, 5vw, 3rem);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.52;
+  color: rgba(250,244,232,.94);
+}
+
+.poem-page__line {
+  display: block;
+  min-height: 1.52em;
+}
+
+.poem-page__stanza-break {
+  display: block;
+  height: 1.35em;
+}
+
+.poem-page__nav {
+  margin-top: 1.5rem;
+  padding: 0 .2rem;
+}
+
+.poem-page__nav a {
+  color: rgba(248,240,226,.80);
+  text-underline-offset: .22em;
+}
+
+@media (max-width: 760px) {
+  .reading-room-page__content,
+  .poem-page__content {
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
+  }
+
+  .reading-room-page__image,
+  .poem-page__environment {
+    background-position: 42% center !important;
+  }
+
+  .reading-room-poem-card {
+    grid-template-columns: 1fr !important;
+  }
+}
