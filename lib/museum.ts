@@ -205,10 +205,10 @@ export const museumRooms: MuseumRoom[] = [
 
   {
     id: "exit-exterior",
-    title: "Exterior",
+    title: "Exit",
     href: "/exit",
     mapGroup: "exterior",
-    showOnMap: false,
+    showOnMap: true,
     parent: "narthex",
     mapRole: "room",
     circadian: true,
