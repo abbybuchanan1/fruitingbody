@@ -19,9 +19,9 @@ function shuffledIndexes() {
   return values;
 }
 
-function nextDifferent(current: number, queue: number[]) {
-  const next = queue.find((index) => index !== current);
-  return next ?? ((current + 1) % FILMS.length);
+function nextDifferent(current: number, avoid: number) {
+  const order = shuffledIndexes().filter((index) => index !== avoid && index !== current);
+  return order[0] ?? ((current + 1) % FILMS.length);
 }
 
 export function ExitFilmPlaylist() {
@@ -42,44 +42,18 @@ export function ExitFilmPlaylist() {
     const right = rightRef.current;
     if (!left || !right) return;
 
-    left.playbackRate = 0.72;
-    right.playbackRate = 0.68;
-
-    const startAtDifferentMoments = (video: HTMLVideoElement, fraction: number) => {
-      if (!Number.isFinite(video.duration) || video.duration < 12) return;
-      video.currentTime = Math.min(video.duration - 2, Math.max(1, video.duration * fraction));
-    };
-
-    const onLeftMeta = () => startAtDifferentMoments(left, 0.12 + Math.random() * 0.22);
-    const onRightMeta = () => startAtDifferentMoments(right, 0.42 + Math.random() * 0.18);
-
-    left.addEventListener("loadedmetadata", onLeftMeta, { once: true });
-    right.addEventListener("loadedmetadata", onRightMeta, { once: true });
+    left.playbackRate = 0.8;
+    right.playbackRate = 0.8;
 
     void left.play().catch(() => undefined);
     void right.play().catch(() => undefined);
-
-    return () => {
-      left.removeEventListener("loadedmetadata", onLeftMeta);
-      right.removeEventListener("loadedmetadata", onRightMeta);
-    };
   }, [leftIndex, rightIndex]);
-
-  const advanceLeft = () => {
-    const queue = shuffledIndexes().filter((index) => index !== rightIndex);
-    setLeftIndex((current) => nextDifferent(current, queue));
-  };
-
-  const advanceRight = () => {
-    const queue = shuffledIndexes().filter((index) => index !== leftIndex);
-    setRightIndex((current) => nextDifferent(current, queue));
-  };
 
   useEffect(() => {
     const left = leftRef.current;
     if (!left) return;
     left.muted = !soundOn;
-    left.volume = soundOn ? 0.68 : 0;
+    left.volume = soundOn ? 0.65 : 0;
   }, [soundOn, leftIndex]);
 
   const toggleSound = () => {
@@ -92,7 +66,7 @@ export function ExitFilmPlaylist() {
     }
 
     left.muted = false;
-    left.volume = 0.68;
+    left.volume = 0.65;
     void left.play().then(() => setSoundOn(true)).catch(() => {
       left.muted = true;
     });
@@ -101,7 +75,7 @@ export function ExitFilmPlaylist() {
   return (
     <>
       <div className="exit-exterior__split" aria-hidden="true">
-        <div className="exit-exterior__pane exit-exterior__pane--left">
+        <div className="exit-exterior__pane">
           <video
             ref={leftRef}
             className="exit-exterior__split-video"
@@ -110,11 +84,11 @@ export function ExitFilmPlaylist() {
             playsInline
             autoPlay
             preload="auto"
-            onEnded={advanceLeft}
+            onEnded={() => setLeftIndex((current) => nextDifferent(current, rightIndex))}
           />
         </div>
 
-        <div className="exit-exterior__pane exit-exterior__pane--right">
+        <div className="exit-exterior__pane">
           <video
             ref={rightRef}
             className="exit-exterior__split-video"
@@ -123,7 +97,7 @@ export function ExitFilmPlaylist() {
             playsInline
             autoPlay
             preload="auto"
-            onEnded={advanceRight}
+            onEnded={() => setRightIndex((current) => nextDifferent(current, leftIndex))}
           />
         </div>
       </div>
