@@ -2795,3 +2795,76 @@
     width: 200%;
   }
 }
+
+
+/* ============================================================
+   CORRECTION — Exit half-screen full bleed + confirm Vestibule moss
+   ============================================================ */
+
+/* Exit: each source gets one half of the viewport and fills that half.
+   No doubled width / left-half extraction. */
+.exit-exterior__split {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  background: #050605 !important;
+}
+
+.exit-exterior__pane {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 100dvh !important;
+  min-width: 0 !important;
+}
+
+.exit-exterior__pane + .exit-exterior__pane {
+  border-left: 1px solid rgba(239,235,222,.08) !important;
+}
+
+.exit-exterior__split-video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  filter: saturate(.88) contrast(.96) brightness(.90) !important;
+}
+
+/* Vestibule: make moss visibly present on load, then continue emerging.
+   This is deliberately more obvious for QA; we can quiet it after confirmation. */
+.vestibule__moss {
+  opacity: .20 !important;
+  animation: vestibule-moss-visible-confirm 24s ease-out 0s forwards !important;
+}
+
+@keyframes vestibule-moss-visible-confirm {
+  0%   { opacity: .20; transform: scale(.995); }
+  100% { opacity: .42; transform: scale(1.012); }
+}
+
+.vestibule__moss::before {
+  opacity: 1 !important;
+}
+
+.vestibule__moss::after {
+  opacity: .85 !important;
+}
+
+@media (max-width: 760px) {
+  .exit-exterior__split {
+    grid-template-columns: 1fr !important;
+  }
+  .exit-exterior__pane:nth-child(2) {
+    display: none !important;
+  }
+}
