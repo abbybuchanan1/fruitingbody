@@ -2962,3 +2962,46 @@
     clip-path: inset(46% 0 0 0) !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE — edited still carries the room
+   Retire synthetic moss/dapple attempts for launch.
+   ============================================================ */
+
+.vestibule__stone {
+  background-image: url("/media/architecture/vestibule-arch-desktop.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  filter: saturate(.90) brightness(.92) contrast(.98) !important;
+  transform: none !important;
+}
+
+.vestibule__shadow {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7, 14, 12, .04) 0%,
+      rgba(8, 16, 14, .08) 45%,
+      rgba(4, 10, 8, .22) 100%
+    ) !important;
+}
+
+.vestibule__light {
+  opacity: .10 !important;
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      rgba(214, 225, 216, .08) 0%,
+      rgba(168, 188, 177, .03) 42%,
+      transparent 72%
+    ) !important;
+  animation: none !important;
+}
+
+.vestibule__light::before,
+.vestibule__light::after,
+.vestibule__dapple-window,
+.vestibule__moss {
+  display: none !important;
+}
