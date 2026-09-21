@@ -26,6 +26,9 @@ export function ExteriorAtmosphere() {
     const b = videoBRef.current;
     if (!a || !b) return;
     const videos = [a, b] as const;
+    videos.forEach((video) => {
+      video.playbackRate = 0.55;
+    });
 
     const start = () => {
       a.currentTime = 0;
@@ -61,15 +64,31 @@ export function ExteriorAtmosphere() {
       });
     };
 
+    const recoverEnded = (video: HTMLVideoElement) => {
+      const currentIndex = activeVideoRef.current;
+      const endedIndex = video === a ? 0 : 1;
+      if (endedIndex !== currentIndex) return;
+      switchingVideoRef.current = false;
+      video.currentTime = 0;
+      void video.play().catch(() => undefined);
+    };
+
+    const onAEnded = () => recoverEnded(a);
+    const onBEnded = () => recoverEnded(b);
+
     a.addEventListener("loadedmetadata", start, { once: true });
     a.addEventListener("timeupdate", handleTime);
     b.addEventListener("timeupdate", handleTime);
+    a.addEventListener("ended", onAEnded);
+    b.addEventListener("ended", onBEnded);
     if (a.readyState >= 1) start();
 
     return () => {
       a.removeEventListener("loadedmetadata", start);
       a.removeEventListener("timeupdate", handleTime);
       b.removeEventListener("timeupdate", handleTime);
+      a.removeEventListener("ended", onAEnded);
+      b.removeEventListener("ended", onBEnded);
     };
   }, []);
 
