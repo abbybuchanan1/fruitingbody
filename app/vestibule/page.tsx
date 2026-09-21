@@ -6,6 +6,7 @@ export default function VestibulePage() {
     <main className="vestibule">
       <div className="vestibule__stone" aria-hidden="true" />
       <div className="vestibule__shadow" aria-hidden="true" />
+      <div className="vestibule__moss" aria-hidden="true" />
       <VestibuleDapple />
       <div className="vestibule__light" aria-hidden="true" />
 
