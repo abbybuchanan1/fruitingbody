@@ -21,6 +21,7 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   current: { x: 790, y: 620, w: 155, h: 48, z: 9 },
   vestibule: { x: 292, y: 630, w: 416, h: 50 },
   exterior: { x: 410, y: 680, w: 180, h: 20 },
+  "exit-exterior": { x: 410, y: 4, w: 180, h: 20, z: 11 },
   narthex: { x: 292, y: 30, w: 416, h: 88, z: 4 },
   "reading-room": { x: 310, y: 43, w: 122, h: 55, z: 10 },
   index: { x: 552, y: 43, w: 68, h: 55, z: 10 },
@@ -145,6 +146,8 @@ export function MuseumMap({
             ) : null}
 
             <g className="museum-map__drawing-primary">
+              <rect x="410" y="4" width="180" height="20" rx="2" />
+              <path d="M500 24 V30" />
               <path d="M292 30 H708 V118 H292 Z" />
               <path d="M292 118 C246 118 218 149 218 192 V564 C218 608 245 630 292 630" />
               <path d="M708 118 C754 118 782 149 782 192 V564 C782 608 755 630 708 630" />
