@@ -2270,3 +2270,161 @@
     transition: none !important;
   }
 }
+
+
+/* ============================================================
+   MEDIA INTEGRATION REFINEMENT — review pass
+   ============================================================ */
+
+/* Entrance projection: stronger, but still reads as light moving over stone.
+   Two identical media planes crossfade so the short source never hard-loops. */
+.museum-exterior__projection-stack {
+  position: absolute;
+  inset: -2%;
+  z-index: 1;
+  width: 104%;
+  height: 104%;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image:
+    radial-gradient(ellipse 90% 94% at 54% 48%, #000 0 66%, rgba(0,0,0,.86) 78%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 90% 94% at 54% 48%, #000 0 66%, rgba(0,0,0,.86) 78%, transparent 100%);
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  filter: saturate(.62) contrast(.92) brightness(1.08) blur(.35px);
+  transform: scale(1.018);
+  transition: opacity .9s ease;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection.is-active {
+  opacity: .34;
+}
+
+/* Vestibule: broad flicker is suppressed. The actual moving footage becomes
+   a quiet underlayer and small, slow shadow clusters provide the dapple scale. */
+.vestibule__dapple-window {
+  inset: 4% 22% 10% !important;
+  opacity: .24 !important;
+  mix-blend-mode: multiply !important;
+  overflow: hidden;
+}
+
+.vestibule__dapple-video {
+  opacity: .34;
+  filter: grayscale(1) contrast(.72) brightness(1.18) blur(8px) !important;
+  transform: scale(1.03) !important;
+}
+
+.vestibule__dapple-window::before,
+.vestibule__dapple-window::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: 2;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(23,28,24,.44) 0 1.2%, transparent 2.6%),
+    radial-gradient(ellipse at 19% 25%, rgba(23,28,24,.38) 0 1%, transparent 2.3%),
+    radial-gradient(ellipse at 27% 16%, rgba(23,28,24,.34) 0 1.25%, transparent 2.5%),
+    radial-gradient(ellipse at 37% 29%, rgba(23,28,24,.42) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 47% 20%, rgba(23,28,24,.33) 0 .95%, transparent 2.2%),
+    radial-gradient(ellipse at 58% 31%, rgba(23,28,24,.40) 0 1.2%, transparent 2.5%),
+    radial-gradient(ellipse at 69% 19%, rgba(23,28,24,.34) 0 1%, transparent 2.3%),
+    radial-gradient(ellipse at 80% 27%, rgba(23,28,24,.41) 0 1.15%, transparent 2.4%),
+    radial-gradient(ellipse at 88% 17%, rgba(23,28,24,.31) 0 1%, transparent 2.2%),
+    radial-gradient(ellipse at 16% 48%, rgba(23,28,24,.36) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 30% 57%, rgba(23,28,24,.42) 0 1.25%, transparent 2.6%),
+    radial-gradient(ellipse at 44% 46%, rgba(23,28,24,.31) 0 .9%, transparent 2.1%),
+    radial-gradient(ellipse at 61% 55%, rgba(23,28,24,.39) 0 1.15%, transparent 2.5%),
+    radial-gradient(ellipse at 75% 48%, rgba(23,28,24,.35) 0 1%, transparent 2.3%),
+    radial-gradient(ellipse at 86% 60%, rgba(23,28,24,.40) 0 1.2%, transparent 2.5%),
+    radial-gradient(ellipse at 21% 76%, rgba(23,28,24,.35) 0 1%, transparent 2.2%),
+    radial-gradient(ellipse at 39% 69%, rgba(23,28,24,.40) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 55% 79%, rgba(23,28,24,.32) 0 .95%, transparent 2.2%),
+    radial-gradient(ellipse at 72% 72%, rgba(23,28,24,.38) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 89% 80%, rgba(23,28,24,.34) 0 1%, transparent 2.3%);
+  background-size: 48% 46%;
+  background-repeat: repeat;
+  filter: blur(2.4px);
+  opacity: .48;
+  animation: vestibule-small-dapple 22s ease-in-out infinite alternate;
+}
+
+.vestibule__dapple-window::after {
+  opacity: .26;
+  transform: scale(.92) rotate(7deg);
+  animation-duration: 29s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes vestibule-small-dapple {
+  from { transform: translate3d(-1.5%, -.7%, 0) rotate(-.3deg); }
+  to   { transform: translate3d(1.8%, .9%, 0) rotate(.45deg); }
+}
+
+/* Retire the old generated flicker almost completely. */
+.vestibule__light {
+  opacity: .22 !important;
+}
+.vestibule__light::before {
+  opacity: .08 !important;
+  animation-duration: 26s !important;
+}
+
+/* Exit should be image, not phone-shaped object. Portrait material is
+   deliberately cropped into the viewport as an immersive field. */
+.exit-exterior,
+.exit-exterior__video-stack {
+  width: 100vw !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+}
+
+.exit-exterior__video-stack .exit-exterior__video {
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100svh !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  transform: none !important;
+}
+
+/* Exit is a distinct destination beyond the Narthex. */
+.museum-map__room--canonical[data-room="exit-exterior"] {
+  padding: .15rem .35rem !important;
+}
+.museum-map__room--canonical[data-room="exit-exterior"] .museum-map__room-name {
+  font-size: 9px !important;
+  letter-spacing: .14em !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection-stack .museum-exterior__projection.is-active {
+    opacity: .28;
+  }
+
+  .vestibule__dapple-window {
+    inset: 6% 10% 18% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__dapple-window::before,
+  .vestibule__dapple-window::after {
+    animation: none !important;
+  }
+}
