@@ -2626,3 +2626,172 @@
     opacity: .12 !important;
   }
 }
+
+
+/* ============================================================
+   LATE MEDIA ADJUSTMENT — localized projection / visible moss / split Exit
+   ============================================================ */
+
+/* Entrance projection: move fully to the left of the door, reduce the field,
+   and keep it off the wood. Playback is slowed in the component. */
+.museum-exterior__projection-stack {
+  top: 16% !important;
+  left: 4.5% !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 27% !important;
+  height: 58% !important;
+  inset: 16% auto auto 4.5% !important;
+  clip-path: polygon(6% 5%, 91% 1%, 100% 12%, 96% 88%, 87% 98%, 8% 94%, 0 82%, 2% 14%) !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 52% 46%, #000 0 50%, rgba(0,0,0,.94) 63%, rgba(0,0,0,.50) 81%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 52% 46%, #000 0 50%, rgba(0,0,0,.94) 63%, rgba(0,0,0,.50) 81%, transparent 100%) !important;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection {
+  object-position: 45% 50% !important;
+  transform: scale(1.02) !important;
+  filter: saturate(.62) contrast(.98) brightness(1.02) blur(.8px) !important;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection.is-active {
+  opacity: .33 !important;
+}
+
+.museum-exterior__projection-stack::after {
+  opacity: .72;
+}
+
+/* Dedicated Vestibule moss layer sits above the dark veil, so it reads.
+   It emerges slowly once and holds. */
+.vestibule__moss {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 5% 82%, rgba(75,97,58,.42) 0 4%, rgba(75,97,58,.20) 10%, transparent 22%),
+    radial-gradient(ellipse at 15% 91%, rgba(62,84,49,.36) 0 5%, rgba(62,84,49,.16) 13%, transparent 26%),
+    radial-gradient(ellipse at 28% 84%, rgba(79,99,61,.24) 0 3%, rgba(79,99,61,.11) 10%, transparent 20%),
+    radial-gradient(ellipse at 73% 87%, rgba(70,91,54,.25) 0 3%, rgba(70,91,54,.11) 10%, transparent 21%),
+    radial-gradient(ellipse at 88% 91%, rgba(58,82,47,.38) 0 5%, rgba(58,82,47,.17) 13%, transparent 27%),
+    radial-gradient(ellipse at 96% 76%, rgba(70,91,54,.25) 0 4%, rgba(70,91,54,.10) 11%, transparent 22%),
+    linear-gradient(90deg, rgba(63,84,50,.13), transparent 13% 87%, rgba(63,84,50,.13));
+  mix-blend-mode: multiply;
+  filter: blur(2px) saturate(.88);
+  transform: scale(.99);
+  transform-origin: 50% 84%;
+  animation: vestibule-moss-visible 30s ease-out 1s forwards;
+}
+
+.vestibule__moss::before,
+.vestibule__moss::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vestibule__moss::before {
+  background:
+    radial-gradient(ellipse at 10% 60%, rgba(78,97,59,.17) 0 3%, rgba(78,97,59,.07) 9%, transparent 19%),
+    radial-gradient(ellipse at 21% 48%, rgba(67,88,52,.13) 0 2%, rgba(67,88,52,.05) 8%, transparent 17%),
+    radial-gradient(ellipse at 78% 49%, rgba(72,92,55,.12) 0 2%, rgba(72,92,55,.05) 8%, transparent 17%),
+    radial-gradient(ellipse at 92% 61%, rgba(63,85,49,.16) 0 3%, rgba(63,85,49,.06) 9%, transparent 19%);
+  opacity: .8;
+}
+
+.vestibule__moss::after {
+  background:
+    radial-gradient(ellipse at 12% 96%, rgba(47,72,42,.20) 0 4%, transparent 16%),
+    radial-gradient(ellipse at 84% 96%, rgba(47,72,42,.18) 0 4%, transparent 16%);
+  filter: blur(4px);
+}
+
+@keyframes vestibule-moss-visible {
+  0%   { opacity: 0; transform: scale(.99); }
+  50%  { opacity: .18; }
+  100% { opacity: .34; transform: scale(1.01); }
+}
+
+/* The remaining light movement should be barely perceived, not performed. */
+.vestibule__dapple-window {
+  opacity: .075 !important;
+}
+.vestibule__dapple-window::before,
+.vestibule__dapple-window::after,
+.vestibule__light,
+.vestibule__light::before {
+  opacity: .035 !important;
+}
+
+/* Exit: two concurrent moving-image channels. The files contain a portrait
+   image on the left half of a 16:9 canvas, so each pane crops to that half. */
+.exit-exterior__split {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  background: #050605;
+}
+
+.exit-exterior__pane {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  height: 100dvh;
+}
+
+.exit-exterior__pane + .exit-exterior__pane {
+  border-left: 1px solid rgba(239,235,222,.08);
+}
+
+.exit-exterior__split-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: left center;
+  filter: saturate(.88) contrast(.96) brightness(.90);
+}
+
+/* Keep the page UI above both channels. */
+.exit-exterior__veil {
+  z-index: 2 !important;
+}
+.exit-exterior__ui {
+  z-index: 3 !important;
+}
+.ambient-sound-control--exit {
+  z-index: 4 !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection-stack {
+    top: 18% !important;
+    left: 2% !important;
+    width: 34% !important;
+    height: 52% !important;
+  }
+
+  .exit-exterior__split {
+    grid-template-columns: 1fr;
+  }
+
+  .exit-exterior__pane--right {
+    display: none;
+  }
+
+  .exit-exterior__split-video {
+    width: 200%;
+  }
+}
