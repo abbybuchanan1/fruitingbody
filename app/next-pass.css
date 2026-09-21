@@ -2868,3 +2868,97 @@
     display: none !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE — unmistakable moss growth test
+   This pass intentionally makes the growth legible enough to evaluate.
+   ============================================================ */
+.vestibule__moss {
+  z-index: 1 !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  background: none !important;
+  animation: none !important;
+  overflow: hidden;
+}
+
+.vestibule__moss::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .10;
+  clip-path: inset(70% 0 0 0);
+  background:
+    radial-gradient(ellipse at 3% 88%, rgba(66,88,47,.78) 0 4%, rgba(66,88,47,.42) 8%, transparent 18%),
+    radial-gradient(ellipse at 12% 94%, rgba(79,102,54,.72) 0 5%, rgba(79,102,54,.36) 11%, transparent 23%),
+    radial-gradient(ellipse at 24% 87%, rgba(61,84,45,.60) 0 3%, rgba(61,84,45,.27) 9%, transparent 20%),
+    radial-gradient(ellipse at 34% 96%, rgba(75,96,52,.48) 0 3%, rgba(75,96,52,.20) 9%, transparent 18%),
+    radial-gradient(ellipse at 67% 95%, rgba(71,94,50,.45) 0 3%, rgba(71,94,50,.18) 9%, transparent 18%),
+    radial-gradient(ellipse at 78% 89%, rgba(58,82,43,.58) 0 4%, rgba(58,82,43,.28) 10%, transparent 21%),
+    radial-gradient(ellipse at 90% 95%, rgba(77,99,52,.70) 0 5%, rgba(77,99,52,.34) 11%, transparent 23%),
+    radial-gradient(ellipse at 98% 84%, rgba(62,85,45,.72) 0 4%, rgba(62,85,45,.36) 9%, transparent 19%),
+    radial-gradient(ellipse at 8% 66%, rgba(65,86,47,.36) 0 2%, rgba(65,86,47,.13) 7%, transparent 16%),
+    radial-gradient(ellipse at 92% 62%, rgba(65,86,47,.34) 0 2%, rgba(65,86,47,.12) 7%, transparent 16%);
+  filter: blur(1.4px) saturate(1.22);
+  animation: vestibule-moss-grow-visible 22s ease-out 1s forwards;
+}
+
+.vestibule__moss::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  clip-path: inset(78% 0 0 0);
+  background:
+    radial-gradient(ellipse at 10% 78%, rgba(104,124,70,.38) 0 1.2%, transparent 4%),
+    radial-gradient(ellipse at 17% 86%, rgba(88,110,60,.34) 0 1%, transparent 3.5%),
+    radial-gradient(ellipse at 27% 81%, rgba(99,118,67,.26) 0 .9%, transparent 3.3%),
+    radial-gradient(ellipse at 74% 82%, rgba(93,116,64,.27) 0 .9%, transparent 3.3%),
+    radial-gradient(ellipse at 85% 87%, rgba(88,110,60,.34) 0 1%, transparent 3.5%),
+    radial-gradient(ellipse at 94% 77%, rgba(104,124,70,.36) 0 1.2%, transparent 4%);
+  filter: blur(.7px);
+  animation: vestibule-moss-speckle-visible 22s ease-out 5s forwards;
+}
+
+@keyframes vestibule-moss-grow-visible {
+  0% {
+    opacity: .10;
+    clip-path: inset(70% 0 0 0);
+    transform: scale(.99);
+  }
+  45% {
+    opacity: .34;
+    clip-path: inset(48% 0 0 0);
+  }
+  100% {
+    opacity: .56;
+    clip-path: inset(30% 0 0 0);
+    transform: scale(1.01);
+  }
+}
+
+@keyframes vestibule-moss-speckle-visible {
+  0% {
+    opacity: 0;
+    clip-path: inset(78% 0 0 0);
+  }
+  100% {
+    opacity: .46;
+    clip-path: inset(38% 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__moss::before {
+    animation: none !important;
+    opacity: .42 !important;
+    clip-path: inset(40% 0 0 0) !important;
+  }
+  .vestibule__moss::after {
+    animation: none !important;
+    opacity: .30 !important;
+    clip-path: inset(46% 0 0 0) !important;
+  }
+}
