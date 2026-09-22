@@ -28,7 +28,7 @@ function ProjectionLoop({
     videos.forEach((video) => {
       video.muted = true;
       video.controls = false;
-      video.playbackRate = 0.72;
+      video.playbackRate = 0.58;
     });
 
     const cueStart = (video: HTMLVideoElement, useOffset: boolean) => {
