@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CROSSFADE_SECONDS = 0.9;
+const CROSSFADE_SECONDS = 0.45;
 const SAFE_END_SECONDS = 4.0;
 
 function ProjectionLoop({
@@ -28,7 +28,7 @@ function ProjectionLoop({
     videos.forEach((video) => {
       video.muted = true;
       video.controls = false;
-      video.playbackRate = 0.42;
+      video.playbackRate = 0.28;
     });
 
     const cueStart = (video: HTMLVideoElement, useOffset: boolean) => {
@@ -135,7 +135,7 @@ export function VestibuleProjection() {
   return (
     <div className="vestibule__projection-field" aria-hidden="true">
       <ProjectionLoop side="left" />
-      <ProjectionLoop side="right" offsetFraction={0.38} />
+      <ProjectionLoop side="right" offsetFraction={0.06} />
     </div>
   );
 }
