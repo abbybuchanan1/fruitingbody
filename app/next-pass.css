@@ -3005,3 +3005,93 @@
 .vestibule__moss {
   display: none !important;
 }
+
+
+/* ============================================================
+   VESTIBULE — mushroom wall projection
+   Quiet moving image lives on the side stone only, never the bright opening.
+   ============================================================ */
+
+.vestibule__projection-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.vestibule__projection {
+  position: absolute;
+  top: 10%;
+  bottom: 8%;
+  overflow: hidden;
+  opacity: .20;
+  mix-blend-mode: screen;
+  filter: saturate(.58) contrast(.92) brightness(.90) blur(1.2px);
+}
+
+.vestibule__projection--left {
+  left: 0;
+  width: 29%;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 56% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse at 56% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+}
+
+.vestibule__projection--right {
+  right: 0;
+  width: 29%;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 44% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse at 44% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+}
+
+.vestibule__projection-video {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* Keep the central architectural opening clean and legible. */
+.vestibule__projection--left::after,
+.vestibule__projection--right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to center,
+    rgba(0,0,0,0),
+    rgba(0,0,0,.12)
+  );
+  pointer-events: none;
+}
+
+/* This projection replaces all prior synthetic moss/dapple attempts. */
+.vestibule__moss,
+.vestibule__dapple-window {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .15;
+  }
+
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    width: 33%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection-field {
+    display: none !important;
+  }
+}
