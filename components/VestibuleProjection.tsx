@@ -28,7 +28,7 @@ function ProjectionLoop({
     videos.forEach((video) => {
       video.muted = true;
       video.controls = false;
-      video.playbackRate = 0.58;
+      video.playbackRate = 0.42;
     });
 
     const cueStart = (video: HTMLVideoElement, useOffset: boolean) => {
@@ -104,7 +104,7 @@ function ProjectionLoop({
   }, [offsetFraction]);
 
   return (
-    <div className={`vestibule__projection vestibule__projection--${side}`}>
+    <div className={`vestibule__projection vestibule__projection--${side}${side === "right" ? " is-mirrored" : ""}`}>
       <video
         ref={firstRef}
         className={`vestibule__projection-video${active === 0 ? " is-active" : ""}`}
