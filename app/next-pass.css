@@ -3265,3 +3265,52 @@
     opacity: 1 !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE ARRIVAL — launch-safe still animation
+   Replaces the jumpy short pan with a 2.4s reversed camera settle built from
+   the exact room still. No separate transition video is required.
+   ============================================================ */
+
+.vestibule-arrival__video {
+  display: none !important;
+}
+
+.vestibule-arrival__image {
+  position: absolute;
+  inset: 0;
+  background-image: url("/media/architecture/vestibule-arch-desktop.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: saturate(.90) brightness(.92) contrast(.98);
+  transform-origin: 50% 50%;
+  animation: vestibule-arrival-reverse-settle 2.4s cubic-bezier(.22,.58,.18,1) both;
+  will-change: transform;
+}
+
+@keyframes vestibule-arrival-reverse-settle {
+  0% {
+    transform: translate3d(2.1%, .45%, 0) scale(1.055);
+  }
+  62% {
+    transform: translate3d(.55%, .10%, 0) scale(1.016);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .vestibule-arrival__image {
+    background-image: url("/media/architecture/vestibule-arch-mobile.jpg");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule-arrival__image {
+    animation: none !important;
+    transform: none !important;
+  }
+}
