@@ -3135,3 +3135,11 @@
 .vestibule__projection.is-mirrored .vestibule__projection-video {
   transform: scaleX(-1) scale(1.02) !important;
 }
+
+
+/* Vestibule projection final timing refinement:
+   much slower movement, shorter seam, and near-synchronized cycles so the
+   crossfades register less often while the mirrored motion stays organic. */
+.vestibule__projection-video {
+  transition: opacity .45s ease-in-out !important;
+}
