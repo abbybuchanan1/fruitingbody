@@ -3095,3 +3095,35 @@
     display: none !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE PROJECTION LOOP REFINEMENT
+   Crossfade duplicated media before the source reaches its end state.
+   ============================================================ */
+
+.vestibule__projection {
+  opacity: .12 !important;
+}
+
+.vestibule__projection-video {
+  opacity: 0 !important;
+  transition: opacity 1.1s ease !important;
+  will-change: opacity;
+}
+
+.vestibule__projection-video.is-active {
+  opacity: 1 !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .09 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection-video {
+    transition: none !important;
+  }
+}
