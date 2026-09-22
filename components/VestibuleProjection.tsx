@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CROSSFADE_SECONDS = 1.1;
+const CROSSFADE_SECONDS = 0.9;
+const SAFE_END_SECONDS = 4.0;
 
 function ProjectionLoop({
   side,
@@ -33,7 +34,7 @@ function ProjectionLoop({
     const cueStart = (video: HTMLVideoElement, useOffset: boolean) => {
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
       video.currentTime = useOffset
-        ? Math.min(video.duration - 1.5, Math.max(0, video.duration * offsetFraction))
+        ? Math.min(SAFE_END_SECONDS - 1.1, Math.max(0, SAFE_END_SECONDS * offsetFraction))
         : 0;
     };
 
@@ -51,7 +52,7 @@ function ProjectionLoop({
         switchingRef.current ||
         !Number.isFinite(current.duration) ||
         current.duration <= 0 ||
-        current.duration - current.currentTime > CROSSFADE_SECONDS
+        current.currentTime < SAFE_END_SECONDS - CROSSFADE_SECONDS
       ) return;
 
       switchingRef.current = true;
