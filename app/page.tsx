@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";
+import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";\nimport { ExteriorShadowPass } from "@/components/ExteriorShadowPass";
 
 export default function ExteriorPage() {
   return (
@@ -14,14 +14,14 @@ export default function ExteriorPage() {
         className="museum-exterior__image"
       />
 
-      <ExteriorAtmosphere />
+      <ExteriorAtmosphere />\n      <ExteriorShadowPass />
 
       <div className="museum-exterior__sign">
         Fruiting Body
       </div>
 
       <Link
-        href="/vestibule"
+        href="/vestibule?arrived=1"
         aria-label="Enter Fruiting Body"
         className="museum-exterior__door"
       />
