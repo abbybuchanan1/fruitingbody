@@ -3,6 +3,9 @@
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
+const ARRIVAL_MS = 2400;
+const HANDOFF_LEAD_MS = 220;
+
 export function VestibuleArrivalShell({
   arriving,
   children,
@@ -10,44 +13,36 @@ export function VestibuleArrivalShell({
   arriving: boolean;
   children: ReactNode;
 }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const handoffTimer = useRef<number | null>(null);
+  const completeTimer = useRef<number | null>(null);
   const [handoff, setHandoff] = useState(!arriving);
   const [complete, setComplete] = useState(!arriving);
 
   useEffect(() => {
-    if (!arriving) return;
-    const video = videoRef.current;
-    if (!video) {
+    if (!arriving) {
       setHandoff(true);
       setComplete(true);
       return;
     }
 
-    video.currentTime = 0;
-    video.playbackRate = 1;
-    void video.play().catch(() => {
-      setHandoff(true);
-      setComplete(true);
-    });
+    setHandoff(false);
+    setComplete(false);
+
+    handoffTimer.current = window.setTimeout(
+      () => setHandoff(true),
+      ARRIVAL_MS - HANDOFF_LEAD_MS,
+    );
+
+    completeTimer.current = window.setTimeout(
+      () => setComplete(true),
+      ARRIVAL_MS,
+    );
+
+    return () => {
+      if (handoffTimer.current) window.clearTimeout(handoffTimer.current);
+      if (completeTimer.current) window.clearTimeout(completeTimer.current);
+    };
   }, [arriving]);
-
-  const handleTime = () => {
-    const video = videoRef.current;
-    if (
-      !video ||
-      !Number.isFinite(video.duration) ||
-      video.duration <= 0
-    ) return;
-
-    if (video.duration - video.currentTime <= 0.22) {
-      setHandoff(true);
-    }
-  };
-
-  const finish = () => {
-    setHandoff(true);
-    window.setTimeout(() => setComplete(true), 160);
-  };
 
   return (
     <main
@@ -57,24 +52,7 @@ export function VestibuleArrivalShell({
 
       {arriving && !complete ? (
         <div className="vestibule-arrival" aria-hidden="true">
-          <video
-            ref={videoRef}
-            className="vestibule-arrival__video"
-            src="/media/video/transitions/vestibule-arrival.mp4"
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-            controls={false}
-            disablePictureInPicture
-            tabIndex={-1}
-            onTimeUpdate={handleTime}
-            onEnded={finish}
-            onError={() => {
-              setHandoff(true);
-              setComplete(true);
-            }}
-          />
+          <div className="vestibule-arrival__image" />
         </div>
       ) : null}
     </main>
