@@ -5823,3 +5823,18 @@
   transform: none !important;
   clip-path: none !important;
 }
+
+
+/* READING ROOM — widen the title and poem panels slightly so they enter the
+   warm light field rather than sitting entirely to its left. */
+.reading-room-page__content,
+.poem-page__content {
+  width: min(760px, 88vw) !important;
+}
+
+@media (max-width: 760px) {
+  .reading-room-page__content,
+  .poem-page__content {
+    width: calc(100% - 2rem) !important;
+  }
+}
