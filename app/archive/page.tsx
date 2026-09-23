@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
-import { artistStatement, fruitingBodyStatement, processStatement } from "@/lib/editorial";
+import { artistBio, artistStatement, fruitingBodyStatement, processStatement } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
+import { artworkSets } from "@/lib/artworks";
 
 function TextBlock({ title, paragraphs }: { title: string; paragraphs: string[] }) {
   return (
@@ -27,6 +28,7 @@ export default function ArchivePage() {
         <TextBlock title="Artist Statement" paragraphs={artistStatement} />
         <TextBlock title="Fruiting Body" paragraphs={fruitingBodyStatement} />
         <TextBlock title="Process" paragraphs={processStatement} />
+        <TextBlock title="Bio" paragraphs={artistBio} />
       </section>
 
       <section className="archive-works" aria-label="Expanded archive">
@@ -42,6 +44,33 @@ export default function ArchivePage() {
             </header>
 
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
+
+            {work.id === "red-thread" ? (
+              <section className="archive-historical-edits" aria-label="Earlier Red Thread edits">
+                <header className="archive-historical-edits__intro">
+                  <p className="archive-work__room">Earlier curated edits</p>
+                  <p>
+                    Before the current installation, this material existed as three separate bodies of work.
+                    The archive preserves those earlier edits alongside the merged Red Thread installation.
+                  </p>
+                </header>
+
+                <div className="archive-historical-edit">
+                  <h3>Red Thread</h3>
+                  <ArtworkLightboxGrid images={artworkSets.redThread.slice(0, 8)} mode="archive" />
+                </div>
+
+                <div className="archive-historical-edit">
+                  <h3>It Was Shelter Before It Was a Lie</h3>
+                  <ArtworkLightboxGrid images={artworkSets.shelter.slice(0, 8)} mode="archive" />
+                </div>
+
+                <div className="archive-historical-edit">
+                  <h3>Unravel</h3>
+                  <ArtworkLightboxGrid images={artworkSets.unravel.slice(0, 4)} mode="archive" />
+                </div>
+              </section>
+            ) : null}
 
             {work.reflection?.length ? (
               <details className="archive-reflection">
