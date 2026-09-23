@@ -15,6 +15,7 @@ export default function ArchivePage() {
           <a href="#fruiting-body">Fruiting Body</a>
           <a href="#process">Process</a>
           <a href="#project-reflections">Project Reflections</a>
+          <a href="#red-thread-development">Red Thread Archive</a>
           <a href="#bio">Bio</a>
         </nav>
       </header>
@@ -207,6 +208,52 @@ export default function ArchivePage() {
               Water gave that question a physical condition. Immersed, reflected, distorted, and partially dissolved, the body begins to take on the logic of its environment rather than remain a separate figure placed within it. The work became less about a body beside water than about the possibility of the body becoming water: permeable, responsive, and difficult to locate at a single edge.
             </p>
           </article>
+        </section>
+
+
+        <section id="red-thread-development" className="archive-development" aria-labelledby="red-thread-development-title">
+          <header className="archive-development__header">
+            <p className="archive-text__eyebrow">Developmental archive</p>
+            <h2 id="red-thread-development-title">Red Thread — Earlier Bodies of Work</h2>
+            <p>
+              The installed <em>Red Thread</em> developed from three earlier bodies of work: <em>Red Thread</em>, <em>It Was Shelter Before It Was a Lie</em>, and <em>Unravel</em>. Each began as a distinct inquiry and was originally edited as a separate series. Their images and concerns were later reconsidered together, forming the current installation. The original edits are preserved here as part of the work&apos;s developmental history.
+            </p>
+          </header>
+
+          <div className="archive-development__sets">
+            <article className="archive-development__set">
+              <p className="archive-development__label">Original edit</p>
+              <h3>Red Thread</h3>
+              <p>
+                The work investigates inheritance as an ongoing relationship rather than a problem to be solved, exploring the tensions between entanglement, belonging, and becoming.
+              </p>
+              <p className="archive-development__question">
+                How do we become ourselves when we can never fully separate from the whole?
+              </p>
+            </article>
+
+            <article className="archive-development__set">
+              <p className="archive-development__label">Original edit</p>
+              <h3>It Was Shelter Before It Was a Lie</h3>
+              <p>
+                The work investigates the relationship between identity and protection, asking how forms of shelter evolve, persist, and eventually require renegotiation.
+              </p>
+              <p className="archive-development__question">
+                How do we recognize when a form of protection has become a form of confinement?
+              </p>
+            </article>
+
+            <article className="archive-development__set">
+              <p className="archive-development__label">Original edit</p>
+              <h3>Unravel</h3>
+              <p>
+                The work investigates participation as an alternative to control, exploring what emerges when certainty gives way to movement, attention, and trust.
+              </p>
+              <p className="archive-development__question">
+                What emerges when we stop trying to manage the process of becoming?
+              </p>
+            </article>
+          </div>
         </section>
 
         <section id="bio" className="archive-text archive-text--bio" aria-labelledby="bio-title">
