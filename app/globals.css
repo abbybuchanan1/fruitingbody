@@ -9262,3 +9262,92 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   .water-room__header{min-height:166vh;padding-top:31vh}
   .water-room-installation{padding-top:78vh}
 }
+
+
+/* ==========================================================
+   ARCHIVE — CORE TEXT
+   ========================================================== */
+
+.archive-page{
+  --archive-measure: 44rem;
+  color:rgba(31,29,27,.92);
+}
+.archive-page__header{
+  max-width:52rem;
+  margin:0 auto clamp(6rem,12vh,10rem);
+}
+.archive-page__intro{
+  max-width:38rem;
+  margin:1.4rem 0 0;
+  font-size:clamp(1.05rem,1.55vw,1.28rem);
+  line-height:1.6;
+  color:rgba(31,29,27,.68);
+}
+.archive-page__contents{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem 1.25rem;
+  margin-top:2.4rem;
+  padding-top:1.35rem;
+  border-top:1px solid rgba(31,29,27,.14);
+}
+.archive-page__contents a{
+  color:inherit;
+  text-decoration:none;
+  font:.65rem/1.2 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  opacity:.62;
+}
+.archive-page__contents a:hover,
+.archive-page__contents a:focus-visible{
+  opacity:1;
+  text-decoration:underline;
+  text-underline-offset:.3em;
+}
+.archive-page__sections{
+  display:grid;
+  gap:clamp(7rem,15vh,12rem);
+}
+.archive-text{
+  width:min(100%,var(--archive-measure));
+  margin-inline:auto;
+  scroll-margin-top:7rem;
+}
+.archive-text__eyebrow{
+  margin:0 0 .8rem;
+  font:.61rem/1 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(31,29,27,.48);
+}
+.archive-text h2{
+  margin:0 0 2rem;
+  font-size:clamp(2rem,4vw,3.4rem);
+  line-height:1.02;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+.archive-text p{
+  margin:0 0 1.35rem;
+  font-size:clamp(1rem,1.25vw,1.12rem);
+  line-height:1.72;
+  color:rgba(31,29,27,.82);
+}
+.archive-text p:last-child{margin-bottom:0}
+.archive-text--bio{
+  padding-top:clamp(2rem,5vh,4rem);
+  border-top:1px solid rgba(31,29,27,.14);
+}
+.archive-page .utility-return-to-narthex{
+  display:inline-block;
+  margin-top:clamp(7rem,15vh,12rem);
+}
+
+@media(max-width:700px){
+  .archive-page__header{margin-bottom:5rem}
+  .archive-page__contents{gap:.8rem 1rem}
+  .archive-page__sections{gap:6rem}
+  .archive-text h2{margin-bottom:1.5rem}
+  .archive-text p{line-height:1.68}
+}
