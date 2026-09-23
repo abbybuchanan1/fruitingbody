@@ -3386,3 +3386,69 @@
     width: 34% !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE EXPERIMENT — project mushrooms into bright courtyard
+   Checkpoint before this experiment: b22fa0b68d9d2f8c2183ac601f400a2549ca584f
+   This override intentionally leaves the component logic untouched so the
+   experiment can be reverted cleanly by removing this block.
+   ============================================================ */
+
+.vestibule__projection-field {
+  z-index: 1 !important;
+}
+
+.vestibule__projection {
+  top: 7% !important;
+  bottom: 14% !important;
+  width: 27% !important;
+  opacity: .09 !important;
+  mix-blend-mode: multiply !important;
+  filter: saturate(.52) contrast(.92) brightness(1.08) blur(1.5px) !important;
+}
+
+.vestibule__projection--left {
+  left: 24% !important;
+  right: auto !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 68% 48%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 68% 48%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+}
+
+.vestibule__projection--right {
+  right: 24% !important;
+  left: auto !important;
+  top: 10% !important;
+  bottom: 12% !important;
+  width: 27% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 32% 50%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 32% 50%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+}
+
+.vestibule__projection-video {
+  filter: grayscale(.18) saturate(.72) contrast(.9) brightness(1.12) blur(1.1px) !important;
+}
+
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 48% 52% !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .075 !important;
+    width: 34% !important;
+  }
+
+  .vestibule__projection--left {
+    left: 16% !important;
+  }
+
+  .vestibule__projection--right {
+    right: 16% !important;
+    width: 34% !important;
+  }
+}
