@@ -4319,3 +4319,79 @@
     animation: none !important;
   }
 }
+
+
+/* ============================================================
+   MISCARRIAGE SCALE / LABEL REFINEMENT + CURRENT WALL TEXTURE
+   Safe Miscarriage checkpoint before archive-image experiment:
+   39e01a0924a0a84a9b30571cc25f18ed8973f7de
+   First votive version:
+   8b3bdac4a65e2e3d6f11745ff47093d136554ad3
+   ============================================================ */
+
+/* A Miscarriage: retain the amber backlight exactly, but give each image
+   more surrounding darkness so the encounter feels intimate rather than
+   screen-filling. */
+.miscarriage-votive {
+  width: min(50vw, 40rem) !important;
+}
+
+.miscarriage-votive--3 {
+  width: min(61vw, 50rem) !important;
+}
+
+.miscarriage-votive--4 {
+  width: min(66vw, 55rem) !important;
+}
+
+.miscarriage-votive--5 {
+  width: min(45vw, 37rem) !important;
+}
+
+.miscarriage-votive__title {
+  margin-top: .95rem !important;
+  font-size: .72rem !important;
+  letter-spacing: .085em !important;
+  color: rgba(235, 225, 210, .68) !important;
+}
+
+@media (max-width: 760px) {
+  .miscarriage-votive,
+  .miscarriage-votive--3,
+  .miscarriage-votive--4,
+  .miscarriage-votive--5 {
+    width: min(78vw, 36rem) !important;
+  }
+
+  .miscarriage-votive__title {
+    font-size: .68rem !important;
+  }
+}
+
+/* CURRENT: use the supplied white plaster texture as the architectural field. */
+.current-exhibition {
+  color: rgba(42, 39, 35, .88) !important;
+  background-color: #f3f1ec !important;
+  background-image:
+    linear-gradient(rgba(248,247,243,.18), rgba(238,235,229,.18)),
+    url("/media/architecture/current-wall-texture.webp") !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed !important;
+}
+
+.current-exhibition .work-intro-card {
+  background: rgba(249, 247, 242, .68) !important;
+  border-color: rgba(75, 67, 57, .08) !important;
+  color: rgba(42,39,35,.88) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.current-exhibition .work-intro-card h1,
+.current-exhibition .work-intro-card__room,
+.current-exhibition .work-intro-card__statement,
+.current-room__return {
+  color: rgba(42,39,35,.82) !important;
+}
