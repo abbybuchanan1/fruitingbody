@@ -22,7 +22,7 @@ export default function IndexPage() {
               const work = museumWorksById[id as WorkId];
               const images = work.id === "miscarriage" ? work.archive : work.exhibition;
               return (
-                <article className="index-work" key={work.id}>
+                <article className="index-work" data-work-id={work.id} key={work.id}>
                   <header className="index-work__header">
                     <div className="index-work__identity">
                       <p className="index-work__meta">{work.year} · {work.medium}</p>
