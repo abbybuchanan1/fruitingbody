@@ -9351,3 +9351,78 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   .archive-text h2{margin-bottom:1.5rem}
   .archive-text p{line-height:1.68}
 }
+
+
+/* ==========================================================
+   ARCHIVE — PROJECT REFLECTIONS
+   ========================================================== */
+
+.archive-projects{
+  width:min(100%,52rem);
+  margin-inline:auto;
+  scroll-margin-top:7rem;
+}
+.archive-projects__header{
+  width:min(100%,44rem);
+  margin:0 auto clamp(4.5rem,10vh,7rem);
+}
+.archive-projects__header h2{
+  margin:0 0 1.4rem;
+  font-size:clamp(2rem,4vw,3.4rem);
+  line-height:1.02;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+.archive-projects__header > p:last-child{
+  margin:0;
+  max-width:38rem;
+  font-size:clamp(1rem,1.25vw,1.12rem);
+  line-height:1.7;
+  color:rgba(31,29,27,.68);
+}
+.archive-project{
+  width:min(100%,44rem);
+  margin:0 auto;
+  padding:clamp(3.5rem,8vh,6rem) 0;
+  border-top:1px solid rgba(31,29,27,.14);
+  scroll-margin-top:7rem;
+}
+.archive-project h3{
+  margin:0 0 1.65rem;
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  line-height:1.08;
+  font-weight:400;
+  letter-spacing:-.025em;
+}
+.archive-project > p{
+  margin:0 0 1.3rem;
+  font-size:clamp(1rem,1.2vw,1.1rem);
+  line-height:1.72;
+  color:rgba(31,29,27,.82);
+}
+.archive-project > p:last-child{margin-bottom:0}
+.archive-project__quote{
+  margin:2.4rem 0;
+  padding:0 0 0 clamp(1rem,2vw,1.5rem);
+  border-left:1px solid rgba(31,29,27,.26);
+}
+.archive-project__quote p{
+  margin:0;
+  font-size:clamp(1.05rem,1.5vw,1.24rem);
+  line-height:1.65;
+  font-style:italic;
+  color:rgba(31,29,27,.78);
+}
+.archive-project__quote cite{
+  display:block;
+  margin-top:.8rem;
+  font-size:.82rem;
+  line-height:1.45;
+  font-style:normal;
+  color:rgba(31,29,27,.56);
+}
+
+@media(max-width:700px){
+  .archive-project{padding:3.75rem 0}
+  .archive-projects__header{margin-bottom:3.5rem}
+}
