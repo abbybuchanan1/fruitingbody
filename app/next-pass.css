@@ -3956,3 +3956,84 @@
     opacity: .08;
   }
 }
+
+
+/* ============================================================
+   EXTERIOR → VESTIBULE HANDOFF
+   Safe checkpoint before this pass:
+   ce8ca4c355f5eea0052dcffe2356236fe81d8b22
+   ============================================================ */
+
+/* Never let the moving shadow layer arrive before the architecture itself. */
+.museum-exterior__shadow-field {
+  opacity: 0 !important;
+  transition: opacity .55s ease !important;
+}
+
+.museum-exterior__shadow-field.is-ready {
+  opacity: 1 !important;
+}
+
+/* A short darkening bridge removes the hard image-to-image route cut. */
+.museum-exterior__entry-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background: rgba(10, 16, 14, .94);
+  opacity: 0;
+  transition: opacity .26s ease-in;
+}
+
+.museum-exterior.is-entering .museum-exterior__entry-veil {
+  opacity: 1;
+}
+
+.museum-exterior__image {
+  transition: transform .34s ease-out, filter .34s ease-out;
+}
+
+.museum-exterior.is-entering .museum-exterior__image {
+  transform: scale(1.008);
+  filter: brightness(.78);
+}
+
+.museum-exterior.is-entering .museum-exterior__shadow-field,
+.museum-exterior.is-entering .museum-exterior__sign {
+  opacity: 0 !important;
+  transition: opacity .18s linear !important;
+}
+
+/* The Vestibule now emerges out of the same dark field rather than appearing
+   in a single frame after the route changes. */
+.vestibule-arrival {
+  background: #0a100e !important;
+  animation: vestibule-arrival-layer-reveal .34s ease-out both;
+}
+
+@keyframes vestibule-arrival-layer-reveal {
+  0%   { opacity: .08; }
+  100% { opacity: 1; }
+}
+
+.vestibule-arrival__image {
+  animation:
+    vestibule-arrival-image-reveal .34s ease-out both,
+    vestibule-arrival-reverse-settle 2.4s cubic-bezier(.22,.58,.18,1) both !important;
+}
+
+@keyframes vestibule-arrival-image-reveal {
+  0%   { opacity: .18; filter: saturate(.82) brightness(.70) contrast(.98) blur(1.2px); }
+  100% { opacity: 1; filter: saturate(.90) brightness(.92) contrast(.98) blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__entry-veil {
+    transition: none !important;
+  }
+
+  .vestibule-arrival,
+  .vestibule-arrival__image {
+    animation: none !important;
+  }
+}
