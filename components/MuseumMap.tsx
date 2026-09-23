@@ -17,7 +17,7 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   "front-gallery": { x: 397, y: 556, w: 206, h: 48 },
   "red-room": { x: 126, y: 190, w: 92, h: 374 },
   "water-room": { x: 782, y: 190, w: 92, h: 374 },
-  "film-room": { x: 807, y: 246, w: 64, h: 86, z: 10 },
+  "film-room": { x: 812, y: 250, w: 52, h: 78, z: 10 },
   current: { x: 790, y: 620, w: 155, h: 48, z: 9 },
   vestibule: { x: 292, y: 630, w: 416, h: 50 },
   exterior: { x: 410, y: 680, w: 180, h: 20 },
@@ -166,11 +166,12 @@ export function MuseumMap({
 
               <path d="M292 630 H708 V680 H292 Z" />
               <path d="M454 630 C466 612 534 612 546 630" />
+              <rect x="410" y="680" width="180" height="20" rx="2" />
 
               <path d="M708 644 H790" />
               <rect x="790" y="620" width="155" height="48" rx="2" />
 
-              <rect x="807" y="246" width="64" height="86" rx="8" />
+              <rect x="812" y="250" width="52" height="78" rx="7" />
 
               <path d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />
               <path d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />
