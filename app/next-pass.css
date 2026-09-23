@@ -1608,19 +1608,19 @@
   background:
     linear-gradient(
       90deg,
-      rgba(15, 11, 8, .50) 0%,
-      rgba(18, 13, 9, .34) 34%,
-      rgba(16, 12, 9, .42) 70%,
-      rgba(10, 8, 6, .68) 100%
+      rgba(15, 11, 8, .48) 0%,
+      rgba(18, 13, 9, .30) 34%,
+      rgba(16, 12, 9, .30) 70%,
+      rgba(10, 8, 6, .50) 100%
     ),
     radial-gradient(
-      ellipse at 27% 27%,
+      ellipse at 46% 28%,
       rgba(214, 164, 86, .20) 0%,
-      rgba(214, 164, 86, .08) 24%,
-      transparent 58%
+      rgba(214, 164, 86, .08) 26%,
+      transparent 62%
     ),
-    url("/media/reading-room/reading-room-background.jpg") 28% center / 178% auto no-repeat !important;
-  filter: saturate(.68) brightness(.84) blur(6px) !important;
+    url("/media/reading-room/reading-room-background.jpg") 64% center / 178% auto no-repeat !important;
+  filter: saturate(.68) brightness(.88) blur(6px) !important;
   transform: scale(1.08) !important;
 }
 
@@ -1632,21 +1632,21 @@
   background:
     linear-gradient(
       90deg,
-      rgba(12, 9, 7, .60) 0%,
-      rgba(16, 12, 9, .43) 30%,
-      rgba(18, 13, 10, .34) 56%,
-      rgba(15, 11, 8, .50) 76%,
-      rgba(10, 8, 6, .72) 100%
+      rgba(12, 9, 7, .58) 0%,
+      rgba(16, 12, 9, .40) 30%,
+      rgba(18, 13, 10, .30) 56%,
+      rgba(15, 11, 8, .40) 76%,
+      rgba(10, 8, 6, .60) 100%
     ),
     radial-gradient(
-      ellipse at 28% 31%,
-      rgba(214, 164, 86, .24) 0%,
-      rgba(214, 164, 86, .11) 22%,
-      rgba(214, 164, 86, .04) 38%,
-      transparent 62%
+      ellipse at 56% 31%,
+      rgba(214, 164, 86, .23) 0%,
+      rgba(214, 164, 86, .10) 24%,
+      rgba(214, 164, 86, .04) 40%,
+      transparent 66%
     ),
-    url("/media/reading-room/reading-room-background.jpg") 27% center / 220% auto no-repeat !important;
-  filter: saturate(.54) brightness(.52) blur(16px) !important;
+    url("/media/reading-room/reading-room-background.jpg") 72% center / 220% auto no-repeat !important;
+  filter: saturate(.54) brightness(.56) blur(16px) !important;
   transform: scale(1.14) !important;
 }
 
