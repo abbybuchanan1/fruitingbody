@@ -173,7 +173,11 @@ export const museumWorks: MuseumWork[] = [
     question:
       "Who are we while we are becoming someone we cannot yet recognize?",
     exhibition: artworkSets.phase,
-    archive: artworkSets.phase,
+    archive: [
+      ...artworkSets.phase,
+      { src: "/art/archive/phase/phase-archive-06.jpg", alt: "Phase, archive image 6." },
+      { src: "/art/archive/phase/phase-archive-07.jpg", alt: "Phase, archive image 7." },
+    ],
     reflection: reflections.phase,
   },
   {
@@ -219,6 +223,7 @@ export const museumWorks: MuseumWork[] = [
     question: "What must pass through us in order for us to become?",
     exhibition: artworkSets.membrane,
     archive: numberedArchive("membrane", "membrane-index", 15, "Membrane"),
+    reflection: reflections.membrane,
   },
   {
     id: "body-of-water",
@@ -244,7 +249,7 @@ export const museumWorks: MuseumWork[] = [
     href: "/current",
     statement:
       "An unstaged ritual, witnessed rather than arranged. The image documents a ritual event without intervention.",
-    question: "What changes when the camera witnesses rather than directs?",
+    question: "Can a deliberate act of witnessing transform identity?",
     exhibition: artworkSets.maria,
     archive: artworkSets.maria,
     reflection: reflections.maria,
