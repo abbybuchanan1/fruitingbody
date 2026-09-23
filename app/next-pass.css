@@ -4037,3 +4037,87 @@
     animation: none !important;
   }
 }
+
+
+/* ============================================================
+   NARTHEX + VESTIBULE SEAM — focused refinement
+   Safe checkpoint before this pass:
+   f0dfcecb315b81d6f50adb65f25a8b8311a15f7d
+   ============================================================ */
+
+/* NARTHEX
+   Route before the motion falls completely still, then let the matched arrival
+   frame exist only briefly. The room controls should feel like they resolve
+   out of the image, not arrive after a pause. */
+.narthex-transition__handoff {
+  transition: opacity 90ms linear !important;
+}
+
+.narthex-room__ui {
+  animation-delay: .42s !important;
+  animation-duration: .72s !important;
+}
+
+/* Keep the arrival still visually identical to the transition's final image. */
+.narthex-transition__handoff,
+.narthex-room__environment-still {
+  object-position: 50% 50% !important;
+  filter: blur(.18px) saturate(.84) contrast(.91) brightness(.92) !important;
+  transform: scale(1.004) !important;
+}
+
+/* VESTIBULE
+   Remove the bright center wash. It hid the seam by adding another visible
+   layer. Instead, feather each projection itself toward the center so the two
+   moving images merge rather than double. */
+.vestibule__projection-field::after {
+  display: none !important;
+}
+
+.vestibule__projection--left {
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at 55% 49%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+  mask-image:
+    radial-gradient(
+      ellipse at 55% 49%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+}
+
+.vestibule__projection--right {
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at 45% 51%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+  mask-image:
+    radial-gradient(
+      ellipse at 45% 51%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+}
+
+/* Keep a slight vertical mismatch so recognizable mushroom contours do not
+   coincide perfectly in the overlap. */
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 48% 54% !important;
+}
