@@ -3753,3 +3753,61 @@
     animation: none !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE COURTYARD — restore fuller spread
+   Keep current slow playback/crossfade and current opacity.
+   Safe checkpoint before this pass:
+   e609589c141b27d2caf20f282e7365cc1e6922f7
+   ============================================================ */
+
+.vestibule__projection--left {
+  left: 4% !important;
+  width: 48% !important;
+  opacity: .12 !important;
+  animation:
+    vestibule-projection-left-full-drift 78s linear infinite alternate,
+    vestibule-projection-left-fade-soft 34s linear infinite !important;
+}
+
+.vestibule__projection--right {
+  right: 4% !important;
+  width: 48% !important;
+  opacity: .125 !important;
+  animation:
+    vestibule-projection-right-full-drift 84s linear infinite alternate,
+    vestibule-projection-right-fade-soft 37s linear infinite !important;
+}
+
+@keyframes vestibule-projection-left-full-drift {
+  0%   { transform: translateX(2.5%) scale(1.008); }
+  50%  { transform: translateX(-.5%) scale(1.012); }
+  100% { transform: translateX(-3.5%) scale(1.016); }
+}
+
+@keyframes vestibule-projection-right-full-drift {
+  0%   { transform: translateX(-2.5%) scale(1.01); }
+  50%  { transform: translateX(.5%) scale(1.013); }
+  100% { transform: translateX(3.5%) scale(1.016); }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left {
+    left: -4% !important;
+    width: 56% !important;
+    opacity: .095 !important;
+    animation:
+      vestibule-projection-left-full-drift 82s linear infinite alternate,
+      vestibule-projection-left-fade-soft 38s linear infinite !important;
+  }
+
+  .vestibule__projection--right {
+    right: -4% !important;
+    width: 56% !important;
+    opacity: .10 !important;
+    animation:
+      vestibule-projection-right-full-drift 88s linear infinite alternate,
+      vestibule-projection-right-fade-soft 41s linear infinite !important;
+  }
+}
