@@ -3636,3 +3636,120 @@
     transform: none !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE COURTYARD — reload reset + slower outward spread
+   Safe checkpoint before this pass:
+   f1a6c6f84e73c2093c7dcefa2c8098086057e81e
+   On every page load the projections begin concentrated in the bright
+   courtyard, then expand outward very slowly. Source-video crossfades
+   remain continuous underneath this spatial migration.
+   ============================================================ */
+
+.vestibule__projection-video {
+  transition: opacity 1.35s linear !important;
+}
+
+.vestibule__projection--left {
+  left: 24% !important;
+  width: 27% !important;
+  opacity: .12 !important;
+  animation:
+    vestibule-projection-left-spread 78s linear forwards,
+    vestibule-projection-left-fade-soft 34s linear infinite !important;
+}
+
+.vestibule__projection--right {
+  right: 24% !important;
+  width: 27% !important;
+  opacity: .125 !important;
+  animation:
+    vestibule-projection-right-spread 84s linear forwards,
+    vestibule-projection-right-fade-soft 37s linear infinite !important;
+}
+
+@keyframes vestibule-projection-left-spread {
+  0% {
+    left: 24%;
+    width: 27%;
+    transform: translateX(0) scale(1);
+  }
+  55% {
+    left: 13%;
+    width: 37%;
+    transform: translateX(-1%) scale(1.008);
+  }
+  100% {
+    left: 4%;
+    width: 48%;
+    transform: translateX(-2.5%) scale(1.015);
+  }
+}
+
+@keyframes vestibule-projection-right-spread {
+  0% {
+    right: 24%;
+    width: 27%;
+    transform: translateX(0) scale(1.005);
+  }
+  52% {
+    right: 13%;
+    width: 37%;
+    transform: translateX(1%) scale(1.01);
+  }
+  100% {
+    right: 4%;
+    width: 48%;
+    transform: translateX(2.5%) scale(1.015);
+  }
+}
+
+@keyframes vestibule-projection-left-fade-soft {
+  0%   { opacity: .115; }
+  50%  { opacity: .135; }
+  100% { opacity: .12; }
+}
+
+@keyframes vestibule-projection-right-fade-soft {
+  0%   { opacity: .13; }
+  50%  { opacity: .112; }
+  100% { opacity: .132; }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left {
+    left: 16% !important;
+    width: 34% !important;
+    opacity: .095 !important;
+    animation:
+      vestibule-projection-left-spread-mobile 82s linear forwards,
+      vestibule-projection-left-fade-soft 38s linear infinite !important;
+  }
+
+  .vestibule__projection--right {
+    right: 16% !important;
+    width: 34% !important;
+    opacity: .10 !important;
+    animation:
+      vestibule-projection-right-spread-mobile 88s linear forwards,
+      vestibule-projection-right-fade-soft 41s linear infinite !important;
+  }
+}
+
+@keyframes vestibule-projection-left-spread-mobile {
+  0%   { left: 16%; width: 34%; transform: translateX(0) scale(1); }
+  100% { left: -4%; width: 56%; transform: translateX(-2%) scale(1.01); }
+}
+
+@keyframes vestibule-projection-right-spread-mobile {
+  0%   { right: 16%; width: 34%; transform: translateX(0) scale(1.005); }
+  100% { right: -4%; width: 56%; transform: translateX(2%) scale(1.01); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    animation: none !important;
+  }
+}
