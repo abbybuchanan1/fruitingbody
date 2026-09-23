@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CROSSFADE_SECONDS = 0.45;
+const CROSSFADE_SECONDS = 1.35;
 const SAFE_END_SECONDS = 4.0;
 
 function ProjectionLoop({
@@ -28,7 +28,7 @@ function ProjectionLoop({
     videos.forEach((video) => {
       video.muted = true;
       video.controls = false;
-      video.playbackRate = 0.28;
+      video.playbackRate = 0.20;
     });
 
     const cueStart = (video: HTMLVideoElement, useOffset: boolean) => {
