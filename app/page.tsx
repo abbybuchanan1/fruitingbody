@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";\nimport { ExteriorShadowPass } from "@/components/ExteriorShadowPass";
+import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";
+import { ExteriorShadowPass } from "@/components/ExteriorShadowPass";
 
 export default function ExteriorPage() {
   return (
