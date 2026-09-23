@@ -143,6 +143,14 @@ export const artworkSets = {
     "daffodils",
     11,
     "This Morning I Was Gathering Daffodils",
+  ).map((work, index) =>
+    index === 10
+      ? {
+          ...work,
+          src: "/art/archive/daffodils/daffodils-index-17.jpg",
+          alt: "This Morning I Was Gathering Daffodils, final work.",
+        }
+      : work,
   ),
   fearNot: exhibitionSequence("fear-not", "fear-not", 5, "Fear Not"),
   taste: exhibitionSequence("taste", "taste-and-see", 6, "Taste and See"),
