@@ -3475,3 +3475,94 @@
     opacity: .115 !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE COURTYARD EXPERIMENT — extended wall migration
+   Safe checkpoints:
+   - e59c40086f3c9a364ffe4e20853b116d936f7c11 = current legible courtyard version
+   - a142f57182fdf97b801ade5e99270e1e0d58fed3 = softer courtyard version
+   - 24cbf465e58c5621e1ac9be0883fc8f3f3536708 = first courtyard experiment
+   This pass keeps the current visual treatment but expands each projection
+   outward so the moving image can travel from the bright courtyard onto the
+   darker side walls.
+   ============================================================ */
+
+.vestibule__projection--left {
+  left: 4% !important;
+  width: 48% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 70% 49%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 70% 49%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  animation: vestibule-projection-left-migrate 18s ease-in-out infinite alternate !important;
+}
+
+.vestibule__projection--right {
+  right: 4% !important;
+  width: 48% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 30% 50%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 30% 50%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  animation: vestibule-projection-right-migrate 21s ease-in-out infinite alternate !important;
+}
+
+@keyframes vestibule-projection-left-migrate {
+  0%   { transform: translateX(5.5%) scale(1); }
+  55%  { transform: translateX(0%) scale(1.015); }
+  100% { transform: translateX(-7%) scale(1.025); }
+}
+
+@keyframes vestibule-projection-right-migrate {
+  0%   { transform: translateX(-5%) scale(1.015); }
+  48%  { transform: translateX(0%) scale(1); }
+  100% { transform: translateX(7.5%) scale(1.025); }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    width: 56% !important;
+  }
+
+  .vestibule__projection--left {
+    left: -4% !important;
+  }
+
+  .vestibule__projection--right {
+    right: -4% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    animation: none !important;
+    transform: none !important;
+  }
+}
