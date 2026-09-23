@@ -14,6 +14,7 @@ export default function ArchivePage() {
           <a href="#artist-statement">Artist Statement</a>
           <a href="#fruiting-body">Fruiting Body</a>
           <a href="#process">Process</a>
+          <a href="#project-reflections">Project Reflections</a>
           <a href="#bio">Bio</a>
         </nav>
       </header>
@@ -90,6 +91,122 @@ export default function ArchivePage() {
           <p>
             Working with my own body this way has also changed how I perceive it. Through the photographs it repeatedly becomes terrain, threshold, structure, ecological system, and site of passage rather than simply an object to be evaluated. That shift has been personally significant after years of body shame and dysmorphia, although healing is a consequence of the practice rather than its primary subject.
           </p>
+        </section>
+
+        <section id="project-reflections" className="archive-projects" aria-labelledby="project-reflections-title">
+          <header className="archive-projects__header">
+            <p className="archive-text__eyebrow">Works</p>
+            <h2 id="project-reflections-title">Project Reflections</h2>
+            <p>
+              These notes record the questions and lived encounters that shaped individual bodies of work. They are not intended as instructions for reading the photographs.
+            </p>
+          </header>
+
+          <article className="archive-project" id="reflection-relative">
+            <h3>Relative</h3>
+            <p>
+              <em>Relative</em> began under the working title <em>My Body Is the Land I&apos;m From</em>, from the thought that the body may be the only land we ever fully inhabit and therefore something we are responsible for tending. I began the work while reckoning with years of body shame and dysmorphia. Looking closely at flesh as terrain—folded, weathered, marked, permeable—gave me another way to see it.
+            </p>
+            <p>
+              The project eventually moved beyond metaphor. I became less interested in saying that the body resembles landscape than in noticing that bodies and landscapes are subject to many of the same forces: gravity, erosion, growth, weather, time, and decay. The paired images are attempts to recognize that kinship.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-daffodils">
+            <h3>This Morning I Was Gathering Daffodils</h3>
+            <p>
+              I came to Persephone less as a story to retell than as a way to think about power inside a cycle that cannot simply be escaped. Her movement between worlds is both imposed and inhabited; she is acted upon and still becomes someone within what has happened to her. That contradiction became more important to me than any clean story of victimhood or triumph.
+            </p>
+            <blockquote className="archive-project__quote">
+              <p>
+                “(Persephone) was winter, she was spring. When she ascended, the world awoke. When she descended, it lamented. She left; she returned. One year. Fifty. Five hundred. Forever. Powerful and powerless was she.”
+              </p>
+              <cite>— Pádraig Ó Tuama, <em>In a Garden by a Gate</em></cite>
+            </blockquote>
+            <p>
+              The phrase “powerful and powerless” holds the tension I wanted the photographs to remain inside. The work asks what sovereignty can look like when freedom is partial, when return is required, and when becoming must happen within inherited conditions rather than outside them.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-fear-not">
+            <h3>Fear Not</h3>
+            <p>
+              <em>Fear Not</em> began with Eve and with the question of what changes when curiosity is not treated as a failure. I was interested in the inherited framing of appetite, knowledge, and disobedience as moral danger—especially when attached to a woman&apos;s body.
+            </p>
+            <p>
+              The work does not try to reverse the story into a simple celebration of transgression. I am more interested in participation: the decision to reach, taste, know, and accept the consequences of knowing. The images ask what becomes visible when curiosity is understood as a form of agency rather than the beginning of a fall.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-taste">
+            <h3>Taste and See</h3>
+            <p>
+              <em>Taste and See</em> began with images of Venus and the long visual inheritance of the female body as an object arranged for looking. As I worked, the question shifted away from how beauty is presented and toward what beauty feels like from inside a body.
+            </p>
+            <p>
+              Appetite became central. Fruit, mouth, touch, pleasure, and excess allowed the body to become an experiencing subject rather than an image performing desirability for a gaze. The work asks what happens when beauty is allowed to include hunger—when looking gives way to tasting, and the body is permitted not only to be seen but to want.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-miscarriage">
+            <h3>A Miscarriage</h3>
+            <p>
+              I do not think of this work primarily as a record of a single event. It is about interrupted becoming: the strange bodily fact of beginning to reorganize around a future and then continuing to inhabit the body after that future has disappeared.
+            </p>
+            <p>
+              The images move through longing, absence, passage, and bodily transformation without trying to resolve them. Making the work changed my understanding of the recurring portal forms in my photographs. I had been looking for thresholds outside myself; here I began to understand that the body itself could become the passage.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-phase">
+            <h3>Winter / Phase</h3>
+            <p>
+              <em>Winter / Phase</em> is concerned with the unstable period after one state has ended and before another has fully appeared. I was interested in transition not as a dramatic event but as a condition: suspended, difficult to name, and often longer than expected.
+            </p>
+            <p>
+              Winter gave me a structure for thinking about that interval. What appears dormant is still undergoing change. The work stays with that uncertainty rather than rushing it toward emergence.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-threshold">
+            <h3>Threshold</h3>
+            <p>
+              <em>Threshold</em> began with the experience of no longer being what I had been while not yet being able to see what I was becoming. I wanted to stay inside that in-between state without forcing it into clarity too quickly.
+            </p>
+            <p>
+              As I worked, anatomy began to behave like architecture: folds became passages, openings became rooms, and the body became a spatial boundary that could be approached from either side. The photographs hold the threshold as a place in its own right rather than merely a route from one certainty to another.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-red-thread">
+            <h3>Red Thread</h3>
+            <p>
+              <em>Red Thread</em> investigates inheritance as an ongoing relationship rather than a problem that can be solved through separation. The thread can bind, connect, restrict, trace, or hold. I am interested in the difficulty of becoming an individual without pretending that we can ever become entirely independent of what formed us.
+            </p>
+            <p>
+              The current installation grew from three earlier bodies of work concerned with inheritance, protection, and participation. Bringing those images together shifted the work toward a larger question: how do we become ourselves while remaining entangled with the people, histories, protections, and structures from which we emerged?
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-membrane">
+            <h3>Membrane</h3>
+            <p>
+              <em>Membrane</em> was the first work I made in the river and the beginning of the process I now use most often: entering with a question and a material, interacting with them physically, and allowing the photographs to be discovered afterward rather than designed in advance.
+            </p>
+            <p>
+              I remember the mist and river water coming through the fabric and the warmth of the sun on my body. I worked with video frames and fast capture, unable to see most of the images while I was making them. When I left the river, something in my relationship to the work had changed. I understood that the experience itself could be the site of the photograph, and that photography might be capable of carrying things I had not been able to communicate in another form.
+            </p>
+          </article>
+
+          <article className="archive-project" id="reflection-body-of-water">
+            <h3>Body of Water</h3>
+            <p>
+              The first images in <em>Body of Water</em> came from looking at the breast until it stopped reading primarily as anatomy and began to appear as terrain, center, and circular form. That shift opened the project toward a larger question about giving and receiving, pleasure, and where the boundary of the body actually resides.
+            </p>
+            <p>
+              Water gave that question a physical condition. Immersed, reflected, distorted, and partially dissolved, the body begins to take on the logic of its environment rather than remain a separate figure placed within it. The work became less about a body beside water than about the possibility of the body becoming water: permeable, responsive, and difficult to locate at a single edge.
+            </p>
+          </article>
         </section>
 
         <section id="bio" className="archive-text archive-text--bio" aria-labelledby="bio-title">
