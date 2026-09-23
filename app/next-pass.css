@@ -3811,3 +3811,148 @@
       vestibule-projection-right-fade-soft 41s linear infinite !important;
   }
 }
+
+
+/* ============================================================
+   LAUNCH VIDEO REFINEMENT — Narthex / Vestibule seam / Exterior door
+   Safe checkpoint before this pass:
+   c8f8118c01197fca02bcb0c76d6d6dd12b3a539c
+   ============================================================ */
+
+/* NARTHEX
+   The prior transition read as an inset rectangle while the visitor was still
+   seeing the previous room. Once the transition is armed, let it become the
+   whole visual field immediately and dissolve rather than grow out of a box. */
+.narthex-transition {
+  margin-top: 0 !important;
+  min-height: 100svh !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background: transparent !important;
+}
+
+.room[data-environment="textile"] .narthex-transition,
+.water-room .narthex-transition {
+  margin-top: 0 !important;
+}
+
+.narthex-transition__frame {
+  opacity: 0 !important;
+  transform: scale(1.008) !important;
+  transition:
+    opacity .8s ease-out,
+    transform 2.8s cubic-bezier(.18,.72,.18,1) !important;
+}
+
+.narthex-transition.is-playing .narthex-transition__frame {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 40 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.narthex-transition.is-playing .narthex-transition__wash {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 41 !important;
+  opacity: .045 !important;
+}
+
+.narthex-transition.is-finishing .narthex-transition__handoff {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  opacity: 1 !important;
+}
+
+/* VESTIBULE
+   Keep the current full spread/speed/opacity, but wash the exact center just
+   enough that the two projection fields stop announcing their overlap seam. */
+.vestibule__projection-field::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  bottom: 9%;
+  left: 50%;
+  width: min(18vw, 250px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(238, 242, 235, .075) 0%,
+      rgba(231, 238, 231, .05) 28%,
+      rgba(221, 231, 223, .018) 56%,
+      transparent 78%
+    );
+  filter: blur(8px);
+  mix-blend-mode: screen;
+}
+
+/* Slight vertical mismatch prevents doubled mushroom contours from stacking
+   at the center while preserving the current mirrored movement. */
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 48% 56% !important;
+}
+
+/* EXTERIOR
+   A tiny amount of living light on the door itself. This is intentionally
+   weaker than the wall shadows so the door remains architectural, not scenic. */
+.museum-exterior__door {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.museum-exterior__door::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  opacity: .12;
+  background:
+    radial-gradient(ellipse at 28% 34%, rgba(255,244,218,.34) 0 7%, transparent 20%),
+    radial-gradient(ellipse at 67% 48%, rgba(255,246,224,.26) 0 9%, transparent 24%),
+    radial-gradient(ellipse at 42% 76%, rgba(255,240,211,.20) 0 8%, transparent 22%);
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  animation: exterior-door-dapple 19s linear infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes exterior-door-dapple {
+  0% {
+    transform: translate3d(-6%, -3%, 0) scale(1);
+    opacity: .085;
+  }
+  47% {
+    transform: translate3d(4%, 2%, 0) scale(1.05);
+    opacity: .13;
+  }
+  100% {
+    transform: translate3d(-1%, 5%, 0) scale(1.02);
+    opacity: .10;
+  }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection-field::after {
+    width: 24vw;
+    opacity: .85;
+  }
+
+  .museum-exterior__door::before {
+    opacity: .09;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__door::before {
+    animation: none !important;
+    opacity: .08;
+  }
+}
