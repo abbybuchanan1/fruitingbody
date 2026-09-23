@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArtworkSequence } from "@/components/ArtworkSequence";
+import { CurrentEmberSequence } from "@/components/CurrentEmberSequence";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
 
@@ -18,7 +18,7 @@ export default function CurrentPage() {
           />
         </div>
 
-        <ArtworkSequence artworks={work.exhibition} label={work.title} mode="varied" />
+        <CurrentEmberSequence artworks={work.exhibition} />
 
         <Link className="current-room__return" href="/vestibule">
           Return to Vestibule
