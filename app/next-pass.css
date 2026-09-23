@@ -5212,3 +5212,135 @@
     columns: 1 !important;
   }
 }
+
+
+/* ============================================================
+   INDEX — CURATOR QUICK-VIEW RESET
+   The previous masonry/contact-field experiment was too installation-like.
+   Restore uniform thumbnail grids for rapid curator scanning while keeping
+   the full image visible (no cropping).
+   Checkpoint before reset:
+   f39839bbeaaffcb3daae708b3629247bc2efa751
+   ============================================================ */
+
+.index-work[data-work-id="daffodils"] .index-work__grid,
+.index-work[data-work-id="fear-not"] .index-work__grid,
+.index-work[data-work-id="threshold"] .index-work__grid,
+.index-work[data-work-id="red-thread"] .index-work__grid,
+.index-work[data-work-id="body-of-water"] .index-work__grid,
+.index-work[data-work-id="maria"] .index-work__grid {
+  display: grid !important;
+  columns: initial !important;
+  gap: clamp(.8rem, 1.2vw, 1.15rem) !important;
+  align-items: stretch !important;
+  max-width: none !important;
+}
+
+/* Deliberate row counts for quick visual comparison. */
+.index-work[data-work-id="daffodils"] .index-work__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="fear-not"] .index-work__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="threshold"] .index-work__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="red-thread"] .index-work__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="body-of-water"] .index-work__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="maria"] .index-work__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb,
+.index-work[data-work-id="fear-not"] .index-thumb,
+.index-work[data-work-id="threshold"] .index-thumb,
+.index-work[data-work-id="red-thread"] .index-thumb,
+.index-work[data-work-id="body-of-water"] .index-thumb,
+.index-work[data-work-id="maria"] .index-thumb {
+  width: auto !important;
+  break-inside: auto !important;
+  margin: 0 !important;
+}
+
+/* Uniform presentation cells; page-colored backing avoids the glaring white
+   bands from the earlier fixed cards while preserving every full photograph. */
+.index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="threshold"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="body-of-water"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="maria"] .index-thumb .artwork-lightbox-trigger {
+  height: clamp(190px, 20vw, 285px) !important;
+  min-height: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: clamp(.35rem, .55vw, .6rem) !important;
+  background: rgba(238,232,220,.42) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb img,
+.index-work[data-work-id="fear-not"] .index-thumb img,
+.index-work[data-work-id="threshold"] .index-thumb img,
+.index-work[data-work-id="red-thread"] .index-thumb img,
+.index-work[data-work-id="body-of-water"] .index-thumb img,
+.index-work[data-work-id="maria"] .index-thumb img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+/* Cancel the previous special-case sizing inside the Index only. */
+.index-work[data-work-id="maria"] .index-thumb:last-child,
+.index-work[data-work-id="threshold"] .index-thumb:nth-child(2n),
+.index-work[data-work-id="red-thread"] .index-thumb:nth-child(n+8) {
+  width: auto !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 1100px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="threshold"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="body-of-water"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="maria"] .index-thumb .artwork-lightbox-trigger {
+    height: 210px !important;
+  }
+}
