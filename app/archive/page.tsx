@@ -86,6 +86,7 @@ export default function ArchivePage() {
         <PracticeDetails id="artist-statement" title="Artist Statement" paragraphs={artistStatement} />
         <PracticeDetails id="fruiting-body" title="Fruiting Body" paragraphs={fruitingBodyStatement} />
         <PracticeDetails id="process" title="Process" paragraphs={processStatement} />
+        <PracticeDetails id="bio" title="Bio" paragraphs={artistBio} />
       </section>
 
       <section className="archive-works" aria-label="Full finished bodies of work">
@@ -138,9 +139,6 @@ export default function ArchivePage() {
         ))}
       </section>
 
-      <section className="archive-practice archive-practice--closing">
-        <PracticeDetails id="bio" title="Bio" paragraphs={artistBio} />
-      </section>
 
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
         Return to Narthex
