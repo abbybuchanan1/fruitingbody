@@ -2,6 +2,7 @@ import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
 import { QuestionPrompt } from "@/components/QuestionPrompt";
+import { MiscarriageVotiveSequence } from "@/components/MiscarriageVotiveSequence";
 
 export function GrottoSection() {
   const miscarriage = museumWorksById.miscarriage;
@@ -23,14 +24,7 @@ export function GrottoSection() {
             <QuestionPrompt>{miscarriage.question}</QuestionPrompt>
           </div>
 
-          <div className="miscarriage-sequence" aria-label="A Miscarriage artworks">
-            {miscarriage.exhibition.map((work, index) => (
-              <figure className={`miscarriage-work miscarriage-work--${index + 1}`} key={work.src}>
-                <img src={work.src} alt={work.alt} loading="lazy" decoding="async" />
-                {work.title ? <figcaption className="miscarriage-work__title">{work.title}</figcaption> : null}
-              </figure>
-            ))}
-          </div>
+          <MiscarriageVotiveSequence artworks={miscarriage.archive} />
         </section>
 
         <div className="grotto-transition grotto-transition--miscarriage-phase" aria-hidden="true" />
