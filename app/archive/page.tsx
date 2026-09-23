@@ -1,5 +1,36 @@
 import Link from "next/link";
 
+const redThreadArchiveSets = [
+  {
+    slug: "red-thread-original",
+    title: "Red Thread",
+    count: 8,
+    statement:
+      "The work investigates inheritance as an ongoing relationship rather than a problem to be solved, exploring the tensions between entanglement, belonging, and becoming.",
+    question:
+      "How do we become ourselves when we can never fully separate from the whole?",
+  },
+  {
+    slug: "shelter-original",
+    title: "It Was Shelter Before It Was a Lie",
+    count: 8,
+    statement:
+      "The work investigates the relationship between identity and protection, asking how forms of shelter evolve, persist, and eventually require renegotiation.",
+    question:
+      "How do we recognize when a form of protection has become a form of confinement?",
+  },
+  {
+    slug: "unravel-original",
+    title: "Unravel",
+    count: 4,
+    statement:
+      "The work investigates participation as an alternative to control, exploring what emerges when certainty gives way to movement, attention, and trust.",
+    question:
+      "What emerges when we stop trying to manage the process of becoming?",
+  },
+] as const;
+
+
 export default function ArchivePage() {
   return (
     <main className="utility-page archive-page">
@@ -221,38 +252,32 @@ export default function ArchivePage() {
           </header>
 
           <div className="archive-development__sets">
-            <article className="archive-development__set">
-              <p className="archive-development__label">Original edit</p>
-              <h3>Red Thread</h3>
-              <p>
-                The work investigates inheritance as an ongoing relationship rather than a problem to be solved, exploring the tensions between entanglement, belonging, and becoming.
-              </p>
-              <p className="archive-development__question">
-                How do we become ourselves when we can never fully separate from the whole?
-              </p>
-            </article>
+            {redThreadArchiveSets.map((set) => (
+              <article className="archive-development__set" key={set.slug}>
+                <p className="archive-development__label">Original edit</p>
+                <h3>{set.title}</h3>
+                <p>{set.statement}</p>
+                <p className="archive-development__question">{set.question}</p>
 
-            <article className="archive-development__set">
-              <p className="archive-development__label">Original edit</p>
-              <h3>It Was Shelter Before It Was a Lie</h3>
-              <p>
-                The work investigates the relationship between identity and protection, asking how forms of shelter evolve, persist, and eventually require renegotiation.
-              </p>
-              <p className="archive-development__question">
-                How do we recognize when a form of protection has become a form of confinement?
-              </p>
-            </article>
-
-            <article className="archive-development__set">
-              <p className="archive-development__label">Original edit</p>
-              <h3>Unravel</h3>
-              <p>
-                The work investigates participation as an alternative to control, exploring what emerges when certainty gives way to movement, attention, and trust.
-              </p>
-              <p className="archive-development__question">
-                What emerges when we stop trying to manage the process of becoming?
-              </p>
-            </article>
+                <div
+                  className="archive-development__images"
+                  aria-label={`${set.title}, original edit`}
+                >
+                  {Array.from({ length: set.count }, (_, index) => {
+                    const number = String(index + 1).padStart(2, "0");
+                    return (
+                      <figure className="archive-development__image" key={number}>
+                        <img
+                          src={`/art/archive/${set.slug}/${set.slug}-${number}.jpg`}
+                          alt={`${set.title}, original edit, image ${index + 1} of ${set.count}.`}
+                          loading="lazy"
+                        />
+                      </figure>
+                    );
+                  })}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
