@@ -11,7 +11,7 @@ export function WaterRoomJunction() {
     if (!goToNarthex) return;
     const timer = window.setTimeout(() => {
       document.getElementById("water-narthex-transition")?.scrollIntoView({
-        behavior: "smooth",
+        behavior: "auto",
         block: "start",
       });
     }, 40);
@@ -34,6 +34,7 @@ export function WaterRoomJunction() {
             muted
             playsInline
             autoPlay
+            loop
             preload="metadata"
           />
           <span className="water-room-junction__choice-label">Narthex</span>

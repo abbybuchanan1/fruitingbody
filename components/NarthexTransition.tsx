@@ -6,7 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 type Source = "red-room" | "water-room" | "exhibition";
 type Props = { from: Source; startImmediately?: boolean; id?: string };
 
-const VIDEO_HOLD_MS = 2600;
+const HANDOFF_MS = 90;
+const EARLY_HANDOFF_SECONDS = 0.52;
 
 export function NarthexTransition({ from, startImmediately = false, id }: Props) {
   const router = useRouter();
@@ -15,11 +16,11 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const arrivedRef = useRef(false);
-  const holdTimerRef = useRef<number | null>(null);
+  const timerRef = useRef<number | null>(null);
   const [started, setStarted] = useState(startImmediately && !returning);
   const [armed, setArmed] = useState(!returning);
-  const [holding, setHolding] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [finishing, setFinishing] = useState(false);
 
   useEffect(() => {
     router.prefetch("/narthex");
@@ -29,7 +30,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
     const video = videoRef.current;
     if (!video || !started) return;
     video.currentTime = 0;
-    video.playbackRate = 1;
+    video.playbackRate = 0.82;
     void video.play().catch(() => setFailed(true));
   }, [started]);
 
@@ -58,7 +59,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
   }, [startImmediately, returning, armed, started]);
 
   useEffect(() => () => {
-    if (holdTimerRef.current) window.clearTimeout(holdTimerRef.current);
+    if (timerRef.current) window.clearTimeout(timerRef.current);
   }, []);
 
   const arrive = () => {
@@ -67,17 +68,26 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
     router.replace(`/narthex?from=${encodeURIComponent(from)}&arrived=1`);
   };
 
-  const holdThenArrive = () => {
-    if (holding || arrivedRef.current) return;
-    setHolding(true);
-    holdTimerRef.current = window.setTimeout(arrive, VIDEO_HOLD_MS);
+  const finish = () => {
+    if (arrivedRef.current || finishing) return;
+    setFinishing(true);
+    timerRef.current = window.setTimeout(arrive, HANDOFF_MS);
+  };
+
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    if (!video || finishing || !Number.isFinite(video.duration) || video.duration <= 0) return;
+
+    if (video.duration - video.currentTime <= EARLY_HANDOFF_SECONDS) {
+      finish();
+    }
   };
 
   return (
     <section
       id={id}
       ref={sectionRef}
-      className={`narthex-transition${started ? " is-playing" : ""}${holding ? " is-holding" : ""}`}
+      className={`narthex-transition${started ? " is-playing" : ""}${finishing ? " is-finishing" : ""}`}
       aria-label="Passage into the Narthex"
     >
       <div className="narthex-transition__wash" aria-hidden="true" />
@@ -89,8 +99,15 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
           muted
           playsInline
           preload="auto"
-          onEnded={holdThenArrive}
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={finish}
           onError={() => setFailed(true)}
+        />
+        <img
+          className="narthex-transition__handoff"
+          src="/media/video/environment/narthex-arrival.jpg"
+          alt=""
+          aria-hidden="true"
         />
       </div>
 

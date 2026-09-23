@@ -1,89 +1,40 @@
 import { ArtworkSequence } from "@/components/ArtworkSequence";
-import { artworkSets, miscarriageWorks } from "@/lib/artworks";
+import { WorkIntroCard } from "@/components/WorkIntroCard";
+import { museumWorksById } from "@/lib/works";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
+import { MiscarriageVotiveSequence } from "@/components/MiscarriageVotiveSequence";
 
 export function GrottoSection() {
+  const miscarriage = museumWorksById.miscarriage;
+  const phase = museumWorksById.phase;
+
   return (
     <section id="grotto" className="grotto-page">
       <div className="grotto-environment" aria-hidden="true" />
 
       <div className="grotto-content">
-        <section
-          id="a-miscarriage"
-          className="grotto-section grotto-section--miscarriage"
-          aria-labelledby="miscarriage-title"
-        >
-          <div className="grotto-section__question-block">
-            <p className="grotto-section__eyebrow">Grotto</p>
-            <p className="grotto-section__question">
-              How does a body continue becoming through loss, longing, and
-              interrupted passage?
-            </p>
+        <section id="a-miscarriage" className="grotto-section grotto-section--miscarriage">
+          <div className="room-opening">
+            <WorkIntroCard
+              room="Grotto"
+              title={miscarriage.title}
+              statement={miscarriage.statement}
+              headingLevel={1}
+            />
+            <QuestionPrompt>{miscarriage.question}</QuestionPrompt>
           </div>
 
-          <div className="grotto-wall-card">
-            <h1 id="miscarriage-title">A Miscarriage</h1>
-            <p>
-              The work investigates transformation through interruption,
-              exploring longing, absence, and passage as conditions of becoming.
-            </p>
-          </div>
-
-          <div
-            className="miscarriage-sequence"
-            aria-label="A Miscarriage artworks"
-          >
-            {miscarriageWorks.map((work, index) => (
-              <figure
-                className={`miscarriage-work miscarriage-work--${index + 1}`}
-                key={work.src}
-              >
-                <img
-                  src={work.src}
-                  alt={work.alt}
-                  loading="lazy"
-                  decoding="async"
-                />
-
-                {work.title ? (
-                  <figcaption className="miscarriage-work__title">
-                    {work.title}
-                  </figcaption>
-                ) : null}
-              </figure>
-            ))}
-          </div>
+          <MiscarriageVotiveSequence artworks={miscarriage.archive} />
         </section>
 
-        <div
-          className="grotto-transition grotto-transition--miscarriage-phase"
-          aria-hidden="true"
-        />
+        <div className="grotto-transition grotto-transition--miscarriage-phase" aria-hidden="true" />
 
-        <section
-          id="phase"
-          className="grotto-section grotto-section--phase"
-          aria-labelledby="phase-title"
-        >
-          <div className="grotto-section__question-block">
-            <p className="grotto-section__question">
-              Who are we while we are becoming someone we cannot yet recognize?
-            </p>
+        <section id="phase" className="grotto-section grotto-section--phase">
+          <div className="room-opening room-opening--secondary">
+            <WorkIntroCard room="Grotto" title={phase.title} statement={phase.statement} />
+            <QuestionPrompt>{phase.question}</QuestionPrompt>
           </div>
-
-          <div className="grotto-wall-card">
-            <h2 id="phase-title">Phase</h2>
-            <p>
-              The work investigates identity during periods of dissolution,
-              attending to the unstable interval between one state of being and
-              another.
-            </p>
-          </div>
-
-          <ArtworkSequence
-            artworks={artworkSets.phase}
-            label="Phase artworks"
-            mode="varied"
-          />
+          <ArtworkSequence artworks={phase.exhibition} label="Phase artworks" mode="varied" />
         </section>
       </div>
     </section>

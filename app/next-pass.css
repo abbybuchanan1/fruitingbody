@@ -1,0 +1,5769 @@
+/* ============================================
+   FRUITING BODY — INTEGRATED PRE-LAUNCH PASS
+   This file intentionally overrides prototype CSS
+   without destabilizing the existing room builds.
+   ============================================ */
+
+:root {
+  --paper: #eee8dc;
+  --paper-deep: #ded4c3;
+  --ink: #27241f;
+  --ink-soft: #5c574e;
+  --cream: #f2eadc;
+  --warm-line: rgba(63, 51, 38, 0.18);
+  --current-glow: rgba(179, 179, 126, 0.28);
+  --hover-glow: rgba(186, 124, 83, 0.28);
+}
+
+/* Shared opening hierarchy */
+.room-opening {
+  position: relative;
+  z-index: 4;
+  width: min(92vw, 1180px);
+  margin: 0 auto;
+  padding: clamp(9rem, 16vh, 15rem) 4vw clamp(10rem, 20vh, 18rem);
+}
+
+.room-opening--secondary {
+  padding-top: clamp(12rem, 22vh, 20rem);
+}
+
+.work-intro-card {
+  width: min(720px, 86vw);
+  padding: clamp(1.4rem, 2.8vw, 2.5rem);
+  background: rgba(240, 233, 220, 0.72);
+  color: var(--ink);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 14px 50px rgba(22, 18, 14, 0.08);
+}
+
+.work-intro-card__room {
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: rgba(39, 36, 31, 0.66);
+}
+
+.work-intro-card h1,
+.work-intro-card h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.6rem, 6vw, 6rem);
+  line-height: 0.96;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.work-intro-card__statement {
+  max-width: 58ch;
+  margin: 1.35rem 0 0;
+  line-height: 1.6;
+  color: rgba(39, 36, 31, 0.9);
+}
+
+.work-intro-card__note {
+  margin: 1rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(39, 36, 31, 0.14);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(39, 36, 31, 0.62);
+}
+
+.room-opening__question {
+  width: min(660px, 82vw);
+  margin: clamp(7rem, 15vh, 12rem) auto 0;
+  font-size: clamp(1.35rem, 2.4vw, 2.4rem);
+  line-height: 1.35;
+  font-weight: 400;
+  text-align: center;
+  color: var(--cream);
+  text-wrap: balance;
+}
+
+.relative-page .room-opening__question,
+.garden-page .room-opening__question {
+  color: #39372f;
+}
+
+.room-opening--red .work-intro-card {
+  background: rgba(246, 220, 215, 0.73);
+}
+
+.room-opening--water .work-intro-card {
+  background: rgba(22, 31, 29, 0.58);
+  color: #f1eadc;
+}
+
+.room-opening--water .work-intro-card h1,
+.room-opening--water .work-intro-card h2,
+.room-opening--water .work-intro-card__statement {
+  color: #f3ecdf;
+}
+
+.room-opening--water .work-intro-card__room,
+.room-opening--water .work-intro-card__note {
+  color: rgba(243, 236, 223, 0.72);
+}
+
+.room-opening--water .work-intro-card__note {
+  border-top-color: rgba(243, 236, 223, 0.18);
+}
+
+/* Relative: opening now matches the shared room language */
+.relative-intro,
+.relative-wall-card {
+  display: none !important;
+}
+
+/* Red Room spacing + seam suppression */
+.environmental-panel-sequence__panel-wrap {
+  overflow: hidden;
+  margin-top: -3px;
+}
+
+.environmental-panel-sequence__panel-wrap:first-child {
+  margin-top: 0;
+}
+
+.environmental-panel-sequence__panel {
+  display: block;
+  width: 100%;
+  transform: scaleY(1.006);
+  transform-origin: center;
+}
+
+.red-thread-installation .art-sequence {
+  gap: clamp(8rem, 18vh, 15rem) !important;
+}
+
+.red-thread-installation .artwork-image,
+.red-thread-installation .artwork-image::before,
+.red-thread-installation .artwork-image::after {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.red-thread-installation .artwork-image::before,
+.red-thread-installation .artwork-image::after {
+  display: none !important;
+}
+
+.red-room-project--membrane .art-sequence {
+  gap: clamp(8rem, 16vh, 14rem) !important;
+}
+
+/* Water Room: card/question first, first work nearer the environment seam */
+.water-room__header {
+  min-height: 112vh;
+}
+
+.water-room__header .room-opening {
+  padding-top: clamp(7rem, 12vh, 10rem);
+  padding-bottom: clamp(4rem, 8vh, 7rem);
+}
+
+.water-room-installation {
+  margin-top: clamp(-8rem, -8vh, -3rem);
+}
+
+/* Narthex transition continuity */
+.narthex-transition__video,
+.narthex-room__environment {
+  object-position: 50% 50% !important;
+}
+
+/* Site navigation: quiet museum text, no pills */
+.site-nav {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.site-nav a,
+.site-nav button,
+.site-nav__map {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.35rem 0.45rem !important;
+}
+
+/* Museum map */
+.museum-map-overlay {
+  background: rgba(26, 24, 21, 0.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.museum-map {
+  background:
+    linear-gradient(rgba(239, 235, 225, 0.88), rgba(239, 235, 225, 0.88)),
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,0.7), transparent 55%) !important;
+  color: #282620 !important;
+  box-shadow: 0 20px 70px rgba(20, 17, 13, 0.18) !important;
+}
+
+.museum-map__blueprint {
+  transform: translateY(-12px);
+}
+
+.museum-map__drawing {
+  stroke: rgba(39, 37, 31, 0.62) !important;
+  stroke-width: 1.15 !important;
+}
+
+.museum-map__room,
+.museum-map__room-name {
+  color: #24231f !important;
+}
+
+.museum-map__collection {
+  color: rgba(36, 35, 31, 0.56) !important;
+}
+
+.museum-map__room-name {
+  font-weight: 500;
+}
+
+.museum-map__current-surface,
+.museum-map__hover-surface {
+  position: absolute;
+  z-index: 0;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.museum-map__current-surface {
+  background: var(--current-glow);
+  box-shadow: 0 0 28px rgba(171, 170, 112, 0.18);
+}
+
+.museum-map__hover-surface {
+  background: var(--hover-glow);
+  box-shadow: 0 0 26px rgba(186, 124, 83, 0.16);
+}
+
+.museum-map__current-surface[data-room="front-gallery"],
+.museum-map__hover-surface[data-room="front-gallery"] { left: 39.7%; top: 19.4%; width: 20.6%; height: 7%; }
+.museum-map__current-surface[data-room="garden"],
+.museum-map__hover-surface[data-room="garden"] { left: 41.4%; top: 29.1%; width: 17.2%; height: 21.4%; }
+.museum-map__current-surface[data-room="grotto"],
+.museum-map__hover-surface[data-room="grotto"] { left: 41.4%; top: 50.5%; width: 17.2%; height: 26.4%; }
+.museum-map__current-surface[data-room="rear-gallery"],
+.museum-map__hover-surface[data-room="rear-gallery"] { left: 39.7%; top: 79.4%; width: 20.6%; height: 7%; }
+.museum-map__current-surface[data-room="red-room"],
+.museum-map__hover-surface[data-room="red-room"] { left: 12.6%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="water-room"],
+.museum-map__hover-surface[data-room="water-room"] { left: 78.2%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="film-room"],
+.museum-map__hover-surface[data-room="film-room"] { left: 80.8%; top: 34.6%; width: 6.2%; height: 13.4%; border-radius: 24px; }
+.museum-map__current-surface[data-room="vestibule"],
+.museum-map__hover-surface[data-room="vestibule"] { left: 29.2%; top: 90%; width: 41.6%; height: 7.1%; }
+.museum-map__current-surface[data-room="exterior"],
+.museum-map__hover-surface[data-room="exterior"] { left: 45.4%; top: 90%; width: 9.2%; height: 7%; opacity: .65; }
+.museum-map__current-surface[data-room="current"],
+.museum-map__hover-surface[data-room="current"] { left: 70.8%; top: 88%; width: 19.4%; height: 7.7%; }
+.museum-map__current-surface[data-room="narthex"],
+.museum-map__hover-surface[data-room="narthex"] { left: 29.2%; top: 4.3%; width: 41.6%; height: 12.6%; }
+.museum-map__current-surface[data-room="reading-room"],
+.museum-map__hover-surface[data-room="reading-room"] { left: 31%; top: 6.1%; width: 12.2%; height: 6.5%; border-radius: 16px 16px 2px 2px; }
+.museum-map__current-surface[data-room="index"],
+.museum-map__hover-surface[data-room="index"] { left: 57%; top: 6.1%; width: 6.8%; height: 6.5%; border-radius: 16px 16px 2px 2px; }
+.museum-map__current-surface[data-room="archive"],
+.museum-map__hover-surface[data-room="archive"] { left: 65.2%; top: 6.1%; width: 6.8%; height: 6.5%; border-radius: 16px 16px 2px 2px; }
+
+.museum-map__current-surface[data-room="cloisters"],
+.museum-map__hover-surface[data-room="cloisters"] {
+  background: transparent;
+  box-shadow: none;
+  left: 34.2%;
+  top: 31.4%;
+  width: 31.4%;
+  height: 43.2%;
+}
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 6.8%;
+  height: 100%;
+  background: inherit;
+  background-color: var(--current-glow);
+}
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::before { left: 0; }
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::after { right: 0; }
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after { background-color: var(--hover-glow); }
+
+/* Cloisters */
+.cloisters-film {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #080908;
+}
+
+.cloisters-film__video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cloisters-film__veil {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 38%, rgba(5, 7, 6, 0.28) 100%),
+    linear-gradient(to bottom, rgba(7, 8, 7, 0.05), rgba(7, 8, 7, 0.18));
+  pointer-events: none;
+}
+
+.cloisters-film__label {
+  position: fixed;
+  left: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  color: rgba(245, 238, 222, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+}
+
+/* Current */
+.current-exhibition {
+  min-height: 100vh;
+  background: #16130f;
+  color: var(--cream);
+}
+
+.current-exhibition__inner {
+  padding-bottom: 12vh;
+}
+
+.current-exhibition .room-opening__question {
+  color: var(--cream);
+}
+
+.current-exhibition .art-sequence {
+  padding-inline: 5vw;
+}
+
+.current-room__return {
+  display: block;
+  width: max-content;
+  margin: 12vh auto 0;
+  color: var(--cream);
+}
+
+/* INDEX */
+.index-page,
+.archive-page {
+  min-height: 100vh;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,.48), transparent 28rem),
+    radial-gradient(circle at 78% 58%, rgba(170,143,102,.10), transparent 32rem),
+    repeating-linear-gradient(0deg, rgba(80,66,49,.018) 0 1px, transparent 1px 4px);
+  padding: clamp(6rem, 12vh, 10rem) clamp(1.2rem, 5vw, 5rem) 7rem;
+}
+
+.utility-header {
+  width: min(960px, 100%);
+  margin: 0 auto clamp(5rem, 10vh, 9rem);
+}
+
+.utility-header__eyebrow,
+.archive-work__room,
+.index-work__meta {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  color: rgba(39,36,31,.58);
+}
+
+.utility-header h1 {
+  margin: .45rem 0 1rem;
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.utility-header > p:last-child {
+  max-width: 52ch;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.index-page__groups {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+.index-room-group {
+  border-top: 1px solid var(--warm-line);
+  padding: 2rem 0 clamp(6rem, 11vh, 10rem);
+}
+
+.index-room-group > h2 {
+  margin: 0 0 3rem;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-weight: 500;
+}
+
+.index-work + .index-work {
+  margin-top: clamp(6rem, 12vh, 11rem);
+}
+
+.index-work__header {
+  display: grid;
+  grid-template-columns: minmax(220px, .75fr) minmax(260px, 1fr) minmax(260px, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+.index-work__header h3 {
+  margin: .35rem 0 0;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.index-work__header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.index-work__statement,
+.index-work__question {
+  margin: 0;
+  max-width: 42ch;
+  line-height: 1.55;
+}
+
+.index-work__question {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.index-work__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: clamp(.45rem, 1vw, .9rem);
+  align-items: start;
+}
+
+.index-thumb {
+  margin: 0;
+}
+
+.index-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  background: rgba(255,255,255,.18);
+}
+
+.index-thumb figcaption {
+  padding-top: .45rem;
+  font-size: .72rem;
+  color: var(--ink-soft);
+}
+
+.index-moving-image {
+  width: min(1500px, 100%);
+  margin: 0 auto 6rem;
+  border-top: 1px solid var(--warm-line);
+  padding-top: 2rem;
+}
+
+.index-moving-image a {
+  color: inherit;
+  font-size: 1.4rem;
+}
+
+/* ARCHIVE */
+.archive-practice {
+  width: min(1180px, 100%);
+  margin: 0 auto clamp(7rem, 14vh, 12rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 4rem);
+  border-top: 1px solid var(--warm-line);
+  border-bottom: 1px solid var(--warm-line);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.archive-text-block h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+
+.archive-text-block p,
+.archive-work__header p,
+.archive-reflection p {
+  line-height: 1.68;
+}
+
+.archive-works {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+.archive-work {
+  border-top: 1px solid var(--warm-line);
+  padding: clamp(3rem, 7vh, 6rem) 0 clamp(7rem, 14vh, 12rem);
+}
+
+.archive-work__header {
+  width: min(760px, 100%);
+  margin-bottom: 3rem;
+}
+
+.archive-work__header h2 {
+  margin: .4rem 0 .7rem;
+  font-size: clamp(2.4rem, 5vw, 5.2rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+
+.archive-work__meta {
+  color: var(--ink-soft);
+}
+
+.archive-work__history {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(107,82,60,.35);
+  color: var(--ink-soft);
+}
+
+.archive-work__header a {
+  display: inline-block;
+  margin-top: .8rem;
+  color: inherit;
+}
+
+.archive-work__grid {
+  columns: 4 240px;
+  column-gap: clamp(.65rem, 1.4vw, 1.25rem);
+}
+
+.archive-image {
+  break-inside: avoid;
+  margin: 0 0 clamp(.65rem, 1.4vw, 1.25rem);
+}
+
+.archive-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.archive-image figcaption {
+  padding-top: .45rem;
+  font-size: .76rem;
+  color: var(--ink-soft);
+}
+
+.archive-reflection {
+  width: min(760px, 100%);
+  margin-top: clamp(3rem, 7vh, 6rem);
+  border-top: 1px solid var(--warm-line);
+  border-bottom: 1px solid var(--warm-line);
+}
+
+.archive-reflection summary {
+  cursor: pointer;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .75rem;
+}
+
+.archive-reflection__body {
+  padding: 0 0 1.5rem;
+}
+
+/* READING ROOM */
+.reading-room-page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #2b2116;
+  color: #f4ead8;
+}
+
+.reading-room-page__image {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(35,26,17,.06) 0 45%, rgba(20,16,12,.48) 74%, rgba(12,10,8,.75) 100%),
+    radial-gradient(circle at 34% 24%, rgba(222,167,80,.54), transparent 30rem),
+    linear-gradient(145deg, #8f5b25 0%, #4b351f 38%, #1b1712 100%);
+  background-image:
+    linear-gradient(90deg, rgba(35,26,17,.02) 0 45%, rgba(20,16,12,.46) 74%, rgba(12,10,8,.76) 100%),
+    url("/media/reading-room/reading-room-background.jpg"),
+    radial-gradient(circle at 34% 24%, rgba(222,167,80,.54), transparent 30rem);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(.82) brightness(.82);
+  transform: scale(1.025);
+}
+
+.reading-room-page__veil {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 36% 33%, transparent 0 20%, rgba(15,12,9,.08) 47%, rgba(15,12,9,.42) 100%),
+    linear-gradient(to bottom, rgba(9,8,7,.03), rgba(9,8,7,.28));
+  backdrop-filter: blur(1.8px);
+}
+
+.reading-room-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(680px, 88vw);
+  margin-left: auto;
+  padding: clamp(7rem, 13vh, 11rem) clamp(1.4rem, 5vw, 5rem) 6rem;
+  min-height: 100svh;
+  background: linear-gradient(90deg, transparent, rgba(23,19,14,.3) 12%, rgba(23,19,14,.52));
+}
+
+.reading-room-page__header > p:first-child {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: rgba(244,234,216,.66);
+}
+
+.reading-room-page__header h1 {
+  margin: .5rem 0 1rem;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.reading-room-page__header > p:last-child {
+  max-width: 44ch;
+  line-height: 1.6;
+  color: rgba(244,234,216,.78);
+}
+
+.reading-room-shelf {
+  margin-top: clamp(4rem, 9vh, 7rem);
+  border-top: 1px solid rgba(244,234,216,.22);
+}
+
+.reading-room-poem {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(244,234,216,.18);
+}
+
+.reading-room-poem h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
+  font-weight: 400;
+}
+
+.reading-room-poem p {
+  margin: .3rem 0 0;
+  font-size: .72rem;
+  color: rgba(244,234,216,.56);
+}
+
+.reading-room-poem a,
+.reading-room-page__return {
+  color: rgba(244,234,216,.86);
+  text-underline-offset: .25em;
+  white-space: nowrap;
+}
+
+.reading-room-page__return {
+  display: inline-block;
+  margin-top: 4rem;
+}
+
+/* Keep utility return language consistent */
+.utility-return-to-narthex {
+  color: inherit;
+  text-underline-offset: .25em;
+}
+
+/* Responsive utility rooms */
+@media (max-width: 860px) {
+  .index-work__header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .archive-practice {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-work__grid {
+    columns: 2 150px;
+  }
+
+  .reading-room-page__content {
+    width: 100%;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    background: rgba(23,19,14,.46);
+  }
+
+  .reading-room-page__image {
+    background-position: 40% center;
+  }
+}
+
+
+/* ============================================================
+   QA POLISH PASS — September 2026
+   ============================================================ */
+
+/* --- VESTIBULE: leaf-shadow movement rather than spotlights --- */
+.vestibule__light {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  filter: none !important;
+  overflow: hidden;
+  background: transparent !important;
+  mix-blend-mode: screen;
+  opacity: .9;
+}
+
+.vestibule__light::before,
+.vestibule__light::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 9% 18%, rgba(221,230,211,.14) 0 2.7%, transparent 3.6%),
+    radial-gradient(ellipse at 22% 31%, rgba(235,238,216,.13) 0 2.2%, transparent 3.3%),
+    radial-gradient(ellipse at 38% 14%, rgba(216,227,204,.10) 0 3%, transparent 4%),
+    radial-gradient(ellipse at 53% 38%, rgba(235,237,215,.13) 0 2.5%, transparent 3.5%),
+    radial-gradient(ellipse at 68% 20%, rgba(217,229,207,.12) 0 2.8%, transparent 3.9%),
+    radial-gradient(ellipse at 81% 45%, rgba(235,239,220,.13) 0 2.3%, transparent 3.4%),
+    radial-gradient(ellipse at 93% 26%, rgba(218,230,208,.10) 0 2.6%, transparent 3.7%),
+    radial-gradient(ellipse at 17% 62%, rgba(235,239,220,.12) 0 2.5%, transparent 3.7%),
+    radial-gradient(ellipse at 34% 74%, rgba(216,228,207,.11) 0 2.6%, transparent 3.8%),
+    radial-gradient(ellipse at 57% 66%, rgba(238,241,220,.12) 0 2.4%, transparent 3.6%),
+    radial-gradient(ellipse at 73% 78%, rgba(218,231,209,.10) 0 2.8%, transparent 3.9%),
+    radial-gradient(ellipse at 88% 67%, rgba(237,240,218,.11) 0 2.5%, transparent 3.6%);
+  background-size: 52% 58%, 47% 54%, 58% 61%, 49% 56%, 57% 63%, 48% 52%,
+                   55% 60%, 50% 56%, 60% 64%, 48% 57%, 54% 59%, 51% 55%;
+  background-repeat: repeat;
+  filter: blur(7px);
+  animation: vestibule-dapple-drift 11s ease-in-out infinite alternate;
+}
+
+.vestibule__light::before {
+  opacity: .58;
+}
+
+.vestibule__light::after {
+  inset: 7% 26% 15%;
+  opacity: .82;
+  filter: blur(5px) brightness(1.22);
+  -webkit-mask-image: radial-gradient(ellipse 48% 72% at 50% 50%, #000 0 66%, transparent 82%);
+  mask-image: radial-gradient(ellipse 48% 72% at 50% 50%, #000 0 66%, transparent 82%);
+  animation-duration: 8s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes vestibule-dapple-drift {
+  0%   { transform: translate3d(-1.7%, -1.1%, 0) rotate(-.5deg) scale(1.02); background-position: 0 0, 7% 2%, 2% 8%, 10% 6%, 3% 3%, 6% 11%, 2% 5%, 8% 0, 1% 9%, 5% 4%, 9% 7%, 0 3%; }
+  45%  { transform: translate3d(.9%, 1.4%, 0) rotate(.35deg) scale(1.04); }
+  100% { transform: translate3d(2.2%, -.7%, 0) rotate(.8deg) scale(1.03); background-position: 9% 5%, 0 8%, 7% 1%, 2% 10%, 8% 6%, 1% 3%, 10% 9%, 3% 7%, 6% 0, 9% 9%, 1% 5%, 7% 10%; }
+}
+
+/* --- SHARED CARD / QUESTION LEGIBILITY --- */
+.work-intro-card__statement {
+  text-wrap: pretty;
+  hyphens: none;
+}
+
+.room-opening--relative {
+  padding-top: clamp(13rem, 24vh, 19rem);
+}
+
+.room-opening--relative .room-opening__question {
+  margin-top: clamp(11rem, 22vh, 18rem);
+}
+
+.garden-section--fear-not .work-intro-card,
+.garden-section--taste-and-see .work-intro-card {
+  background: rgba(236, 230, 213, .47);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.garden-section--daffodils .room-opening__question {
+  color: rgba(43, 45, 36, .94);
+  text-shadow: 0 1px 14px rgba(242,239,224,.82), 0 0 28px rgba(242,239,224,.56);
+}
+
+.garden-section--fear-not .room-opening__question {
+  color: rgba(242, 238, 217, .94);
+  text-shadow: 0 1px 8px rgba(19,25,19,.78), 0 0 26px rgba(19,25,19,.52);
+}
+
+.garden-section--taste-and-see .room-opening__question {
+  color: rgba(214, 220, 191, .96);
+  text-shadow: 0 1px 8px rgba(27,39,29,.75), 0 0 25px rgba(27,39,29,.48);
+}
+
+/* Dark chambers: quieter type and more permeable cards */
+.grotto-page .work-intro-card {
+  background: rgba(34, 36, 33, .28);
+  color: rgba(238, 232, 220, .82);
+  border: 1px solid rgba(236,230,216,.055);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.grotto-section--phase .work-intro-card {
+  background: rgba(25, 42, 39, .25);
+}
+
+.grotto-page .work-intro-card h1,
+.grotto-page .work-intro-card h2 {
+  color: rgba(240, 234, 222, .84);
+}
+
+.grotto-page .work-intro-card__room {
+  color: rgba(235, 230, 220, .54);
+}
+
+.grotto-page .work-intro-card__statement {
+  color: rgba(236, 230, 218, .72);
+}
+
+.grotto-page .room-opening__question {
+  color: rgba(239, 233, 221, .82);
+  text-shadow: 0 1px 7px rgba(0,0,0,.72), 0 0 24px rgba(0,0,0,.38);
+}
+
+.threshold-page .work-intro-card {
+  background: rgba(235, 226, 209, .43);
+  box-shadow: none;
+}
+
+.threshold-page .room-opening__question {
+  color: rgba(54, 47, 39, .84);
+  text-shadow: 0 1px 12px rgba(246,240,226,.92), 0 0 26px rgba(246,240,226,.62);
+}
+
+/* --- RED ROOM --- */
+.red-room-project--thread .room-opening {
+  padding-top: clamp(12rem, 21vh, 17rem);
+}
+
+.red-room-project--thread .room-opening__question {
+  margin-top: clamp(10rem, 19vh, 15rem);
+  color: rgba(49, 35, 34, .9);
+  text-shadow: 0 1px 12px rgba(246,223,220,.9), 0 0 24px rgba(246,223,220,.7);
+}
+
+.red-room-project--membrane .room-opening__question {
+  margin-top: clamp(10rem, 19vh, 15rem);
+  color: rgba(238, 224, 216, .88);
+  text-shadow: 0 1px 8px rgba(48,25,29,.74), 0 0 24px rgba(48,25,29,.46);
+}
+
+/* restore the intended feathered overlap between Red Room environment panels */
+.red-room-environment .environmental-panel-sequence__panel-wrap + .environmental-panel-sequence__panel-wrap {
+  margin-top: -28vh !important;
+}
+
+.red-room-environment .environmental-panel-sequence__panel-wrap:not(:first-child) {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.22) 7vh, #000 25vh, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.22) 7vh, #000 25vh, #000 100%);
+}
+
+.red-room-environment .environmental-panel-sequence__panel {
+  transform: scaleY(1.015);
+}
+
+.red-thread-installation .artwork-image,
+.membrane-installation .artwork-image,
+.red-thread-installation .artwork-image img,
+.membrane-installation .artwork-image img {
+  border: 0 !important;
+  border-bottom: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* --- WATER ROOM --- */
+.water-room__header .room-opening__question {
+  margin-top: clamp(15rem, 29vh, 23rem);
+  color: rgba(237, 235, 219, .9);
+  text-shadow: 0 1px 8px rgba(15,28,27,.72), 0 0 25px rgba(15,28,27,.46);
+}
+
+.water-room__header .room-opening {
+  padding-bottom: 0;
+}
+
+/* --- NARTHEX HANDOFF: match final moving frame to the settled room --- */
+.narthex-transition__frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.narthex-transition__handoff {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0;
+  transition: opacity 180ms linear;
+  pointer-events: none;
+}
+
+.narthex-transition.is-finishing .narthex-transition__handoff {
+  opacity: 1;
+}
+
+/* --- MAP TYPOGRAPHY / GEOMETRY --- */
+.museum-map__room {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.museum-map__room-name {
+  font: 600 10px/1.15 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+.museum-map__collections {
+  gap: .32rem !important;
+  line-height: 1.32 !important;
+}
+
+.museum-map__collection {
+  display: block;
+  margin-top: .13rem;
+}
+
+.museum-map__room[data-room="rear-gallery"] { left: 41%; top: 19.4%; width: 18%; }
+.museum-map__room[data-room="grotto"] { left: 42%; top: 34%; width: 16%; }
+.museum-map__room[data-room="garden"] { left: 40.5%; top: 49.5%; width: 19%; }
+.museum-map__room[data-room="front-gallery"] { left: 41%; top: 79.3%; width: 18%; }
+.museum-map__room[data-room="vestibule"] { left: 40%; top: 90.2%; width: 20%; }
+
+.museum-map__room[data-room="red-room"] {
+  left: 12.7%;
+  top: 40%;
+  width: 9.1%;
+  height: 30%;
+  max-width: none;
+}
+.museum-map__room[data-room="water-room"] {
+  left: 78.2%;
+  top: 40%;
+  width: 9.1%;
+  height: 30%;
+  max-width: none;
+}
+.museum-map__room[data-room="film-room"] {
+  left: 80.4%;
+  top: 34.8%;
+  width: 7%;
+  height: 13%;
+  max-width: none;
+}
+.museum-map__room[data-room="current"] {
+  left: 71.8%;
+  top: 88.6%;
+  width: 17.6%;
+  height: 7%;
+}
+.museum-map__room[data-room="reading-room"] { left: 31%; top: 6.3%; width: 12%; }
+.museum-map__room[data-room="index"] { left: 57.4%; top: 6.3%; width: 6.3%; }
+.museum-map__room[data-room="archive"] { left: 65.4%; top: 6.3%; width: 6.3%; }
+.museum-map__room[data-room="narthex"] { left: 43%; top: 13%; width: 14%; }
+
+.museum-map__room--cloisters {
+  left: 33.8% !important;
+  top: 31.2% !important;
+  width: 32.4% !important;
+  height: 44% !important;
+  max-width: none !important;
+  transform: none !important;
+  pointer-events: auto;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.museum-map__cloister-label {
+  position: absolute;
+  top: 50%;
+  font: 600 9px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(36,35,31,.82);
+}
+
+.museum-map__cloister-label--left {
+  left: 0;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.museum-map__cloister-label--right {
+  right: 0;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+/* Garden work titles need visual separation on the plan */
+.museum-map__room[data-room="garden"] .museum-map__collection + .museum-map__collection {
+  margin-top: .34rem;
+}
+
+/* highlight geometry follows the corrected plan */
+.museum-map__current-surface[data-room="red-room"],
+.museum-map__hover-surface[data-room="red-room"] { left: 12.6%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="water-room"],
+.museum-map__hover-surface[data-room="water-room"] { left: 78.2%; top: 27.1%; width: 9.2%; height: 53.4%; }
+.museum-map__current-surface[data-room="film-room"],
+.museum-map__hover-surface[data-room="film-room"] { left: 80.7%; top: 35.1%; width: 6.5%; height: 12.3%; border-radius: 10px; }
+.museum-map__current-surface[data-room="current"],
+.museum-map__hover-surface[data-room="current"] { left: 71.8%; top: 88.7%; width: 17.6%; height: 6.6%; }
+
+/* --- CLOISTERS: continuous cross-faded loop --- */
+.cloisters-film__video-stack {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #080908;
+}
+
+.cloisters-film__video-stack .cloisters-film__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .8s linear;
+}
+
+.cloisters-film__video-stack .cloisters-film__video.is-active {
+  opacity: 1;
+}
+
+/* --- CURRENT: keep it a quiet annex rather than a fourth environment --- */
+.current-exhibition {
+  background:
+    radial-gradient(circle at 28% 18%, rgba(141,112,79,.12), transparent 36rem),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 5px),
+    #181510;
+}
+
+.current-exhibition .work-intro-card {
+  background: rgba(233,224,207,.52);
+}
+
+.current-exhibition .work-intro-card h1 {
+  color: rgba(38,32,26,.86);
+}
+
+.current-exhibition .work-intro-card__statement {
+  color: rgba(38,32,26,.72);
+}
+
+/* --- INDEX / ARCHIVE ALIGNMENT --- */
+.index-page .utility-header,
+.archive-page .utility-header {
+  width: min(1500px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-work__header {
+  grid-template-columns: minmax(220px, .78fr) minmax(300px, 1.18fr) minmax(270px, .96fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  margin-bottom: clamp(2.8rem, 5vh, 4.5rem);
+}
+
+.index-work__identity {
+  padding-right: 1rem;
+}
+
+.index-work__grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: clamp(.8rem, 1.5vw, 1.4rem);
+}
+
+.index-thumb {
+  min-width: 0;
+}
+
+.artwork-lightbox-trigger {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.index-thumb .artwork-lightbox-trigger {
+  height: clamp(205px, 23vw, 300px);
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.12);
+}
+
+.index-thumb .artwork-lightbox-trigger img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+.archive-image .artwork-lightbox-trigger img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.archive-work__header {
+  margin-left: 0;
+}
+
+/* Lightbox shared by Index + Archive */
+.artwork-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: clamp(3rem, 7vw, 6rem);
+  background: rgba(19,18,16,.93);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f0eadf;
+}
+
+.artwork-lightbox__figure {
+  margin: 0;
+  max-width: min(92vw, 1500px);
+  max-height: 88vh;
+  display: grid;
+  place-items: center;
+  gap: .7rem;
+}
+
+.artwork-lightbox__figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.artwork-lightbox__figure figcaption {
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(240,234,223,.72);
+}
+
+.artwork-lightbox__close,
+.artwork-lightbox__nav {
+  position: fixed;
+  z-index: 2;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(245,240,230,.84);
+  font: 500 .68rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.artwork-lightbox__close { top: 1.5rem; right: 1.7rem; }
+.artwork-lightbox__nav--prev { left: 1.5rem; top: 50%; }
+.artwork-lightbox__nav--next { right: 1.5rem; top: 50%; }
+
+/* --- READING ROOM: soft architectural field + clickable poem cards --- */
+.reading-room-page {
+  overflow: auto;
+  min-height: 100svh;
+}
+
+.reading-room-page__image {
+  background-image: url("/media/reading-room/reading-room-background.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  filter: saturate(.78) brightness(.72) blur(1.5px) !important;
+  transform: scale(1.02) !important;
+}
+
+.reading-room-page__veil {
+  background:
+    linear-gradient(90deg, rgba(19,14,10,.18), rgba(19,14,10,.08) 42%, rgba(19,14,10,.48) 72%, rgba(19,14,10,.68)),
+    radial-gradient(circle at 29% 33%, transparent 0 24%, rgba(12,10,8,.18) 58%, rgba(12,10,8,.42) 100%);
+  backdrop-filter: none;
+}
+
+.reading-room-page__content {
+  width: min(760px, 91vw);
+  padding-top: clamp(7rem, 13vh, 11rem);
+  background: transparent;
+}
+
+.reading-room-title-card {
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+  background: rgba(40,31,22,.44);
+  border: 1px solid rgba(245,231,208,.10);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.reading-room-title-card__room {
+  margin: 0 0 .7rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  color: rgba(244,234,216,.68);
+}
+
+.reading-room-title-card h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.reading-room-title-card > p:last-child {
+  max-width: 44ch;
+  margin: 1rem 0 0;
+  line-height: 1.6;
+  color: rgba(244,234,216,.8);
+}
+
+.reading-room-shelf {
+  display: grid;
+  gap: .9rem;
+  border: 0;
+  margin-top: clamp(4rem, 8vh, 7rem);
+}
+
+.reading-room-poem-card {
+  display: grid;
+  grid-template-columns: minmax(150px,.8fr) minmax(220px,1.3fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: #f3eadb;
+  text-decoration: none;
+  background: rgba(42,32,23,.38);
+  border: 1px solid rgba(246,234,216,.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.reading-room-poem-card:hover,
+.reading-room-poem-card:focus-visible {
+  background: rgba(52,39,27,.56);
+  transform: translateY(-1px);
+}
+
+.reading-room-poem-card h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-weight: 400;
+}
+
+.reading-room-poem-card__heading p {
+  margin: .35rem 0 0;
+  font-size: .7rem;
+  color: rgba(243,234,219,.55);
+}
+
+.reading-room-poem-card__preview {
+  margin: 0;
+  line-height: 1.48;
+  color: rgba(243,234,219,.76);
+  font-size: .94rem;
+}
+
+/* HTML poem route keeps exact selected PDF inside the museum rather than opening a raw PDF */
+.poem-page {
+  position: relative;
+  min-height: 100svh;
+  color: #f3eadb;
+  background: #2a2118;
+}
+
+.poem-page__environment {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(31,24,17,.55), rgba(31,24,17,.72)),
+    url("/media/reading-room/reading-room-background.jpg") center/cover no-repeat;
+  filter: saturate(.72) brightness(.72) blur(2px);
+  transform: scale(1.015);
+}
+
+.poem-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+  padding: clamp(6rem, 11vh, 9rem) 0 5rem;
+}
+
+.poem-page__header {
+  width: min(640px, 100%);
+  padding: 1.4rem 1.6rem;
+  background: rgba(38,29,21,.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.poem-page__header p,
+.poem-page__header span {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  color: rgba(243,234,219,.62);
+}
+
+.poem-page__header h1 {
+  margin: .45rem 0 .7rem;
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 400;
+}
+
+.poem-page__document {
+  margin-top: 3rem;
+  min-height: 72vh;
+  background: rgba(238,232,220,.9);
+}
+
+.poem-page__document object {
+  display: block;
+  width: 100%;
+  height: 82vh;
+  border: 0;
+}
+
+.poem-page__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.poem-page__nav a {
+  color: inherit;
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  .index-thumb .artwork-lightbox-trigger {
+    height: 190px;
+  }
+  .reading-room-poem-card {
+    grid-template-columns: 1fr;
+  }
+  .artwork-lightbox {
+    padding: 4.5rem 1rem 3rem;
+  }
+  .artwork-lightbox__nav {
+    top: auto;
+    bottom: 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__light::before,
+  .vestibule__light::after {
+    animation: none !important;
+  }
+  .cloisters-film__video-stack .cloisters-film__video {
+    transition: none;
+  }
+}
+
+
+/* ============================================================
+   READING ROOM — chair-side placement + native poem text
+   ============================================================ */
+
+.reading-room-page__content {
+  width: min(650px, 84vw) !important;
+  margin-left: clamp(6vw, 10vw, 12vw) !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.reading-room-title-card {
+  background: rgba(45, 31, 22, .50) !important;
+  color: #f5ecdc !important;
+}
+
+.reading-room-shelf {
+  width: 100%;
+}
+
+.reading-room-poem-card {
+  background: rgba(45, 31, 22, .52) !important;
+  color: #f5ecdc !important;
+  border-color: rgba(246, 234, 216, .10) !important;
+}
+
+.reading-room-poem-card:hover,
+.reading-room-poem-card:focus-visible {
+  background: rgba(55, 38, 25, .64) !important;
+}
+
+.reading-room-poem-card__preview {
+  color: rgba(250, 242, 229, .88) !important;
+}
+
+/* Individual poems remain in the room rather than opening a document viewer. */
+.poem-page {
+  position: relative;
+  min-height: 100svh;
+  color: #f5ecdc;
+  background: #21170f;
+}
+
+.poem-page__environment {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(17,12,8,.08), rgba(17,12,8,.18) 55%, rgba(17,12,8,.48)),
+    url("/media/reading-room/reading-room-background.jpg") center/cover no-repeat;
+  filter: saturate(.78) brightness(.70) blur(1.5px);
+  transform: scale(1.02);
+}
+
+.poem-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(650px, 84vw);
+  margin-left: clamp(6vw, 10vw, 12vw);
+  margin-right: auto;
+  padding: clamp(7rem, 12vh, 10rem) 0 5rem;
+}
+
+.poem-page__card {
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  background: rgba(45, 31, 22, .56);
+  border: 1px solid rgba(246,234,216,.10);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.poem-page__header {
+  width: 100%;
+  padding: 0 0 2rem;
+  background: transparent;
+  border-bottom: 1px solid rgba(246,234,216,.14);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.poem-page__header p {
+  margin: 0 0 .7rem;
+}
+
+.poem-page__header h1 {
+  margin: 0 0 .6rem;
+  color: #f7efdf;
+}
+
+.poem-page__header span {
+  color: rgba(247,239,223,.58);
+}
+
+.poem-page__poem {
+  padding-top: clamp(2rem, 5vw, 3rem);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.52;
+  color: rgba(250,244,232,.94);
+}
+
+.poem-page__line {
+  display: block;
+  min-height: 1.52em;
+}
+
+.poem-page__stanza-break {
+  display: block;
+  height: 1.35em;
+}
+
+.poem-page__nav {
+  margin-top: 1.5rem;
+  padding: 0 .2rem;
+}
+
+.poem-page__nav a {
+  color: rgba(248,240,226,.80);
+  text-underline-offset: .22em;
+}
+
+@media (max-width: 760px) {
+  .reading-room-page__content,
+  .poem-page__content {
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
+  }
+
+  .reading-room-page__image,
+  .poem-page__environment {
+    background-position: 42% center !important;
+  }
+
+  .reading-room-poem-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* Poem overlay close control */
+.poem-page__card {
+  position: relative;
+}
+
+.poem-page__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.15rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(250, 242, 229, .72);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1;
+  opacity: .78;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.poem-page__close:hover,
+.poem-page__close:focus-visible {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Keep the room atmospheric rather than illustrative. */
+.poem-page__environment,
+.reading-room-page__image {
+  background-position: 45% center !important;
+  filter: saturate(.72) brightness(.62) blur(2px) !important;
+}
+
+
+/* ============================================================
+   CURATORIAL ALIGNMENT — interpretive prompts / Index / Map
+   ============================================================ */
+
+/* Questions should read as quiet interpretive wall prompts, not second headlines. */
+.room-opening__question {
+  width: min(35rem, 74vw) !important;
+  margin: clamp(14rem, 28vh, 23rem) auto 0 !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(.72rem, .92vw, .9rem) !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  line-height: 1.72 !important;
+  letter-spacing: .145em !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+  text-wrap: pretty !important;
+  text-shadow: none !important;
+}
+
+/* Keep contrast responsive to the physical room rather than forcing one color sitewide. */
+.relative-page .room-opening__question {
+  color: rgba(49, 45, 39, .82) !important;
+}
+
+.garden-section--daffodils .room-opening__question,
+.garden-section--fear-not .room-opening__question {
+  color: rgba(239, 234, 219, .88) !important;
+  text-shadow: 0 1px 10px rgba(13, 18, 14, .55) !important;
+}
+
+.garden-section--taste-and-see .room-opening__question {
+  color: rgba(214, 220, 191, .9) !important;
+  text-shadow: 0 1px 10px rgba(24, 34, 26, .48) !important;
+}
+
+.grotto-page .room-opening__question {
+  color: rgba(231, 225, 213, .76) !important;
+  text-shadow: 0 1px 9px rgba(0, 0, 0, .45) !important;
+}
+
+.threshold-page .room-opening__question {
+  color: rgba(64, 55, 46, .74) !important;
+  text-shadow: 0 1px 10px rgba(246, 240, 228, .72) !important;
+}
+
+.red-room-project--thread .room-opening__question {
+  color: rgba(59, 42, 39, .8) !important;
+  text-shadow: 0 1px 10px rgba(248, 229, 224, .66) !important;
+}
+
+.red-room-project--membrane .room-opening__question {
+  color: rgba(239, 226, 219, .78) !important;
+  text-shadow: 0 1px 9px rgba(48, 25, 29, .42) !important;
+}
+
+.water-room__header .room-opening__question {
+  margin-top: clamp(17rem, 34vh, 27rem) !important;
+  color: rgba(239, 235, 221, .84) !important;
+  text-shadow: 0 1px 9px rgba(18, 30, 29, .46) !important;
+}
+
+.current-exhibition .room-opening__question {
+  color: rgba(239, 231, 216, .8) !important;
+}
+
+/* INDEX: follow Archive's one-column editorial hierarchy before the image field. */
+.index-work__header {
+  display: block !important;
+  margin-bottom: clamp(2.8rem, 5vh, 4.5rem) !important;
+}
+
+.index-work__identity {
+  width: min(760px, 100%) !important;
+  max-width: 760px !important;
+  padding-right: 0 !important;
+}
+
+.index-work__header h3 {
+  margin: .35rem 0 1.25rem !important;
+}
+
+.index-work__statement,
+.index-work__question {
+  width: min(68ch, 100%) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+.index-work__statement {
+  margin-top: 0 !important;
+  line-height: 1.55 !important;
+}
+
+.index-work__question {
+  margin-top: .9rem !important;
+  color: rgba(72, 65, 57, .76) !important;
+  font-style: italic !important;
+  line-height: 1.5 !important;
+}
+
+/* MAP: keep the Narthex rooms inside their architecture and quiet the Water Room labels. */
+.museum-map__room[data-room="index"] {
+  left: 55.8% !important;
+}
+
+.museum-map__room[data-room="archive"] {
+  left: 62.4% !important;
+}
+
+.museum-map__room[data-room="garden"] {
+  top: 53.5% !important;
+}
+
+.museum-map__room[data-room="film-room"] {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  padding: 0 .2rem !important;
+}
+
+.museum-map__room[data-room="film-room"] .museum-map__room-name {
+  width: 100%;
+  text-align: center;
+}
+
+.museum-map__room[data-room="current"] {
+  left: 73.2% !important;
+  top: 89.4% !important;
+  width: 15.8% !important;
+}
+
+.museum-map__current-surface[data-room="current"],
+.museum-map__hover-surface[data-room="current"] {
+  left: 73.2% !important;
+  top: 89.4% !important;
+  width: 15.8% !important;
+  height: 6.2% !important;
+}
+
+/* Cloisters are two passages. The central Garden/Grotto remains independently clickable. */
+.museum-map__cloisters-group {
+  position: absolute;
+  left: 33.8%;
+  top: 31.2%;
+  width: 32.4%;
+  height: 44%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.museum-map__cloister-passage {
+  position: absolute;
+  top: 0;
+  width: 9%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: rgba(36, 35, 31, .82);
+  text-decoration: none;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.museum-map__cloister-passage--left { left: 0; }
+.museum-map__cloister-passage--right { right: 0; }
+
+.museum-map__cloister-label {
+  position: static !important;
+  top: auto !important;
+  writing-mode: vertical-rl;
+  font: 600 9px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.museum-map__cloister-passage--left .museum-map__cloister-label {
+  transform: rotate(180deg);
+}
+
+.museum-map__cloister-passage--right .museum-map__cloister-label {
+  transform: none;
+}
+
+.museum-map__cloister-passage:hover,
+.museum-map__cloister-passage:focus-visible {
+  outline: none;
+  background: rgba(248, 244, 236, .22);
+}
+
+.museum-map__current-surface[data-room="cloisters"],
+.museum-map__hover-surface[data-room="cloisters"] {
+  left: 33.8% !important;
+  top: 31.2% !important;
+  width: 32.4% !important;
+  height: 44% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 9%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::before {
+  left: 0;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::after,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  right: 0;
+}
+
+.museum-map__current-surface[data-room="cloisters"]::before,
+.museum-map__current-surface[data-room="cloisters"]::after {
+  background: rgba(190, 194, 151, .32);
+  box-shadow: 0 0 24px rgba(171, 172, 126, .26);
+}
+
+.museum-map__hover-surface[data-room="cloisters"]::before,
+.museum-map__hover-surface[data-room="cloisters"]::after {
+  background: rgba(218, 181, 139, .34);
+  box-shadow: 0 0 24px rgba(193, 145, 105, .28);
+}
+
+@media (max-width: 760px) {
+  .room-opening__question {
+    width: min(31rem, 82vw) !important;
+    margin-top: clamp(9rem, 22vh, 14rem) !important;
+    font-size: .7rem !important;
+    letter-spacing: .12em !important;
+  }
+
+  .museum-map__cloisters-group {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    gap: 6px;
+    pointer-events: auto;
+  }
+
+  .museum-map__cloister-passage {
+    position: static;
+    width: 100%;
+    min-height: 44px;
+    writing-mode: horizontal-tb;
+    border-bottom: 1px solid rgba(61,54,48,.10);
+  }
+
+  .museum-map__cloister-label,
+  .museum-map__cloister-passage--left .museum-map__cloister-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}
+
+
+/* ============================================================
+   INTERPRETIVE PROMPTS — spatial placement + scroll reveal
+   ============================================================ */
+
+/* Keep the text itself left-aligned, but place the prompt as a separate
+   wall event on the opposite side of the title card. Right-justified text
+   would make the line endings feel designed rather than read. */
+.room-opening__question {
+  margin-left: auto !important;
+  margin-right: clamp(7vw, 12vw, 15vw) !important;
+  text-align: left !important;
+}
+
+/* The question should arrive only when the visitor reaches it. */
+.question-prompt {
+  opacity: 0;
+  filter: blur(3px);
+  transition:
+    opacity 1.15s ease,
+    filter 1.35s ease;
+  will-change: opacity, filter;
+}
+
+.question-prompt.is-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Give the shorter prompts a slightly narrower wall footprint. */
+.red-room-project--thread .room-opening__question {
+  width: min(24rem, 68vw) !important;
+}
+
+.garden-section--fear-not .room-opening__question,
+.garden-section--taste-and-see .room-opening__question,
+.threshold-page .room-opening__question {
+  width: min(31rem, 72vw) !important;
+}
+
+@media (max-width: 760px) {
+  .room-opening__question {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: min(31rem, 82vw) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question-prompt {
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ============================================================
+   MUSEUM MAP — canonical geometry reset
+   One coordinate system now drives the drawing, hit areas, and highlights.
+   Do not nudge individual map rooms in later CSS passes.
+   ============================================================ */
+
+.museum-map__svg-highlight {
+  stroke: none !important;
+  pointer-events: none;
+}
+
+.museum-map__svg-highlight--current {
+  fill: rgba(190, 194, 151, .32) !important;
+}
+
+.museum-map__svg-highlight--hover {
+  fill: rgba(218, 181, 139, .36) !important;
+}
+
+.museum-map__room--canonical[data-map-box="true"] {
+  left: var(--map-left) !important;
+  top: var(--map-top) !important;
+  width: var(--map-width) !important;
+  height: var(--map-height) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  transform: none !important;
+  z-index: var(--map-z) !important;
+  margin: 0 !important;
+  padding: .35rem .45rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .28rem !important;
+  text-align: center !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.museum-map__room--canonical[data-map-box="true"]:hover,
+.museum-map__room--canonical[data-map-box="true"]:focus-visible {
+  background: transparent !important;
+  outline: none !important;
+}
+
+.museum-map__room--canonical .museum-map__room-name,
+.museum-map__room--canonical .museum-map__collections,
+.museum-map__room--canonical .museum-map__collection {
+  width: 100%;
+  max-width: 100%;
+  text-align: center !important;
+}
+
+.museum-map__room-name--stacked {
+  display: grid !important;
+  gap: 0 !important;
+  place-items: center !important;
+  line-height: 1.08 !important;
+}
+
+/* The Garden text sits below its dividing line instead of crowding it. */
+.museum-map__room--canonical[data-room="garden"] {
+  justify-content: flex-start !important;
+  padding-top: 1.15rem !important;
+}
+
+/* Narthex is the enclosing room; its label belongs in the lower open band. */
+.museum-map__room--canonical[data-room="narthex"] {
+  justify-content: flex-end !important;
+  padding-bottom: .45rem !important;
+}
+
+/* Keep the two side rooms optically centered in their architectural wings. */
+.museum-map__room--canonical[data-room="red-room"],
+.museum-map__room--canonical[data-room="water-room"] {
+  padding-left: .3rem !important;
+  padding-right: .3rem !important;
+}
+
+/* Current is a true annex off the Vestibule, not a box laid over the corner. */
+.museum-map__room--canonical[data-room="current"] {
+  padding-left: .65rem !important;
+  padding-right: .65rem !important;
+}
+
+/* Cloisters occupy only the two drawn passages. The central Garden/Grotto
+   remains fully hoverable and clickable. */
+.museum-map__cloisters-group--canonical {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 12 !important;
+  pointer-events: none !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+  top: 31.4286% !important;
+  width: 2.1% !important;
+  height: 43.1429% !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage--left {
+  left: 34.4% !important;
+  right: auto !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage--right {
+  left: 63.5% !important;
+  right: auto !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage:hover,
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage:focus-visible {
+  background: transparent !important;
+}
+
+/* Retire the old detached HTML highlight surfaces. */
+.museum-map__current-surface,
+.museum-map__hover-surface {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .museum-map__room--canonical[data-map-box="true"] {
+    position: absolute !important;
+    display: flex !important;
+  }
+
+  .museum-map__cloisters-group--canonical {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+    position: absolute !important;
+    min-height: 0 !important;
+    border: 0 !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-label {
+    writing-mode: vertical-rl !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--left .museum-map__cloister-label {
+    transform: rotate(180deg) !important;
+  }
+}
+
+
+/* ============================================================
+   MEDIA INTEGRATION — entrance / vestibule / cloisters / exit
+   ============================================================ */
+
+/* Entrance: the fungal image should register as a faint apparition on the
+   masonry, not as a second full-strength picture. */
+.museum-exterior__projection {
+  position: absolute;
+  inset: -2%;
+  z-index: 1;
+  width: 104%;
+  height: 104%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: .19;
+  mix-blend-mode: soft-light;
+  filter: saturate(.55) contrast(.88) brightness(1.04) blur(.6px);
+  transform: scale(1.015);
+  pointer-events: none;
+  -webkit-mask-image:
+    radial-gradient(ellipse 82% 88% at 56% 48%, #000 0 62%, rgba(0,0,0,.82) 75%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 82% 88% at 56% 48%, #000 0 62%, rgba(0,0,0,.82) 75%, transparent 100%);
+}
+
+/* Keep the title and door interaction above the projection. */
+.museum-exterior__sign { z-index: 4 !important; }
+.museum-exterior__door { z-index: 5 !important; }
+
+/* One quiet sound control serves the media rooms for now.  It can later be
+   absorbed into the site-wide interior audio system. */
+.ambient-sound-control {
+  position: fixed;
+  z-index: 80;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: .3rem 0;
+  background: transparent;
+  color: rgba(244, 240, 229, .62);
+  font: 500 .58rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: .72;
+  transition: opacity .2s ease;
+}
+
+.ambient-sound-control:hover,
+.ambient-sound-control:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+.ambient-sound-control--exterior {
+  color: rgba(247, 242, 231, .72);
+  text-shadow: 0 1px 7px rgba(18,14,10,.55);
+}
+
+/* Vestibule: use the supplied moving-shadow footage only in the brighter
+   opening. The older generated dapple remains extremely faint on the dark
+   perimeter so the whole room does not become static. */
+.vestibule__dapple-window {
+  position: absolute;
+  z-index: 1;
+  inset: 3% 21% 10%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .52;
+  mix-blend-mode: multiply;
+  -webkit-mask-image:
+    radial-gradient(ellipse 46% 66% at 50% 46%, #000 0 56%, rgba(0,0,0,.9) 66%, rgba(0,0,0,.3) 79%, transparent 92%);
+  mask-image:
+    radial-gradient(ellipse 46% 66% at 50% 46%, #000 0 56%, rgba(0,0,0,.9) 66%, rgba(0,0,0,.3) 79%, transparent 92%);
+}
+
+.vestibule__dapple-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+  filter: grayscale(1) contrast(.82) brightness(1.12) blur(3px);
+  transform: scale(1.09);
+}
+
+.vestibule__light {
+  mix-blend-mode: screen !important;
+  opacity: .52 !important;
+}
+
+.vestibule__light::before {
+  opacity: .18 !important;
+  filter: blur(11px) !important;
+  animation-duration: 17s !important;
+}
+
+.vestibule__light::after {
+  display: none !important;
+}
+
+/* Cloisters: visual loop remains independent; the new field recording lives
+   underneath it and can be enabled without changing the film treatment. */
+.ambient-sound-control--cloisters {
+  color: rgba(245, 238, 222, .60);
+}
+
+/* Exit: two video planes crossfade, while each film keeps its native sound.
+   Only the active plane receives full visual opacity. */
+.exit-exterior__video-stack {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #1c2418;
+}
+
+.exit-exterior__video-stack .exit-exterior__video {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 52%;
+  opacity: 0;
+  filter: saturate(.86) contrast(.96) brightness(.88);
+  transition: opacity 1.6s ease;
+  will-change: opacity;
+}
+
+.exit-exterior__video-stack .exit-exterior__video.is-active {
+  opacity: 1;
+}
+
+.exit-exterior__veil {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.exit-exterior__ui {
+  z-index: 4;
+}
+
+.ambient-sound-control--exit {
+  z-index: 5;
+  color: rgba(240,239,231,.62);
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection {
+    opacity: .15;
+    object-position: 52% center;
+  }
+
+  .vestibule__dapple-window {
+    inset: 7% 8% 18%;
+    opacity: .46;
+  }
+
+  .ambient-sound-control {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__projection,
+  .vestibule__dapple-video {
+    display: none !important;
+  }
+
+  .exit-exterior__video-stack .exit-exterior__video {
+    transition: none !important;
+  }
+}
+
+
+/* ============================================================
+   MEDIA INTEGRATION REFINEMENT — review pass
+   ============================================================ */
+
+/* Entrance projection: stronger, but still reads as light moving over stone.
+   Two identical media planes crossfade so the short source never hard-loops. */
+.museum-exterior__projection-stack {
+  position: absolute;
+  inset: -2%;
+  z-index: 1;
+  width: 104%;
+  height: 104%;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image:
+    radial-gradient(ellipse 90% 94% at 54% 48%, #000 0 66%, rgba(0,0,0,.86) 78%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 90% 94% at 54% 48%, #000 0 66%, rgba(0,0,0,.86) 78%, transparent 100%);
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  filter: saturate(.62) contrast(.92) brightness(1.08) blur(.35px);
+  transform: scale(1.018);
+  transition: opacity .9s ease;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection.is-active {
+  opacity: .34;
+}
+
+/* Vestibule: broad flicker is suppressed. The actual moving footage becomes
+   a quiet underlayer and small, slow shadow clusters provide the dapple scale. */
+.vestibule__dapple-window {
+  inset: 4% 22% 10% !important;
+  opacity: .24 !important;
+  mix-blend-mode: multiply !important;
+  overflow: hidden;
+}
+
+.vestibule__dapple-video {
+  opacity: .34;
+  filter: grayscale(1) contrast(.72) brightness(1.18) blur(8px) !important;
+  transform: scale(1.03) !important;
+}
+
+.vestibule__dapple-window::before,
+.vestibule__dapple-window::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: 2;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(23,28,24,.44) 0 1.2%, transparent 2.6%),
+    radial-gradient(ellipse at 19% 25%, rgba(23,28,24,.38) 0 1%, transparent 2.3%),
+    radial-gradient(ellipse at 27% 16%, rgba(23,28,24,.34) 0 1.25%, transparent 2.5%),
+    radial-gradient(ellipse at 37% 29%, rgba(23,28,24,.42) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 47% 20%, rgba(23,28,24,.33) 0 .95%, transparent 2.2%),
+    radial-gradient(ellipse at 58% 31%, rgba(23,28,24,.40) 0 1.2%, transparent 2.5%),
+    radial-gradient(ellipse at 69% 19%, rgba(23,28,24,.34) 0 1%, transparent 2.3%),
+    radial-gradient(ellipse at 80% 27%, rgba(23,28,24,.41) 0 1.15%, transparent 2.4%),
+    radial-gradient(ellipse at 88% 17%, rgba(23,28,24,.31) 0 1%, transparent 2.2%),
+    radial-gradient(ellipse at 16% 48%, rgba(23,28,24,.36) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 30% 57%, rgba(23,28,24,.42) 0 1.25%, transparent 2.6%),
+    radial-gradient(ellipse at 44% 46%, rgba(23,28,24,.31) 0 .9%, transparent 2.1%),
+    radial-gradient(ellipse at 61% 55%, rgba(23,28,24,.39) 0 1.15%, transparent 2.5%),
+    radial-gradient(ellipse at 75% 48%, rgba(23,28,24,.35) 0 1%, transparent 2.3%),
+    radial-gradient(ellipse at 86% 60%, rgba(23,28,24,.40) 0 1.2%, transparent 2.5%),
+    radial-gradient(ellipse at 21% 76%, rgba(23,28,24,.35) 0 1%, transparent 2.2%),
+    radial-gradient(ellipse at 39% 69%, rgba(23,28,24,.40) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 55% 79%, rgba(23,28,24,.32) 0 .95%, transparent 2.2%),
+    radial-gradient(ellipse at 72% 72%, rgba(23,28,24,.38) 0 1.1%, transparent 2.4%),
+    radial-gradient(ellipse at 89% 80%, rgba(23,28,24,.34) 0 1%, transparent 2.3%);
+  background-size: 48% 46%;
+  background-repeat: repeat;
+  filter: blur(2.4px);
+  opacity: .48;
+  animation: vestibule-small-dapple 22s ease-in-out infinite alternate;
+}
+
+.vestibule__dapple-window::after {
+  opacity: .26;
+  transform: scale(.92) rotate(7deg);
+  animation-duration: 29s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes vestibule-small-dapple {
+  from { transform: translate3d(-1.5%, -.7%, 0) rotate(-.3deg); }
+  to   { transform: translate3d(1.8%, .9%, 0) rotate(.45deg); }
+}
+
+/* Retire the old generated flicker almost completely. */
+.vestibule__light {
+  opacity: .22 !important;
+}
+.vestibule__light::before {
+  opacity: .08 !important;
+  animation-duration: 26s !important;
+}
+
+/* Exit should be image, not phone-shaped object. Portrait material is
+   deliberately cropped into the viewport as an immersive field. */
+.exit-exterior,
+.exit-exterior__video-stack {
+  width: 100vw !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+}
+
+.exit-exterior__video-stack .exit-exterior__video {
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100svh !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  transform: none !important;
+}
+
+/* Exit is a distinct destination beyond the Narthex. */
+.museum-map__room--canonical[data-room="exit-exterior"] {
+  padding: .15rem .35rem !important;
+}
+.museum-map__room--canonical[data-room="exit-exterior"] .museum-map__room-name {
+  font-size: 9px !important;
+  letter-spacing: .14em !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection-stack .museum-exterior__projection.is-active {
+    opacity: .28;
+  }
+
+  .vestibule__dapple-window {
+    inset: 6% 10% 18% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__dapple-window::before,
+  .vestibule__dapple-window::after {
+    animation: none !important;
+  }
+}
+
+
+/* ============================================================
+   ATMOSPHERE DIAL-IN — exterior / vestibule / exit
+   ============================================================ */
+
+/* EXTERIOR
+   Treat the mushroom footage as a localized projection on one wall plane,
+   not a full-screen ghost image. */
+.museum-exterior__projection-stack {
+  top: 5% !important;
+  right: 1.5% !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 48% !important;
+  height: 84% !important;
+  inset: auto 1.5% auto auto !important;
+  overflow: hidden !important;
+  clip-path: polygon(7% 3%, 92% 0%, 100% 10%, 98% 86%, 91% 100%, 6% 96%, 0 87%, 2% 12%);
+  -webkit-mask-image:
+    radial-gradient(ellipse at 55% 48%, #000 0 48%, rgba(0,0,0,.94) 60%, rgba(0,0,0,.55) 80%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 55% 48%, #000 0 48%, rgba(0,0,0,.94) 60%, rgba(0,0,0,.55) 80%, transparent 100%) !important;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  mix-blend-mode: screen !important;
+  filter: saturate(.68) contrast(1.01) brightness(1.04) blur(.7px) !important;
+  transform: scale(1.03) !important;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection.is-active {
+  opacity: .31 !important;
+}
+
+.museum-exterior__projection-stack::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 55% 48%,
+      rgba(255,246,222,.10) 0%,
+      rgba(255,246,222,.05) 40%,
+      rgba(255,246,222,.015) 62%,
+      transparent 82%
+    );
+  filter: blur(18px);
+}
+
+/* VESTIBULE
+   Stop trying to make the light itself the event. The architecture is strong.
+   Keep only a very quiet trace of moving light, then let moss emerge slowly
+   in moisture-prone edges of the dark stone. */
+.vestibule__dapple-window {
+  opacity: .11 !important;
+}
+
+.vestibule__dapple-video {
+  opacity: .22 !important;
+  filter: grayscale(1) contrast(.62) brightness(1.12) blur(11px) !important;
+}
+
+.vestibule__dapple-window::before,
+.vestibule__dapple-window::after {
+  opacity: .11 !important;
+  filter: blur(4px) !important;
+  animation-duration: 34s !important;
+}
+
+.vestibule__light,
+.vestibule__light::before {
+  opacity: .05 !important;
+  animation-duration: 38s !important;
+}
+
+/* Slow moss emergence: intentionally peripheral, low-contrast, and non-looping. */
+.vestibule__stone::before,
+.vestibule__stone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transform: scale(.985);
+  transform-origin: 50% 82%;
+  will-change: opacity, transform, filter;
+}
+
+.vestibule__stone::before {
+  background:
+    radial-gradient(ellipse at 9% 77%, rgba(72,91,55,.30) 0 5%, rgba(72,91,55,.14) 12%, transparent 24%),
+    radial-gradient(ellipse at 18% 91%, rgba(60,80,48,.28) 0 6%, rgba(60,80,48,.12) 15%, transparent 27%),
+    radial-gradient(ellipse at 31% 82%, rgba(79,94,59,.20) 0 4%, rgba(79,94,59,.10) 12%, transparent 22%),
+    radial-gradient(ellipse at 72% 84%, rgba(67,86,52,.18) 0 4%, rgba(67,86,52,.08) 12%, transparent 22%),
+    radial-gradient(ellipse at 88% 88%, rgba(58,79,47,.27) 0 6%, rgba(58,79,47,.12) 15%, transparent 28%),
+    linear-gradient(90deg, rgba(68,84,52,.10), transparent 14% 86%, rgba(68,84,52,.10));
+  filter: blur(2.2px) saturate(.78);
+  animation: vestibule-moss-emerge 36s ease-out 1.5s forwards;
+}
+
+.vestibule__stone::after {
+  background:
+    radial-gradient(ellipse at 25% 36%, rgba(77,91,58,.14) 0 3%, rgba(77,91,58,.06) 10%, transparent 19%),
+    radial-gradient(ellipse at 15% 53%, rgba(65,84,50,.13) 0 3%, rgba(65,84,50,.05) 10%, transparent 20%),
+    radial-gradient(ellipse at 77% 38%, rgba(75,90,57,.12) 0 3%, rgba(75,90,57,.05) 10%, transparent 19%),
+    radial-gradient(ellipse at 87% 58%, rgba(64,82,49,.14) 0 3%, rgba(64,82,49,.05) 10%, transparent 20%);
+  filter: blur(2.8px) saturate(.72);
+  animation: vestibule-moss-emerge-secondary 48s ease-out 9s forwards;
+}
+
+@keyframes vestibule-moss-emerge {
+  0%   { opacity: 0; transform: scale(.985); filter: blur(4px) saturate(.55); }
+  45%  { opacity: .09; }
+  100% { opacity: .19; transform: scale(1.012); filter: blur(2px) saturate(.78); }
+}
+
+@keyframes vestibule-moss-emerge-secondary {
+  0%   { opacity: 0; transform: scale(.99); }
+  100% { opacity: .12; transform: scale(1.008); }
+}
+
+/* EXIT
+   The web files themselves contain black side bars around portrait footage.
+   Fill the viewport by zooming through those baked-in bars, rather than
+   treating them as part of the artwork's presentation. */
+.exit-exterior {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  min-width: 100dvw !important;
+  min-height: 100dvh !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+}
+
+.exit-exterior__video-stack {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.exit-exterior__video-stack .exit-exterior__video {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  inset: auto !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: fill !important;
+  object-position: 50% 50% !important;
+  transform: translate(-50%, -50%) scale(3.18) !important;
+  transform-origin: center center !important;
+}
+
+/* The native portrait frame is centered inside a 16:9 file. Slightly different
+   vertical crops prevent important subject matter from consistently falling
+   outside the viewport. */
+.exit-exterior__video:nth-child(1),
+.exit-exterior__video:nth-child(2) {
+  object-position: 50% 50% !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection-stack {
+    width: 62% !important;
+    right: -3% !important;
+  }
+
+  .exit-exterior__video-stack .exit-exterior__video {
+    transform: translate(-50%, -50%) scale(2.35) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__stone::before,
+  .vestibule__stone::after {
+    animation: none !important;
+    opacity: .12 !important;
+  }
+}
+
+
+/* ============================================================
+   LATE MEDIA ADJUSTMENT — localized projection / visible moss / split Exit
+   ============================================================ */
+
+/* Entrance projection: move fully to the left of the door, reduce the field,
+   and keep it off the wood. Playback is slowed in the component. */
+.museum-exterior__projection-stack {
+  top: 16% !important;
+  left: 4.5% !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 27% !important;
+  height: 58% !important;
+  inset: 16% auto auto 4.5% !important;
+  clip-path: polygon(6% 5%, 91% 1%, 100% 12%, 96% 88%, 87% 98%, 8% 94%, 0 82%, 2% 14%) !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 52% 46%, #000 0 50%, rgba(0,0,0,.94) 63%, rgba(0,0,0,.50) 81%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 52% 46%, #000 0 50%, rgba(0,0,0,.94) 63%, rgba(0,0,0,.50) 81%, transparent 100%) !important;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection {
+  object-position: 45% 50% !important;
+  transform: scale(1.02) !important;
+  filter: saturate(.62) contrast(.98) brightness(1.02) blur(.8px) !important;
+}
+
+.museum-exterior__projection-stack .museum-exterior__projection.is-active {
+  opacity: .33 !important;
+}
+
+.museum-exterior__projection-stack::after {
+  opacity: .72;
+}
+
+/* Dedicated Vestibule moss layer sits above the dark veil, so it reads.
+   It emerges slowly once and holds. */
+.vestibule__moss {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 5% 82%, rgba(75,97,58,.42) 0 4%, rgba(75,97,58,.20) 10%, transparent 22%),
+    radial-gradient(ellipse at 15% 91%, rgba(62,84,49,.36) 0 5%, rgba(62,84,49,.16) 13%, transparent 26%),
+    radial-gradient(ellipse at 28% 84%, rgba(79,99,61,.24) 0 3%, rgba(79,99,61,.11) 10%, transparent 20%),
+    radial-gradient(ellipse at 73% 87%, rgba(70,91,54,.25) 0 3%, rgba(70,91,54,.11) 10%, transparent 21%),
+    radial-gradient(ellipse at 88% 91%, rgba(58,82,47,.38) 0 5%, rgba(58,82,47,.17) 13%, transparent 27%),
+    radial-gradient(ellipse at 96% 76%, rgba(70,91,54,.25) 0 4%, rgba(70,91,54,.10) 11%, transparent 22%),
+    linear-gradient(90deg, rgba(63,84,50,.13), transparent 13% 87%, rgba(63,84,50,.13));
+  mix-blend-mode: multiply;
+  filter: blur(2px) saturate(.88);
+  transform: scale(.99);
+  transform-origin: 50% 84%;
+  animation: vestibule-moss-visible 30s ease-out 1s forwards;
+}
+
+.vestibule__moss::before,
+.vestibule__moss::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vestibule__moss::before {
+  background:
+    radial-gradient(ellipse at 10% 60%, rgba(78,97,59,.17) 0 3%, rgba(78,97,59,.07) 9%, transparent 19%),
+    radial-gradient(ellipse at 21% 48%, rgba(67,88,52,.13) 0 2%, rgba(67,88,52,.05) 8%, transparent 17%),
+    radial-gradient(ellipse at 78% 49%, rgba(72,92,55,.12) 0 2%, rgba(72,92,55,.05) 8%, transparent 17%),
+    radial-gradient(ellipse at 92% 61%, rgba(63,85,49,.16) 0 3%, rgba(63,85,49,.06) 9%, transparent 19%);
+  opacity: .8;
+}
+
+.vestibule__moss::after {
+  background:
+    radial-gradient(ellipse at 12% 96%, rgba(47,72,42,.20) 0 4%, transparent 16%),
+    radial-gradient(ellipse at 84% 96%, rgba(47,72,42,.18) 0 4%, transparent 16%);
+  filter: blur(4px);
+}
+
+@keyframes vestibule-moss-visible {
+  0%   { opacity: 0; transform: scale(.99); }
+  50%  { opacity: .18; }
+  100% { opacity: .34; transform: scale(1.01); }
+}
+
+/* The remaining light movement should be barely perceived, not performed. */
+.vestibule__dapple-window {
+  opacity: .075 !important;
+}
+.vestibule__dapple-window::before,
+.vestibule__dapple-window::after,
+.vestibule__light,
+.vestibule__light::before {
+  opacity: .035 !important;
+}
+
+/* Exit: two concurrent moving-image channels. The files contain a portrait
+   image on the left half of a 16:9 canvas, so each pane crops to that half. */
+.exit-exterior__split {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  background: #050605;
+}
+
+.exit-exterior__pane {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  height: 100dvh;
+}
+
+.exit-exterior__pane + .exit-exterior__pane {
+  border-left: 1px solid rgba(239,235,222,.08);
+}
+
+.exit-exterior__split-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: left center;
+  filter: saturate(.88) contrast(.96) brightness(.90);
+}
+
+/* Keep the page UI above both channels. */
+.exit-exterior__veil {
+  z-index: 2 !important;
+}
+.exit-exterior__ui {
+  z-index: 3 !important;
+}
+.ambient-sound-control--exit {
+  z-index: 4 !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__projection-stack {
+    top: 18% !important;
+    left: 2% !important;
+    width: 34% !important;
+    height: 52% !important;
+  }
+
+  .exit-exterior__split {
+    grid-template-columns: 1fr;
+  }
+
+  .exit-exterior__pane--right {
+    display: none;
+  }
+
+  .exit-exterior__split-video {
+    width: 200%;
+  }
+}
+
+
+/* ============================================================
+   CORRECTION — Exit half-screen full bleed + confirm Vestibule moss
+   ============================================================ */
+
+/* Exit: each source gets one half of the viewport and fills that half.
+   No doubled width / left-half extraction. */
+.exit-exterior__split {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  background: #050605 !important;
+}
+
+.exit-exterior__pane {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 100dvh !important;
+  min-width: 0 !important;
+}
+
+.exit-exterior__pane + .exit-exterior__pane {
+  border-left: 1px solid rgba(239,235,222,.08) !important;
+}
+
+.exit-exterior__split-video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  filter: saturate(.88) contrast(.96) brightness(.90) !important;
+}
+
+/* Vestibule: make moss visibly present on load, then continue emerging.
+   This is deliberately more obvious for QA; we can quiet it after confirmation. */
+.vestibule__moss {
+  opacity: .20 !important;
+  animation: vestibule-moss-visible-confirm 24s ease-out 0s forwards !important;
+}
+
+@keyframes vestibule-moss-visible-confirm {
+  0%   { opacity: .20; transform: scale(.995); }
+  100% { opacity: .42; transform: scale(1.012); }
+}
+
+.vestibule__moss::before {
+  opacity: 1 !important;
+}
+
+.vestibule__moss::after {
+  opacity: .85 !important;
+}
+
+@media (max-width: 760px) {
+  .exit-exterior__split {
+    grid-template-columns: 1fr !important;
+  }
+  .exit-exterior__pane:nth-child(2) {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE — unmistakable moss growth test
+   This pass intentionally makes the growth legible enough to evaluate.
+   ============================================================ */
+.vestibule__moss {
+  z-index: 1 !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  background: none !important;
+  animation: none !important;
+  overflow: hidden;
+}
+
+.vestibule__moss::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .10;
+  clip-path: inset(70% 0 0 0);
+  background:
+    radial-gradient(ellipse at 3% 88%, rgba(66,88,47,.78) 0 4%, rgba(66,88,47,.42) 8%, transparent 18%),
+    radial-gradient(ellipse at 12% 94%, rgba(79,102,54,.72) 0 5%, rgba(79,102,54,.36) 11%, transparent 23%),
+    radial-gradient(ellipse at 24% 87%, rgba(61,84,45,.60) 0 3%, rgba(61,84,45,.27) 9%, transparent 20%),
+    radial-gradient(ellipse at 34% 96%, rgba(75,96,52,.48) 0 3%, rgba(75,96,52,.20) 9%, transparent 18%),
+    radial-gradient(ellipse at 67% 95%, rgba(71,94,50,.45) 0 3%, rgba(71,94,50,.18) 9%, transparent 18%),
+    radial-gradient(ellipse at 78% 89%, rgba(58,82,43,.58) 0 4%, rgba(58,82,43,.28) 10%, transparent 21%),
+    radial-gradient(ellipse at 90% 95%, rgba(77,99,52,.70) 0 5%, rgba(77,99,52,.34) 11%, transparent 23%),
+    radial-gradient(ellipse at 98% 84%, rgba(62,85,45,.72) 0 4%, rgba(62,85,45,.36) 9%, transparent 19%),
+    radial-gradient(ellipse at 8% 66%, rgba(65,86,47,.36) 0 2%, rgba(65,86,47,.13) 7%, transparent 16%),
+    radial-gradient(ellipse at 92% 62%, rgba(65,86,47,.34) 0 2%, rgba(65,86,47,.12) 7%, transparent 16%);
+  filter: blur(1.4px) saturate(1.22);
+  animation: vestibule-moss-grow-visible 22s ease-out 1s forwards;
+}
+
+.vestibule__moss::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  clip-path: inset(78% 0 0 0);
+  background:
+    radial-gradient(ellipse at 10% 78%, rgba(104,124,70,.38) 0 1.2%, transparent 4%),
+    radial-gradient(ellipse at 17% 86%, rgba(88,110,60,.34) 0 1%, transparent 3.5%),
+    radial-gradient(ellipse at 27% 81%, rgba(99,118,67,.26) 0 .9%, transparent 3.3%),
+    radial-gradient(ellipse at 74% 82%, rgba(93,116,64,.27) 0 .9%, transparent 3.3%),
+    radial-gradient(ellipse at 85% 87%, rgba(88,110,60,.34) 0 1%, transparent 3.5%),
+    radial-gradient(ellipse at 94% 77%, rgba(104,124,70,.36) 0 1.2%, transparent 4%);
+  filter: blur(.7px);
+  animation: vestibule-moss-speckle-visible 22s ease-out 5s forwards;
+}
+
+@keyframes vestibule-moss-grow-visible {
+  0% {
+    opacity: .10;
+    clip-path: inset(70% 0 0 0);
+    transform: scale(.99);
+  }
+  45% {
+    opacity: .34;
+    clip-path: inset(48% 0 0 0);
+  }
+  100% {
+    opacity: .56;
+    clip-path: inset(30% 0 0 0);
+    transform: scale(1.01);
+  }
+}
+
+@keyframes vestibule-moss-speckle-visible {
+  0% {
+    opacity: 0;
+    clip-path: inset(78% 0 0 0);
+  }
+  100% {
+    opacity: .46;
+    clip-path: inset(38% 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__moss::before {
+    animation: none !important;
+    opacity: .42 !important;
+    clip-path: inset(40% 0 0 0) !important;
+  }
+  .vestibule__moss::after {
+    animation: none !important;
+    opacity: .30 !important;
+    clip-path: inset(46% 0 0 0) !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE — edited still carries the room
+   Retire synthetic moss/dapple attempts for launch.
+   ============================================================ */
+
+.vestibule__stone {
+  background-image: url("/media/architecture/vestibule-arch-desktop.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  filter: saturate(.90) brightness(.92) contrast(.98) !important;
+  transform: none !important;
+}
+
+.vestibule__shadow {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7, 14, 12, .04) 0%,
+      rgba(8, 16, 14, .08) 45%,
+      rgba(4, 10, 8, .22) 100%
+    ) !important;
+}
+
+.vestibule__light {
+  opacity: .10 !important;
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      rgba(214, 225, 216, .08) 0%,
+      rgba(168, 188, 177, .03) 42%,
+      transparent 72%
+    ) !important;
+  animation: none !important;
+}
+
+.vestibule__light::before,
+.vestibule__light::after,
+.vestibule__dapple-window,
+.vestibule__moss {
+  display: none !important;
+}
+
+
+/* ============================================================
+   VESTIBULE — mushroom wall projection
+   Quiet moving image lives on the side stone only, never the bright opening.
+   ============================================================ */
+
+.vestibule__projection-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.vestibule__projection {
+  position: absolute;
+  top: 10%;
+  bottom: 8%;
+  overflow: hidden;
+  opacity: .20;
+  mix-blend-mode: screen;
+  filter: saturate(.58) contrast(.92) brightness(.90) blur(1.2px);
+}
+
+.vestibule__projection--left {
+  left: 0;
+  width: 29%;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 56% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse at 56% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+}
+
+.vestibule__projection--right {
+  right: 0;
+  width: 29%;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 44% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse at 44% 49%, #000 0 46%, rgba(0,0,0,.84) 64%, rgba(0,0,0,.36) 82%, transparent 100%);
+}
+
+.vestibule__projection-video {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* Keep the central architectural opening clean and legible. */
+.vestibule__projection--left::after,
+.vestibule__projection--right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to center,
+    rgba(0,0,0,0),
+    rgba(0,0,0,.12)
+  );
+  pointer-events: none;
+}
+
+/* This projection replaces all prior synthetic moss/dapple attempts. */
+.vestibule__moss,
+.vestibule__dapple-window {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .15;
+  }
+
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    width: 33%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection-field {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE PROJECTION LOOP REFINEMENT
+   Crossfade duplicated media before the source reaches its end state.
+   ============================================================ */
+
+.vestibule__projection {
+  opacity: .12 !important;
+}
+
+.vestibule__projection-video {
+  opacity: 0 !important;
+  transition: opacity 1.1s ease !important;
+  will-change: opacity;
+}
+
+.vestibule__projection-video.is-active {
+  opacity: 1 !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .09 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection-video {
+    transition: none !important;
+  }
+}
+
+
+/* Vestibule organic movement refinement:
+   slow source playback and mirror the right wall projection so the two fields
+   travel against one another rather than drifting in synchronized lockstep. */
+.vestibule__projection.is-mirrored .vestibule__projection-video {
+  transform: scaleX(-1) scale(1.02) !important;
+}
+
+
+/* Vestibule projection final timing refinement:
+   much slower movement, shorter seam, and near-synchronized cycles so the
+   crossfades register less often while the mirrored motion stays organic. */
+.vestibule__projection-video {
+  transition: opacity .45s ease-in-out !important;
+}
+
+
+/* ============================================================
+   FINAL VIDEO TIGHTENING — Vestibule asymmetry / arrival / exterior shadows
+   ============================================================ */
+
+/* Break the bilateral projection symmetry without changing its overall opacity.
+   The right wall sits slightly lower and larger so the motion feels grown into
+   the architecture rather than mirrored by an effect. */
+.vestibule__projection--right {
+  top: 13% !important;
+  bottom: 5% !important;
+  width: 31% !important;
+}
+
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 54% 54% !important;
+}
+
+/* Landing: rare, low-contrast shadow passage on the left wall only.
+   The source plays intermittently rather than looping continuously. */
+.museum-exterior__shadow-pass {
+  position: absolute;
+  left: 1.5%;
+  top: 11%;
+  width: 36%;
+  height: 72%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transition: opacity 1.2s ease;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 52% 52%, #000 0 48%, rgba(0,0,0,.72) 70%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse at 52% 52%, #000 0 48%, rgba(0,0,0,.72) 70%, transparent 100%);
+}
+
+.museum-exterior__shadow-pass.is-active {
+  opacity: .14;
+}
+
+.museum-exterior__shadow-video {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(1) contrast(1.15) brightness(1.08) blur(1.4px);
+  transform: scale(1.02);
+}
+
+/* Vestibule arrival: a short reverse-feeling settle that lands on the exact
+   still frame, with the UI beginning to appear before the motion fully stops. */
+.vestibule-arrival {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  background: #18201d;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity .16s linear;
+}
+
+.vestibule-arrival__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.vestibule.is-arriving .vestibule__space {
+  opacity: 0;
+  transition: opacity .22s ease-out;
+}
+
+.vestibule.is-arriving.is-handing-off .vestibule__space,
+.vestibule.is-arrived .vestibule__space {
+  opacity: 1;
+}
+
+.vestibule.is-arriving.is-handing-off .vestibule-arrival {
+  opacity: .94;
+}
+
+.vestibule.is-arrived .vestibule-arrival {
+  opacity: 0;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__shadow-pass {
+    width: 42%;
+    left: -4%;
+    opacity: 0;
+  }
+
+  .museum-exterior__shadow-pass.is-active {
+    opacity: .10;
+  }
+
+  .vestibule__projection--right {
+    width: 35% !important;
+    top: 15% !important;
+    bottom: 7% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__shadow-pass,
+  .vestibule-arrival {
+    display: none !important;
+  }
+
+  .vestibule.is-arriving .vestibule__space {
+    opacity: 1 !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE ARRIVAL — launch-safe still animation
+   Replaces the jumpy short pan with a 2.4s reversed camera settle built from
+   the exact room still. No separate transition video is required.
+   ============================================================ */
+
+.vestibule-arrival__video {
+  display: none !important;
+}
+
+.vestibule-arrival__image {
+  position: absolute;
+  inset: 0;
+  background-image: url("/media/architecture/vestibule-arch-desktop.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: saturate(.90) brightness(.92) contrast(.98);
+  transform-origin: 50% 50%;
+  animation: vestibule-arrival-reverse-settle 2.4s cubic-bezier(.22,.58,.18,1) both;
+  will-change: transform;
+}
+
+@keyframes vestibule-arrival-reverse-settle {
+  0% {
+    transform: translate3d(2.1%, .45%, 0) scale(1.055);
+  }
+  62% {
+    transform: translate3d(.55%, .10%, 0) scale(1.016);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .vestibule-arrival__image {
+    background-image: url("/media/architecture/vestibule-arch-mobile.jpg");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule-arrival__image {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* ============================================================
+   EXTERIOR SHADOWS — continuous environmental field
+   Keep the movement present on both walls like distant street/tree shadows,
+   rather than treating it as an occasional foreground event.
+   ============================================================ */
+
+.museum-exterior__shadow-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.museum-exterior__shadow-pass {
+  top: 9% !important;
+  bottom: 7% !important;
+  width: 31% !important;
+  height: auto !important;
+  opacity: .085 !important;
+  transition: none !important;
+  mix-blend-mode: multiply !important;
+}
+
+.museum-exterior__shadow-pass--left {
+  left: 0 !important;
+  right: auto !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 54% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 54% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+}
+
+.museum-exterior__shadow-pass--right {
+  right: 0 !important;
+  left: auto !important;
+  width: 29% !important;
+  top: 12% !important;
+  bottom: 5% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 46% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 46% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+}
+
+.museum-exterior__shadow-video {
+  inset: -6% !important;
+  width: 112% !important;
+  height: 112% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  filter: grayscale(1) contrast(1.06) brightness(1.02) blur(2px) !important;
+  transform: scale(1.025) !important;
+}
+
+.museum-exterior__shadow-pass--right .museum-exterior__shadow-video {
+  transform: scaleX(-1) scale(1.035) !important;
+  object-position: 47% 54% !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__shadow-pass {
+    width: 36% !important;
+    opacity: .065 !important;
+  }
+
+  .museum-exterior__shadow-pass--right {
+    width: 34% !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE EXPERIMENT — project mushrooms into bright courtyard
+   Checkpoint before this experiment: b22fa0b68d9d2f8c2183ac601f400a2549ca584f
+   This override intentionally leaves the component logic untouched so the
+   experiment can be reverted cleanly by removing this block.
+   ============================================================ */
+
+.vestibule__projection-field {
+  z-index: 1 !important;
+}
+
+.vestibule__projection {
+  top: 7% !important;
+  bottom: 14% !important;
+  width: 27% !important;
+  opacity: .115 !important;
+  mix-blend-mode: multiply !important;
+  filter: saturate(.52) contrast(.92) brightness(1.08) blur(1.5px) !important;
+}
+
+.vestibule__projection--left {
+  left: 24% !important;
+  right: auto !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 68% 48%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 68% 48%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+}
+
+.vestibule__projection--right {
+  right: 24% !important;
+  left: auto !important;
+  top: 10% !important;
+  bottom: 12% !important;
+  width: 27% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 32% 50%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 32% 50%, #000 0 42%, rgba(0,0,0,.76) 62%, rgba(0,0,0,.24) 82%, transparent 100%) !important;
+}
+
+.vestibule__projection-video {
+  filter: grayscale(.18) saturate(.72) contrast(.9) brightness(1.12) blur(1.1px) !important;
+}
+
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 48% 52% !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .095 !important;
+    width: 34% !important;
+  }
+
+  .vestibule__projection--left {
+    left: 16% !important;
+  }
+
+  .vestibule__projection--right {
+    right: 16% !important;
+    width: 34% !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE COURTYARD EXPERIMENT — visibility pass
+   Safe checkpoint before this pass: a142f57182fdf97b801ade5e99270e1e0d58fed3
+   Increase recognizability of mushroom forms without changing timing/placement.
+   ============================================================ */
+
+.vestibule__projection {
+  opacity: .145 !important;
+  mix-blend-mode: multiply !important;
+  filter: saturate(.78) contrast(1.02) brightness(1.02) blur(.9px) !important;
+}
+
+.vestibule__projection-video {
+  filter: grayscale(.06) saturate(.92) contrast(1.04) brightness(1.04) blur(.45px) !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .115 !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE COURTYARD EXPERIMENT — extended wall migration
+   Safe checkpoints:
+   - e59c40086f3c9a364ffe4e20853b116d936f7c11 = current legible courtyard version
+   - a142f57182fdf97b801ade5e99270e1e0d58fed3 = softer courtyard version
+   - 24cbf465e58c5621e1ac9be0883fc8f3f3536708 = first courtyard experiment
+   This pass keeps the current visual treatment but expands each projection
+   outward so the moving image can travel from the bright courtyard onto the
+   darker side walls.
+   ============================================================ */
+
+.vestibule__projection--left {
+  left: 4% !important;
+  width: 48% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 70% 49%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 70% 49%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  animation: vestibule-projection-left-migrate 18s ease-in-out infinite alternate !important;
+}
+
+.vestibule__projection--right {
+  right: 4% !important;
+  width: 48% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 30% 50%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 30% 50%,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.56) 18%,
+      #000 38%,
+      #000 66%,
+      rgba(0,0,0,.62) 82%,
+      transparent 100%) !important;
+  animation: vestibule-projection-right-migrate 21s ease-in-out infinite alternate !important;
+}
+
+@keyframes vestibule-projection-left-migrate {
+  0%   { transform: translateX(5.5%) scale(1); }
+  55%  { transform: translateX(0%) scale(1.015); }
+  100% { transform: translateX(-7%) scale(1.025); }
+}
+
+@keyframes vestibule-projection-right-migrate {
+  0%   { transform: translateX(-5%) scale(1.015); }
+  48%  { transform: translateX(0%) scale(1); }
+  100% { transform: translateX(7.5%) scale(1.025); }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    width: 56% !important;
+  }
+
+  .vestibule__projection--left {
+    left: -4% !important;
+  }
+
+  .vestibule__projection--right {
+    right: -4% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE COURTYARD — slower continuous drift + crossfade
+   Safe checkpoint before this pass:
+   6dafafbdb3b3a1c5d7b014fa7c8104ec87180db4
+   ============================================================ */
+
+.vestibule__projection--left,
+.vestibule__projection--right {
+  will-change: transform, opacity;
+}
+
+.vestibule__projection--left {
+  animation:
+    vestibule-projection-left-drift 42s linear infinite alternate,
+    vestibule-projection-left-fade 26s linear infinite !important;
+}
+
+.vestibule__projection--right {
+  animation:
+    vestibule-projection-right-drift 48s linear infinite alternate,
+    vestibule-projection-right-fade 26s linear infinite !important;
+}
+
+@keyframes vestibule-projection-left-drift {
+  0%   { transform: translateX(6%) scale(1.01); }
+  50%  { transform: translateX(-1.5%) scale(1.02); }
+  100% { transform: translateX(-8%) scale(1.03); }
+}
+
+@keyframes vestibule-projection-right-drift {
+  0%   { transform: translateX(-6%) scale(1.02); }
+  50%  { transform: translateX(1.5%) scale(1.01); }
+  100% { transform: translateX(8%) scale(1.03); }
+}
+
+@keyframes vestibule-projection-left-fade {
+  0%   { opacity: .145; }
+  50%  { opacity: .19; }
+  100% { opacity: .155; }
+}
+
+@keyframes vestibule-projection-right-fade {
+  0%   { opacity: .185; }
+  50%  { opacity: .145; }
+  100% { opacity: .19; }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left {
+    animation:
+      vestibule-projection-left-drift 46s linear infinite alternate,
+      vestibule-projection-left-fade 30s linear infinite !important;
+  }
+
+  .vestibule__projection--right {
+    animation:
+      vestibule-projection-right-drift 52s linear infinite alternate,
+      vestibule-projection-right-fade 30s linear infinite !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE COURTYARD — reload reset + slower outward spread
+   Safe checkpoint before this pass:
+   f1a6c6f84e73c2093c7dcefa2c8098086057e81e
+   On every page load the projections begin concentrated in the bright
+   courtyard, then expand outward very slowly. Source-video crossfades
+   remain continuous underneath this spatial migration.
+   ============================================================ */
+
+.vestibule__projection-video {
+  transition: opacity 1.35s linear !important;
+}
+
+.vestibule__projection--left {
+  left: 24% !important;
+  width: 27% !important;
+  opacity: .12 !important;
+  animation:
+    vestibule-projection-left-spread 78s linear forwards,
+    vestibule-projection-left-fade-soft 34s linear infinite !important;
+}
+
+.vestibule__projection--right {
+  right: 24% !important;
+  width: 27% !important;
+  opacity: .125 !important;
+  animation:
+    vestibule-projection-right-spread 84s linear forwards,
+    vestibule-projection-right-fade-soft 37s linear infinite !important;
+}
+
+@keyframes vestibule-projection-left-spread {
+  0% {
+    left: 24%;
+    width: 27%;
+    transform: translateX(0) scale(1);
+  }
+  55% {
+    left: 13%;
+    width: 37%;
+    transform: translateX(-1%) scale(1.008);
+  }
+  100% {
+    left: 4%;
+    width: 48%;
+    transform: translateX(-2.5%) scale(1.015);
+  }
+}
+
+@keyframes vestibule-projection-right-spread {
+  0% {
+    right: 24%;
+    width: 27%;
+    transform: translateX(0) scale(1.005);
+  }
+  52% {
+    right: 13%;
+    width: 37%;
+    transform: translateX(1%) scale(1.01);
+  }
+  100% {
+    right: 4%;
+    width: 48%;
+    transform: translateX(2.5%) scale(1.015);
+  }
+}
+
+@keyframes vestibule-projection-left-fade-soft {
+  0%   { opacity: .115; }
+  50%  { opacity: .135; }
+  100% { opacity: .12; }
+}
+
+@keyframes vestibule-projection-right-fade-soft {
+  0%   { opacity: .13; }
+  50%  { opacity: .112; }
+  100% { opacity: .132; }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left {
+    left: 16% !important;
+    width: 34% !important;
+    opacity: .095 !important;
+    animation:
+      vestibule-projection-left-spread-mobile 82s linear forwards,
+      vestibule-projection-left-fade-soft 38s linear infinite !important;
+  }
+
+  .vestibule__projection--right {
+    right: 16% !important;
+    width: 34% !important;
+    opacity: .10 !important;
+    animation:
+      vestibule-projection-right-spread-mobile 88s linear forwards,
+      vestibule-projection-right-fade-soft 41s linear infinite !important;
+  }
+}
+
+@keyframes vestibule-projection-left-spread-mobile {
+  0%   { left: 16%; width: 34%; transform: translateX(0) scale(1); }
+  100% { left: -4%; width: 56%; transform: translateX(-2%) scale(1.01); }
+}
+
+@keyframes vestibule-projection-right-spread-mobile {
+  0%   { right: 16%; width: 34%; transform: translateX(0) scale(1.005); }
+  100% { right: -4%; width: 56%; transform: translateX(2%) scale(1.01); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vestibule__projection--left,
+  .vestibule__projection--right {
+    animation: none !important;
+  }
+}
+
+
+/* ============================================================
+   VESTIBULE COURTYARD — restore fuller spread
+   Keep current slow playback/crossfade and current opacity.
+   Safe checkpoint before this pass:
+   e609589c141b27d2caf20f282e7365cc1e6922f7
+   ============================================================ */
+
+.vestibule__projection--left {
+  left: 4% !important;
+  width: 48% !important;
+  opacity: .12 !important;
+  animation:
+    vestibule-projection-left-full-drift 78s linear infinite alternate,
+    vestibule-projection-left-fade-soft 34s linear infinite !important;
+}
+
+.vestibule__projection--right {
+  right: 4% !important;
+  width: 48% !important;
+  opacity: .125 !important;
+  animation:
+    vestibule-projection-right-full-drift 84s linear infinite alternate,
+    vestibule-projection-right-fade-soft 37s linear infinite !important;
+}
+
+@keyframes vestibule-projection-left-full-drift {
+  0%   { transform: translateX(2.5%) scale(1.008); }
+  50%  { transform: translateX(-.5%) scale(1.012); }
+  100% { transform: translateX(-3.5%) scale(1.016); }
+}
+
+@keyframes vestibule-projection-right-full-drift {
+  0%   { transform: translateX(-2.5%) scale(1.01); }
+  50%  { transform: translateX(.5%) scale(1.013); }
+  100% { transform: translateX(3.5%) scale(1.016); }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection--left {
+    left: -4% !important;
+    width: 56% !important;
+    opacity: .095 !important;
+    animation:
+      vestibule-projection-left-full-drift 82s linear infinite alternate,
+      vestibule-projection-left-fade-soft 38s linear infinite !important;
+  }
+
+  .vestibule__projection--right {
+    right: -4% !important;
+    width: 56% !important;
+    opacity: .10 !important;
+    animation:
+      vestibule-projection-right-full-drift 88s linear infinite alternate,
+      vestibule-projection-right-fade-soft 41s linear infinite !important;
+  }
+}
+
+
+/* ============================================================
+   LAUNCH VIDEO REFINEMENT — Narthex / Vestibule seam / Exterior door
+   Safe checkpoint before this pass:
+   c8f8118c01197fca02bcb0c76d6d6dd12b3a539c
+   ============================================================ */
+
+/* NARTHEX
+   The prior transition read as an inset rectangle while the visitor was still
+   seeing the previous room. Once the transition is armed, let it become the
+   whole visual field immediately and dissolve rather than grow out of a box. */
+.narthex-transition {
+  margin-top: 0 !important;
+  min-height: 100svh !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background: transparent !important;
+}
+
+.room[data-environment="textile"] .narthex-transition,
+.water-room .narthex-transition {
+  margin-top: 0 !important;
+}
+
+.narthex-transition__frame {
+  opacity: 0 !important;
+  transform: scale(1.008) !important;
+  transition:
+    opacity .8s ease-out,
+    transform 2.8s cubic-bezier(.18,.72,.18,1) !important;
+}
+
+.narthex-transition.is-playing .narthex-transition__frame {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 40 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.narthex-transition.is-playing .narthex-transition__wash {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 41 !important;
+  opacity: .045 !important;
+}
+
+.narthex-transition.is-finishing .narthex-transition__handoff {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+  opacity: 1 !important;
+}
+
+/* VESTIBULE
+   Keep the current full spread/speed/opacity, but wash the exact center just
+   enough that the two projection fields stop announcing their overlap seam. */
+.vestibule__projection-field::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  bottom: 9%;
+  left: 50%;
+  width: min(18vw, 250px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(238, 242, 235, .075) 0%,
+      rgba(231, 238, 231, .05) 28%,
+      rgba(221, 231, 223, .018) 56%,
+      transparent 78%
+    );
+  filter: blur(8px);
+  mix-blend-mode: screen;
+}
+
+/* Slight vertical mismatch prevents doubled mushroom contours from stacking
+   at the center while preserving the current mirrored movement. */
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 48% 56% !important;
+}
+
+/* EXTERIOR
+   A tiny amount of living light on the door itself. This is intentionally
+   weaker than the wall shadows so the door remains architectural, not scenic. */
+.museum-exterior__door {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.museum-exterior__door::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  opacity: .12;
+  background:
+    radial-gradient(ellipse at 28% 34%, rgba(255,244,218,.34) 0 7%, transparent 20%),
+    radial-gradient(ellipse at 67% 48%, rgba(255,246,224,.26) 0 9%, transparent 24%),
+    radial-gradient(ellipse at 42% 76%, rgba(255,240,211,.20) 0 8%, transparent 22%);
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  animation: exterior-door-dapple 19s linear infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes exterior-door-dapple {
+  0% {
+    transform: translate3d(-6%, -3%, 0) scale(1);
+    opacity: .085;
+  }
+  47% {
+    transform: translate3d(4%, 2%, 0) scale(1.05);
+    opacity: .13;
+  }
+  100% {
+    transform: translate3d(-1%, 5%, 0) scale(1.02);
+    opacity: .10;
+  }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection-field::after {
+    width: 24vw;
+    opacity: .85;
+  }
+
+  .museum-exterior__door::before {
+    opacity: .09;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__door::before {
+    animation: none !important;
+    opacity: .08;
+  }
+}
+
+
+/* ============================================================
+   EXTERIOR → VESTIBULE HANDOFF
+   Safe checkpoint before this pass:
+   ce8ca4c355f5eea0052dcffe2356236fe81d8b22
+   ============================================================ */
+
+/* Never let the moving shadow layer arrive before the architecture itself. */
+.museum-exterior__shadow-field {
+  opacity: 0 !important;
+  transition: opacity .55s ease !important;
+}
+
+.museum-exterior__shadow-field.is-ready {
+  opacity: 1 !important;
+}
+
+/* A short darkening bridge removes the hard image-to-image route cut. */
+.museum-exterior__entry-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background: rgba(10, 16, 14, .94);
+  opacity: 0;
+  transition: opacity .26s ease-in;
+}
+
+.museum-exterior.is-entering .museum-exterior__entry-veil {
+  opacity: 1;
+}
+
+.museum-exterior__image {
+  transition: transform .34s ease-out, filter .34s ease-out;
+}
+
+.museum-exterior.is-entering .museum-exterior__image {
+  transform: scale(1.008);
+  filter: brightness(.78);
+}
+
+.museum-exterior.is-entering .museum-exterior__shadow-field,
+.museum-exterior.is-entering .museum-exterior__sign {
+  opacity: 0 !important;
+  transition: opacity .18s linear !important;
+}
+
+/* The Vestibule now emerges out of the same dark field rather than appearing
+   in a single frame after the route changes. */
+.vestibule-arrival {
+  background: #0a100e !important;
+  animation: vestibule-arrival-layer-reveal .34s ease-out both;
+}
+
+@keyframes vestibule-arrival-layer-reveal {
+  0%   { opacity: .08; }
+  100% { opacity: 1; }
+}
+
+.vestibule-arrival__image {
+  animation:
+    vestibule-arrival-image-reveal .34s ease-out both,
+    vestibule-arrival-reverse-settle 2.4s cubic-bezier(.22,.58,.18,1) both !important;
+}
+
+@keyframes vestibule-arrival-image-reveal {
+  0%   { opacity: .18; filter: saturate(.82) brightness(.70) contrast(.98) blur(1.2px); }
+  100% { opacity: 1; filter: saturate(.90) brightness(.92) contrast(.98) blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__entry-veil {
+    transition: none !important;
+  }
+
+  .vestibule-arrival,
+  .vestibule-arrival__image {
+    animation: none !important;
+  }
+}
+
+
+/* ============================================================
+   NARTHEX + VESTIBULE SEAM — focused refinement
+   Safe checkpoint before this pass:
+   f0dfcecb315b81d6f50adb65f25a8b8311a15f7d
+   ============================================================ */
+
+/* NARTHEX
+   Route before the motion falls completely still, then let the matched arrival
+   frame exist only briefly. The room controls should feel like they resolve
+   out of the image, not arrive after a pause. */
+.narthex-transition__handoff {
+  transition: opacity 90ms linear !important;
+}
+
+.narthex-room__ui {
+  animation-delay: .42s !important;
+  animation-duration: .72s !important;
+}
+
+/* Keep the arrival still visually identical to the transition's final image. */
+.narthex-transition__handoff,
+.narthex-room__environment-still {
+  object-position: 50% 50% !important;
+  filter: blur(.18px) saturate(.84) contrast(.91) brightness(.92) !important;
+  transform: scale(1.004) !important;
+}
+
+/* VESTIBULE
+   Remove the bright center wash. It hid the seam by adding another visible
+   layer. Instead, feather each projection itself toward the center so the two
+   moving images merge rather than double. */
+.vestibule__projection-field::after {
+  display: none !important;
+}
+
+.vestibule__projection--left {
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at 55% 49%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+  mask-image:
+    radial-gradient(
+      ellipse at 55% 49%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+}
+
+.vestibule__projection--right {
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at 45% 51%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+  mask-image:
+    radial-gradient(
+      ellipse at 45% 51%,
+      #000 0 34%,
+      rgba(0,0,0,.82) 51%,
+      rgba(0,0,0,.44) 67%,
+      rgba(0,0,0,.14) 80%,
+      transparent 94%
+    ) !important;
+}
+
+/* Keep a slight vertical mismatch so recognizable mushroom contours do not
+   coincide perfectly in the overlap. */
+.vestibule__projection--right .vestibule__projection-video {
+  object-position: 48% 54% !important;
+}
+
+
+/* ============================================================
+   A MISCARRIAGE — VOTIVE GROTTO EXPERIMENT
+   Safe checkpoint before experiment:
+   39e01a0924a0a84a9b30571cc25f18ed8973f7de
+   Uses the archive image files without the olive alcove composites.
+   ============================================================ */
+
+.grotto-section--miscarriage {
+  background: #050505 !important;
+}
+
+.miscarriage-votive-sequence {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(17rem, 34vh, 31rem);
+  padding: 10vh 0 34vh;
+  background:
+    radial-gradient(ellipse 58% 18% at 50% 2%, rgba(45,31,19,.08), transparent 76%),
+    #050505;
+}
+
+.miscarriage-votive {
+  position: relative;
+  width: min(58vw, 46rem);
+  margin: 0;
+  isolation: isolate;
+  opacity: .74;
+  transform: translateY(2.2vh);
+  transition:
+    opacity 1.8s ease,
+    transform 2.4s cubic-bezier(.16,.72,.2,1);
+}
+
+.miscarriage-votive:nth-child(even) {
+  transform: translate(8vw, 2.2vh);
+}
+
+.miscarriage-votive:nth-child(odd) {
+  transform: translate(-7vw, 2.2vh);
+}
+
+.miscarriage-votive--3 {
+  width: min(70vw, 58rem);
+}
+
+.miscarriage-votive--4 {
+  width: min(76vw, 64rem);
+}
+
+.miscarriage-votive--5 {
+  width: min(52vw, 43rem);
+}
+
+.miscarriage-votive img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none;
+  background: transparent;
+  filter:
+    brightness(.76)
+    saturate(.82)
+    contrast(1.035);
+  transition:
+    filter 2.1s ease,
+    box-shadow 2.4s ease;
+}
+
+.miscarriage-votive__light {
+  position: absolute;
+  z-index: 1;
+  inset: -13% -16%;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.88);
+  background:
+    radial-gradient(
+      ellipse at 50% 56%,
+      rgba(255, 188, 99, .23) 0%,
+      rgba(221, 124, 52, .14) 25%,
+      rgba(157, 71, 25, .065) 48%,
+      rgba(80, 34, 14, .02) 66%,
+      transparent 78%
+    );
+  filter: blur(24px);
+  transition:
+    opacity 2.2s ease,
+    transform 2.8s cubic-bezier(.16,.72,.2,1);
+}
+
+.miscarriage-votive.is-lit {
+  opacity: 1;
+}
+
+.miscarriage-votive.is-lit:nth-child(even) {
+  transform: translate(8vw, 0);
+}
+
+.miscarriage-votive.is-lit:nth-child(odd) {
+  transform: translate(-7vw, 0);
+}
+
+.miscarriage-votive.is-lit .miscarriage-votive__light {
+  opacity: .82;
+  transform: scale(1);
+  animation: miscarriage-votive-breathe 7.5s ease-in-out 2.4s infinite alternate;
+}
+
+.miscarriage-votive.is-lit img {
+  filter:
+    brightness(.98)
+    saturate(.96)
+    contrast(1.025);
+  box-shadow:
+    0 0 34px rgba(232, 145, 73, .10),
+    0 0 92px rgba(194, 92, 37, .065);
+}
+
+@keyframes miscarriage-votive-breathe {
+  0% {
+    opacity: .62;
+    transform: scale(.985) translate3d(-.35%, .15%, 0);
+  }
+  48% {
+    opacity: .82;
+    transform: scale(1.015) translate3d(.3%, -.1%, 0);
+  }
+  100% {
+    opacity: .68;
+    transform: scale(1.002) translate3d(-.1%, .25%, 0);
+  }
+}
+
+.miscarriage-votive__title {
+  position: relative;
+  z-index: 3;
+  margin: .8rem 0 0;
+  font: 500 .61rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+  color: rgba(232, 222, 207, .58);
+  text-shadow: 0 1px 5px rgba(0,0,0,.82);
+}
+
+.miscarriage-votive:nth-child(even) .miscarriage-votive__title {
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .miscarriage-votive-sequence {
+    gap: 24vh;
+    padding-bottom: 24vh;
+  }
+
+  .miscarriage-votive,
+  .miscarriage-votive--3,
+  .miscarriage-votive--4,
+  .miscarriage-votive--5 {
+    width: min(84vw, 40rem);
+  }
+
+  .miscarriage-votive:nth-child(even),
+  .miscarriage-votive:nth-child(odd),
+  .miscarriage-votive.is-lit:nth-child(even),
+  .miscarriage-votive.is-lit:nth-child(odd) {
+    transform: translateY(1.6vh);
+  }
+
+  .miscarriage-votive.is-lit:nth-child(even),
+  .miscarriage-votive.is-lit:nth-child(odd) {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .miscarriage-votive,
+  .miscarriage-votive.is-lit {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .miscarriage-votive__light,
+  .miscarriage-votive.is-lit .miscarriage-votive__light {
+    opacity: .65;
+    transform: none;
+    animation: none !important;
+  }
+}
+
+
+/* ============================================================
+   MISCARRIAGE SCALE / LABEL REFINEMENT + CURRENT WALL TEXTURE
+   Safe Miscarriage checkpoint before archive-image experiment:
+   39e01a0924a0a84a9b30571cc25f18ed8973f7de
+   First votive version:
+   8b3bdac4a65e2e3d6f11745ff47093d136554ad3
+   ============================================================ */
+
+/* A Miscarriage: retain the amber backlight exactly, but give each image
+   more surrounding darkness so the encounter feels intimate rather than
+   screen-filling. */
+.miscarriage-votive {
+  width: min(50vw, 40rem) !important;
+}
+
+.miscarriage-votive--3 {
+  width: min(61vw, 50rem) !important;
+}
+
+.miscarriage-votive--4 {
+  width: min(66vw, 55rem) !important;
+}
+
+.miscarriage-votive--5 {
+  width: min(45vw, 37rem) !important;
+}
+
+.miscarriage-votive__title {
+  margin-top: .95rem !important;
+  font-size: .72rem !important;
+  letter-spacing: .085em !important;
+  color: rgba(235, 225, 210, .68) !important;
+}
+
+@media (max-width: 760px) {
+  .miscarriage-votive,
+  .miscarriage-votive--3,
+  .miscarriage-votive--4,
+  .miscarriage-votive--5 {
+    width: min(78vw, 36rem) !important;
+  }
+
+  .miscarriage-votive__title {
+    font-size: .68rem !important;
+  }
+}
+
+/* CURRENT: use the supplied white plaster texture as the architectural field. */
+.current-exhibition {
+  color: rgba(42, 39, 35, .88) !important;
+  background-color: #f3f1ec !important;
+  background-image:
+    linear-gradient(rgba(248,247,243,.18), rgba(238,235,229,.18)),
+    url("/media/architecture/current-wall-texture.webp") !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed !important;
+}
+
+.current-exhibition .work-intro-card {
+  background: rgba(249, 247, 242, .68) !important;
+  border-color: rgba(75, 67, 57, .08) !important;
+  color: rgba(42,39,35,.88) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.current-exhibition .work-intro-card h1,
+.current-exhibition .work-intro-card__room,
+.current-exhibition .work-intro-card__statement,
+.current-room__return {
+  color: rgba(42,39,35,.82) !important;
+}
+
+
+/* ============================================================
+   GARDEN → MISCARRIAGE DESCENT
+   Keep the current votive Miscarriage installation intact.
+   The transition now resolves gradually into the exact black of the
+   Miscarriage chamber instead of ending as a visible background cut.
+   ============================================================ */
+
+.exhibition-transition--garden-grotto {
+  height: 195vh !important;
+  margin-top: -30vh !important;
+  margin-bottom: -12vh !important;
+  background-color: #050505 !important;
+  isolation: isolate;
+}
+
+/* Preserve the existing architectural transition image, but let its lower
+   half disappear into the chamber darkness over a long distance. */
+.exhibition-transition--garden-grotto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,0) 0%,
+      rgba(5,5,5,.02) 34%,
+      rgba(5,5,5,.12) 48%,
+      rgba(5,5,5,.34) 62%,
+      rgba(5,5,5,.62) 76%,
+      rgba(5,5,5,.86) 89%,
+      #050505 100%
+    );
+}
+
+/* The beginning of the black chamber overlaps the dying transition so there
+   is no single horizontal moment where "Garden" becomes "Grotto." */
+.grotto-section--miscarriage {
+  position: relative;
+}
+
+.grotto-section--miscarriage::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -22vh;
+  left: 50%;
+  width: 100vw;
+  height: 34vh;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,0) 0%,
+      rgba(5,5,5,.56) 42%,
+      #050505 100%
+    );
+}
+
+.grotto-section--miscarriage > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 760px) {
+  .exhibition-transition--garden-grotto {
+    height: 150vh !important;
+    margin-top: -16vh !important;
+    margin-bottom: -8vh !important;
+  }
+
+  .grotto-section--miscarriage::before {
+    top: -14vh;
+    height: 24vh;
+  }
+}
+
+
+/* ============================================================
+   CURRENT — EMBER-LIT ANNEX
+   Safe checkpoint before this pass:
+   776214772510d484bcb9c7759a8b0076cee18a50
+   Keep Current as an installed room, distinct from Index / Archive.
+   ============================================================ */
+
+.current-exhibition {
+  position: relative;
+  isolation: isolate;
+  color: rgba(238, 229, 214, .86) !important;
+  background-color: #17120e !important;
+  background-image:
+    linear-gradient(rgba(22,16,12,.78), rgba(18,13,10,.90)),
+    url("/media/architecture/current-wall-texture.webp") !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed !important;
+}
+
+.current-exhibition::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 52% 34% at 34% 22%, rgba(179,83,31,.08), transparent 72%),
+    radial-gradient(ellipse 48% 38% at 70% 68%, rgba(210,120,47,.055), transparent 75%);
+}
+
+.current-exhibition .work-intro-card {
+  background: rgba(224, 211, 190, .10) !important;
+  border-color: rgba(231, 216, 194, .07) !important;
+  box-shadow: none !important;
+  color: rgba(232,223,208,.82) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.current-exhibition .work-intro-card h1 {
+  color: rgba(239,230,214,.88) !important;
+}
+
+.current-exhibition .work-intro-card__room {
+  color: rgba(222,208,187,.54) !important;
+}
+
+.current-exhibition .work-intro-card__statement {
+  color: rgba(230,218,200,.70) !important;
+}
+
+.current-room__return {
+  color: rgba(226,214,195,.66) !important;
+}
+
+.current-ember-sequence {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(15rem, 30vh, 27rem);
+  padding: 4vh 5vw 22vh;
+}
+
+.current-ember-work {
+  position: relative;
+  width: min(48vw, 43rem);
+  margin: 0;
+  isolation: isolate;
+  opacity: .78;
+  transform: translateY(1.8vh);
+  transition:
+    opacity 1.7s ease,
+    transform 2.2s cubic-bezier(.16,.72,.2,1);
+}
+
+.current-ember-work:nth-child(3n + 1) {
+  transform: translate(-7vw, 1.8vh);
+}
+
+.current-ember-work:nth-child(3n + 2) {
+  transform: translate(7vw, 1.8vh);
+}
+
+.current-ember-work:nth-child(3n) {
+  width: min(54vw, 48rem);
+}
+
+.current-ember-work.is-lit {
+  opacity: 1;
+}
+
+.current-ember-work.is-lit:nth-child(3n + 1) {
+  transform: translate(-7vw, 0);
+}
+
+.current-ember-work.is-lit:nth-child(3n + 2) {
+  transform: translate(7vw, 0);
+}
+
+.current-ember-work.is-lit:nth-child(3n) {
+  transform: translateY(0);
+}
+
+.current-ember-work img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  /* non-destructive shave for thin baked-in export borders */
+  clip-path: inset(.34%);
+  filter: brightness(.90) saturate(.90) contrast(1.02);
+  transition: filter 2s ease;
+}
+
+.current-ember-work__glow {
+  position: absolute;
+  z-index: 1;
+  inset: -18% -20%;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.9);
+  background:
+    radial-gradient(
+      ellipse at 50% 54%,
+      rgba(255, 185, 91, .21) 0%,
+      rgba(218, 111, 42, .12) 28%,
+      rgba(139, 57, 21, .05) 52%,
+      transparent 76%
+    );
+  filter: blur(28px);
+  transition: opacity 2.2s ease, transform 2.7s cubic-bezier(.16,.72,.2,1);
+}
+
+.current-ember-work.is-lit .current-ember-work__glow {
+  opacity: .72;
+  transform: scale(1);
+  animation: current-ember-breathe 9s ease-in-out 2.6s infinite alternate;
+}
+
+.current-ember-work.is-lit img {
+  filter: brightness(1) saturate(.98) contrast(1.02);
+}
+
+@keyframes current-ember-breathe {
+  0%   { opacity: .50; transform: scale(.99) translate3d(-.2%, .1%, 0); }
+  52%  { opacity: .73; transform: scale(1.012) translate3d(.2%, -.08%, 0); }
+  100% { opacity: .58; transform: scale(1.002) translate3d(-.1%, .18%, 0); }
+}
+
+/* MISCARRIAGE — soften title-card whites toward bone. */
+.grotto-section--miscarriage .work-intro-card {
+  color: rgba(224, 214, 197, .78) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card h1 {
+  color: rgba(231, 221, 203, .84) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card__room {
+  color: rgba(211, 198, 178, .48) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card__statement {
+  color: rgba(218, 205, 185, .66) !important;
+}
+
+/* Thin baked export margins: shave only a fraction of a percent from the
+   two rooms where the borders are presently visible. This is reversible and
+   avoids recompressing the source photographs. */
+.miscarriage-votive img {
+  clip-path: inset(.34%);
+}
+
+@media (max-width: 760px) {
+  .current-ember-sequence {
+    gap: 22vh;
+    padding-inline: 6vw;
+  }
+
+  .current-ember-work,
+  .current-ember-work:nth-child(3n) {
+    width: min(82vw, 38rem);
+  }
+
+  .current-ember-work:nth-child(3n + 1),
+  .current-ember-work:nth-child(3n + 2),
+  .current-ember-work.is-lit:nth-child(3n + 1),
+  .current-ember-work.is-lit:nth-child(3n + 2) {
+    transform: translateY(1.2vh);
+  }
+
+  .current-ember-work.is-lit:nth-child(3n + 1),
+  .current-ember-work.is-lit:nth-child(3n + 2) {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .current-ember-work,
+  .current-ember-work.is-lit {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .current-ember-work__glow,
+  .current-ember-work.is-lit .current-ember-work__glow {
+    opacity: .58;
+    transform: none;
+    animation: none !important;
+  }
+}
+
+
+/* ============================================================
+   READING ROOM / CURRENT / MAP — late launch refinement
+   Safe checkpoint before this pass:
+   d67531c685fba24724d4a3fc0f650dd38cd59b9c
+   ============================================================ */
+
+/* CURRENT — make the ember field materially present, not merely decorative. */
+.current-exhibition::before {
+  background:
+    radial-gradient(ellipse 58% 40% at 34% 22%, rgba(211, 105, 38, .14), transparent 70%),
+    radial-gradient(ellipse 54% 42% at 70% 68%, rgba(232, 139, 55, .10), transparent 73%) !important;
+}
+
+.current-ember-work__glow {
+  inset: -22% -24% !important;
+  background:
+    radial-gradient(
+      ellipse at 50% 54%,
+      rgba(255, 191, 96, .30) 0%,
+      rgba(230, 121, 45, .18) 29%,
+      rgba(151, 61, 22, .075) 54%,
+      transparent 78%
+    ) !important;
+  filter: blur(31px) !important;
+}
+
+.current-ember-work.is-lit .current-ember-work__glow {
+  opacity: .90 !important;
+}
+
+@keyframes current-ember-breathe-stronger {
+  0%   { opacity: .66; transform: scale(.99) translate3d(-.2%, .1%, 0); }
+  52%  { opacity: .92; transform: scale(1.014) translate3d(.2%, -.08%, 0); }
+  100% { opacity: .72; transform: scale(1.003) translate3d(-.1%, .18%, 0); }
+}
+
+.current-ember-work.is-lit .current-ember-work__glow {
+  animation: current-ember-breathe-stronger 9.5s ease-in-out 2.6s infinite alternate !important;
+}
+
+/* READING ROOM — use the atmospheric right side of the source image as raw
+   material, not as an illustrative chair photograph. */
+.reading-room-page {
+  background: #17100c !important;
+  color: #eadbc8 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.reading-room-page__image {
+  background-image:
+    linear-gradient(90deg, rgba(13,9,7,.70) 0%, rgba(13,9,7,.48) 34%, rgba(13,9,7,.20) 62%, rgba(8,6,5,.42) 100%),
+    radial-gradient(ellipse at 72% 68%, rgba(225,151,72,.14), transparent 30%),
+    url("/media/reading-room/reading-room-background.jpg") !important;
+  background-size: cover, cover, 155% auto !important;
+  background-position: center, center, 88% center !important;
+  filter: saturate(.66) brightness(.53) blur(3px) !important;
+  transform: scale(1.07) !important;
+}
+
+.reading-room-page__veil {
+  background:
+    radial-gradient(ellipse at 70% 68%, rgba(213,139,63,.12), transparent 26%),
+    linear-gradient(90deg, rgba(8,6,5,.50), rgba(8,6,5,.12) 42%, rgba(8,6,5,.28) 100%),
+    linear-gradient(to bottom, rgba(8,6,5,.03), rgba(8,6,5,.38)) !important;
+  backdrop-filter: blur(2.5px) !important;
+}
+
+.reading-room-page__content {
+  width: min(860px, 84vw) !important;
+  margin-left: clamp(7vw, 10vw, 12vw) !important;
+  margin-right: auto !important;
+  padding: clamp(6.5rem, 11vh, 9rem) 0 7rem !important;
+  background: transparent !important;
+}
+
+.reading-room-title-card {
+  width: min(760px, 100%) !important;
+  padding: clamp(2rem, 4vw, 3.2rem) !important;
+  border: 1px solid rgba(229,209,183,.12) !important;
+  background:
+    linear-gradient(180deg, rgba(72,48,34,.27), rgba(35,22,16,.18)) !important;
+  color: #e8d8c4 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,246,234,.018),
+    0 28px 80px rgba(0,0,0,.24) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.reading-room-title-card__room {
+  color: rgba(225,207,184,.68) !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: .72rem !important;
+  letter-spacing: .18em !important;
+}
+
+.reading-room-title-card h1 {
+  color: #eadbc8 !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(4rem, 8vw, 6.8rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.055em !important;
+  line-height: .94 !important;
+}
+
+.reading-room-shelf {
+  width: min(760px, 100%) !important;
+  gap: 1.15rem !important;
+  margin-top: clamp(3rem, 7vh, 5rem) !important;
+}
+
+.reading-room-poem-card {
+  grid-template-columns: minmax(170px,.8fr) minmax(260px,1.35fr) !important;
+  padding: clamp(1.5rem, 3vw, 2.1rem) !important;
+  border: 1px solid rgba(229,209,183,.11) !important;
+  background:
+    linear-gradient(180deg, rgba(66,43,31,.26), rgba(31,20,15,.18)) !important;
+  color: #e8d8c4 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,246,234,.012),
+    0 18px 48px rgba(0,0,0,.18) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transform: none !important;
+}
+
+.reading-room-poem-card:hover,
+.reading-room-poem-card:focus-visible {
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(214,132,55,.13), transparent 42%),
+    linear-gradient(180deg, rgba(72,47,33,.34), rgba(34,21,15,.22)) !important;
+}
+
+.reading-room-poem-card h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(1.55rem, 2.5vw, 2.35rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.025em !important;
+  color: #eadbc8 !important;
+}
+
+.reading-room-poem-card__heading p {
+  color: rgba(221,203,179,.58) !important;
+}
+
+.reading-room-poem-card__preview {
+  color: rgba(233,219,200,.76) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: .98rem !important;
+  line-height: 1.6 !important;
+}
+
+.reading-room-page__return {
+  color: rgba(226,210,189,.70) !important;
+}
+
+/* MAP — optical refinements requested during launch QA. */
+.museum-map__room--canonical[data-room="current"] {
+  justify-content: flex-end !important;
+  padding-top: .25rem !important;
+  padding-bottom: .65rem !important;
+}
+
+.museum-map__room--canonical[data-room="current"] .museum-map__room-name {
+  transform: translateY(3px);
+}
+
+.museum-map__room--canonical[data-room="film-room"] {
+  padding: .15rem !important;
+}
+
+.museum-map__room--canonical[data-room="film-room"] .museum-map__room-name {
+  font-size: 8.5px !important;
+  letter-spacing: .10em !important;
+}
+
+.museum-map__room--canonical[data-room="rear-gallery"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="front-gallery"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="exterior"] .museum-map__room-name {
+  color: #191817 !important;
+  opacity: 1 !important;
+}
+
+.museum-map__room--canonical[data-room="rear-gallery"],
+.museum-map__room--canonical[data-room="front-gallery"],
+.museum-map__room--canonical[data-room="exterior"] {
+  color: #191817 !important;
+  opacity: 1 !important;
+}
+
+/* Exterior mirrors Exit as a compact terminal outside the Vestibule. */
+.museum-map__room--canonical[data-room="exterior"],
+.museum-map__room--canonical[data-room="exit-exterior"] {
+  padding: .15rem .35rem !important;
+}
+
+.museum-map__room--canonical[data-room="exterior"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="exit-exterior"] .museum-map__room-name {
+  font-size: 9px !important;
+  letter-spacing: .14em !important;
+}
+
+@media (max-width: 760px) {
+  .reading-room-page__content {
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
+    padding-top: 5rem !important;
+  }
+
+  .reading-room-page__image {
+    background-size: cover, cover, 210% auto !important;
+    background-position: center, center, 82% center !important;
+  }
+
+  .reading-room-poem-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ============================================================
+   READING ROOM TYPE / MAP OPTICS / TARGETED BORDER SHAVE
+   Review checkpoint before this pass:
+   068f5941034b1ea5dbca30f0b68e632e97ff785b
+   ============================================================ */
+
+/* READING ROOM — keep the improved architecture, but let the display type
+   feel more literary/editorial and less like interface typography. */
+.reading-room-title-card h1,
+.reading-room-poem-card h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif !important;
+  font-weight: 400 !important;
+}
+
+.reading-room-title-card h1 {
+  letter-spacing: -.045em !important;
+}
+
+.reading-room-poem-card h2 {
+  letter-spacing: -.02em !important;
+  line-height: 1.04 !important;
+}
+
+/* MAP — optical centering, not geometric centering. */
+.museum-map__room--canonical[data-room="current"] {
+  justify-content: center !important;
+  padding-top: .45rem !important;
+  padding-bottom: .25rem !important;
+}
+
+.museum-map__room--canonical[data-room="current"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="current"] .museum-map__collections {
+  transform: translateY(5px) !important;
+}
+
+.museum-map__room--canonical[data-room="garden"] {
+  justify-content: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.museum-map__room--canonical[data-room="garden"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="garden"] .museum-map__collections {
+  transform: translateY(3px) !important;
+}
+
+/* TARGETED BAKED-IN WHITE BORDER CLEANUP
+   Non-destructive visual shave. Only the works specifically flagged in QA. */
+.current-ember-work:nth-child(1) img,
+.current-ember-work:nth-child(3) img,
+.current-ember-work:nth-child(4) img,
+.current-ember-work:nth-child(7) img,
+.current-ember-work:nth-child(9) img,
+.garden-section--taste-and-see .artwork-image:nth-child(2) img,
+.miscarriage-votive:nth-child(2) img,
+.grotto-section--phase .artwork-image:nth-child(1) img,
+.grotto-section--phase .artwork-image:nth-child(2) img,
+.water-room-installation .artwork-image:nth-child(4) img,
+.water-room-installation .artwork-image:nth-child(5) img,
+.water-room-installation .artwork-image:nth-child(8) img {
+  clip-path: inset(.72%) !important;
+}
+
+
+/* ============================================================
+   READING ROOM TYPE / CURRENT MAP / BORDER CLEANUP — refinement
+   Checkpoint before this pass:
+   7130c022ff92fcaaadf755678dd2840698758a95
+   ============================================================ */
+
+/* READING ROOM — split the difference:
+   keep one literary display gesture for "Poems", but return individual
+   poem titles to the site's quieter contemporary sans language. */
+.reading-room-title-card h1 {
+  font-family: Baskerville, "Iowan Old Style", "Times New Roman", serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -.042em !important;
+}
+
+.reading-room-poem-card h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -.018em !important;
+  line-height: 1.06 !important;
+}
+
+/* MAP — enlarged Current annex now has enough breathing room for the full
+   work title; center the content without the previous downward correction. */
+.museum-map__room--canonical[data-room="current"] {
+  justify-content: center !important;
+  padding: .45rem .8rem !important;
+}
+
+.museum-map__room--canonical[data-room="current"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="current"] .museum-map__collections {
+  transform: translateY(1px) !important;
+}
+
+/* TARGETED BAKED BORDER SHAVE — second pass.
+   A tiny scale-up fills the clipped perimeter so no background halo appears. */
+.red-thread-installation .artwork-image:nth-child(8) img,
+.red-thread-installation .artwork-image:nth-child(9) img,
+.water-room-installation .artwork-image:nth-child(4) img,
+.current-ember-work:nth-child(3) img,
+.current-ember-work:nth-child(7) img,
+.current-ember-work:nth-child(9) img {
+  clip-path: inset(1.15%) !important;
+  transform: scale(1.024) !important;
+  transform-origin: center center !important;
+}
+
+
+/* ============================================================
+   INDEX CURATION + INSTALLATION SIZING — launch refinement
+   Checkpoint before this pass:
+   2ec4bc6af6bfab6b2e4aa32284c2aaa55db793bf
+   ============================================================ */
+
+/* READING ROOM — poem titles should support the poems, not compete with "Poems". */
+.reading-room-poem-card h2 {
+  font-size: clamp(1.35rem, 2.05vw, 1.95rem) !important;
+}
+
+/* CURRENT MAP — geometry moved outward in MuseumMap.tsx; keep text optically centered. */
+.museum-map__room--canonical[data-room="current"] {
+  padding: .45rem .8rem !important;
+}
+
+/* INSTALLATION SCALE — targeted works only. */
+.current-ember-work:nth-child(11) {
+  width: min(60vw, 54rem) !important;
+}
+
+.threshold-pair--02 .threshold-pair__image--a {
+  transform: scale(1.12) !important;
+  transform-origin: center center !important;
+  position: relative;
+  z-index: 2;
+}
+
+.red-thread-installation .artwork-image:nth-child(4) {
+  width: min(78vw, 66rem) !important;
+}
+
+.red-thread-installation .artwork-image:nth-child(7),
+.red-thread-installation .artwork-image:nth-child(8),
+.red-thread-installation .artwork-image:nth-child(9),
+.red-thread-installation .artwork-image:nth-child(10) {
+  width: min(80vw, 68rem) !important;
+}
+
+.red-thread-installation .artwork-image:nth-child(8),
+.red-thread-installation .artwork-image:nth-child(9),
+.red-thread-installation .artwork-image:nth-child(10) {
+  margin-top: clamp(4rem, 8vh, 7rem) !important;
+}
+
+.red-thread-installation .artwork-image:nth-child(9),
+.red-thread-installation .artwork-image:nth-child(10) {
+  margin-bottom: clamp(3rem, 6vh, 5rem) !important;
+}
+
+.membrane-installation .artwork-image:nth-child(4) {
+  width: min(84vw, 72rem) !important;
+}
+
+.water-room-installation .artwork-image:nth-child(4) {
+  width: min(80vw, 68rem) !important;
+}
+
+/* Body of Water 4 — asymmetric shave because the remaining export margin is on the left. */
+.water-room-installation .artwork-image:nth-child(4) img {
+  clip-path: inset(1.25% 1.1% 1.25% 2.25%) !important;
+  transform: scale(1.035) !important;
+  transform-origin: 54% center !important;
+}
+
+/* INDEX — selected series should read as edited contact fields, not rows of
+   equal white presentation cards. Intrinsic aspect ratio leads; whitespace
+   becomes rhythmic rather than a fixed frame around every photograph. */
+.index-work[data-work-id="daffodils"] .index-work__grid,
+.index-work[data-work-id="fear-not"] .index-work__grid,
+.index-work[data-work-id="threshold"] .index-work__grid,
+.index-work[data-work-id="red-thread"] .index-work__grid,
+.index-work[data-work-id="body-of-water"] .index-work__grid,
+.index-work[data-work-id="maria"] .index-work__grid {
+  display: block !important;
+  columns: 4 230px !important;
+  column-gap: clamp(1rem, 1.7vw, 1.6rem) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb,
+.index-work[data-work-id="fear-not"] .index-thumb,
+.index-work[data-work-id="threshold"] .index-thumb,
+.index-work[data-work-id="red-thread"] .index-thumb,
+.index-work[data-work-id="body-of-water"] .index-thumb,
+.index-work[data-work-id="maria"] .index-thumb {
+  break-inside: avoid !important;
+  margin: 0 0 clamp(1rem, 1.7vw, 1.65rem) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="threshold"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="body-of-water"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="maria"] .index-thumb .artwork-lightbox-trigger {
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb img,
+.index-work[data-work-id="fear-not"] .index-thumb img,
+.index-work[data-work-id="threshold"] .index-thumb img,
+.index-work[data-work-id="red-thread"] .index-thumb img,
+.index-work[data-work-id="body-of-water"] .index-thumb img,
+.index-work[data-work-id="maria"] .index-thumb img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+/* Different densities keep each body of work from feeling templated. */
+.index-work[data-work-id="daffodils"] .index-work__grid {
+  columns: 5 200px !important;
+}
+
+.index-work[data-work-id="fear-not"] .index-work__grid {
+  columns: 3 280px !important;
+  max-width: 1180px;
+}
+
+.index-work[data-work-id="threshold"] .index-work__grid {
+  columns: 3 300px !important;
+  max-width: 1220px;
+}
+
+.index-work[data-work-id="red-thread"] .index-work__grid {
+  columns: 5 205px !important;
+}
+
+.index-work[data-work-id="body-of-water"] .index-work__grid {
+  columns: 4 245px !important;
+}
+
+.index-work[data-work-id="maria"] .index-work__grid {
+  columns: 4 245px !important;
+}
+
+/* Threshold retains a diptych cadence inside the looser field. */
+.index-work[data-work-id="threshold"] .index-thumb:nth-child(2n) {
+  margin-bottom: clamp(2rem, 4vh, 3.5rem) !important;
+}
+
+/* Red Thread needs more air in the final movement. */
+.index-work[data-work-id="red-thread"] .index-thumb:nth-child(n+8) {
+  margin-bottom: clamp(2rem, 4vh, 3.25rem) !important;
+}
+
+/* Maria: give the final image a stronger terminal presence in the index too. */
+.index-work[data-work-id="maria"] .index-thumb:last-child {
+  width: 116%;
+}
+
+@media (max-width: 900px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    columns: 2 180px !important;
+    max-width: none !important;
+  }
+
+  .index-work[data-work-id="maria"] .index-thumb:last-child {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    columns: 1 !important;
+  }
+}
+
+
+/* ============================================================
+   INDEX — CURATOR QUICK-VIEW RESET
+   The previous masonry/contact-field experiment was too installation-like.
+   Restore uniform thumbnail grids for rapid curator scanning while keeping
+   the full image visible (no cropping).
+   Checkpoint before reset:
+   f39839bbeaaffcb3daae708b3629247bc2efa751
+   ============================================================ */
+
+.index-work[data-work-id="daffodils"] .index-work__grid,
+.index-work[data-work-id="fear-not"] .index-work__grid,
+.index-work[data-work-id="threshold"] .index-work__grid,
+.index-work[data-work-id="red-thread"] .index-work__grid,
+.index-work[data-work-id="body-of-water"] .index-work__grid,
+.index-work[data-work-id="maria"] .index-work__grid {
+  display: grid !important;
+  columns: initial !important;
+  gap: clamp(.8rem, 1.2vw, 1.15rem) !important;
+  align-items: stretch !important;
+  max-width: none !important;
+}
+
+/* Deliberate row counts for quick visual comparison. */
+.index-work[data-work-id="daffodils"] .index-work__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="fear-not"] .index-work__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="threshold"] .index-work__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="red-thread"] .index-work__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="body-of-water"] .index-work__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="maria"] .index-work__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb,
+.index-work[data-work-id="fear-not"] .index-thumb,
+.index-work[data-work-id="threshold"] .index-thumb,
+.index-work[data-work-id="red-thread"] .index-thumb,
+.index-work[data-work-id="body-of-water"] .index-thumb,
+.index-work[data-work-id="maria"] .index-thumb {
+  width: auto !important;
+  break-inside: auto !important;
+  margin: 0 !important;
+}
+
+/* Uniform presentation cells; page-colored backing avoids the glaring white
+   bands from the earlier fixed cards while preserving every full photograph. */
+.index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="threshold"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="body-of-water"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="maria"] .index-thumb .artwork-lightbox-trigger {
+  height: clamp(190px, 20vw, 285px) !important;
+  min-height: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: clamp(.35rem, .55vw, .6rem) !important;
+  background: rgba(238,232,220,.42) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb img,
+.index-work[data-work-id="fear-not"] .index-thumb img,
+.index-work[data-work-id="threshold"] .index-thumb img,
+.index-work[data-work-id="red-thread"] .index-thumb img,
+.index-work[data-work-id="body-of-water"] .index-thumb img,
+.index-work[data-work-id="maria"] .index-thumb img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+/* Cancel the previous special-case sizing inside the Index only. */
+.index-work[data-work-id="maria"] .index-thumb:last-child,
+.index-work[data-work-id="threshold"] .index-thumb:nth-child(2n),
+.index-work[data-work-id="red-thread"] .index-thumb:nth-child(n+8) {
+  width: auto !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 1100px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="threshold"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="body-of-water"] .index-thumb .artwork-lightbox-trigger,
+  .index-work[data-work-id="maria"] .index-thumb .artwork-lightbox-trigger {
+    height: 210px !important;
+  }
+}
+
+
+/* ============================================================
+   FINAL DETAIL PASS — installation / index / archive / map
+   Checkpoint before this pass:
+   c1b70413d36d90d436ea5f6b840189aed1385e27
+   ============================================================ */
+
+/* READING ROOM — titles still felt too large relative to the poem text. */
+.reading-room-poem-card h2 {
+  font-size: clamp(1.02rem, 1.35vw, 1.42rem) !important;
+  line-height: 1.08 !important;
+}
+
+/* CURRENT — terminal Maria image should register as the final visual event. */
+.current-ember-work:nth-child(11) {
+  width: min(72vw, 64rem) !important;
+}
+
+/* RED THREAD — image 4 remains too recessive. */
+.red-thread-installation .artwork-image:nth-child(4) {
+  width: min(90vw, 78rem) !important;
+}
+
+/* MEMBRANE — image 2 had become too dominant. */
+.membrane-installation .artwork-image:nth-child(2) {
+  width: min(56vw, 47rem) !important;
+}
+
+/* BODY OF WATER 4 — remove the stubborn baked white edge on the left. */
+.water-room-installation .artwork-image:nth-child(4) img {
+  clip-path: inset(1.5% 1.2% 1.5% 5.4%) !important;
+  transform: scale(1.085) !important;
+  transform-origin: 61% center !important;
+}
+
+/* INDEX — curator-facing quick scan remains uniform. Daffodils needs the
+   strongest normalization because its portrait/landscape mix was still
+   reading as irregular cards. */
+.index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger {
+  aspect-ratio: 4 / 5 !important;
+  height: auto !important;
+  padding: .65rem !important;
+  background: rgba(238,232,220,.60) !important;
+  border: 1px solid rgba(73,64,52,.05) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* Fear Not: keep the successful single-row scan; image 4 may remain a little
+   smaller because preserving the full landscape frame is preferable to crop. */
+.index-work[data-work-id="fear-not"] .index-work__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+/* Maria: final image spans two cells so it reads as the closing image rather
+   than a small leftover thumbnail. */
+.index-work[data-work-id="maria"] .index-thumb:last-child {
+  grid-column: span 2 !important;
+  width: auto !important;
+}
+
+.index-work[data-work-id="maria"] .index-thumb:last-child .artwork-lightbox-trigger {
+  height: clamp(210px, 21vw, 310px) !important;
+}
+
+/* ARCHIVE — Body of Water should read as a clean research grid rather than
+   a broken masonry wall. */
+.archive-work[data-work-id="body-of-water"] .archive-work__grid {
+  columns: initial !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.9rem, 1.4vw, 1.35rem) !important;
+  align-items: start !important;
+}
+
+.archive-work[data-work-id="body-of-water"] .archive-image {
+  margin: 0 !important;
+  break-inside: auto !important;
+}
+
+.archive-work[data-work-id="body-of-water"] .archive-image .artwork-lightbox-trigger {
+  display: grid !important;
+  place-items: center !important;
+  min-height: clamp(210px, 22vw, 310px) !important;
+  padding: .45rem !important;
+  background: rgba(238,232,220,.42) !important;
+}
+
+.archive-work[data-work-id="body-of-water"] .archive-image img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 300px !important;
+  object-fit: contain !important;
+}
+
+/* MAP — center Archive label precisely within its room box. */
+.museum-map__room--canonical[data-room="archive"] {
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+.museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 900px) {
+  .archive-work[data-work-id="body-of-water"] .archive-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .index-work[data-work-id="maria"] .index-thumb:last-child {
+    grid-column: span 2 !important;
+  }
+
+  .archive-work[data-work-id="body-of-water"] .archive-work__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ============================================================
+   FINAL SPACING / CROP CORRECTIONS
+   Checkpoint before this pass:
+   3108ce15086430726e3a562df586ac115d7090cc
+   ============================================================ */
+
+/* DAFFODILS — image 6 is the small black-and-white landscape. The generic
+   varied-layout rule was pinning every 3rd image to the right; move this one
+   deliberately to the far left. */
+.garden-section--daffodils .art-sequence--varied .artwork-image:nth-child(6) {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* RED ROOM — give Membrane a clearer architectural threshold after Red Thread. */
+.room[data-environment="textile"] .red-room-passage {
+  height: 56vh !important;
+  margin-top: 10vh !important;
+  margin-bottom: 10vh !important;
+}
+
+.room[data-environment="textile"] .red-room-project--membrane {
+  padding-top: clamp(8rem, 16vh, 13rem) !important;
+}
+
+/* BODY OF WATER 4 — physically crop the stubborn baked left edge by using
+   the figure as a viewport and shifting the image beyond it. */
+.water-room-installation .artwork-image:nth-child(4) {
+  overflow: hidden !important;
+}
+
+.water-room-installation .artwork-image:nth-child(4) img {
+  clip-path: none !important;
+  width: 106% !important;
+  max-width: none !important;
+  transform: translateX(-3.8%) scale(1.035) !important;
+  transform-origin: center center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* ============================================================
+   HARD-TARGETED CORRECTIONS
+   The prior nth-child overrides were not reliably winning against older
+   installation CSS. These selectors use explicit artwork data hooks.
+   ============================================================ */
+
+/* DAFFODILS — move the black-and-white sixth work decisively to the left. */
+.garden-section--daffodils .artwork-image[data-artwork-index="6"] {
+  justify-self: start !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  transform: translateX(-11vw) !important;
+}
+
+/* RED THREAD → MEMBRANE — restore a real threshold between bodies of work. */
+.room[data-environment="textile"] .red-room-passage {
+  min-height: 68vh !important;
+  height: 68vh !important;
+  margin-top: 16vh !important;
+  margin-bottom: 16vh !important;
+}
+
+.room[data-environment="textile"] .red-room-project--membrane {
+  margin-top: 18vh !important;
+  padding-top: 12vh !important;
+}
+
+@media (max-width: 760px) {
+  .garden-section--daffodils .artwork-image[data-artwork-index="6"] {
+    transform: none !important;
+    margin-inline: auto !important;
+  }
+
+  .room[data-environment="textile"] .red-room-passage {
+    min-height: 44vh !important;
+    height: 44vh !important;
+    margin-block: 10vh !important;
+  }
+
+  .room[data-environment="textile"] .red-room-project--membrane {
+    margin-top: 10vh !important;
+    padding-top: 8vh !important;
+  }
+}
+
+
+/* ============================================================
+   BODY OF WATER 4 — SOURCE BORDER CROP CORRECTION
+   Replaces the prior viewport shift that exposed white on three sides.
+   ============================================================ */
+.water-room-installation .artwork-image[data-artwork-index="4"] {
+  overflow: hidden !important;
+}
+
+.water-room-installation .artwork-image[data-artwork-index="4"] img {
+  display: block !important;
+  position: static !important;
+  left: auto !important;
+  width: calc(100% + 4.5%) !important;
+  max-width: none !important;
+  height: auto !important;
+  margin-top: -1.8% !important;
+  margin-bottom: -1.8% !important;
+  margin-left: -3.2% !important;
+  margin-right: 0 !important;
+  transform: none !important;
+  clip-path: none !important;
+}
+
+
+/* ============================================================
+   EDITORIAL / ARCHIVE DETAIL PASS
+   Checkpoint before this pass:
+   dd9eeb3282511848c95e2175f84ae50b769f14a8
+   ============================================================ */
+
+/* RED THREAD — 4 and 7 need to carry more visual weight. */
+.red-thread-installation .artwork-image[data-artwork-index="4"] {
+  width: min(94vw, 82rem) !important;
+}
+
+.red-thread-installation .artwork-image[data-artwork-index="7"] {
+  width: min(92vw, 80rem) !important;
+}
+
+/* READING ROOM — crop further into the source so the chair no longer reads
+   as a literal furniture subject. Keep only light, shelving, and shadow. */
+.reading-room-page__image {
+  background-size: cover, cover, 185% auto !important;
+  background-position: center, center, 116% center !important;
+  filter: saturate(.62) brightness(.48) blur(3.6px) !important;
+}
+
+.reading-room-page__veil {
+  background:
+    linear-gradient(90deg, rgba(8,6,5,.62) 0%, rgba(8,6,5,.42) 38%, rgba(8,6,5,.18) 63%, rgba(8,6,5,.34) 100%),
+    radial-gradient(ellipse at 76% 70%, rgba(213,139,63,.12), transparent 25%),
+    linear-gradient(to bottom, rgba(8,6,5,.05), rgba(8,6,5,.40)) !important;
+}
+
+/* CURRENT — make the rotating-room context and question part of the same
+   warm architectural language as the title card. */
+.current-exhibition .work-intro-card__note {
+  max-width: 58ch !important;
+  color: rgba(226,213,194,.58) !important;
+  font-size: .72rem !important;
+  line-height: 1.55 !important;
+  letter-spacing: .035em !important;
+}
+
+.current-exhibition .room-opening__question {
+  margin-top: clamp(6rem, 12vh, 10rem) !important;
+  max-width: 46ch !important;
+  color: rgba(237,224,204,.78) !important;
+}
+
+/* ARCHIVE — historical Red Thread edits are reference material, not a second
+   installation. Keep them compact, legible, and clearly nested. */
+.archive-historical-edits {
+  margin-top: clamp(3rem, 6vh, 5rem);
+  padding-top: clamp(2rem, 4vh, 3rem);
+  border-top: 1px solid rgba(69,61,51,.14);
+}
+
+.archive-historical-edits__intro {
+  width: min(720px, 100%);
+  margin-bottom: 2.5rem;
+}
+
+.archive-historical-edits__intro p:last-child {
+  max-width: 66ch;
+  line-height: 1.6;
+  color: rgba(60,54,47,.72);
+}
+
+.archive-historical-edit + .archive-historical-edit {
+  margin-top: clamp(3rem, 6vh, 5rem);
+}
+
+.archive-historical-edit h3 {
+  margin: 0 0 1.1rem;
+  font: 500 clamp(1.05rem, 1.5vw, 1.35rem)/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .01em;
+  color: rgba(43,38,33,.82);
+}
+
+.archive-historical-edit .archive-work__grid {
+  columns: initial !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.75rem, 1.2vw, 1.1rem) !important;
+}
+
+.archive-historical-edit .archive-image {
+  margin: 0 !important;
+}
+
+.archive-historical-edit .artwork-lightbox-trigger {
+  display: grid !important;
+  place-items: center !important;
+  min-height: clamp(170px, 18vw, 245px) !important;
+  padding: .35rem !important;
+  background: rgba(238,232,220,.38) !important;
+}
+
+.archive-historical-edit img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 235px !important;
+  object-fit: contain !important;
+}
+
+/* ARCHIVE — Maria should scan like the rest of the archive, not dominate it. */
+.archive-work[data-work-id="maria"] .archive-work__grid {
+  columns: initial !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.8rem, 1.3vw, 1.2rem) !important;
+  align-items: stretch !important;
+}
+
+.archive-work[data-work-id="maria"] .archive-image {
+  margin: 0 !important;
+}
+
+.archive-work[data-work-id="maria"] .artwork-lightbox-trigger {
+  display: grid !important;
+  place-items: center !important;
+  height: clamp(205px, 21vw, 290px) !important;
+  padding: .4rem !important;
+  background: rgba(238,232,220,.42) !important;
+}
+
+.archive-work[data-work-id="maria"] .archive-image img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 280px !important;
+  object-fit: contain !important;
+}
+
+/* Bio belongs to the Archive as practice context, not as a résumé substitute. */
+.archive-practice .archive-text-block:last-child {
+  border-top: 1px solid rgba(69,61,51,.12);
+  padding-top: clamp(2rem, 4vh, 3rem);
+}
+
+@media (max-width: 900px) {
+  .archive-historical-edit .archive-work__grid,
+  .archive-work[data-work-id="maria"] .archive-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .reading-room-page__image {
+    background-size: cover, cover, 245% auto !important;
+    background-position: center, center, 108% center !important;
+  }
+
+  .archive-historical-edit .archive-work__grid,
+  .archive-work[data-work-id="maria"] .archive-work__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ============================================================
+   BODY OF WATER 4 — corrected source asset
+   The baked white border is now fixed in the image itself. Cancel every
+   previous crop/shift workaround so the corrected photograph displays cleanly.
+   ============================================================ */
+.water-room-installation .artwork-image[data-artwork-index="4"],
+.water-room-installation .artwork-image:nth-child(4) {
+  overflow: visible !important;
+}
+
+.water-room-installation .artwork-image[data-artwork-index="4"] img,
+.water-room-installation .artwork-image:nth-child(4) img {
+  position: static !important;
+  left: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  clip-path: none !important;
+}

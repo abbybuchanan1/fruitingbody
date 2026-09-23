@@ -1,17 +1,13 @@
-import { Room } from "@/components/Room";
+import { CloistersFilm } from "@/components/CloistersFilm";
 
 export default function CloistersPage() {
   return (
-    <Room
-      eyebrow="Cloisters"
-      title="Cloisters"
-      environment="cloisters"
-    >
-      <div data-museum-location="cloisters">
-        {/* Persistent environmental video will live here.
-            This room will ultimately be entered through Map,
-            not ordinary Index/gallery navigation. */}
-      </div>
-    </Room>
+    <main className="cloisters-film" data-museum-location="cloisters">
+      <CloistersFilm />
+      <div className="cloisters-film__veil" aria-hidden="true" />
+      <header className="cloisters-film__label">
+        <p>Cloisters</p>
+      </header>
+    </main>
   );
 }

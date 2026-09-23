@@ -1,16 +1,32 @@
 import Link from "next/link";
-import { Room } from "@/components/Room";
+import { CurrentEmberSequence } from "@/components/CurrentEmberSequence";
+import { WorkIntroCard } from "@/components/WorkIntroCard";
+import { QuestionPrompt } from "@/components/QuestionPrompt";
+import { museumWorksById } from "@/lib/works";
 
 export default function CurrentPage() {
-  return (
-    <Room eyebrow="Current exhibition" title="Current" environment="current">
-      <div data-museum-location="current" className="current-room__content">
-        {/* Current exhibition content remains data-driven in the next utility pass. */}
-      </div>
+  const work = museumWorksById.maria;
 
-      <Link className="current-room__return" href="/vestibule">
-        Return to Vestibule
-      </Link>
-    </Room>
+  return (
+    <main className="current-exhibition" data-museum-location="current">
+      <div className="current-exhibition__inner">
+        <div className="room-opening">
+          <WorkIntroCard
+            room="Current"
+            title={work.title}
+            statement={work.statement}
+            note="Current is a rotating room for the newest work in the practice and for work presently on view. Exhibition details will appear here as they are confirmed."
+            headingLevel={1}
+          />
+          <QuestionPrompt>{work.question}</QuestionPrompt>
+        </div>
+
+        <CurrentEmberSequence artworks={work.exhibition} />
+
+        <Link className="current-room__return" href="/vestibule">
+          Return to Vestibule
+        </Link>
+      </div>
+    </main>
   );
 }

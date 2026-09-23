@@ -1,10 +1,20 @@
 import { ArchitecturalLink } from "@/components/ArchitecturalLink";
+import { VestibuleArrivalShell } from "@/components/VestibuleArrivalShell";
+import { VestibuleProjection } from "@/components/VestibuleProjection";
 
-export default function VestibulePage() {
+type Props = {
+  searchParams: Promise<{ arrived?: string | string[] }>;
+};
+
+export default async function VestibulePage({ searchParams }: Props) {
+  const params = await searchParams;
+  const arriving = params.arrived === "1";
+
   return (
-    <main className="vestibule">
+    <VestibuleArrivalShell arriving={arriving}>
       <div className="vestibule__stone" aria-hidden="true" />
       <div className="vestibule__shadow" aria-hidden="true" />
+      <VestibuleProjection />
       <div className="vestibule__light" aria-hidden="true" />
 
       <section className="vestibule__space" aria-label="Vestibule">
@@ -22,6 +32,6 @@ export default function VestibulePage() {
           <ArchitecturalLink href="/current">Current</ArchitecturalLink>
         </nav>
       </section>
-    </main>
+    </VestibuleArrivalShell>
   );
 }
