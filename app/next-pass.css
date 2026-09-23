@@ -3314,3 +3314,75 @@
     transform: none !important;
   }
 }
+
+
+/* ============================================================
+   EXTERIOR SHADOWS — continuous environmental field
+   Keep the movement present on both walls like distant street/tree shadows,
+   rather than treating it as an occasional foreground event.
+   ============================================================ */
+
+.museum-exterior__shadow-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.museum-exterior__shadow-pass {
+  top: 9% !important;
+  bottom: 7% !important;
+  width: 31% !important;
+  height: auto !important;
+  opacity: .085 !important;
+  transition: none !important;
+  mix-blend-mode: multiply !important;
+}
+
+.museum-exterior__shadow-pass--left {
+  left: 0 !important;
+  right: auto !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 54% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 54% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+}
+
+.museum-exterior__shadow-pass--right {
+  right: 0 !important;
+  left: auto !important;
+  width: 29% !important;
+  top: 12% !important;
+  bottom: 5% !important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 46% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+  mask-image:
+    radial-gradient(ellipse at 46% 50%, #000 0 48%, rgba(0,0,0,.72) 68%, rgba(0,0,0,.24) 84%, transparent 100%) !important;
+}
+
+.museum-exterior__shadow-video {
+  inset: -6% !important;
+  width: 112% !important;
+  height: 112% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  filter: grayscale(1) contrast(1.06) brightness(1.02) blur(2px) !important;
+  transform: scale(1.025) !important;
+}
+
+.museum-exterior__shadow-pass--right .museum-exterior__shadow-video {
+  transform: scaleX(-1) scale(1.035) !important;
+  object-position: 47% 54% !important;
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__shadow-pass {
+    width: 36% !important;
+    opacity: .065 !important;
+  }
+
+  .museum-exterior__shadow-pass--right {
+    width: 34% !important;
+  }
+}
