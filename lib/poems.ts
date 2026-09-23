@@ -538,9 +538,7 @@ if I can write a poem.`,
     title: "That It Was",
     year: "2026",
     preview: ["That it was —", "A raging headache", "Dark circles", "Shaky legs"],
-    body: `For my brother
-
-That it was —
+    body: `That it was —
 A raging headache
 Dark circles
 Shaky legs
