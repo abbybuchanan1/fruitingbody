@@ -22,7 +22,7 @@ export const fruitingBodyStatement = [
 
 export const artistBio = [
   "Abby Buchanan is a Portland, Oregon–based photographic artist working primarily in self-portraiture. Her practice investigates embodiment, ecological identity, transformation, permeability, and agency within conditions that cannot be fully controlled.",
-  "After two decades of professional work centered on the body, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, grief, desire, and lived processes of transformation.",
+  "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, grief, desire, and lived processes of transformation.",
 ];
 
 export const reflections: Record<string, string[]> = {
@@ -31,7 +31,7 @@ export const reflections: Record<string, string[]> = {
     "This series marks a shift toward distance without disavowal: I am experiencing hopelessness. The photographs stay with the unstable interval where one state has loosened and another has not yet become recognizable. Winter keeps only what survives the cold.",
   ],
   relative: [
-    "The series was first called My Body Is the Land I’m From. It began with the thought that the body may be the only land we ever fully inhabit from the inside, and therefore something we are responsible for tending. I was also reckoning with years of body shame and dysmorphia. Seeing waistbands as sediment lines, stretch marks as bark, and skin as terrain gave me another way to look.",
+    "The series was first called My Body Is the Land I’m From. It began with the thought that our bodies may be the only land we can ever actually own, even if only temporarily before they change shape again. They are the one place we inhabit from the inside, and therefore something we are responsible for tending. I was also reckoning with years of body shame and dysmorphia. Seeing waistbands as sediment lines, stretch marks as bark, and skin as terrain gave me another way to look.",
     "Over time the pairing became more literal to me. Body and land are both shaped by pressure, weather, history, use, repair, gravity, and time. The photographs place them beside one another as related material.",
   ],
   daffodils: [
@@ -44,8 +44,8 @@ export const reflections: Record<string, string[]> = {
     "The camera gave me a small amount of distance. I think part of that distance was protective: I could be the person in the experience and, for moments, also the observer of it. Much of what I now understand about the work came years later.",
   ],
   "body-of-water": [
-    "Body of Water began with the breast as both mandala and landscape: a site shaped by giving, receiving, pleasure, and bodily memory. Once I entered the water, those concerns widened into permeability, movement, immersion, exchange, and the temporary loosening of a fixed edge.",
-    "The body begins to take on the logic of its environment. Pleasure is one of the ways it experiences itself from within.",
+    "Body of Water first emerged as an extension of My Body Is the Land I’m From. I was still thinking about the body and landscape as part of the same living system when the water began to change the terms of the work.",
+    "Entering the logic of water became central: permeability, movement, immersion, exchange, and the temporary loosening of a fixed edge. The breast-as-mandala imagery and the questions around pleasure came later, once that logic had become clearer. They opened another way of thinking about how the body gives, receives, and experiences itself from within.",
   ],
   "red-thread": [
     "The current Red Thread edit brings together work originally developed across three related series: Red Thread, It Was Shelter Before It Was a Lie, and Unravel.",
