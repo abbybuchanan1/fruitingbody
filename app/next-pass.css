@@ -5588,3 +5588,159 @@
   transform: none !important;
   clip-path: none !important;
 }
+
+
+/* ============================================================
+   EDITORIAL / ARCHIVE DETAIL PASS
+   Checkpoint before this pass:
+   dd9eeb3282511848c95e2175f84ae50b769f14a8
+   ============================================================ */
+
+/* RED THREAD — 4 and 7 need to carry more visual weight. */
+.red-thread-installation .artwork-image[data-artwork-index="4"] {
+  width: min(94vw, 82rem) !important;
+}
+
+.red-thread-installation .artwork-image[data-artwork-index="7"] {
+  width: min(92vw, 80rem) !important;
+}
+
+/* READING ROOM — crop further into the source so the chair no longer reads
+   as a literal furniture subject. Keep only light, shelving, and shadow. */
+.reading-room-page__image {
+  background-size: cover, cover, 185% auto !important;
+  background-position: center, center, 116% center !important;
+  filter: saturate(.62) brightness(.48) blur(3.6px) !important;
+}
+
+.reading-room-page__veil {
+  background:
+    linear-gradient(90deg, rgba(8,6,5,.62) 0%, rgba(8,6,5,.42) 38%, rgba(8,6,5,.18) 63%, rgba(8,6,5,.34) 100%),
+    radial-gradient(ellipse at 76% 70%, rgba(213,139,63,.12), transparent 25%),
+    linear-gradient(to bottom, rgba(8,6,5,.05), rgba(8,6,5,.40)) !important;
+}
+
+/* CURRENT — make the rotating-room context and question part of the same
+   warm architectural language as the title card. */
+.current-exhibition .work-intro-card__note {
+  max-width: 58ch !important;
+  color: rgba(226,213,194,.58) !important;
+  font-size: .72rem !important;
+  line-height: 1.55 !important;
+  letter-spacing: .035em !important;
+}
+
+.current-exhibition .room-opening__question {
+  margin-top: clamp(6rem, 12vh, 10rem) !important;
+  max-width: 46ch !important;
+  color: rgba(237,224,204,.78) !important;
+}
+
+/* ARCHIVE — historical Red Thread edits are reference material, not a second
+   installation. Keep them compact, legible, and clearly nested. */
+.archive-historical-edits {
+  margin-top: clamp(3rem, 6vh, 5rem);
+  padding-top: clamp(2rem, 4vh, 3rem);
+  border-top: 1px solid rgba(69,61,51,.14);
+}
+
+.archive-historical-edits__intro {
+  width: min(720px, 100%);
+  margin-bottom: 2.5rem;
+}
+
+.archive-historical-edits__intro p:last-child {
+  max-width: 66ch;
+  line-height: 1.6;
+  color: rgba(60,54,47,.72);
+}
+
+.archive-historical-edit + .archive-historical-edit {
+  margin-top: clamp(3rem, 6vh, 5rem);
+}
+
+.archive-historical-edit h3 {
+  margin: 0 0 1.1rem;
+  font: 500 clamp(1.05rem, 1.5vw, 1.35rem)/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .01em;
+  color: rgba(43,38,33,.82);
+}
+
+.archive-historical-edit .archive-work__grid {
+  columns: initial !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.75rem, 1.2vw, 1.1rem) !important;
+}
+
+.archive-historical-edit .archive-image {
+  margin: 0 !important;
+}
+
+.archive-historical-edit .artwork-lightbox-trigger {
+  display: grid !important;
+  place-items: center !important;
+  min-height: clamp(170px, 18vw, 245px) !important;
+  padding: .35rem !important;
+  background: rgba(238,232,220,.38) !important;
+}
+
+.archive-historical-edit img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 235px !important;
+  object-fit: contain !important;
+}
+
+/* ARCHIVE — Maria should scan like the rest of the archive, not dominate it. */
+.archive-work[data-work-id="maria"] .archive-work__grid {
+  columns: initial !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.8rem, 1.3vw, 1.2rem) !important;
+  align-items: stretch !important;
+}
+
+.archive-work[data-work-id="maria"] .archive-image {
+  margin: 0 !important;
+}
+
+.archive-work[data-work-id="maria"] .artwork-lightbox-trigger {
+  display: grid !important;
+  place-items: center !important;
+  height: clamp(205px, 21vw, 290px) !important;
+  padding: .4rem !important;
+  background: rgba(238,232,220,.42) !important;
+}
+
+.archive-work[data-work-id="maria"] .archive-image img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 280px !important;
+  object-fit: contain !important;
+}
+
+/* Bio belongs to the Archive as practice context, not as a résumé substitute. */
+.archive-practice .archive-text-block:last-child {
+  border-top: 1px solid rgba(69,61,51,.12);
+  padding-top: clamp(2rem, 4vh, 3rem);
+}
+
+@media (max-width: 900px) {
+  .archive-historical-edit .archive-work__grid,
+  .archive-work[data-work-id="maria"] .archive-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .reading-room-page__image {
+    background-size: cover, cover, 245% auto !important;
+    background-position: center, center, 108% center !important;
+  }
+
+  .archive-historical-edit .archive-work__grid,
+  .archive-work[data-work-id="maria"] .archive-work__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
