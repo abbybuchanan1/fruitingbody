@@ -31,7 +31,7 @@ export default function ArchivePage() {
 
       <section className="archive-works" aria-label="Expanded archive">
         {museumWorks.map((work) => (
-          <article id={`archive-${work.id}`} className="archive-work" key={work.id}>
+          <article id={`archive-${work.id}`} className="archive-work" data-work-id={work.id} key={work.id}>
             <header className="archive-work__header">
               <p className="archive-work__room">{work.room}</p>
               <h2>{work.title}</h2>
