@@ -5028,3 +5028,187 @@
   transform: scale(1.024) !important;
   transform-origin: center center !important;
 }
+
+
+/* ============================================================
+   INDEX CURATION + INSTALLATION SIZING — launch refinement
+   Checkpoint before this pass:
+   2ec4bc6af6bfab6b2e4aa32284c2aaa55db793bf
+   ============================================================ */
+
+/* READING ROOM — poem titles should support the poems, not compete with "Poems". */
+.reading-room-poem-card h2 {
+  font-size: clamp(1.35rem, 2.05vw, 1.95rem) !important;
+}
+
+/* CURRENT MAP — geometry moved outward in MuseumMap.tsx; keep text optically centered. */
+.museum-map__room--canonical[data-room="current"] {
+  padding: .45rem .8rem !important;
+}
+
+/* INSTALLATION SCALE — targeted works only. */
+.current-ember-work:nth-child(11) {
+  width: min(60vw, 54rem) !important;
+}
+
+.threshold-pair--02 .threshold-pair__image--a {
+  transform: scale(1.12) !important;
+  transform-origin: center center !important;
+  position: relative;
+  z-index: 2;
+}
+
+.red-thread-installation .artwork-image:nth-child(4) {
+  width: min(78vw, 66rem) !important;
+}
+
+.red-thread-installation .artwork-image:nth-child(7),
+.red-thread-installation .artwork-image:nth-child(8),
+.red-thread-installation .artwork-image:nth-child(9),
+.red-thread-installation .artwork-image:nth-child(10) {
+  width: min(80vw, 68rem) !important;
+}
+
+.red-thread-installation .artwork-image:nth-child(8),
+.red-thread-installation .artwork-image:nth-child(9),
+.red-thread-installation .artwork-image:nth-child(10) {
+  margin-top: clamp(4rem, 8vh, 7rem) !important;
+}
+
+.red-thread-installation .artwork-image:nth-child(9),
+.red-thread-installation .artwork-image:nth-child(10) {
+  margin-bottom: clamp(3rem, 6vh, 5rem) !important;
+}
+
+.membrane-installation .artwork-image:nth-child(4) {
+  width: min(84vw, 72rem) !important;
+}
+
+.water-room-installation .artwork-image:nth-child(4) {
+  width: min(80vw, 68rem) !important;
+}
+
+/* Body of Water 4 — asymmetric shave because the remaining export margin is on the left. */
+.water-room-installation .artwork-image:nth-child(4) img {
+  clip-path: inset(1.25% 1.1% 1.25% 2.25%) !important;
+  transform: scale(1.035) !important;
+  transform-origin: 54% center !important;
+}
+
+/* INDEX — selected series should read as edited contact fields, not rows of
+   equal white presentation cards. Intrinsic aspect ratio leads; whitespace
+   becomes rhythmic rather than a fixed frame around every photograph. */
+.index-work[data-work-id="daffodils"] .index-work__grid,
+.index-work[data-work-id="fear-not"] .index-work__grid,
+.index-work[data-work-id="threshold"] .index-work__grid,
+.index-work[data-work-id="red-thread"] .index-work__grid,
+.index-work[data-work-id="body-of-water"] .index-work__grid,
+.index-work[data-work-id="maria"] .index-work__grid {
+  display: block !important;
+  columns: 4 230px !important;
+  column-gap: clamp(1rem, 1.7vw, 1.6rem) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb,
+.index-work[data-work-id="fear-not"] .index-thumb,
+.index-work[data-work-id="threshold"] .index-thumb,
+.index-work[data-work-id="red-thread"] .index-thumb,
+.index-work[data-work-id="body-of-water"] .index-thumb,
+.index-work[data-work-id="maria"] .index-thumb {
+  break-inside: avoid !important;
+  margin: 0 0 clamp(1rem, 1.7vw, 1.65rem) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="threshold"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="body-of-water"] .index-thumb .artwork-lightbox-trigger,
+.index-work[data-work-id="maria"] .index-thumb .artwork-lightbox-trigger {
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb img,
+.index-work[data-work-id="fear-not"] .index-thumb img,
+.index-work[data-work-id="threshold"] .index-thumb img,
+.index-work[data-work-id="red-thread"] .index-thumb img,
+.index-work[data-work-id="body-of-water"] .index-thumb img,
+.index-work[data-work-id="maria"] .index-thumb img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+/* Different densities keep each body of work from feeling templated. */
+.index-work[data-work-id="daffodils"] .index-work__grid {
+  columns: 5 200px !important;
+}
+
+.index-work[data-work-id="fear-not"] .index-work__grid {
+  columns: 3 280px !important;
+  max-width: 1180px;
+}
+
+.index-work[data-work-id="threshold"] .index-work__grid {
+  columns: 3 300px !important;
+  max-width: 1220px;
+}
+
+.index-work[data-work-id="red-thread"] .index-work__grid {
+  columns: 5 205px !important;
+}
+
+.index-work[data-work-id="body-of-water"] .index-work__grid {
+  columns: 4 245px !important;
+}
+
+.index-work[data-work-id="maria"] .index-work__grid {
+  columns: 4 245px !important;
+}
+
+/* Threshold retains a diptych cadence inside the looser field. */
+.index-work[data-work-id="threshold"] .index-thumb:nth-child(2n) {
+  margin-bottom: clamp(2rem, 4vh, 3.5rem) !important;
+}
+
+/* Red Thread needs more air in the final movement. */
+.index-work[data-work-id="red-thread"] .index-thumb:nth-child(n+8) {
+  margin-bottom: clamp(2rem, 4vh, 3.25rem) !important;
+}
+
+/* Maria: give the final image a stronger terminal presence in the index too. */
+.index-work[data-work-id="maria"] .index-thumb:last-child {
+  width: 116%;
+}
+
+@media (max-width: 900px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    columns: 2 180px !important;
+    max-width: none !important;
+  }
+
+  .index-work[data-work-id="maria"] .index-thumb:last-child {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="threshold"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="body-of-water"] .index-work__grid,
+  .index-work[data-work-id="maria"] .index-work__grid {
+    columns: 1 !important;
+  }
+}
