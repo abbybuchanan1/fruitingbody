@@ -537,7 +537,7 @@ if I can write a poem.`,
     slug: "that-it-was",
     title: "That It Was",
     year: "2026",
-    preview: ["For my brother", "That it was —", "A raging headache", "Dark circles"],
+    preview: ["That it was —", "A raging headache", "Dark circles", "Shaky legs"],
     body: `For my brother
 
 That it was —
