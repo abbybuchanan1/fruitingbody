@@ -5518,3 +5518,67 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+
+/* ============================================================
+   HARD-TARGETED CORRECTIONS
+   The prior nth-child overrides were not reliably winning against older
+   installation CSS. These selectors use explicit artwork data hooks.
+   ============================================================ */
+
+/* DAFFODILS — move the black-and-white sixth work decisively to the left. */
+.garden-section--daffodils .artwork-image[data-artwork-index="6"] {
+  justify-self: start !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  transform: translateX(-11vw) !important;
+}
+
+/* RED THREAD → MEMBRANE — restore a real threshold between bodies of work. */
+.room[data-environment="textile"] .red-room-passage {
+  min-height: 68vh !important;
+  height: 68vh !important;
+  margin-top: 16vh !important;
+  margin-bottom: 16vh !important;
+}
+
+.room[data-environment="textile"] .red-room-project--membrane {
+  margin-top: 18vh !important;
+  padding-top: 12vh !important;
+}
+
+/* BODY OF WATER 4 — use the figure as a hard crop viewport. This is
+   intentionally stronger than the previous subtle shave. */
+.water-room-installation .artwork-image[data-artwork-index="4"] {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.water-room-installation .artwork-image[data-artwork-index="4"] img {
+  clip-path: none !important;
+  position: relative !important;
+  left: -7.5% !important;
+  width: 116% !important;
+  max-width: none !important;
+  height: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .garden-section--daffodils .artwork-image[data-artwork-index="6"] {
+    transform: none !important;
+    margin-inline: auto !important;
+  }
+
+  .room[data-environment="textile"] .red-room-passage {
+    min-height: 44vh !important;
+    height: 44vh !important;
+    margin-block: 10vh !important;
+  }
+
+  .room[data-environment="textile"] .red-room-project--membrane {
+    margin-top: 10vh !important;
+    padding-top: 8vh !important;
+  }
+}
