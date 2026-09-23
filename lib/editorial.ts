@@ -1,67 +1,73 @@
 export const artistStatement = [
-  "These self-portraits begin with a question, a material, or a state I need to enter rather than explain. I place my body in relation to water, landscape, fabric, fruit, flowers, architecture, myth, and lived experience, then photograph what happens. Self-portraiture is less a way of representing myself than a way of returning to an encounter and studying what I became inside it.",
-  "The body moves between portrait and matter. At a distance the figure may remain recognizably mine; closer in, a fold, hand, belly, or patch of skin can become terrain. Flesh enters the same field as water, stone, light, plant life, and weather. I am interested in what becomes visible when the self is understood as embedded within ecosystems and relationships rather than fully autonomous or isolated.",
-  "The work returns to forms of agency that remain inside conditions that cannot be fully controlled: grief, lineage, biology, desire, seasonality, time. Transformation is not presented as resolution or mastery. It happens through encounter, permeability, participation, and return. The body is not posed for consumption. It is the place where the question is being lived.",
+  "I use self-portraiture to investigate what it means to inhabit a body that is singular and also embedded in larger systems: ecological, relational, biological, inherited, and temporal.",
+  "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water, gravity, weather, grief, desire, lineage, motherhood, seasonality, and time.",
+  "I return often to agency inside conditions that cannot be fully controlled. Agency may look like choosing, witnessing, tending, participating, remaining present, or deciding how to inhabit what cannot simply be escaped. Myth gives me a structure for entering those questions without turning the photographs into illustrations of a story.",
+  "Landscape operates in a similar way. Bodies and landscapes are shaped by many of the same processes: gravity, erosion, growth, permeability, decay, and seasonal change. I think of that relationship as kinship.",
+  "Making these photographs has paralleled my own movement toward a more integrated sense of self, one capable of holding motherhood, neurodivergence, artistic practice, embodiment, desire, grief, and repeated cycles of descent and emergence without requiring those identities to resolve into one stable version of me.",
 ];
 
 export const processStatement = [
-  "Each series begins with a question rather than a pre-composed image. I move into the work holding a version of that question, often after sitting or meditating with it, then interact with a material, landscape, or gesture and let the body answer before language does. I may bring fruit, honey, pearls, fabric, masks, or other materials when they belong to the inquiry.",
-  "I set the camera on a tripod, enter the frame, and work through movement, repetition, sensation, and interruption. I step out to reset the camera and return. With rare exceptions, the image is not staged toward a predetermined result; the frame is established, then the body improvises inside the question. The camera functions as witness.",
-  "Most photographs are minimally edited and remain close to what occurred in-camera. When accidental blurs, light leaks, distortions, or other optical events align with the concept, I preserve them rather than manufacture them in post-production.",
+  "Each body of work usually begins with a question, a physical state, or something I cannot quite reach through language. I carry that into a material, place, gesture, or repeated action and let the body enter it first.",
+  "I rarely previsualize individual photographs in detail. I often use video, burst capture, or rapid sequences so the encounter can keep moving without stopping to compose every frame. The camera functions as both mirror and witness. It records what I am doing and also returns something I could not fully perceive from inside the experience.",
+  "Selection comes afterward. Looking through the images often gives me information I did not have while I was making them. The photographs become traces of the encounter and a way of discovering what happened there.",
+  "When accidental blurs, distortions, light leaks, reflections, or other optical events belong to the inquiry, I keep them. Those effects occur during capture and are not manufactured afterward.",
 ];
 
 export const fruitingBodyStatement = [
-  "Fruiting Body gathers photographs made across 2017 and 2024-2026 into an imagined museum organized by passage rather than chronology. Each room holds a different condition of becoming: land, desire, grief, protection, permeability, water, threshold, return.",
-  "Across the work, the body repeatedly changes function. It becomes landscape, membrane, vessel, archive, opening, and site of encounter. The project has also become a record of learning to hold identities I once experienced as separate: mother, neurodivergent woman, artist, body, witness, maker. The repeated descents and returns in the work parallel a more integrated understanding of myself rather than a final arrival at a fixed identity.",
-  "The architecture extends that inquiry. Viewers move through rooms, side passages, descents, and returns rather than toward a single resolution. Fruiting Body is less a story of arrival than a structure for remaining present inside transformation.",
+  "Fruiting Body is an evolving digital exhibition and archive of my photographic work.",
+  "The title refers to the visible, temporary structure through which a larger living system emerges. I think of the works similarly: individual manifestations of longer processes involving embodiment, memory, ecology, relationship, and change.",
+  "The museum is organized through recurring questions, visual forms, and states of transformation as well as chronology. Bodies, landscapes, water, thresholds, openings, cycles, and acts of witnessing recur across projects made at different times and under different circumstances.",
+  "The site allows the bodies of work to remain distinct while making their deeper relationships visible.",
 ];
 
 export const artistBio = [
-  "Abby Buchanan is a Portland-based photographic artist working through self-portraiture, material experiment, and embodied inquiry. After two decades in the healing arts, she began turning the camera toward the body as landscape, threshold, archive, and site of encounter.",
-  "Her work moves through motherhood, neurodivergence, grief, ecology, desire, ritual, and recurrent cycles of descent and return, using image-making to test what the body can know before language arrives. She lives and works in Portland, Oregon.",
+  "Abby Buchanan is a Portland, Oregon–based photographic artist working primarily in self-portraiture. Her practice investigates embodiment, ecological identity, transformation, permeability, and agency within conditions that cannot be fully controlled.",
+  "After two decades of professional work centered on the body, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, grief, desire, and lived processes of transformation.",
 ];
 
 export const reflections: Record<string, string[]> = {
   phase: [
     "These images began as synesthetic translations of emotional states experienced during the winter of 2024. For much of my life, an emotional state could feel total: not I feel hopeless, but I am hopelessness.",
-    "This series marks a shift toward distance without disavowal: I am experiencing hopelessness. The images stay inside the unstable interval where one state has loosened and another has not yet become recognizable. Winter keeps only what survives the cold.",
+    "This series marks a shift toward distance without disavowal: I am experiencing hopelessness. The photographs stay with the unstable interval where one state has loosened and another has not yet become recognizable. Winter keeps only what survives the cold.",
   ],
   relative: [
-    "The series was first called Body Is the Land I’m From. It began with the thought that our bodies may be the only land we ever truly inhabit from the inside, and that they are therefore something we are responsible for tending rather than possessing. That idea met my own reckoning with years of body shame and dysmorphia. Seeing waistbands as sediment lines, stretch marks as bark, and skin as terrain gave me another way to look.",
-    "The photographs do not use landscape as a metaphor for the body so much as place body and land inside the same living system. Both are shaped by pressure, weather, history, use, repair, and time.",
+    "The series was first called My Body Is the Land I’m From. It began with the thought that the body may be the only land we ever fully inhabit from the inside, and therefore something we are responsible for tending. I was also reckoning with years of body shame and dysmorphia. Seeing waistbands as sediment lines, stretch marks as bark, and skin as terrain gave me another way to look.",
+    "Over time the pairing became more literal to me. Body and land are both shaped by pressure, weather, history, use, repair, gravity, and time. The photographs place them beside one another as related material.",
   ],
   daffodils: [
-    "The work began with a Persephone gesture and became a self-initiation. The pomegranate resembled an anatomical heart; crushing it marked a deliberate crossing.",
-    "I became less interested in escape than in the forms of sovereignty available inside inevitability. Powerful and powerless can occupy the same body.",
+    "I came to Persephone as a way to think about power inside a cycle that cannot simply be escaped. Her movement between worlds is imposed and inhabited at the same time. That contradiction mattered to me.",
+    "The phrase “powerful and powerless” gave me a way to stay inside the tension without resolving it into victimhood or triumph.",
     "“(Persephone) was winter, she was spring. When she ascended, the world awoke. When she descended, it lamented. She left; she returned. One year. Fifty. Five hundred. Forever. Powerful and powerless was she.” — Pádraig Ó Tuama, In a Garden by a Gate",
   ],
   miscarriage: [
-    "A lived event documented as it unfolded. I did not begin with a ritual or construct a scene. The camera remained close while longing, absence, interruption, and passage became the conditions of the work.",
+    "At the time, I was documenting a real miscarriage as it was happening. I was not thinking about portals or interrupted becoming. I was trying to witness myself inside an experience I could barely understand while I was living it.",
+    "The camera gave me a small amount of distance. I think part of that distance was protective: I could be the person in the experience and, for moments, also the observer of it. Much of what I now understand about the work came years later.",
   ],
   "body-of-water": [
-    "Body of Water began with the breast as both mandala and landscape: a site shaped by giving, receiving, pleasure, and bodily memory. As the work developed in the water, those concerns widened into a question of what happens when the body adopts the logic of water: permeability, movement, immersion, exchange, and the temporary loosening of a fixed edge. Pleasure here is not offered as display; it is one way the body experiences itself from within.",
+    "Body of Water began with the breast as both mandala and landscape: a site shaped by giving, receiving, pleasure, and bodily memory. Once I entered the water, those concerns widened into permeability, movement, immersion, exchange, and the temporary loosening of a fixed edge.",
+    "The body begins to take on the logic of its environment. Pleasure is one of the ways it experiences itself from within.",
   ],
   "red-thread": [
-    "The current Red Thread edit brings together work originally developed across three related series: Red Thread, Unravel, and It Was Shelter Before It Was a Lie.",
-    "Across them, connection persists as visible tension. Accidental blurs and distortions became a language of dissolution; a protective gesture became a question about when shelter calcifies into identity. The three bodies now read as different conditions along the same line: entanglement, protection, loosening, and becoming.",
+    "The current Red Thread edit brings together work originally developed across three related series: Red Thread, It Was Shelter Before It Was a Lie, and Unravel.",
+    "Across them, connection persists as visible tension. Thread binds and traces. Protection hardens into identity. Blur and movement loosen the figure. Seen together, the three bodies move through entanglement, shelter, release, and becoming.",
   ],
   threshold: [
-    "Threshold began with the feeling of being between lives: no longer inside the former shape, not yet able to see the next one clearly. The images stay with that middle rather than forcing it into resolution.",
-    "The crossing begins in the ribs.",
+    "Threshold began with the feeling of being between lives: no longer inside the former shape, not yet able to see the next one clearly. I wanted to stay with that middle long enough to see what it actually felt like.",
+    "As I worked, anatomy began behaving like architecture. Folds became passages, openings became rooms, and the body became a spatial boundary that could be approached from either side.",
   ],
   "fear-not": [
-    "I began thinking about Eve: a woman whose reaching toward knowledge is so often framed as the beginning of ruin. Fear Not asks what changes if curiosity is not treated as transgression, but as a way of participating more fully in the world.",
-    "The body trembles and goes forward anyway. Curiosity is not the absence of fear; it is a way of moving while certainty remains unavailable.",
+    "Fear Not began with Eve and with curiosity. I kept returning to the fact that a woman reaching toward knowledge is so often framed as the beginning of ruin.",
+    "In these photographs, curiosity becomes an action: reaching, tasting, knowing, and accepting that knowledge changes the person who receives it. Fear can still be present. The body moves anyway.",
   ],
   "taste-and-see": [
-    "The first images began with Venus imagery and the long visual history of arranging feminine beauty for a viewer. The work shifted when I became more interested in appetite than appearance: what beauty feels like from inside the body rather than how it performs from the outside.",
-    "If I wait too long, it bruises - so I bite. Intimacy requires risk. Consumption complicates observation.",
+    "The first images began with Venus imagery and the long visual history of arranging feminine beauty for a viewer. Appetite gradually moved to the center of the work.",
+    "Fruit, mouth, touch, pleasure, and excess let the body become an experiencing subject. Beauty could include hunger. The body could be seen and still be allowed to want.",
   ],
   membrane: [
-    "Membrane was the first work I made in the river using this process: carrying a question into the water, moving with a material, and letting video frames or a fast shutter reveal what I could not previsualize. I still have a strong bodily memory of the mist of river water passing through the fabric and the sun on my skin.",
-    "I walked out of the river feeling altered. It was the first time I fully believed I might be an artist, that my experiences were worth sharing, and that I had found a form capable of carrying them. The work’s question about permeability became literal for me: something passed through the membrane and changed what I understood myself to be.",
+    "Membrane was the first work I made in the river using the process that now underlies much of my practice: carrying something into the water, moving with a material, and letting video frames or a fast shutter reveal what I could not previsualize.",
+    "I remember the mist of river water coming through the fabric and the warmth of the sun on my body. I walked out of the river understanding that the experience itself could be the site of the photograph, and that photography might be able to carry things I had not been able to communicate in another form.",
   ],
   maria: [
-    "An unstaged ritual, witnessed rather than arranged. I did not direct her or construct the event; I stayed long enough to see.",
+    "Maria Burns Her Wedding Dress documents an unstaged ritual. I did not direct her or construct the event. My role was to remain present, witness it, and make photographs without interrupting what was unfolding.",
   ],
 };
