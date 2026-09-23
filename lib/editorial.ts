@@ -44,8 +44,8 @@ export const reflections: Record<string, string[]> = {
     "The camera gave me a small amount of distance. I think part of that distance was protective: I could be the person in the experience and, for moments, also the observer of it. Much of what I now understand about the work came years later.",
   ],
   "body-of-water": [
-    "Body of Water first emerged as an extension of My Body Is the Land I’m From. I was still thinking about the body and landscape as part of the same living system when the water began to change the terms of the work.",
-    "Entering the logic of water became central: permeability, movement, immersion, exchange, and the temporary loosening of a fixed edge. The breast-as-mandala imagery and the questions around pleasure came later, once that logic had become clearer. They opened another way of thinking about how the body gives, receives, and experiences itself from within.",
+    "Body of Water first emerged as an extension of My Body Is the Land I’m From. I entered the water still thinking about the body and landscape as parts of the same living system.",
+    "Once I began working in water, the terms of the work changed. Water stopped functioning as setting and became a condition the body had to enter: permeability, movement, buoyancy, exchange, surrender, response. There is pleasure in that surrender for me—not as display, but in the bodily experience of no longer resisting every force acting on me.",
   ],
   "red-thread": [
     "The current Red Thread edit brings together work originally developed across three related series: Red Thread, It Was Shelter Before It Was a Lie, and Unravel.",
