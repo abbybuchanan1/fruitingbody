@@ -244,7 +244,7 @@ a little way down the road.`,
     slug: "may-2024",
     title: "May, 2024",
     year: "2024",
-    preview: ["The yard where my mother", "plants flowers.", "Where my sister hangs", "window boxes."],
+    preview: ["It is the month", "the thirteen-year and seventeen-year cycles synchronize.", "Cicada broods XIII and XIX", "co-emerge"],
     body: `It is the month
 the thirteen-year and seventeen-year cycles synchronize.
 Cicada broods XIII and XIX
@@ -537,7 +537,7 @@ if I can write a poem.`,
     slug: "that-it-was",
     title: "That It Was",
     year: "2026",
-    preview: ["Laughing for the first time since yesterday", "Eyelids swollen, tear-brined like little", "martini onions"],
+    preview: ["For my brother", "That it was —", "A raging headache", "Dark circles"],
     body: `For my brother
 
 That it was —
