@@ -6,7 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 type Source = "red-room" | "water-room" | "exhibition";
 type Props = { from: Source; startImmediately?: boolean; id?: string };
 
-const HANDOFF_MS = 180;
+const HANDOFF_MS = 90;
+const EARLY_HANDOFF_SECONDS = 0.52;
 
 export function NarthexTransition({ from, startImmediately = false, id }: Props) {
   const router = useRouter();
@@ -68,9 +69,18 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
   };
 
   const finish = () => {
-    if (arrivedRef.current) return;
+    if (arrivedRef.current || finishing) return;
     setFinishing(true);
     timerRef.current = window.setTimeout(arrive, HANDOFF_MS);
+  };
+
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    if (!video || finishing || !Number.isFinite(video.duration) || video.duration <= 0) return;
+
+    if (video.duration - video.currentTime <= EARLY_HANDOFF_SECONDS) {
+      finish();
+    }
   };
 
   return (
@@ -89,6 +99,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
           muted
           playsInline
           preload="auto"
+          onTimeUpdate={handleTimeUpdate}
           onEnded={finish}
           onError={() => setFailed(true)}
         />
