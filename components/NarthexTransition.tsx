@@ -29,7 +29,7 @@ export function NarthexTransition({ from, startImmediately = false, id }: Props)
     const video = videoRef.current;
     if (!video || !started) return;
     video.currentTime = 0;
-    video.playbackRate = 1;
+    video.playbackRate = 0.82;
     void video.play().catch(() => setFailed(true));
   }, [started]);
 
