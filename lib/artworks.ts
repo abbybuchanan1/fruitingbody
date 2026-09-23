@@ -130,6 +130,11 @@ export const bodyOfWaterWorks = exhibitionSequence(
   "Body of Water",
 );
 
+export const mariaWorks: Artwork[] = Array.from({ length: 11 }, (_, index) => ({
+  src: `/art/maria/maria-index-${String(index + 1).padStart(2, "0")}.jpg`,
+  alt: `Maria Burns Her Wedding Dress, work ${index + 1}. Provisional curatorial alt text pending.`,
+}));
+
 export const artworkSets = {
   membrane: membraneWorks,
   miscarriage: miscarriageWorks,
@@ -142,7 +147,7 @@ export const artworkSets = {
   fearNot: exhibitionSequence("fear-not", "fear-not", 5, "Fear Not"),
   taste: exhibitionSequence("taste", "taste-and-see", 6, "Taste and See"),
   phase: exhibitionSequence("phase", "phase", 5, "Phase"),
-  maria: sequence("maria", 5, "Maria Burns Her Wedding Dress"),
+  maria: mariaWorks,
   threshold: sequence("threshold", 3, "Threshold"),
   relative: sequence("relative", 6, "Relative"),
   bodyOfWater: bodyOfWaterWorks,
