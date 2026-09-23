@@ -3452,3 +3452,26 @@
     width: 34% !important;
   }
 }
+
+
+/* ============================================================
+   VESTIBULE COURTYARD EXPERIMENT — visibility pass
+   Safe checkpoint before this pass: a142f57182fdf97b801ade5e99270e1e0d58fed3
+   Increase recognizability of mushroom forms without changing timing/placement.
+   ============================================================ */
+
+.vestibule__projection {
+  opacity: .145 !important;
+  mix-blend-mode: multiply !important;
+  filter: saturate(.78) contrast(1.02) brightness(1.02) blur(.9px) !important;
+}
+
+.vestibule__projection-video {
+  filter: grayscale(.06) saturate(.92) contrast(1.04) brightness(1.04) blur(.45px) !important;
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection {
+    opacity: .115 !important;
+  }
+}
