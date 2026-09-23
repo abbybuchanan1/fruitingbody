@@ -4121,3 +4121,201 @@
 .vestibule__projection--right .vestibule__projection-video {
   object-position: 48% 54% !important;
 }
+
+
+/* ============================================================
+   A MISCARRIAGE — VOTIVE GROTTO EXPERIMENT
+   Safe checkpoint before experiment:
+   39e01a0924a0a84a9b30571cc25f18ed8973f7de
+   Uses the archive image files without the olive alcove composites.
+   ============================================================ */
+
+.grotto-section--miscarriage {
+  background: #050505 !important;
+}
+
+.miscarriage-votive-sequence {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(17rem, 34vh, 31rem);
+  padding: 10vh 0 34vh;
+  background:
+    radial-gradient(ellipse 58% 18% at 50% 2%, rgba(45,31,19,.08), transparent 76%),
+    #050505;
+}
+
+.miscarriage-votive {
+  position: relative;
+  width: min(58vw, 46rem);
+  margin: 0;
+  isolation: isolate;
+  opacity: .74;
+  transform: translateY(2.2vh);
+  transition:
+    opacity 1.8s ease,
+    transform 2.4s cubic-bezier(.16,.72,.2,1);
+}
+
+.miscarriage-votive:nth-child(even) {
+  transform: translate(8vw, 2.2vh);
+}
+
+.miscarriage-votive:nth-child(odd) {
+  transform: translate(-7vw, 2.2vh);
+}
+
+.miscarriage-votive--3 {
+  width: min(70vw, 58rem);
+}
+
+.miscarriage-votive--4 {
+  width: min(76vw, 64rem);
+}
+
+.miscarriage-votive--5 {
+  width: min(52vw, 43rem);
+}
+
+.miscarriage-votive img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none;
+  background: transparent;
+  filter:
+    brightness(.76)
+    saturate(.82)
+    contrast(1.035);
+  transition:
+    filter 2.1s ease,
+    box-shadow 2.4s ease;
+}
+
+.miscarriage-votive__light {
+  position: absolute;
+  z-index: 1;
+  inset: -13% -16%;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.88);
+  background:
+    radial-gradient(
+      ellipse at 50% 56%,
+      rgba(255, 188, 99, .23) 0%,
+      rgba(221, 124, 52, .14) 25%,
+      rgba(157, 71, 25, .065) 48%,
+      rgba(80, 34, 14, .02) 66%,
+      transparent 78%
+    );
+  filter: blur(24px);
+  transition:
+    opacity 2.2s ease,
+    transform 2.8s cubic-bezier(.16,.72,.2,1);
+}
+
+.miscarriage-votive.is-lit {
+  opacity: 1;
+}
+
+.miscarriage-votive.is-lit:nth-child(even) {
+  transform: translate(8vw, 0);
+}
+
+.miscarriage-votive.is-lit:nth-child(odd) {
+  transform: translate(-7vw, 0);
+}
+
+.miscarriage-votive.is-lit .miscarriage-votive__light {
+  opacity: .82;
+  transform: scale(1);
+  animation: miscarriage-votive-breathe 7.5s ease-in-out 2.4s infinite alternate;
+}
+
+.miscarriage-votive.is-lit img {
+  filter:
+    brightness(.98)
+    saturate(.96)
+    contrast(1.025);
+  box-shadow:
+    0 0 34px rgba(232, 145, 73, .10),
+    0 0 92px rgba(194, 92, 37, .065);
+}
+
+@keyframes miscarriage-votive-breathe {
+  0% {
+    opacity: .62;
+    transform: scale(.985) translate3d(-.35%, .15%, 0);
+  }
+  48% {
+    opacity: .82;
+    transform: scale(1.015) translate3d(.3%, -.1%, 0);
+  }
+  100% {
+    opacity: .68;
+    transform: scale(1.002) translate3d(-.1%, .25%, 0);
+  }
+}
+
+.miscarriage-votive__title {
+  position: relative;
+  z-index: 3;
+  margin: .8rem 0 0;
+  font: 500 .61rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+  color: rgba(232, 222, 207, .58);
+  text-shadow: 0 1px 5px rgba(0,0,0,.82);
+}
+
+.miscarriage-votive:nth-child(even) .miscarriage-votive__title {
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .miscarriage-votive-sequence {
+    gap: 24vh;
+    padding-bottom: 24vh;
+  }
+
+  .miscarriage-votive,
+  .miscarriage-votive--3,
+  .miscarriage-votive--4,
+  .miscarriage-votive--5 {
+    width: min(84vw, 40rem);
+  }
+
+  .miscarriage-votive:nth-child(even),
+  .miscarriage-votive:nth-child(odd),
+  .miscarriage-votive.is-lit:nth-child(even),
+  .miscarriage-votive.is-lit:nth-child(odd) {
+    transform: translateY(1.6vh);
+  }
+
+  .miscarriage-votive.is-lit:nth-child(even),
+  .miscarriage-votive.is-lit:nth-child(odd) {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .miscarriage-votive,
+  .miscarriage-votive.is-lit {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .miscarriage-votive__light,
+  .miscarriage-votive.is-lit .miscarriage-votive__light {
+    opacity: .65;
+    transform: none;
+    animation: none !important;
+  }
+}
