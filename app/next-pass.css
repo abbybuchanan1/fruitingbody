@@ -3403,7 +3403,7 @@
   top: 7% !important;
   bottom: 14% !important;
   width: 27% !important;
-  opacity: .09 !important;
+  opacity: .115 !important;
   mix-blend-mode: multiply !important;
   filter: saturate(.52) contrast(.92) brightness(1.08) blur(1.5px) !important;
 }
@@ -3439,7 +3439,7 @@
 
 @media (max-width: 760px) {
   .vestibule__projection {
-    opacity: .075 !important;
+    opacity: .095 !important;
     width: 34% !important;
   }
 
