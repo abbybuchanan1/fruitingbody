@@ -4475,3 +4475,223 @@
     height: 24vh;
   }
 }
+
+
+/* ============================================================
+   CURRENT — EMBER-LIT ANNEX
+   Safe checkpoint before this pass:
+   776214772510d484bcb9c7759a8b0076cee18a50
+   Keep Current as an installed room, distinct from Index / Archive.
+   ============================================================ */
+
+.current-exhibition {
+  position: relative;
+  isolation: isolate;
+  color: rgba(238, 229, 214, .86) !important;
+  background-color: #17120e !important;
+  background-image:
+    linear-gradient(rgba(22,16,12,.78), rgba(18,13,10,.90)),
+    url("/media/architecture/current-wall-texture.webp") !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed !important;
+}
+
+.current-exhibition::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 52% 34% at 34% 22%, rgba(179,83,31,.08), transparent 72%),
+    radial-gradient(ellipse 48% 38% at 70% 68%, rgba(210,120,47,.055), transparent 75%);
+}
+
+.current-exhibition .work-intro-card {
+  background: rgba(224, 211, 190, .10) !important;
+  border-color: rgba(231, 216, 194, .07) !important;
+  box-shadow: none !important;
+  color: rgba(232,223,208,.82) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.current-exhibition .work-intro-card h1 {
+  color: rgba(239,230,214,.88) !important;
+}
+
+.current-exhibition .work-intro-card__room {
+  color: rgba(222,208,187,.54) !important;
+}
+
+.current-exhibition .work-intro-card__statement {
+  color: rgba(230,218,200,.70) !important;
+}
+
+.current-room__return {
+  color: rgba(226,214,195,.66) !important;
+}
+
+.current-ember-sequence {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(15rem, 30vh, 27rem);
+  padding: 4vh 5vw 22vh;
+}
+
+.current-ember-work {
+  position: relative;
+  width: min(48vw, 43rem);
+  margin: 0;
+  isolation: isolate;
+  opacity: .78;
+  transform: translateY(1.8vh);
+  transition:
+    opacity 1.7s ease,
+    transform 2.2s cubic-bezier(.16,.72,.2,1);
+}
+
+.current-ember-work:nth-child(3n + 1) {
+  transform: translate(-7vw, 1.8vh);
+}
+
+.current-ember-work:nth-child(3n + 2) {
+  transform: translate(7vw, 1.8vh);
+}
+
+.current-ember-work:nth-child(3n) {
+  width: min(54vw, 48rem);
+}
+
+.current-ember-work.is-lit {
+  opacity: 1;
+}
+
+.current-ember-work.is-lit:nth-child(3n + 1) {
+  transform: translate(-7vw, 0);
+}
+
+.current-ember-work.is-lit:nth-child(3n + 2) {
+  transform: translate(7vw, 0);
+}
+
+.current-ember-work.is-lit:nth-child(3n) {
+  transform: translateY(0);
+}
+
+.current-ember-work img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  /* non-destructive shave for thin baked-in export borders */
+  clip-path: inset(.34%);
+  filter: brightness(.90) saturate(.90) contrast(1.02);
+  transition: filter 2s ease;
+}
+
+.current-ember-work__glow {
+  position: absolute;
+  z-index: 1;
+  inset: -18% -20%;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.9);
+  background:
+    radial-gradient(
+      ellipse at 50% 54%,
+      rgba(255, 185, 91, .21) 0%,
+      rgba(218, 111, 42, .12) 28%,
+      rgba(139, 57, 21, .05) 52%,
+      transparent 76%
+    );
+  filter: blur(28px);
+  transition: opacity 2.2s ease, transform 2.7s cubic-bezier(.16,.72,.2,1);
+}
+
+.current-ember-work.is-lit .current-ember-work__glow {
+  opacity: .72;
+  transform: scale(1);
+  animation: current-ember-breathe 9s ease-in-out 2.6s infinite alternate;
+}
+
+.current-ember-work.is-lit img {
+  filter: brightness(1) saturate(.98) contrast(1.02);
+}
+
+@keyframes current-ember-breathe {
+  0%   { opacity: .50; transform: scale(.99) translate3d(-.2%, .1%, 0); }
+  52%  { opacity: .73; transform: scale(1.012) translate3d(.2%, -.08%, 0); }
+  100% { opacity: .58; transform: scale(1.002) translate3d(-.1%, .18%, 0); }
+}
+
+/* MISCARRIAGE — soften title-card whites toward bone. */
+.grotto-section--miscarriage .work-intro-card {
+  color: rgba(224, 214, 197, .78) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card h1 {
+  color: rgba(231, 221, 203, .84) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card__room {
+  color: rgba(211, 198, 178, .48) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card__statement {
+  color: rgba(218, 205, 185, .66) !important;
+}
+
+/* Thin baked export margins: shave only a fraction of a percent from the
+   two rooms where the borders are presently visible. This is reversible and
+   avoids recompressing the source photographs. */
+.miscarriage-votive img {
+  clip-path: inset(.34%);
+}
+
+@media (max-width: 760px) {
+  .current-ember-sequence {
+    gap: 22vh;
+    padding-inline: 6vw;
+  }
+
+  .current-ember-work,
+  .current-ember-work:nth-child(3n) {
+    width: min(82vw, 38rem);
+  }
+
+  .current-ember-work:nth-child(3n + 1),
+  .current-ember-work:nth-child(3n + 2),
+  .current-ember-work.is-lit:nth-child(3n + 1),
+  .current-ember-work.is-lit:nth-child(3n + 2) {
+    transform: translateY(1.2vh);
+  }
+
+  .current-ember-work.is-lit:nth-child(3n + 1),
+  .current-ember-work.is-lit:nth-child(3n + 2) {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .current-ember-work,
+  .current-ember-work.is-lit {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .current-ember-work__glow,
+  .current-ember-work.is-lit .current-ember-work__glow {
+    opacity: .58;
+    transform: none;
+    animation: none !important;
+  }
+}
