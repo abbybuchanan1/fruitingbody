@@ -54,9 +54,9 @@ function ShadowVideo({
   );
 }
 
-export function ExteriorShadowPass() {
+export function ExteriorShadowPass({ ready = false }: { ready?: boolean }) {
   return (
-    <div className="museum-exterior__shadow-field" aria-hidden="true">
+    <div className={`museum-exterior__shadow-field${ready ? " is-ready" : ""}`} aria-hidden="true">
       <ShadowVideo side="left" />
       <ShadowVideo side="right" offset={0.37} />
     </div>
