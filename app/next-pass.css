@@ -4695,3 +4695,224 @@
     animation: none !important;
   }
 }
+
+
+/* ============================================================
+   READING ROOM / CURRENT / MAP — late launch refinement
+   Safe checkpoint before this pass:
+   d67531c685fba24724d4a3fc0f650dd38cd59b9c
+   ============================================================ */
+
+/* CURRENT — make the ember field materially present, not merely decorative. */
+.current-exhibition::before {
+  background:
+    radial-gradient(ellipse 58% 40% at 34% 22%, rgba(211, 105, 38, .14), transparent 70%),
+    radial-gradient(ellipse 54% 42% at 70% 68%, rgba(232, 139, 55, .10), transparent 73%) !important;
+}
+
+.current-ember-work__glow {
+  inset: -22% -24% !important;
+  background:
+    radial-gradient(
+      ellipse at 50% 54%,
+      rgba(255, 191, 96, .30) 0%,
+      rgba(230, 121, 45, .18) 29%,
+      rgba(151, 61, 22, .075) 54%,
+      transparent 78%
+    ) !important;
+  filter: blur(31px) !important;
+}
+
+.current-ember-work.is-lit .current-ember-work__glow {
+  opacity: .90 !important;
+}
+
+@keyframes current-ember-breathe-stronger {
+  0%   { opacity: .66; transform: scale(.99) translate3d(-.2%, .1%, 0); }
+  52%  { opacity: .92; transform: scale(1.014) translate3d(.2%, -.08%, 0); }
+  100% { opacity: .72; transform: scale(1.003) translate3d(-.1%, .18%, 0); }
+}
+
+.current-ember-work.is-lit .current-ember-work__glow {
+  animation: current-ember-breathe-stronger 9.5s ease-in-out 2.6s infinite alternate !important;
+}
+
+/* READING ROOM — use the atmospheric right side of the source image as raw
+   material, not as an illustrative chair photograph. */
+.reading-room-page {
+  background: #17100c !important;
+  color: #eadbc8 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.reading-room-page__image {
+  background-image:
+    linear-gradient(90deg, rgba(13,9,7,.70) 0%, rgba(13,9,7,.48) 34%, rgba(13,9,7,.20) 62%, rgba(8,6,5,.42) 100%),
+    radial-gradient(ellipse at 72% 68%, rgba(225,151,72,.14), transparent 30%),
+    url("/media/reading-room/reading-room-background.jpg") !important;
+  background-size: cover, cover, 155% auto !important;
+  background-position: center, center, 88% center !important;
+  filter: saturate(.66) brightness(.53) blur(3px) !important;
+  transform: scale(1.07) !important;
+}
+
+.reading-room-page__veil {
+  background:
+    radial-gradient(ellipse at 70% 68%, rgba(213,139,63,.12), transparent 26%),
+    linear-gradient(90deg, rgba(8,6,5,.50), rgba(8,6,5,.12) 42%, rgba(8,6,5,.28) 100%),
+    linear-gradient(to bottom, rgba(8,6,5,.03), rgba(8,6,5,.38)) !important;
+  backdrop-filter: blur(2.5px) !important;
+}
+
+.reading-room-page__content {
+  width: min(860px, 84vw) !important;
+  margin-left: clamp(7vw, 10vw, 12vw) !important;
+  margin-right: auto !important;
+  padding: clamp(6.5rem, 11vh, 9rem) 0 7rem !important;
+  background: transparent !important;
+}
+
+.reading-room-title-card {
+  width: min(760px, 100%) !important;
+  padding: clamp(2rem, 4vw, 3.2rem) !important;
+  border: 1px solid rgba(229,209,183,.12) !important;
+  background:
+    linear-gradient(180deg, rgba(72,48,34,.27), rgba(35,22,16,.18)) !important;
+  color: #e8d8c4 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,246,234,.018),
+    0 28px 80px rgba(0,0,0,.24) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.reading-room-title-card__room {
+  color: rgba(225,207,184,.68) !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: .72rem !important;
+  letter-spacing: .18em !important;
+}
+
+.reading-room-title-card h1 {
+  color: #eadbc8 !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(4rem, 8vw, 6.8rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.055em !important;
+  line-height: .94 !important;
+}
+
+.reading-room-shelf {
+  width: min(760px, 100%) !important;
+  gap: 1.15rem !important;
+  margin-top: clamp(3rem, 7vh, 5rem) !important;
+}
+
+.reading-room-poem-card {
+  grid-template-columns: minmax(170px,.8fr) minmax(260px,1.35fr) !important;
+  padding: clamp(1.5rem, 3vw, 2.1rem) !important;
+  border: 1px solid rgba(229,209,183,.11) !important;
+  background:
+    linear-gradient(180deg, rgba(66,43,31,.26), rgba(31,20,15,.18)) !important;
+  color: #e8d8c4 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,246,234,.012),
+    0 18px 48px rgba(0,0,0,.18) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transform: none !important;
+}
+
+.reading-room-poem-card:hover,
+.reading-room-poem-card:focus-visible {
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(214,132,55,.13), transparent 42%),
+    linear-gradient(180deg, rgba(72,47,33,.34), rgba(34,21,15,.22)) !important;
+}
+
+.reading-room-poem-card h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(1.55rem, 2.5vw, 2.35rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.025em !important;
+  color: #eadbc8 !important;
+}
+
+.reading-room-poem-card__heading p {
+  color: rgba(221,203,179,.58) !important;
+}
+
+.reading-room-poem-card__preview {
+  color: rgba(233,219,200,.76) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: .98rem !important;
+  line-height: 1.6 !important;
+}
+
+.reading-room-page__return {
+  color: rgba(226,210,189,.70) !important;
+}
+
+/* MAP — optical refinements requested during launch QA. */
+.museum-map__room--canonical[data-room="current"] {
+  justify-content: flex-end !important;
+  padding-top: .25rem !important;
+  padding-bottom: .65rem !important;
+}
+
+.museum-map__room--canonical[data-room="current"] .museum-map__room-name {
+  transform: translateY(3px);
+}
+
+.museum-map__room--canonical[data-room="film-room"] {
+  padding: .15rem !important;
+}
+
+.museum-map__room--canonical[data-room="film-room"] .museum-map__room-name {
+  font-size: 8.5px !important;
+  letter-spacing: .10em !important;
+}
+
+.museum-map__room--canonical[data-room="rear-gallery"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="front-gallery"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="exterior"] .museum-map__room-name {
+  color: #191817 !important;
+  opacity: 1 !important;
+}
+
+.museum-map__room--canonical[data-room="rear-gallery"],
+.museum-map__room--canonical[data-room="front-gallery"],
+.museum-map__room--canonical[data-room="exterior"] {
+  color: #191817 !important;
+  opacity: 1 !important;
+}
+
+/* Exterior mirrors Exit as a compact terminal outside the Vestibule. */
+.museum-map__room--canonical[data-room="exterior"],
+.museum-map__room--canonical[data-room="exit-exterior"] {
+  padding: .15rem .35rem !important;
+}
+
+.museum-map__room--canonical[data-room="exterior"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="exit-exterior"] .museum-map__room-name {
+  font-size: 9px !important;
+  letter-spacing: .14em !important;
+}
+
+@media (max-width: 760px) {
+  .reading-room-page__content {
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
+    padding-top: 5rem !important;
+  }
+
+  .reading-room-page__image {
+    background-size: cover, cover, 210% auto !important;
+    background-position: center, center, 82% center !important;
+  }
+
+  .reading-room-poem-card {
+    grid-template-columns: 1fr !important;
+  }
+}
