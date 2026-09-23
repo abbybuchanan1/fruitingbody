@@ -1602,11 +1602,52 @@
   transform: scale(1.04);
 }
 
-/* Keep the room atmospheric rather than illustrative. */
-.poem-page__environment,
+/* Reading Room index stays architectural and subdued */
 .reading-room-page__image {
-  background-position: 45% center !important;
-  filter: saturate(.72) brightness(.62) blur(2px) !important;
+  background-position: center center !important;
+  filter: saturate(.78) brightness(.72) blur(2px) !important;
+  transform: scale(1.03) !important;
+}
+
+/* Individual poem pages should feel deeper in the same room,
+   but more abstract — light, shadow, atmosphere, not furniture. */
+.poem-page__environment {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 9, 7, .72) 0%,
+      rgba(16, 12, 9, .58) 28%,
+      rgba(18, 13, 10, .44) 52%,
+      rgba(15, 11, 8, .62) 74%,
+      rgba(10, 8, 6, .82) 100%
+    ),
+    radial-gradient(
+      circle at 34% 30%,
+      rgba(214, 164, 86, .22) 0%,
+      rgba(214, 164, 86, .10) 18%,
+      rgba(214, 164, 86, .04) 30%,
+      transparent 54%
+    ),
+    url("/media/reading-room/reading-room-background.jpg") 30% center / 210% auto no-repeat !important;
+  filter: saturate(.52) brightness(.42) blur(14px) !important;
+  transform: scale(1.12) !important;
+}
+
+/* Keep the poem panel legible and museum-like */
+.poem-page__card {
+  background: rgba(37, 25, 18, .60) !important;
+  border: 1px solid rgba(246, 234, 216, .11) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+@media (max-width: 760px) {
+  .poem-page__environment {
+    background-position: 38% center !important;
+    background-size: 260% auto !important;
+  }
 }
 
 
