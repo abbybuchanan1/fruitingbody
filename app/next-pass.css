@@ -4916,3 +4916,67 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ============================================================
+   READING ROOM TYPE / MAP OPTICS / TARGETED BORDER SHAVE
+   Review checkpoint before this pass:
+   068f5941034b1ea5dbca30f0b68e632e97ff785b
+   ============================================================ */
+
+/* READING ROOM — keep the improved architecture, but let the display type
+   feel more literary/editorial and less like interface typography. */
+.reading-room-title-card h1,
+.reading-room-poem-card h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif !important;
+  font-weight: 400 !important;
+}
+
+.reading-room-title-card h1 {
+  letter-spacing: -.045em !important;
+}
+
+.reading-room-poem-card h2 {
+  letter-spacing: -.02em !important;
+  line-height: 1.04 !important;
+}
+
+/* MAP — optical centering, not geometric centering. */
+.museum-map__room--canonical[data-room="current"] {
+  justify-content: center !important;
+  padding-top: .45rem !important;
+  padding-bottom: .25rem !important;
+}
+
+.museum-map__room--canonical[data-room="current"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="current"] .museum-map__collections {
+  transform: translateY(5px) !important;
+}
+
+.museum-map__room--canonical[data-room="garden"] {
+  justify-content: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.museum-map__room--canonical[data-room="garden"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="garden"] .museum-map__collections {
+  transform: translateY(3px) !important;
+}
+
+/* TARGETED BAKED-IN WHITE BORDER CLEANUP
+   Non-destructive visual shave. Only the works specifically flagged in QA. */
+.current-ember-work:nth-child(1) img,
+.current-ember-work:nth-child(3) img,
+.current-ember-work:nth-child(4) img,
+.current-ember-work:nth-child(7) img,
+.current-ember-work:nth-child(9) img,
+.garden-section--taste-and-see .artwork-image:nth-child(2) img,
+.miscarriage-votive:nth-child(2) img,
+.grotto-section--phase .artwork-image:nth-child(1) img,
+.grotto-section--phase .artwork-image:nth-child(2) img,
+.water-room-installation .artwork-image:nth-child(4) img,
+.water-room-installation .artwork-image:nth-child(5) img,
+.water-room-installation .artwork-image:nth-child(8) img {
+  clip-path: inset(.72%) !important;
+}
