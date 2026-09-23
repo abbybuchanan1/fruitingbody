@@ -5476,3 +5476,45 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ============================================================
+   FINAL SPACING / CROP CORRECTIONS
+   Checkpoint before this pass:
+   3108ce15086430726e3a562df586ac115d7090cc
+   ============================================================ */
+
+/* DAFFODILS — image 6 is the small black-and-white landscape. The generic
+   varied-layout rule was pinning every 3rd image to the right; move this one
+   deliberately to the far left. */
+.garden-section--daffodils .art-sequence--varied .artwork-image:nth-child(6) {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* RED ROOM — give Membrane a clearer architectural threshold after Red Thread. */
+.room[data-environment="textile"] .red-room-passage {
+  height: 56vh !important;
+  margin-top: 10vh !important;
+  margin-bottom: 10vh !important;
+}
+
+.room[data-environment="textile"] .red-room-project--membrane {
+  padding-top: clamp(8rem, 16vh, 13rem) !important;
+}
+
+/* BODY OF WATER 4 — physically crop the stubborn baked left edge by using
+   the figure as a viewport and shifting the image beyond it. */
+.water-room-installation .artwork-image:nth-child(4) {
+  overflow: hidden !important;
+}
+
+.water-room-installation .artwork-image:nth-child(4) img {
+  clip-path: none !important;
+  width: 106% !important;
+  max-width: none !important;
+  transform: translateX(-3.8%) scale(1.035) !important;
+  transform-origin: center center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
