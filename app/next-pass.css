@@ -5744,3 +5744,26 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ============================================================
+   BODY OF WATER 4 — corrected source asset
+   The baked white border is now fixed in the image itself. Cancel every
+   previous crop/shift workaround so the corrected photograph displays cleanly.
+   ============================================================ */
+.water-room-installation .artwork-image[data-artwork-index="4"],
+.water-room-installation .artwork-image:nth-child(4) {
+  overflow: visible !important;
+}
+
+.water-room-installation .artwork-image[data-artwork-index="4"] img,
+.water-room-installation .artwork-image:nth-child(4) img {
+  position: static !important;
+  left: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  clip-path: none !important;
+}
