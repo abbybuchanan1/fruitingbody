@@ -9426,3 +9426,74 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   .archive-project{padding:3.75rem 0}
   .archive-projects__header{margin-bottom:3.5rem}
 }
+
+
+/* ==========================================================
+   ARCHIVE — RED THREAD DEVELOPMENT
+   ========================================================== */
+
+.archive-development{
+  width:min(100%,52rem);
+  margin-inline:auto;
+  scroll-margin-top:7rem;
+}
+.archive-development__header{
+  width:min(100%,44rem);
+  margin:0 auto clamp(4rem,9vh,6.5rem);
+}
+.archive-development__header h2{
+  margin:0 0 1.4rem;
+  font-size:clamp(2rem,4vw,3.4rem);
+  line-height:1.02;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+.archive-development__header > p:last-child{
+  margin:0;
+  font-size:clamp(1rem,1.25vw,1.12rem);
+  line-height:1.72;
+  color:rgba(31,29,27,.76);
+}
+.archive-development__sets{
+  display:grid;
+  gap:0;
+  border-top:1px solid rgba(31,29,27,.14);
+}
+.archive-development__set{
+  padding:clamp(3rem,7vh,5rem) 0;
+  border-bottom:1px solid rgba(31,29,27,.14);
+}
+.archive-development__label{
+  margin:0 0 .7rem;
+  font:.6rem/1 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:rgba(31,29,27,.46);
+}
+.archive-development__set h3{
+  margin:0 0 1.4rem;
+  font-size:clamp(1.55rem,2.7vw,2.3rem);
+  line-height:1.08;
+  font-weight:400;
+  letter-spacing:-.025em;
+}
+.archive-development__set > p:not(.archive-development__label):not(.archive-development__question){
+  width:min(100%,42rem);
+  margin:0 0 1.4rem;
+  font-size:clamp(1rem,1.2vw,1.1rem);
+  line-height:1.72;
+  color:rgba(31,29,27,.8);
+}
+.archive-development__question{
+  width:min(100%,38rem);
+  margin:2rem 0 0;
+  font-size:clamp(1.25rem,2vw,1.7rem);
+  line-height:1.35;
+  font-style:italic;
+  color:rgba(31,29,27,.76);
+}
+
+@media(max-width:700px){
+  .archive-development__header{margin-bottom:3.5rem}
+  .archive-development__set{padding:3.2rem 0}
+}
