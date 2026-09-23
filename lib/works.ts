@@ -175,8 +175,8 @@ export const museumWorks: MuseumWork[] = [
     exhibition: artworkSets.phase,
     archive: [
       ...artworkSets.phase,
-      { src: "/art/archive/phase/phase-archive-06.jpg", alt: "Phase, archive image 6." },
-      { src: "/art/archive/phase/phase-archive-07.jpg", alt: "Phase, archive image 7." },
+      { src: "/art/phase/06.webp", alt: "Phase, archive image 6." },
+      { src: "/art/phase/07.webp", alt: "Phase, archive image 7." },
     ],
     reflection: reflections.phase,
   },
