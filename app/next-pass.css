@@ -5344,3 +5344,135 @@
     height: 210px !important;
   }
 }
+
+
+/* ============================================================
+   FINAL DETAIL PASS — installation / index / archive / map
+   Checkpoint before this pass:
+   c1b70413d36d90d436ea5f6b840189aed1385e27
+   ============================================================ */
+
+/* READING ROOM — titles still felt too large relative to the poem text. */
+.reading-room-poem-card h2 {
+  font-size: clamp(1.02rem, 1.35vw, 1.42rem) !important;
+  line-height: 1.08 !important;
+}
+
+/* CURRENT — terminal Maria image should register as the final visual event. */
+.current-ember-work:nth-child(11) {
+  width: min(72vw, 64rem) !important;
+}
+
+/* RED THREAD — image 4 remains too recessive. */
+.red-thread-installation .artwork-image:nth-child(4) {
+  width: min(90vw, 78rem) !important;
+}
+
+/* MEMBRANE — image 2 had become too dominant. */
+.membrane-installation .artwork-image:nth-child(2) {
+  width: min(56vw, 47rem) !important;
+}
+
+/* BODY OF WATER 4 — remove the stubborn baked white edge on the left. */
+.water-room-installation .artwork-image:nth-child(4) img {
+  clip-path: inset(1.5% 1.2% 1.5% 5.4%) !important;
+  transform: scale(1.085) !important;
+  transform-origin: 61% center !important;
+}
+
+/* INDEX — curator-facing quick scan remains uniform. Daffodils needs the
+   strongest normalization because its portrait/landscape mix was still
+   reading as irregular cards. */
+.index-work[data-work-id="daffodils"] .index-thumb .artwork-lightbox-trigger {
+  aspect-ratio: 4 / 5 !important;
+  height: auto !important;
+  padding: .65rem !important;
+  background: rgba(238,232,220,.60) !important;
+  border: 1px solid rgba(73,64,52,.05) !important;
+}
+
+.index-work[data-work-id="daffodils"] .index-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* Fear Not: keep the successful single-row scan; image 4 may remain a little
+   smaller because preserving the full landscape frame is preferable to crop. */
+.index-work[data-work-id="fear-not"] .index-work__grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+/* Maria: final image spans two cells so it reads as the closing image rather
+   than a small leftover thumbnail. */
+.index-work[data-work-id="maria"] .index-thumb:last-child {
+  grid-column: span 2 !important;
+  width: auto !important;
+}
+
+.index-work[data-work-id="maria"] .index-thumb:last-child .artwork-lightbox-trigger {
+  height: clamp(210px, 21vw, 310px) !important;
+}
+
+/* ARCHIVE — Body of Water should read as a clean research grid rather than
+   a broken masonry wall. */
+.archive-work[data-work-id="body-of-water"] .archive-work__grid {
+  columns: initial !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(.9rem, 1.4vw, 1.35rem) !important;
+  align-items: start !important;
+}
+
+.archive-work[data-work-id="body-of-water"] .archive-image {
+  margin: 0 !important;
+  break-inside: auto !important;
+}
+
+.archive-work[data-work-id="body-of-water"] .archive-image .artwork-lightbox-trigger {
+  display: grid !important;
+  place-items: center !important;
+  min-height: clamp(210px, 22vw, 310px) !important;
+  padding: .45rem !important;
+  background: rgba(238,232,220,.42) !important;
+}
+
+.archive-work[data-work-id="body-of-water"] .archive-image img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 300px !important;
+  object-fit: contain !important;
+}
+
+/* MAP — center Archive label precisely within its room box. */
+.museum-map__room--canonical[data-room="archive"] {
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+.museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 900px) {
+  .archive-work[data-work-id="body-of-water"] .archive-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .index-work[data-work-id="maria"] .index-thumb:last-child {
+    grid-column: span 2 !important;
+  }
+
+  .archive-work[data-work-id="body-of-water"] .archive-work__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
