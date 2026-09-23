@@ -4980,3 +4980,51 @@
 .water-room-installation .artwork-image:nth-child(8) img {
   clip-path: inset(.72%) !important;
 }
+
+
+/* ============================================================
+   READING ROOM TYPE / CURRENT MAP / BORDER CLEANUP — refinement
+   Checkpoint before this pass:
+   7130c022ff92fcaaadf755678dd2840698758a95
+   ============================================================ */
+
+/* READING ROOM — split the difference:
+   keep one literary display gesture for "Poems", but return individual
+   poem titles to the site's quieter contemporary sans language. */
+.reading-room-title-card h1 {
+  font-family: Baskerville, "Iowan Old Style", "Times New Roman", serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -.042em !important;
+}
+
+.reading-room-poem-card h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -.018em !important;
+  line-height: 1.06 !important;
+}
+
+/* MAP — enlarged Current annex now has enough breathing room for the full
+   work title; center the content without the previous downward correction. */
+.museum-map__room--canonical[data-room="current"] {
+  justify-content: center !important;
+  padding: .45rem .8rem !important;
+}
+
+.museum-map__room--canonical[data-room="current"] .museum-map__room-name,
+.museum-map__room--canonical[data-room="current"] .museum-map__collections {
+  transform: translateY(1px) !important;
+}
+
+/* TARGETED BAKED BORDER SHAVE — second pass.
+   A tiny scale-up fills the clipped perimeter so no background halo appears. */
+.red-thread-installation .artwork-image:nth-child(8) img,
+.red-thread-installation .artwork-image:nth-child(9) img,
+.water-room-installation .artwork-image:nth-child(4) img,
+.current-ember-work:nth-child(3) img,
+.current-ember-work:nth-child(7) img,
+.current-ember-work:nth-child(9) img {
+  clip-path: inset(1.15%) !important;
+  transform: scale(1.024) !important;
+  transform-origin: center center !important;
+}
