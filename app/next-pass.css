@@ -4395,3 +4395,83 @@
 .current-room__return {
   color: rgba(42,39,35,.82) !important;
 }
+
+
+/* ============================================================
+   GARDEN → MISCARRIAGE DESCENT
+   Keep the current votive Miscarriage installation intact.
+   The transition now resolves gradually into the exact black of the
+   Miscarriage chamber instead of ending as a visible background cut.
+   ============================================================ */
+
+.exhibition-transition--garden-grotto {
+  height: 195vh !important;
+  margin-top: -30vh !important;
+  margin-bottom: -12vh !important;
+  background-color: #050505 !important;
+  isolation: isolate;
+}
+
+/* Preserve the existing architectural transition image, but let its lower
+   half disappear into the chamber darkness over a long distance. */
+.exhibition-transition--garden-grotto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,0) 0%,
+      rgba(5,5,5,.02) 34%,
+      rgba(5,5,5,.12) 48%,
+      rgba(5,5,5,.34) 62%,
+      rgba(5,5,5,.62) 76%,
+      rgba(5,5,5,.86) 89%,
+      #050505 100%
+    );
+}
+
+/* The beginning of the black chamber overlaps the dying transition so there
+   is no single horizontal moment where "Garden" becomes "Grotto." */
+.grotto-section--miscarriage {
+  position: relative;
+}
+
+.grotto-section--miscarriage::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -22vh;
+  left: 50%;
+  width: 100vw;
+  height: 34vh;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,0) 0%,
+      rgba(5,5,5,.56) 42%,
+      #050505 100%
+    );
+}
+
+.grotto-section--miscarriage > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 760px) {
+  .exhibition-transition--garden-grotto {
+    height: 150vh !important;
+    margin-top: -16vh !important;
+    margin-bottom: -8vh !important;
+  }
+
+  .grotto-section--miscarriage::before {
+    top: -14vh;
+    height: 24vh;
+  }
+}
