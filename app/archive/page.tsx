@@ -98,19 +98,18 @@ export default function ArchivePage() {
               <p className="archive-work__meta">{work.year} · {work.medium}</p>
               <p>{work.statement}</p>
               {work.archiveNote ? <p className="archive-work__history">{work.archiveNote}</p> : null}
+              {work.reflection?.length ? (
+                <details className="archive-reflection archive-reflection--intro">
+                  <summary>Artist Reflection</summary>
+                  <div className="archive-reflection__body">
+                    {work.reflection.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                </details>
+              ) : null}
               <Link href={work.href}>View installed work</Link>
             </header>
 
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
-
-            {work.reflection?.length ? (
-              <details className="archive-reflection">
-                <summary>Artist Reflection</summary>
-                <div className="archive-reflection__body">
-                  {work.reflection.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                </div>
-              </details>
-            ) : null}
 
             {work.id === "red-thread" ? (
               <section className="archive-historical-edits" aria-label="Red Thread developmental archive">
