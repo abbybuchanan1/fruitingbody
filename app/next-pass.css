@@ -6968,3 +6968,43 @@
     padding-bottom: 0 !important;
   }
 }
+
+
+/* ============================================================
+   CURRENT TITLE CARD — final breathing-room pass
+   ============================================================ */
+.current-exhibition .work-intro-card {
+  padding: clamp(3rem, 5.8vw, 5.2rem) clamp(3rem, 5.6vw, 5.4rem) !important;
+}
+
+.current-exhibition .work-intro-card__room {
+  margin-bottom: .7rem !important;
+}
+
+.current-exhibition .work-intro-card__room-note {
+  margin-bottom: clamp(2.8rem, 5vh, 4.2rem) !important;
+  line-height: 1.68 !important;
+}
+
+.current-exhibition .work-intro-card h1 {
+  margin-bottom: 0 !important;
+}
+
+.current-exhibition .work-intro-card__statement {
+  margin-top: clamp(2.7rem, 5vh, 4rem) !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 680px) {
+  .current-exhibition .work-intro-card {
+    padding: 2.35rem 1.6rem 2.65rem !important;
+  }
+
+  .current-exhibition .work-intro-card__room-note {
+    margin-bottom: 2.25rem !important;
+  }
+
+  .current-exhibition .work-intro-card__statement {
+    margin-top: 2.2rem !important;
+  }
+}
