@@ -68,18 +68,18 @@ export default function ArchivePage() {
         <h1>Archive</h1>
         <p>
           Full finished bodies of work, project histories, and optional reflections from the practice.
-          For a quick view of the installed exhibition, visit the Index.
+          For a quick view of the installed exhibition, visit the <Link href="/index">Index</Link>.
         </p>
 
         <nav className="archive-menu" aria-label="Archive contents">
           <a href="#artist-statement">Artist Statement</a>
           <a href="#fruiting-body">Fruiting Body</a>
           <a href="#process">Process</a>
+          <a href="#bio">Bio</a>
+          <a href="#contact">Contact</a>
           {museumWorks.map((work) => (
             <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>
           ))}
-          <a href="#bio">Bio</a>
-          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -88,6 +88,14 @@ export default function ArchivePage() {
         <PracticeDetails id="fruiting-body" title="Fruiting Body" paragraphs={fruitingBodyStatement} />
         <PracticeDetails id="process" title="Process" paragraphs={processStatement} />
         <PracticeDetails id="bio" title="Bio" paragraphs={artistBio} />
+        <details className="archive-practice-detail" id="contact">
+          <summary>Contact</summary>
+          <div className="archive-practice-detail__body archive-contact-detail__body">
+            <p>Abby Buchanan</p>
+            <p>Portland, Oregon</p>
+            <p><a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a></p>
+          </div>
+        </details>
       </section>
 
       <section className="archive-works" aria-label="Full finished bodies of work">
@@ -137,13 +145,6 @@ export default function ArchivePage() {
             ) : null}
           </article>
         ))}
-      </section>
-
-      <section className="archive-contact" id="contact" aria-labelledby="archive-contact-title">
-        <p className="utility-header__eyebrow">Contact</p>
-        <h2 id="archive-contact-title">Abby Buchanan</h2>
-        <p>Portland, Oregon</p>
-        <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
       </section>
 
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
