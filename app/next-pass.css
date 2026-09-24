@@ -7497,3 +7497,11 @@
     left: 61.5% !important;
   }
 }
+
+
+/* Desktop Vestibule: keep the persistent sound control clear of Current. */
+@media (min-width: 701px) {
+  .ambient-sound-control--vestibule {
+    bottom: clamp(6.8rem, 12vh, 8.5rem) !important;
+  }
+}
