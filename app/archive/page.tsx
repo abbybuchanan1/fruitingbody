@@ -67,8 +67,8 @@ export default function ArchivePage() {
         <p className="utility-header__eyebrow">Research Room</p>
         <h1>Archive</h1>
         <p>
-          The Index is a quick view of the installed exhibition. The Archive holds the fuller
-          finished edits, project histories, and optional reflections from the practice.
+          Full finished bodies of work, project histories, and optional reflections from the practice.
+          For a quick view of the installed exhibition, visit the Index.
         </p>
 
         <nav className="archive-menu" aria-label="Archive contents">
