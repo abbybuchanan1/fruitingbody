@@ -6686,3 +6686,40 @@
     color: rgba(24,23,20,.96) !important;
   }
 }
+
+
+/* ============================================================
+   MEMBRANE MOBILE INDEX — masonry rhythm
+   Avoid row-height gaps when portrait and landscape frames share a row.
+   ============================================================ */
+@media (max-width: 680px) {
+  .index-work[data-work-id="membrane"] .index-work__grid {
+    display: block !important;
+    columns: 2 !important;
+    column-gap: .9rem !important;
+  }
+
+  .index-work[data-work-id="membrane"] .index-thumb {
+    break-inside: avoid !important;
+    margin: 0 0 .9rem !important;
+    width: 100% !important;
+  }
+
+  .index-work[data-work-id="membrane"] .artwork-lightbox-trigger {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .index-work[data-work-id="membrane"] .index-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
