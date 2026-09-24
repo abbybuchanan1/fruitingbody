@@ -6885,3 +6885,86 @@
     justify-self: center !important;
   }
 }
+
+
+/* ============================================================
+   FINAL MEDIA + MEMBRANE SPACING CORRECTIONS
+   ============================================================ */
+
+/* Exterior: preserve white museum text, but give it enough local contrast
+   against the light stone to remain readable at a glance. */
+.museum-exterior__sign {
+  color: rgba(255, 252, 244, .96) !important;
+  text-shadow:
+    0 1px 3px rgba(18,14,10,.78),
+    0 0 14px rgba(18,14,10,.46) !important;
+  background: rgba(20,16,12,.10) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: .35rem .5rem !important;
+}
+
+.ambient-sound-control--exterior {
+  color: rgba(255,252,244,.94) !important;
+  opacity: .94 !important;
+  text-shadow:
+    0 1px 3px rgba(18,14,10,.86),
+    0 0 10px rgba(18,14,10,.52) !important;
+}
+
+/* Desktop Index — Membrane should read as six photographs, not six pale
+   presentation boxes. Keep every image at its native proportion. */
+@media (min-width: 681px) {
+  .index-work[data-work-id="membrane"] .index-work__grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: clamp(.9rem, 1.4vw, 1.35rem) !important;
+    align-items: start !important;
+  }
+
+  .index-work[data-work-id="membrane"] .index-thumb {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .index-work[data-work-id="membrane"] .artwork-lightbox-trigger {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .index-work[data-work-id="membrane"] .index-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 680px) {
+  /* Red Thread needs a clean landing zone before the Membrane identity card. */
+  .index-work[data-work-id="red-thread"] {
+    padding-bottom: 3.75rem !important;
+  }
+
+  .index-work[data-work-id="red-thread"] + .index-work[data-work-id="membrane"] {
+    margin-top: 4.75rem !important;
+    padding-top: .5rem !important;
+  }
+
+  /* Remove the oversized dead zone after Membrane before the Water Room. */
+  .index-room-group:has(.index-work[data-work-id="membrane"]) {
+    padding-bottom: 2.25rem !important;
+  }
+
+  .index-room-group:has(.index-work[data-work-id="membrane"]) + .index-room-group {
+    margin-top: 2.75rem !important;
+  }
+
+  .index-work[data-work-id="membrane"] {
+    padding-bottom: 0 !important;
+  }
+}
