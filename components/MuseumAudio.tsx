@@ -29,7 +29,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   vestibule: {
     src: "/media/audio/vestibule.mp3",
-    gain: 1.10,
+    gain: 1.18,
     panDepth: 0.045,
   },
   gallery: {
@@ -61,7 +61,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   cloisters: {
     src: "/media/audio/cloister-new.mp3",
-    gain: 0.84,
+    gain: 0.74,
     panDepth: 0.075,
   },
   "film-room": {
@@ -79,7 +79,18 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
 
 const MASTER_GAIN = 0.48;
 const CROSSFADE_SECONDS = 3.4;
-const PAN_MOVE_SECONDS = 14;
+const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
+const PAN_MOVE_SECONDS = 18;
+
+function transitionDuration(from: EnvironmentKey, to: EnvironmentKey) {
+  if (
+    (from === "garden" && to === "grotto") ||
+    (from === "grotto" && to === "garden")
+  ) {
+    return GARDEN_GROTTO_CROSSFADE_SECONDS;
+  }
+  return CROSSFADE_SECONDS;
+}
 
 function environmentForPath(pathname: string): EnvironmentKey {
   if (pathname === "/") return "exterior";
@@ -158,17 +169,18 @@ export function MuseumAudio() {
     const move = () => {
       if (!soundOnRef.current || activeIndexRef.current !== index) return;
       const now = context.currentTime;
-      const target = (Math.random() * 2 - 1) * depth;
+      const target = (Math.random() * 2 - 1) * depth * 0.72;
       panNode.pan.cancelScheduledValues(now);
       panNode.pan.setValueAtTime(panNode.pan.value, now);
       panNode.pan.linearRampToValueAtTime(target, now + PAN_MOVE_SECONDS);
-      panTimerRef.current = window.setTimeout(move, (PAN_MOVE_SECONDS + 3) * 1000);
+      panTimerRef.current = window.setTimeout(move, (PAN_MOVE_SECONDS + 5 + Math.random() * 4) * 1000);
     };
 
     move();
   };
 
   const transitionTo = async (nextKey: EnvironmentKey, immediate = false) => {
+    const previousKey = environmentRef.current;
     environmentRef.current = nextKey;
     if (!soundOnRef.current) return;
 
@@ -226,7 +238,7 @@ export function MuseumAudio() {
       return;
     }
 
-    const duration = immediate ? 0.45 : CROSSFADE_SECONDS;
+    const duration = immediate ? 0.45 : transitionDuration(previousKey, nextKey);
     nextGain.gain.linearRampToValueAtTime(nextEnvironment.gain, now + duration);
 
     if (currentAudio && currentGain) {
@@ -360,24 +372,40 @@ export function MuseumAudio() {
       <audio ref={audioRefs[0]} aria-hidden="true" />
       <audio ref={audioRefs[1]} aria-hidden="true" />
 
-      <button
-        type="button"
-        className="ambient-sound-control ambient-sound-control--global"
-        onClick={() => {
-          if (soundOnRef.current) stopSound();
-          else void startSound();
-        }}
-        aria-pressed={soundOn}
-      >
-        <span className="ambient-sound-control__icon" aria-hidden="true">
-          <svg viewBox="0 0 20 20" focusable="false">
-            <path d="M3.5 8h3l3.8-3.2v10.4L6.5 12h-3z" />
-            <path d="M13 7.2c1.05.75 1.7 1.7 1.7 2.8s-.65 2.05-1.7 2.8" />
-            <path d="M15.2 5.2c1.55 1.3 2.5 2.9 2.5 4.8s-.95 3.5-2.5 4.8" />
-          </svg>
-        </span>
-        <span>{soundOn ? "Sound off" : "Sound"}</span>
-      </button>
+      {pathname === "/" && !soundOn ? (
+        <div className="soundscape-invitation" role="group" aria-label="Optional museum soundscape">
+          <p className="soundscape-invitation__eyebrow">Soundscape</p>
+          <p className="soundscape-invitation__copy">
+            Optional spatial sound accompanies the museum.
+          </p>
+          <button
+            type="button"
+            className="soundscape-invitation__button"
+            onClick={() => void startSound()}
+          >
+            Turn on sound
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          className="ambient-sound-control ambient-sound-control--global"
+          onClick={() => {
+            if (soundOnRef.current) stopSound();
+            else void startSound();
+          }}
+          aria-pressed={soundOn}
+        >
+          <span className="ambient-sound-control__icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" focusable="false">
+              <path d="M3.5 8h3l3.8-3.2v10.4L6.5 12h-3z" />
+              <path d="M13 7.2c1.05.75 1.7 1.7 1.7 2.8s-.65 2.05-1.7 2.8" />
+              <path d="M15.2 5.2c1.55 1.3 2.5 2.9 2.5 4.8s-.95 3.5-2.5 4.8" />
+            </svg>
+          </span>
+          <span>{soundOn ? "Sound off" : "Sound"}</span>
+        </button>
+      )}
     </>
   );
 }
