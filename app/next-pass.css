@@ -7461,3 +7461,39 @@
     width: min(16rem, calc(100vw - 2rem));
   }
 }
+
+
+/* ============================================================
+   MOBILE MAP — enlarge small invisible tap targets
+   Preserve the drawn geometry; improve touch accessibility only.
+   ============================================================ */
+@media (max-width: 760px) {
+  .museum-map__room--canonical[data-room="film-room"] {
+    width: max(var(--map-width), 9%) !important;
+    height: max(var(--map-height), 15%) !important;
+    transform: translate(-1.8%, -1.8%) !important;
+  }
+
+  .museum-map__room--canonical[data-room="reading-room"] {
+    width: max(var(--map-width), 15%) !important;
+    height: max(var(--map-height), 10%) !important;
+  }
+
+  .museum-map__room--canonical[data-room="index"],
+  .museum-map__room--canonical[data-room="archive"] {
+    width: max(var(--map-width), 9%) !important;
+    height: max(var(--map-height), 10%) !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+    width: 6% !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--left {
+    left: 32.4% !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--right {
+    left: 61.5% !important;
+  }
+}
