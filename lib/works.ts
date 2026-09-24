@@ -3,6 +3,7 @@ import {
   artworkSets,
   bodyOfWaterWorks,
   miscarriageWorks,
+  mariaWorks,
   relativePairs,
   thresholdPairs,
 } from "@/lib/artworks";
@@ -251,7 +252,7 @@ export const museumWorks: MuseumWork[] = [
       "An unstaged ritual, witnessed rather than arranged. The image documents a ritual event without intervention.",
     question: "Can a deliberate act of witnessing transform identity?",
     exhibition: artworkSets.maria,
-    archive: artworkSets.maria,
+    archive: mariaWorks,
     reflection: reflections.maria,
   },
 ];
