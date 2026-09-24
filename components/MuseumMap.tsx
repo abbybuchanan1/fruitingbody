@@ -28,6 +28,12 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   archive: { x: 630, y: 43, w: 68, h: 55, z: 10 },
 };
 
+function notifyAudioRoom(roomId: MuseumRoomId) {
+  window.dispatchEvent(
+    new CustomEvent("museum-audio-room", { detail: { roomId } }),
+  );
+}
+
 function roomCollections(roomId: MuseumRoomId) {
   return [
     ...museumCollections
@@ -202,7 +208,7 @@ export function MuseumMap({
                     href={room.href}
                     className="museum-map__cloister-passage museum-map__cloister-passage--left"
                     aria-current={isCurrent ? "location" : undefined}
-                    onClick={onClose}
+                    onClick={() => { notifyAudioRoom(room.id); onClose(); }}
                     {...passageEvents}
                   >
                     <span className="museum-map__cloister-label">Cloisters</span>
@@ -211,7 +217,7 @@ export function MuseumMap({
                     href={room.href}
                     className="museum-map__cloister-passage museum-map__cloister-passage--right"
                     aria-current={isCurrent ? "location" : undefined}
-                    onClick={onClose}
+                    onClick={() => { notifyAudioRoom(room.id); onClose(); }}
                     {...passageEvents}
                   >
                     <span className="museum-map__cloister-label">Cloisters</span>
