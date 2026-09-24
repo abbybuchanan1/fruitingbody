@@ -6764,3 +6764,48 @@
     clip-path: none !important;
   }
 }
+
+
+/* ============================================================
+   RED THREAD MOBILE INDEX — final sequence-preserving layout
+   Two-column masonry removed because it split the combined body into visual
+   factions and scrambled the intended reading order. Mobile now reads as one
+   continuous procession with natural image proportions.
+   ============================================================ */
+@media (max-width: 680px) {
+  .index-work[data-work-id="red-thread"] .index-work__grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    columns: initial !important;
+    gap: 1.1rem !important;
+    width: min(88vw, 32rem) !important;
+    margin-inline: auto !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb {
+    width: 100% !important;
+    margin: 0 !important;
+    break-inside: auto !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .artwork-lightbox-trigger {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
