@@ -7182,3 +7182,72 @@
     border-top: 1px solid var(--warm-line) !important;
   }
 }
+
+
+/* ============================================================
+   RED THREAD MOBILE — specificity correction
+   The earlier fixed-height selector included .index-thumb, so previous
+   overrides were not actually winning the !important cascade.
+   ============================================================ */
+@media (max-width: 680px) {
+  .index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    aspect-ratio: auto !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb .artwork-lightbox-trigger img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb:nth-child(n+8) {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-work__grid {
+    row-gap: 1.35rem !important;
+  }
+
+  .index-work[data-work-id="red-thread"] + .index-work[data-work-id="membrane"] {
+    margin-top: 4.5rem !important;
+  }
+
+  /* Relative — retain the good Index pairing and mirror it in Archive,
+     with enough vertical separation for each pair to read independently. */
+  .index-work[data-work-id="relative"] .index-work__grid,
+  .archive-work[data-work-id="relative"] .archive-work__grid {
+    column-gap: 1rem !important;
+    row-gap: 2.6rem !important;
+  }
+
+  .index-work[data-work-id="relative"] .index-thumb .artwork-lightbox-trigger,
+  .archive-work[data-work-id="relative"] .archive-image .artwork-lightbox-trigger {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .index-work[data-work-id="relative"] .index-thumb .artwork-lightbox-trigger img,
+  .archive-work[data-work-id="relative"] .archive-image .artwork-lightbox-trigger img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+}
