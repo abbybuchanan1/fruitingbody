@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./next-pass.css";
@@ -15,7 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <SiteNav />
-        <MuseumAudio />
+        <Suspense fallback={null}><MuseumAudio /></Suspense>
         <div id="main-content">{children}</div>
       </body>
     </html>
