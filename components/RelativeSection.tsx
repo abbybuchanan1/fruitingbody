@@ -17,7 +17,7 @@ export function RelativeSection({
   const work = museumWorksById.relative;
 
   return (
-    <section id="relative" className="relative-page">
+    <section id="relative" className="relative-page" data-audio-zone="gallery">
       <img
         className="relative-environment"
         src="/media/architecture/environments/relative/relative-environment-composite.jpg"
