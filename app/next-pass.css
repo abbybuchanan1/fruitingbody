@@ -7366,3 +7366,42 @@
     width: min(58vw, 19rem) !important;
   }
 }
+
+
+/* ============================================================
+   PERSISTENT MUSEUM AUDIO
+   ============================================================ */
+.ambient-sound-control--global {
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
+  padding: .42rem .52rem;
+  color: rgba(247, 242, 231, .78);
+  background: rgba(19, 18, 15, .18);
+  border-bottom-color: rgba(247, 242, 231, .45);
+  text-shadow: 0 1px 7px rgba(18, 14, 10, .48);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.ambient-sound-control--global .ambient-sound-control__icon {
+  display: inline-flex;
+  width: .9rem;
+  height: .9rem;
+}
+
+.ambient-sound-control--global .ambient-sound-control__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.15;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-sound-control--global {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
