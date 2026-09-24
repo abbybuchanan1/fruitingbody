@@ -7,7 +7,7 @@ export function ThresholdSection() {
   const work = museumWorksById.threshold;
 
   return (
-    <section className="threshold-page">
+    <section className="threshold-page" data-audio-zone="gallery">
       <div className="threshold-environment" aria-hidden="true" />
       <div className="threshold-content">
         <section id="threshold" className="threshold-section">
