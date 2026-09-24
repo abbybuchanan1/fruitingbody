@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";
 import { ExteriorShadowPass } from "@/components/ExteriorShadowPass";
 
@@ -12,6 +12,15 @@ export default function ExteriorPage() {
   const [imageReady, setImageReady] = useState(false);
   const [entering, setEntering] = useState(false);
 
+  useEffect(() => {
+    router.prefetch("/vestibule?arrived=1");
+
+    ["/media/architecture/vestibule-arch-desktop.jpg", "/media/architecture/vestibule-arch-mobile.jpg"].forEach((src) => {
+      const image = new window.Image();
+      image.src = src;
+    });
+  }, [router]);
+
   const enterVestibule = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     if (entering) return;
@@ -19,7 +28,7 @@ export default function ExteriorPage() {
     setEntering(true);
     window.setTimeout(() => {
       router.push("/vestibule?arrived=1");
-    }, 260);
+    }, 300);
   };
 
   return (
