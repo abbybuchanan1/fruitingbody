@@ -7499,9 +7499,13 @@
 }
 
 
-/* Desktop Vestibule: keep the persistent sound control clear of Current. */
+/* Desktop Vestibule: use the quiet upper-left margin to balance the room.
+   This keeps sound away from the side passages and lets Current breathe. */
 @media (min-width: 701px) {
   .ambient-sound-control--vestibule {
-    bottom: clamp(6.8rem, 12vh, 8.5rem) !important;
+    left: clamp(28px, 5vw, 72px) !important;
+    right: auto !important;
+    top: clamp(105px, 16vh, 150px) !important;
+    bottom: auto !important;
   }
 }
