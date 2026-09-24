@@ -51,7 +51,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   grotto: {
     src: "/media/audio/reading-room-index-archive-grotto.mp3",
-    gain: 0.64,
+    gain: 0.60,
     panDepth: 0.04,
   },
   "red-water-narthex": {
@@ -61,7 +61,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   cloisters: {
     src: "/media/audio/cloister-new.mp3",
-    gain: 0.74,
+    gain: 0.70,
     panDepth: 0.075,
   },
   "film-room": {
@@ -80,7 +80,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
 const MASTER_GAIN = 0.48;
 const CROSSFADE_SECONDS = 3.4;
 const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
-const PAN_MOVE_SECONDS = 18;
+const PAN_MOVE_SECONDS = 17;
 
 function transitionDuration(from: EnvironmentKey, to: EnvironmentKey) {
   if (
@@ -169,7 +169,7 @@ export function MuseumAudio() {
     const move = () => {
       if (!soundOnRef.current || activeIndexRef.current !== index) return;
       const now = context.currentTime;
-      const target = (Math.random() * 2 - 1) * depth * 0.72;
+      const target = (Math.random() * 2 - 1) * depth * 0.90;
       panNode.pan.cancelScheduledValues(now);
       panNode.pan.setValueAtTime(panNode.pan.value, now);
       panNode.pan.linearRampToValueAtTime(target, now + PAN_MOVE_SECONDS);
