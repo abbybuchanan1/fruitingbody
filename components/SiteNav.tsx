@@ -108,6 +108,7 @@ export function SiteNav() {
         </button>
 
         <Link href="/index">Index</Link>
+        <Link href="/archive">Archive</Link>
       </nav>
 
       <MuseumMap
