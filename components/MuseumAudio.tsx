@@ -125,6 +125,38 @@ function environmentForJump(pathname: string, jumpTarget: string | null): Enviro
   return null;
 }
 
+
+function environmentForMapRoom(roomId: string): EnvironmentKey {
+  switch (roomId) {
+    case "exterior": return "exterior";
+    case "vestibule": return "vestibule";
+    case "front-gallery":
+    case "rear-gallery":
+    case "current":
+      return "gallery";
+    case "garden":
+      return "garden";
+    case "grotto":
+      return "grotto";
+    case "red-room":
+    case "water-room":
+    case "narthex":
+      return "red-water-narthex";
+    case "cloisters":
+      return "cloisters";
+    case "film-room":
+      return "film-room";
+    case "reading-room":
+    case "index":
+    case "archive":
+      return "quiet";
+    case "exit-exterior":
+      return "exit";
+    default:
+      return "quiet";
+  }
+}
+
 export function MuseumAudio() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -328,6 +360,18 @@ export function MuseumAudio() {
   };
 
   useEffect(() => {
+    const handleMapAudioRoom = (event: Event) => {
+      const customEvent = event as CustomEvent<{ roomId?: string }>;
+      const roomId = customEvent.detail?.roomId;
+      if (!roomId) return;
+      void transitionTo(environmentForMapRoom(roomId));
+    };
+
+    window.addEventListener("museum-audio-room", handleMapAudioRoom);
+    return () => window.removeEventListener("museum-audio-room", handleMapAudioRoom);
+  }, []);
+
+  useEffect(() => {
     const key = environmentForJump(pathname, jumpTarget) ?? environmentForPath(pathname);
     environmentRef.current = key;
     void transitionTo(key);
@@ -368,11 +412,19 @@ export function MuseumAudio() {
       frame = window.requestAnimationFrame(updateZone);
     };
 
-    updateZone();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    const attachZoneTracking = () => {
+      updateZone();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+    };
+
+    const settleTimer = window.setTimeout(
+      attachZoneTracking,
+      jumpTarget ? 760 : 0,
+    );
 
     return () => {
+      window.clearTimeout(settleTimer);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
