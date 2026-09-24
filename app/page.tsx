@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ExteriorAtmosphere } from "@/components/ExteriorAtmosphere";
 import { ExteriorShadowPass } from "@/components/ExteriorShadowPass";
 
 export default function ExteriorPage() {
@@ -45,7 +44,6 @@ export default function ExteriorPage() {
         onLoad={() => setImageReady(true)}
       />
 
-      <ExteriorAtmosphere />
       <ExteriorShadowPass ready={imageReady} />
 
       <div className="museum-exterior__sign">
