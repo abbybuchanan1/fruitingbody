@@ -22,7 +22,7 @@ export const fruitingBodyStatement = [
 
 export const artistBio = [
   "Abby Buchanan is a Portland, Oregon–based photographic artist working primarily in self-portraiture. Her practice investigates embodiment, ecological identity, transformation, permeability, and agency within conditions that cannot be fully controlled.",
-  "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, embodiment, and lived processes of transformation.", Her images draw on motherhood, neurodivergence, myth, ecology, grief, desire, and lived processes of transformation.",
+  "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, embodiment, and lived processes of transformation.",
 ];
 
 export const reflections: Record<string, string[]> = {
