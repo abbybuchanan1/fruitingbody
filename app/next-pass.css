@@ -7610,3 +7610,16 @@
     width: min(62vw, 20rem) !important;
   }
 }
+
+
+/* Daffodils Archive — remove side export bars from the tight pomegranate crop. */
+.archive-work[data-work-id="daffodils"] .archive-image:nth-child(11) .artwork-lightbox-trigger {
+  overflow: hidden !important;
+}
+
+.archive-work[data-work-id="daffodils"] .archive-image:nth-child(11) img,
+.artwork-lightbox__figure img[src$="daffodils-index-11.jpg"] {
+  width: 104% !important;
+  max-width: none !important;
+  margin-left: -2% !important;
+}
