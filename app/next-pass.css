@@ -7567,3 +7567,46 @@
     background: rgba(245, 245, 238, .50) !important;
   }
 }
+
+
+/* ============================================================
+   LIVE MOBILE QA — Current + Water Room spacing
+   Keep desktop untouched. Pull Water Room sequence forward while
+   preserving the closing frame as the spatial anchor.
+   ============================================================ */
+@media (max-width: 680px) {
+  /* Current / Maria: let all six installed frames occupy more of the phone field. */
+  .current-ember-work,
+  .current-ember-work:nth-child(1),
+  .current-ember-work:nth-child(2),
+  .current-ember-work:nth-child(3),
+  .current-ember-work:nth-child(4),
+  .current-ember-work:nth-child(5),
+  .current-ember-work:nth-child(6),
+  .current-ember-work:nth-child(3n) {
+    width: min(97vw, 44rem) !important;
+    max-width: none !important;
+  }
+
+  /* Body of Water: slightly increase image presence, then advance the sequence
+     progressively. The final image remains at its current position. */
+  .water-room-installation .artwork-image {
+    width: min(92vw, 34rem) !important;
+    max-width: none !important;
+  }
+
+  .water-room-installation .artwork-image:nth-child(1) { transform: translateY(-22vh) !important; }
+  .water-room-installation .artwork-image:nth-child(2) { transform: translateY(-18vh) !important; }
+  .water-room-installation .artwork-image:nth-child(3) { transform: translateY(-15vh) !important; }
+  .water-room-installation .artwork-image:nth-child(4) { transform: translateY(-12vh) !important; }
+  .water-room-installation .artwork-image:nth-child(5) { transform: translateY(-9vh) !important; }
+  .water-room-installation .artwork-image:nth-child(6) { transform: translateY(-6vh) !important; }
+  .water-room-installation .artwork-image:nth-child(7) { transform: translateY(-3vh) !important; }
+  .water-room-installation .artwork-image:nth-child(8) { transform: none !important; }
+
+  /* Preserve the intentionally smaller fourth Body of Water image. */
+  .water-room-installation .artwork-image[data-artwork-index="4"],
+  .water-room-installation .artwork-image:nth-child(4) {
+    width: min(62vw, 20rem) !important;
+  }
+}
