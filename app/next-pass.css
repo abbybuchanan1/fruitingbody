@@ -6402,3 +6402,78 @@
     margin-top: 5rem;
   }
 }
+
+
+/* ============================================================
+   FINAL MOBILE / DAFFODILS SCALE TUNING
+   ============================================================ */
+
+/* Daffodils — raise the scale of the whole installed sequence while preserving
+   the existing relative hierarchy. */
+.garden-section--daffodils .artwork-image:nth-child(1) { width: min(52vw, 44rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(2) { width: min(72vw, 64rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(3) { width: min(60vw, 52rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(4) { width: min(47vw, 39rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(5) { width: min(50vw, 42rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(6) { width: min(58vw, 49rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(7) { width: min(74vw, 66rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(8) { width: min(66vw, 58rem) !important; }
+
+@media (max-width: 680px) {
+  .garden-section--daffodils .artwork-image,
+  .garden-section--daffodils .artwork-image:nth-child(8) {
+    width: min(92vw, 33rem) !important;
+  }
+
+  /* Fear Not Index — use natural image proportions on mobile. The previous
+     fixed-height cells were creating horizontal crop/band artifacts. */
+  .index-work[data-work-id="fear-not"] .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .9rem !important;
+  }
+
+  .index-work[data-work-id="fear-not"] .index-thumb .artwork-lightbox-trigger {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .index-work[data-work-id="fear-not"] .index-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  /* Maria Index — closing image returns to the same scale as the other works. */
+  .index-work[data-work-id="maria"] .index-thumb:last-child {
+    grid-column: auto !important;
+    width: auto !important;
+    justify-self: stretch !important;
+  }
+
+  .index-work[data-work-id="maria"] .index-thumb:last-child .artwork-lightbox-trigger {
+    height: 210px !important;
+  }
+
+  /* Mobile map — separate the two utility labels optically. */
+  .museum-map__room--canonical[data-room="index"] .museum-map__room-name,
+  .museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+    font-size: .48rem !important;
+    letter-spacing: .01em !important;
+    white-space: nowrap !important;
+  }
+
+  .museum-map__room--canonical[data-room="index"] .museum-map__room-name {
+    transform: translateX(-3px) !important;
+  }
+
+  .museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+    transform: translateX(3px) !important;
+  }
+}
