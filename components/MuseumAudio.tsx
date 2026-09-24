@@ -22,13 +22,13 @@ type Environment = {
 
 const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   exterior: {
-    src: "/media/video/exterior/exit-01.mp4",
-    gain: 0.84,
+    src: "/media/audio/exterior-new.mp3",
+    gain: 0.86,
     panDepth: 0.055,
   },
   vestibule: {
     src: "/media/audio/vestibule.mp3",
-    gain: 0.82,
+    gain: 0.98,
     panDepth: 0.045,
   },
   gallery: {
@@ -54,8 +54,8 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     panDepth: 0.06,
   },
   cloisters: {
-    src: "/media/atmosphere/cloisters-ambient.m4a",
-    gain: 0.82,
+    src: "/media/audio/cloister-new.mp3",
+    gain: 0.84,
     panDepth: 0.075,
   },
   "film-room": {
@@ -65,8 +65,8 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     panDepth: 0.035,
   },
   exit: {
-    src: "/media/video/exterior/exit-01.mp4",
-    gain: 0.84,
+    src: "/media/audio/exterior-new.mp3",
+    gain: 0.86,
     panDepth: 0.055,
   },
 };
@@ -178,6 +178,19 @@ export function MuseumAudio() {
       const now = context.currentTime;
       currentGain?.gain.cancelScheduledValues(now);
       currentGain?.gain.setTargetAtTime(nextEnvironment.gain, now, 0.35);
+
+      // Shared atmospheres should continue across rooms, but recover cleanly
+      // if a route change or browser suspension left the element paused.
+      if (currentAudio.paused) {
+        try {
+          await currentAudio.play();
+        } catch {
+          soundOnRef.current = false;
+          setSoundOn(false);
+          return;
+        }
+      }
+
       schedulePanDrift(currentIndex, nextKey);
       return;
     }
