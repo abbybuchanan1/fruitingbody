@@ -3,11 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 
 const CROSSFADE_SECONDS = 0.8;
+const AUDIO_CROSSFADE_SECONDS = 1.0;
+const AUDIO_VOLUME = 0.48;
+const AUDIO_FALLBACK_DURATION = 10;
 
 export function CloistersFilm() {
   const firstRef = useRef<HTMLVideoElement | null>(null);
   const secondRef = useRef<HTMLVideoElement | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRefs = [
+    useRef<HTMLAudioElement | null>(null),
+    useRef<HTMLAudioElement | null>(null),
+  ];
+  const audioTimerRef = useRef<number | null>(null);
+  const audioAnimationRef = useRef<number | null>(null);
+  const audioPlayingRef = useRef(false);
   const [active, setActive] = useState<0 | 1>(0);
   const [soundOn, setSoundOn] = useState(false);
   const activeRef = useRef<0 | 1>(0);
@@ -69,19 +78,114 @@ export function CloistersFilm() {
     };
   }, []);
 
-  const toggleSound = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+  const clearAudioLoop = () => {
+    if (audioTimerRef.current !== null) {
+      window.clearTimeout(audioTimerRef.current);
+      audioTimerRef.current = null;
+    }
+    if (audioAnimationRef.current !== null) {
+      window.cancelAnimationFrame(audioAnimationRef.current);
+      audioAnimationRef.current = null;
+    }
+  };
 
-    if (soundOn) {
+  const stopAudio = () => {
+    clearAudioLoop();
+    audioPlayingRef.current = false;
+    audioRefs.forEach((ref) => {
+      const audio = ref.current;
+      if (!audio) return;
       audio.pause();
+      audio.currentTime = 0;
+      audio.volume = 0;
+    });
+  };
+
+  const fadeAudio = (
+    from: HTMLAudioElement,
+    to: HTMLAudioElement,
+    onComplete: () => void,
+  ) => {
+    const startedAt = performance.now();
+    const durationMs = AUDIO_CROSSFADE_SECONDS * 1000;
+
+    const tick = (now: number) => {
+      if (!audioPlayingRef.current) return;
+      const progress = Math.min(1, (now - startedAt) / durationMs);
+      from.volume = AUDIO_VOLUME * (1 - progress);
+      to.volume = AUDIO_VOLUME * progress;
+
+      if (progress < 1) {
+        audioAnimationRef.current = window.requestAnimationFrame(tick);
+      } else {
+        from.pause();
+        from.currentTime = 0;
+        from.volume = 0;
+        to.volume = AUDIO_VOLUME;
+        audioAnimationRef.current = null;
+        onComplete();
+      }
+    };
+
+    audioAnimationRef.current = window.requestAnimationFrame(tick);
+  };
+
+  const scheduleAudioCrossfade = (currentIndex: number) => {
+    if (!audioPlayingRef.current) return;
+
+    const current = audioRefs[currentIndex].current;
+    const nextIndex = currentIndex === 0 ? 1 : 0;
+    const next = audioRefs[nextIndex].current;
+    if (!current || !next) return;
+
+    const duration =
+      Number.isFinite(current.duration) && current.duration > AUDIO_CROSSFADE_SECONDS + 0.5
+        ? current.duration
+        : AUDIO_FALLBACK_DURATION;
+
+    const delayMs = Math.max(
+      1200,
+      (duration - AUDIO_CROSSFADE_SECONDS) * 1000,
+    );
+
+    audioTimerRef.current = window.setTimeout(() => {
+      if (!audioPlayingRef.current) return;
+
+      next.currentTime = 0;
+      next.volume = 0;
+      void next.play().then(() => {
+        fadeAudio(current, next, () => scheduleAudioCrossfade(nextIndex));
+      }).catch(() => {
+        stopAudio();
+        setSoundOn(false);
+      });
+    }, delayMs);
+  };
+
+  const toggleSound = () => {
+    if (soundOn) {
+      stopAudio();
       setSoundOn(false);
       return;
     }
 
-    audio.volume = 0.48;
-    void audio.play().then(() => setSoundOn(true)).catch(() => undefined);
+    const first = audioRefs[0].current;
+    if (!first) return;
+
+    clearAudioLoop();
+    audioPlayingRef.current = true;
+    first.currentTime = 0;
+    first.volume = AUDIO_VOLUME;
+
+    void first.play().then(() => {
+      setSoundOn(true);
+      scheduleAudioCrossfade(0);
+    }).catch(() => {
+      audioPlayingRef.current = false;
+    });
   };
+
+  useEffect(() => () => stopAudio(), []);
 
   return (
     <>
@@ -105,9 +209,13 @@ export function CloistersFilm() {
       </div>
 
       <audio
-        ref={audioRef}
+        ref={audioRefs[0]}
         src="/media/atmosphere/cloisters-ambient.m4a"
-        loop
+        preload="auto"
+      />
+      <audio
+        ref={audioRefs[1]}
+        src="/media/atmosphere/cloisters-ambient.m4a"
         preload="auto"
       />
 
