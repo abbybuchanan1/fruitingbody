@@ -6249,3 +6249,156 @@
     font-size: .68rem !important;
   }
 }
+
+
+/* ============================================================
+   LAUNCH POLISH — Daffodils / Current / Archive / Contact
+   ============================================================ */
+
+/* DAFFODILS — let the final integrated portrait register as a true closing image. */
+.garden-section--daffodils .artwork-image:nth-child(8) {
+  width: min(60vw, 52rem) !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--daffodils .artwork-image:nth-child(8) {
+    width: min(94vw, 34rem) !important;
+  }
+}
+
+/* CURRENT — strengthen hierarchy: quiet room context, then artwork title. */
+.current-exhibition .room-opening {
+  width: min(76rem, 88vw) !important;
+  margin-inline: auto !important;
+}
+
+.current-exhibition .work-intro-card {
+  width: 100% !important;
+  max-width: none !important;
+  padding: clamp(2.4rem, 5vw, 4.4rem) !important;
+}
+
+.current-exhibition .work-intro-card__room {
+  margin-bottom: .45rem !important;
+}
+
+.current-exhibition .work-intro-card__room-note {
+  max-width: 48ch !important;
+  margin: 0 0 clamp(2.2rem, 4vh, 3.4rem) !important;
+  font-size: .68rem !important;
+  line-height: 1.58 !important;
+  font-weight: 400 !important;
+  letter-spacing: .045em !important;
+  color: rgba(226,213,194,.48) !important;
+}
+
+.current-exhibition .work-intro-card h1 {
+  max-width: 11ch !important;
+  margin-top: 0 !important;
+  font-size: clamp(4.1rem, 8.2vw, 8.4rem) !important;
+  line-height: .88 !important;
+  letter-spacing: -.052em !important;
+}
+
+.current-exhibition .work-intro-card__statement {
+  max-width: 55ch !important;
+  margin-top: clamp(2rem, 4vh, 3rem) !important;
+}
+
+/* Maria closing frame: remove the baked export border without re-editing the asset. */
+.current-ember-work:last-child {
+  overflow: hidden !important;
+}
+
+.current-ember-work:last-child img {
+  width: 104% !important;
+  max-width: none !important;
+  margin: -1.8% 0 -1.8% -2% !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+
+/* ARCHIVE — improve section rhythm visible in the launch scroll-through. */
+.archive-work {
+  padding-top: clamp(4rem, 8vh, 7rem) !important;
+  padding-bottom: clamp(8rem, 15vh, 13rem) !important;
+}
+
+.archive-work__header {
+  margin-bottom: clamp(2.4rem, 5vh, 4rem) !important;
+}
+
+.archive-historical-edits {
+  margin-top: clamp(4rem, 8vh, 7rem) !important;
+}
+
+.archive-historical-edit + .archive-historical-edit {
+  margin-top: clamp(4rem, 8vh, 7rem) !important;
+}
+
+/* Contact is part of the professional research-room material, not another room. */
+.archive-contact {
+  width: min(760px, 100%);
+  margin: clamp(6rem, 12vh, 10rem) auto clamp(5rem, 9vh, 8rem);
+  padding-top: clamp(2rem, 4vh, 3rem);
+  border-top: 1px solid var(--warm-line);
+}
+
+.archive-contact h2 {
+  margin: .45rem 0 .8rem;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
+
+.archive-contact p {
+  margin: 0 0 .55rem;
+  color: var(--ink-soft);
+}
+
+.archive-contact a {
+  color: inherit;
+  text-underline-offset: .2em;
+}
+
+/* Narrow Archive: keep research grids compact and avoid orphaned final images. */
+@media (max-width: 680px) {
+  .archive-work {
+    padding-top: 4.5rem !important;
+    padding-bottom: 7rem !important;
+  }
+
+  .archive-historical-edit .archive-work__grid,
+  .archive-work[data-work-id="body-of-water"] .archive-work__grid,
+  .archive-work[data-work-id="maria"] .archive-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .72rem !important;
+  }
+
+  .archive-historical-edit .artwork-lightbox-trigger,
+  .archive-work[data-work-id="body-of-water"] .artwork-lightbox-trigger,
+  .archive-work[data-work-id="maria"] .artwork-lightbox-trigger {
+    min-height: 0 !important;
+    height: 170px !important;
+    padding: .3rem !important;
+  }
+
+  .archive-historical-edit img,
+  .archive-work[data-work-id="body-of-water"] .archive-image img,
+  .archive-work[data-work-id="maria"] .archive-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 162px !important;
+    object-fit: contain !important;
+  }
+
+  .archive-work[data-work-id="maria"] .archive-image:last-child {
+    grid-column: 1 / -1 !important;
+    width: min(58%, 15rem) !important;
+    justify-self: center !important;
+  }
+
+  .archive-contact {
+    margin-top: 5rem;
+  }
+}
