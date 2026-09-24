@@ -6491,3 +6491,91 @@
     height: clamp(190px, 20vw, 285px) !important;
   }
 }
+
+
+/* ============================================================
+   FINAL LAUNCH MICRO-QA
+   ============================================================ */
+
+/* Daffodils title card: the previous proportion was a little boxy against the
+   vertical architecture. Widen it and reduce the vertical mass slightly. */
+.garden-section--daffodils .work-intro-card {
+  width: min(940px, 88vw) !important;
+  padding: clamp(2rem, 3.3vw, 3.1rem) clamp(2.8rem, 5vw, 5rem) !important;
+  background: rgba(240,233,220,.76) !important;
+  backdrop-filter: blur(11px) !important;
+  -webkit-backdrop-filter: blur(11px) !important;
+}
+
+.garden-section--daffodils .work-intro-card h1 {
+  max-width: 12.5ch !important;
+}
+
+/* Mobile map: Reading Room needs a quieter label than the shorter utilities. */
+@media (max-width: 680px) {
+  .museum-map__room--canonical[data-room="reading-room"] .museum-map__room-name {
+    font-size: .49rem !important;
+    letter-spacing: .035em !important;
+    line-height: 1.02 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Fear Not: keep the odd final image in the right column for a cleaner close. */
+  .index-work[data-work-id="fear-not"] .index-thumb:last-child {
+    grid-column: 2 !important;
+  }
+
+  /* Taste and See / Red Thread / Membrane: respect the photographs' native
+     proportions instead of forcing them into fixed-height presentation cells. */
+  .index-work[data-work-id="taste-and-see"] .artwork-lightbox-trigger,
+  .index-work[data-work-id="red-thread"] .artwork-lightbox-trigger,
+  .index-work[data-work-id="membrane"] .artwork-lightbox-trigger {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .index-work[data-work-id="taste-and-see"] .index-thumb img,
+  .index-work[data-work-id="red-thread"] .index-thumb img,
+  .index-work[data-work-id="membrane"] .index-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  .index-work[data-work-id="taste-and-see"] .index-work__grid,
+  .index-work[data-work-id="red-thread"] .index-work__grid,
+  .index-work[data-work-id="membrane"] .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .9rem !important;
+    align-items: start !important;
+  }
+
+  /* Narthex: four utilities form the upper grid; Exit is centered beneath. */
+  .narthex-room__paths {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.1rem 1rem !important;
+    width: min(92vw, 34rem) !important;
+    margin-inline: auto !important;
+  }
+
+  .narthex-room__paths > .architectural-link {
+    width: 100% !important;
+    margin: 0 !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .narthex-room__paths > .architectural-link:last-child {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - .5rem) !important;
+    justify-self: center !important;
+  }
+}
