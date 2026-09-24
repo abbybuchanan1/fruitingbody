@@ -489,7 +489,7 @@ export function MuseumAudio() {
       ) : (
         <button
           type="button"
-          className="ambient-sound-control ambient-sound-control--global"
+          className={`ambient-sound-control ambient-sound-control--global${pathname.startsWith("/vestibule") ? " ambient-sound-control--vestibule" : ""}`}
           onClick={() => {
             if (soundOnRef.current) stopSound();
             else void startSound();
