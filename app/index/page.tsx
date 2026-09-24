@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
+export const dynamic = "force-dynamic";
+
 export default function IndexPage() {
   return (
     <main className="index-page">
