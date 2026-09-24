@@ -6579,3 +6579,110 @@
     justify-self: center !important;
   }
 }
+
+
+/* ============================================================
+   LAST MOBILE INDEX / MAP CLEANUP
+   ============================================================ */
+
+@media (max-width: 680px) {
+  /* Fear Not — pull the final portrait up beneath the shorter right-column
+     image instead of letting the tall left portrait dictate a blank row. */
+  .index-work[data-work-id="fear-not"] .index-thumb:last-child {
+    grid-column: 2 !important;
+    margin-top: -48vw !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  /* Phase — all frames share a similar visual weight, so give the Index a
+     clean two-column study grid rather than an irregular default layout. */
+  .index-work[data-work-id="phase"] .index-work__grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .9rem !important;
+    align-items: start !important;
+  }
+
+  .index-work[data-work-id="phase"] .index-thumb {
+    margin: 0 !important;
+    width: auto !important;
+  }
+
+  .index-work[data-work-id="phase"] .artwork-lightbox-trigger {
+    display: grid !important;
+    place-items: center !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: .3rem !important;
+    background: rgba(238,232,220,.42) !important;
+  }
+
+  .index-work[data-work-id="phase"] .index-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  .index-work[data-work-id="phase"] .index-thumb:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - .45rem) !important;
+    justify-self: center !important;
+  }
+
+  /* Red Thread — never let a presentation cell clip the lower edge of a work. */
+  .index-work[data-work-id="red-thread"] .index-thumb,
+  .index-work[data-work-id="red-thread"] .artwork-lightbox-trigger {
+    overflow: visible !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb img {
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  /* Membrane Archive — one oversized image was reading as an accidental hero.
+     Keep the full body visible, but return it to a research-grid scale. */
+  .archive-work[data-work-id="membrane"] .archive-work__grid {
+    columns: initial !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .75rem !important;
+    align-items: start !important;
+  }
+
+  .archive-work[data-work-id="membrane"] .archive-image {
+    margin: 0 !important;
+    break-inside: auto !important;
+  }
+
+  .archive-work[data-work-id="membrane"] .artwork-lightbox-trigger {
+    display: grid !important;
+    place-items: center !important;
+    height: 175px !important;
+    min-height: 0 !important;
+    padding: .3rem !important;
+    background: rgba(238,232,220,.42) !important;
+  }
+
+  .archive-work[data-work-id="membrane"] .archive-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 168px !important;
+    object-fit: contain !important;
+  }
+
+  /* Mobile map — make the current location highlight explicit. The SVG
+     highlight remains on desktop; this overlay makes it legible on small screens. */
+  .museum-map__room--canonical[data-current="true"] {
+    background: rgba(190,194,151,.24) !important;
+    box-shadow: 0 0 0 1px rgba(155,159,119,.18), 0 0 22px rgba(171,170,112,.18) !important;
+  }
+
+  .museum-map__room--canonical[data-current="true"] .museum-map__room-name {
+    color: rgba(24,23,20,.96) !important;
+  }
+}
