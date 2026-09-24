@@ -79,6 +79,7 @@ export default function ArchivePage() {
             <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>
           ))}
           <a href="#bio">Bio</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -138,6 +139,12 @@ export default function ArchivePage() {
         ))}
       </section>
 
+      <section className="archive-contact" id="contact" aria-labelledby="archive-contact-title">
+        <p className="utility-header__eyebrow">Contact</p>
+        <h2 id="archive-contact-title">Abby Buchanan</h2>
+        <p>Portland, Oregon</p>
+        <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+      </section>
 
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
         Return to Narthex
