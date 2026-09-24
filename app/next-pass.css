@@ -6723,3 +6723,44 @@
     clip-path: none !important;
   }
 }
+
+
+/* ============================================================
+   RED THREAD MOBILE INDEX — independent two-column flow
+   Prevent row locking from creating awkward crop/spacing relationships.
+   ============================================================ */
+@media (max-width: 680px) {
+  .index-work[data-work-id="red-thread"] .index-work__grid {
+    display: block !important;
+    columns: 2 !important;
+    column-gap: .9rem !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb {
+    break-inside: avoid !important;
+    width: 100% !important;
+    margin: 0 0 .9rem !important;
+    overflow: visible !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .artwork-lightbox-trigger {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .index-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
