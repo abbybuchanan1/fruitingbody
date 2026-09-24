@@ -7509,3 +7509,14 @@
     bottom: auto !important;
   }
 }
+
+
+/* Archive contact now lives with the expandable practice context. */
+.archive-contact-detail__body p {
+  margin-bottom: .35rem;
+}
+
+.archive-contact-detail__body a {
+  color: inherit;
+  text-underline-offset: .2em;
+}
