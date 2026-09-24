@@ -130,12 +130,12 @@ export function ExteriorAtmosphere() {
     <>
       <audio
         ref={audioRefs[0]}
-        src="/media/atmosphere/exterior-ambient.m4a"
+        src="/media/video/exterior/exit-01.mp4"
         preload="auto"
       />
       <audio
         ref={audioRefs[1]}
-        src="/media/atmosphere/exterior-ambient.m4a"
+        src="/media/video/exterior/exit-01.mp4"
         preload="auto"
       />
 
