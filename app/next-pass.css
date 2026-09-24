@@ -6477,3 +6477,17 @@
     transform: translateX(3px) !important;
   }
 }
+
+
+/* Maria Index — desktop closing frame should not overpower the sequence. */
+@media (min-width: 681px) {
+  .index-work[data-work-id="maria"] .index-thumb:last-child {
+    grid-column: auto !important;
+    width: auto !important;
+    justify-self: stretch !important;
+  }
+
+  .index-work[data-work-id="maria"] .index-thumb:last-child .artwork-lightbox-trigger {
+    height: clamp(190px, 20vw, 285px) !important;
+  }
+}
