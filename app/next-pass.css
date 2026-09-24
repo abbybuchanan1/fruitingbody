@@ -7405,3 +7405,59 @@
     -webkit-backdrop-filter: none;
   }
 }
+
+
+/* Exterior soundscape invitation */
+.soundscape-invitation {
+  position: fixed;
+  z-index: 120;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  width: min(17rem, calc(100vw - 2rem));
+  padding: .9rem 1rem .85rem;
+  background: rgba(18, 17, 14, .28);
+  color: rgba(247, 242, 231, .92);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 0 10px 35px rgba(10, 8, 6, .12);
+}
+
+.soundscape-invitation__eyebrow {
+  margin: 0 0 .35rem;
+  font: 500 .62rem/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.soundscape-invitation__copy {
+  margin: 0 0 .7rem;
+  font: 400 .78rem/1.45 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgba(247, 242, 231, .78);
+}
+
+.soundscape-invitation__button {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid rgba(247, 242, 231, .58);
+  padding: .22rem 0;
+  background: transparent;
+  color: inherit;
+  font: 500 .62rem/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.soundscape-invitation__button:hover,
+.soundscape-invitation__button:focus-visible {
+  border-bottom-color: currentColor;
+  outline: none;
+}
+
+@media (max-width: 760px) {
+  .soundscape-invitation {
+    right: 1rem;
+    bottom: 1rem;
+    width: min(16rem, calc(100vw - 2rem));
+  }
+}
