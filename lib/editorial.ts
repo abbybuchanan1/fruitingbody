@@ -3,7 +3,7 @@ export const artistStatement = [
   "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water, gravity, weather, grief, desire, lineage, motherhood, seasonality, and time.",
   "I return often to agency inside conditions that cannot be fully controlled. Agency may look like choosing, witnessing, tending, participating, remaining present, or deciding how to inhabit what cannot simply be escaped. Myth gives me a structure for entering those questions without turning the photographs into illustrations of a story.",
   "Landscape operates in a similar way. Bodies and landscapes are shaped by many of the same processes: gravity, erosion, growth, permeability, decay, and seasonal change. I think of that relationship as kinship.",
-  "Making these photographs has paralleled my own movement toward a more integrated sense of self, one capable of holding motherhood, neurodivergence, artistic practice, embodiment, desire, grief, and repeated cycles of descent and emergence without requiring those identities to resolve into one stable version of me.",
+  "Making these photographs has paralleled my own movement toward a more integrated sense of self, one capable of holding motherhood, neurodivergence, artistic practice, embodiment, and repeated cycles of descent and emergence without requiring those identities to resolve into one stable version of me.",
 ];
 
 export const processStatement = [
@@ -22,7 +22,7 @@ export const fruitingBodyStatement = [
 
 export const artistBio = [
   "Abby Buchanan is a Portland, Oregon–based photographic artist working primarily in self-portraiture. Her practice investigates embodiment, ecological identity, transformation, permeability, and agency within conditions that cannot be fully controlled.",
-  "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, grief, desire, and lived processes of transformation.",
+  "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, embodiment, and lived processes of transformation.", Her images draw on motherhood, neurodivergence, myth, ecology, grief, desire, and lived processes of transformation.",
 ];
 
 export const reflections: Record<string, string[]> = {
