@@ -14,13 +14,14 @@ const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
 ];
 
 function getRouteLocation(pathname: string): MuseumRoomId | undefined {
+  if (pathname === "/") return "exterior";
   if (pathname === "/vestibule") return "vestibule";
   if (pathname === "/red-room") return "red-room";
   if (pathname === "/water-room") return "water-room";
   if (pathname === "/film-room") return "film-room";
   if (pathname === "/current") return "current";
   if (pathname === "/narthex") return "narthex";
-  if (pathname === "/reading-room") return "reading-room";
+  if (pathname.startsWith("/reading-room")) return "reading-room";
   if (pathname === "/index" || pathname === "/directory") return "index";
   if (pathname === "/archive") return "archive";
   if (pathname === "/cloisters") return "cloisters";
