@@ -71,12 +71,7 @@ export default function ArchivePage() {
           For a quick view of the installed exhibition, visit the <Link href="/directory">Index</Link>.
         </p>
 
-        <nav className="archive-menu" aria-label="Archive contents">
-          <a href="#artist-statement">Artist Statement</a>
-          <a href="#fruiting-body">Fruiting Body</a>
-          <a href="#process">Process</a>
-          <a href="#bio">Bio</a>
-          <a href="#contact">Contact</a>
+        <nav className="archive-menu" aria-label="Archive works">
           {museumWorks.map((work) => (
             <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>
           ))}
