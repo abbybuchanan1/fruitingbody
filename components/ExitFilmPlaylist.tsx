@@ -108,7 +108,14 @@ export function ExitFilmPlaylist() {
         onClick={toggleSound}
         aria-pressed={soundOn}
       >
-        {soundOn ? "Sound off" : "Sound"}
+        <span className="ambient-sound-control__icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" focusable="false">
+            <path d="M3.5 8h3l3.8-3.2v10.4L6.5 12h-3z" />
+            <path d="M13 7.2c1.05.75 1.7 1.7 1.7 2.8s-.65 2.05-1.7 2.8" />
+            <path d="M15.2 5.2c1.55 1.3 2.5 2.9 2.5 4.8s-.95 3.5-2.5 4.8" />
+          </svg>
+        </span>
+        <span>{soundOn ? "Sound off" : "Sound"}</span>
       </button>
     </>
   );
