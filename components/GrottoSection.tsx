@@ -9,7 +9,7 @@ export function GrottoSection() {
   const phase = museumWorksById.phase;
 
   return (
-    <section id="grotto" className="grotto-page">
+    <section id="grotto" className="grotto-page" data-audio-zone="quiet">
       <div className="grotto-environment" aria-hidden="true" />
 
       <div className="grotto-content">
