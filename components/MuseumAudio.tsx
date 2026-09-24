@@ -9,6 +9,7 @@ type EnvironmentKey =
   | "gallery"
   | "garden"
   | "quiet"
+  | "grotto"
   | "red-water-narthex"
   | "cloisters"
   | "film-room"
@@ -28,12 +29,12 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   vestibule: {
     src: "/media/audio/vestibule.mp3",
-    gain: 0.98,
+    gain: 1.10,
     panDepth: 0.045,
   },
   gallery: {
     src: "/media/audio/front-gallery-back-gallery-current.mp3",
-    gain: 0.76,
+    gain: 0.74,
     panDepth: 0.065,
   },
   garden: {
@@ -46,6 +47,11 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   quiet: {
     src: "/media/audio/reading-room-index-archive-grotto.mp3",
     gain: 0.72,
+    panDepth: 0.04,
+  },
+  grotto: {
+    src: "/media/audio/reading-room-index-archive-grotto.mp3",
+    gain: 0.64,
     panDepth: 0.04,
   },
   "red-water-narthex": {
@@ -66,7 +72,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   exit: {
     src: "/media/video/exterior/exit-01.mp4",
-    gain: 0.84,
+    gain: 0.76,
     panDepth: 0.055,
   },
 };
