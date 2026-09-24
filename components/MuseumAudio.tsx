@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 type EnvironmentKey =
   | "exterior"
@@ -109,8 +109,26 @@ function environmentForPath(pathname: string): EnvironmentKey {
   return "quiet";
 }
 
+
+function environmentForJump(pathname: string, jumpTarget: string | null): EnvironmentKey | null {
+  if (!jumpTarget) return null;
+
+  if (pathname.startsWith("/exhibition")) {
+    if (jumpTarget === "relative") return "gallery";
+    if (jumpTarget === "garden" || jumpTarget === "fear-not" || jumpTarget === "taste-and-see") return "garden";
+    if (jumpTarget === "grotto" || jumpTarget === "a-miscarriage" || jumpTarget === "phase") return "grotto";
+    if (jumpTarget === "threshold" || jumpTarget === "threshold-end") return "gallery";
+  }
+
+  if (pathname.startsWith("/red-room")) return "red-water-narthex";
+  if (pathname.startsWith("/water-room")) return "red-water-narthex";
+  return null;
+}
+
 export function MuseumAudio() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const jumpTarget = searchParams.get("jump");
   const audioRefs = [
     useRef<HTMLAudioElement | null>(null),
     useRef<HTMLAudioElement | null>(null),
@@ -310,7 +328,7 @@ export function MuseumAudio() {
   };
 
   useEffect(() => {
-    const key = environmentForPath(pathname);
+    const key = environmentForJump(pathname, jumpTarget) ?? environmentForPath(pathname);
     environmentRef.current = key;
     void transitionTo(key);
 
@@ -359,7 +377,36 @@ export function MuseumAudio() {
       window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [pathname]);
+  }, [pathname, jumpTarget]);
+
+  useEffect(() => {
+    const resumeIfNeeded = () => {
+      if (!soundOnRef.current) return;
+      const context = contextRef.current;
+      if (context?.state === "suspended") {
+        void context.resume().catch(() => undefined);
+      }
+
+      const activeAudio = audioRefs[activeIndexRef.current].current;
+      if (activeAudio?.paused) {
+        void activeAudio.play().catch(() => undefined);
+      }
+    };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") resumeIfNeeded();
+    };
+
+    window.addEventListener("pageshow", resumeIfNeeded);
+    window.addEventListener("focus", resumeIfNeeded);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      window.removeEventListener("pageshow", resumeIfNeeded);
+      window.removeEventListener("focus", resumeIfNeeded);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, []);
 
   useEffect(() => () => {
     if (panTimerRef.current !== null) window.clearTimeout(panTimerRef.current);
