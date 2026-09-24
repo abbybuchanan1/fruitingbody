@@ -390,21 +390,24 @@ export function MuseumAudio() {
       const targetY = window.innerHeight * 0.48;
       let best: { key: EnvironmentKey; distance: number } | null = null;
 
-      zones.forEach((zone) => {
+      for (const zone of zones) {
         const rect = zone.getBoundingClientRect();
         const key = zone.dataset.audioZone as EnvironmentKey | undefined;
-        if (!key) return;
+        if (!key) continue;
 
         const distance =
           targetY >= rect.top && targetY <= rect.bottom
             ? 0
             : Math.min(Math.abs(targetY - rect.top), Math.abs(targetY - rect.bottom));
 
-        if (!best || distance < best.distance) best = { key, distance };
-      });
+        if (!best || distance < best.distance) {
+          best = { key, distance };
+        }
+      }
 
-      if (best && best.key !== environmentRef.current) {
-        void transitionTo(best.key);
+      const nextZone = best?.key;
+      if (nextZone && nextZone !== environmentRef.current) {
+        void transitionTo(nextZone);
       }
     };
 
