@@ -18,6 +18,7 @@ export function GardenSection({
     <section
       id="garden"
       className={`garden-page ${embedded ? "garden-page--embedded" : ""}`}
+      data-audio-zone="garden"
     >
       <div className="garden-environment" aria-hidden="true" />
 
