@@ -187,7 +187,7 @@ export const museumRooms: MuseumRoom[] = [
   {
     id: "index",
     title: "Index",
-    href: "/index",
+    href: "/directory",
     mapGroup: "narthex",
     showOnMap: true,
     parent: "narthex",

@@ -107,7 +107,7 @@ export function SiteNav() {
           Map
         </button>
 
-        <Link href="/index">Index</Link>
+        <Link href="/directory">Index</Link>
         <Link href="/archive">Archive</Link>
       </nav>
 

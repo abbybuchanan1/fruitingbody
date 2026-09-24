@@ -54,7 +54,7 @@ export function GardenSection({
 
         {showExit ? (
           <nav className="garden-page__exit" aria-label="Garden navigation">
-            <a href="/index">Index</a>
+            <a href="/directory">Index</a>
           </nav>
         ) : null}
       </div>

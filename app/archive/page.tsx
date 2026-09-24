@@ -68,7 +68,7 @@ export default function ArchivePage() {
         <h1>Archive</h1>
         <p>
           Full finished bodies of work, project histories, and optional reflections from the practice.
-          For a quick view of the installed exhibition, visit the <Link href="/index">Index</Link>.
+          For a quick view of the installed exhibition, visit the <Link href="/directory">Index</Link>.
         </p>
 
         <nav className="archive-menu" aria-label="Archive contents">

@@ -1,33 +1,53 @@
 import Link from "next/link";
-import { collections } from "@/lib/collections";
+import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
+import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
 export default function IndexPage() {
   return (
-    <main className="utility-page">
-      <p className="eyebrow">Fast access</p>
-      <h1>Index</h1>
-      <section>
-        <h2>Collections</h2>
-        <ul className="index-list">
-          {collections.map((collection) => (
-            <li key={collection.slug}><Link href={`/collections/${collection.slug}`}>{collection.title}</Link></li>
-          ))}
-          <li><Link href="/red-room">Red Thread / Shelter / Unravel</Link></li>
-          <li><Link href="/membrane">Membrane</Link></li>
-          <li><Link href="/dark-garden">Fear Not</Link></li>
-          <li><Link href="/grotto">A Miscarriage / Winter-Phase / Daffodils</Link></li>
-          <li><Link href="/light-garden">Taste and See</Link></li>
-          <li><Link href="/threshold">Threshold</Link></li>
-        </ul>
-      </section>
-      <section>
-        <h2>Institution</h2>
-        <ul className="index-list">
-          <li><Link href="/reading-room">Reading Room</Link></li>
-          <li><Link href="/archive">Archive</Link></li>
-          <li><Link href="/map">Map</Link></li>
-        </ul>
-      </section>
+    <main className="index-page">
+      <header className="utility-header">
+        <p className="utility-header__eyebrow">Fruiting Body</p>
+        <h1>Index</h1>
+        <p>
+          A fast view of the installed work. Image order follows the museum rooms.
+        </p>
+      </header>
+
+      <div className="index-page__groups">
+        {indexGroups.map((group) => (
+          <section className="index-room-group" key={group.room}>
+            <h2>{group.room}</h2>
+
+            {group.ids.map((id) => {
+              const work = museumWorksById[id as WorkId];
+              const images = work.id === "miscarriage" ? work.archive : work.exhibition;
+              return (
+                <article className="index-work" data-work-id={work.id} key={work.id}>
+                  <header className="index-work__header">
+                    <div className="index-work__identity">
+                      <p className="index-work__meta">{work.year} · {work.medium}</p>
+                      <h3><Link href={work.href}>{work.title}</Link></h3>
+                      <p className="index-work__statement">{work.statement}</p>
+                      <p className="index-work__question">{work.question}</p>
+                    </div>
+                  </header>
+
+                  <ArtworkLightboxGrid images={images} mode="index" />
+                </article>
+              );
+            })}
+          </section>
+        ))}
+      </div>
+
+      <aside className="index-moving-image">
+        <p className="index-work__meta">Water Room · Moving image</p>
+        <Link href="/film-room?from=water-room">Body of Water — film</Link>
+      </aside>
+
+      <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
+        Return to Narthex
+      </Link>
     </main>
   );
 }
