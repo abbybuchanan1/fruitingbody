@@ -20,7 +20,7 @@ export type ThresholdPair = {
 function sequence(slug: string, count: number, title: string): Artwork[] {
   return Array.from({ length: count }, (_, i) => ({
     src: `/art/${slug}/${String(i + 1).padStart(2, "0")}.webp`,
-    alt: `${title}, work ${i + 1}. Provisional curatorial alt text pending.`,
+    alt: `${title}, image ${i + 1} of ${count}.`,
   }));
 }
 
@@ -32,7 +32,7 @@ function exhibitionSequence(
 ): Artwork[] {
   return Array.from({ length: count }, (_, i) => ({
     src: `/art/${folder}/${filename}-${String(i + 1).padStart(2, "0")}.jpg`,
-    alt: `${title}, work ${i + 1}. Provisional curatorial alt text pending.`,
+    alt: `${title}, image ${i + 1} of ${count}.`,
   }));
 }
 
@@ -132,7 +132,7 @@ export const bodyOfWaterWorks = exhibitionSequence(
 
 export const mariaWorks: Artwork[] = Array.from({ length: 11 }, (_, index) => ({
   src: `/art/maria/maria-index-${String(index + 1).padStart(2, "0")}.jpg`,
-  alt: `Maria Burns Her Wedding Dress, work ${index + 1}. Provisional curatorial alt text pending.`,
+  alt: `Maria Burns Her Wedding Dress, image ${index + 1} of 11.`,
 }));
 
 // Current / Index edit: object → ignition → burning → encounter → carried flame → trace.
