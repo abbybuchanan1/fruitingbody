@@ -65,8 +65,8 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     panDepth: 0.035,
   },
   exit: {
-    src: "/media/audio/exterior-new.mp3",
-    gain: 0.86,
+    src: "/media/video/exterior/exit-01.mp4",
+    gain: 0.84,
     panDepth: 0.055,
   },
 };
