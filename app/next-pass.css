@@ -7251,3 +7251,55 @@
     object-fit: contain !important;
   }
 }
+
+
+/* ============================================================
+   FINAL ENTRY + WATER ROOM MEDIA POLISH
+   ============================================================ */
+
+/* Exterior → Vestibule: avoid the near-black flash visible in the screen
+   recording. The route and arrival still are preloaded in app/page.tsx, so
+   this veil can stay translucent and the Vestibule can emerge sooner. */
+.museum-exterior__entry-veil {
+  background: rgba(10, 16, 14, .68) !important;
+  transition: opacity .30s ease-in !important;
+}
+
+.vestibule-arrival {
+  background: #111815 !important;
+  animation: vestibule-arrival-layer-reveal-final .22s ease-out both !important;
+}
+
+@keyframes vestibule-arrival-layer-reveal-final {
+  0%   { opacity: .52; }
+  100% { opacity: 1; }
+}
+
+.vestibule-arrival__image {
+  animation:
+    vestibule-arrival-image-reveal-final .28s ease-out both,
+    vestibule-arrival-reverse-settle 2.4s cubic-bezier(.22,.58,.18,1) both !important;
+}
+
+@keyframes vestibule-arrival-image-reveal-final {
+  0% {
+    opacity: .56;
+    filter: saturate(.84) brightness(.78) contrast(.98) blur(.8px);
+  }
+  100% {
+    opacity: 1;
+    filter: saturate(.90) brightness(.92) contrast(.98) blur(0);
+  }
+}
+
+/* Water Room mobile: bring the installation substantially closer to the room
+   opening. This changes only mobile spacing. */
+@media (max-width: 680px) {
+  .water-room__header {
+    min-height: 82svh !important;
+  }
+
+  .water-room-installation {
+    margin-top: -7rem !important;
+  }
+}
