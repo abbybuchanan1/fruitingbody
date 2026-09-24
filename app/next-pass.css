@@ -5977,3 +5977,275 @@
     font-size: .72rem;
   }
 }
+
+
+/* ============================================================
+   FINAL CURATORIAL + MOBILE QA PASS
+   Safety branch before this pass: pre-final-curatorial-mobile-pass
+   ============================================================ */
+
+/* ARCHIVE — reflection belongs with the title/context, before the installed-work link. */
+.archive-reflection--intro {
+  margin: clamp(1.1rem, 2.2vh, 1.8rem) 0 clamp(1.2rem, 2.4vh, 2rem) !important;
+  border-top: 1px solid rgba(69,61,51,.12);
+  border-bottom: 1px solid rgba(69,61,51,.12);
+}
+
+.archive-reflection--intro summary {
+  padding: .9rem 0 !important;
+}
+
+/* CURRENT — room function is architectural context, so it sits directly beneath
+   the room name rather than after the artwork statement. */
+.work-intro-card__room-note {
+  max-width: 54ch;
+  margin: .55rem 0 clamp(1.6rem, 3vh, 2.5rem);
+  color: rgba(74,66,58,.58);
+  font: 500 .72rem/1.55 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .035em;
+}
+
+.current-exhibition .work-intro-card__room-note {
+  color: rgba(226,213,194,.58) !important;
+}
+
+/* SOUND — keep the control quiet, but make the affordance unmistakable. */
+.ambient-sound-control {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .42rem !important;
+  min-height: 34px !important;
+  font-size: .78rem !important;
+  letter-spacing: .08em !important;
+}
+
+.ambient-sound-control__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+}
+
+.ambient-sound-control__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* READING ROOM — desktop should feel as resolved as mobile. The source room
+   remains present as light and depth, without a central seam or legible furniture. */
+@media (min-width: 761px) {
+  .reading-room-page__image {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(12,9,7,.54) 0%,
+        rgba(15,11,8,.38) 38%,
+        rgba(15,11,8,.34) 66%,
+        rgba(10,8,6,.56) 100%
+      ),
+      radial-gradient(
+        ellipse at 61% 34%,
+        rgba(214,164,86,.16) 0%,
+        rgba(214,164,86,.07) 28%,
+        rgba(214,164,86,.025) 46%,
+        transparent 72%
+      ),
+      url("/media/reading-room/reading-room-background.jpg") 76% center / 172% auto no-repeat !important;
+    filter: saturate(.56) brightness(.72) blur(11px) !important;
+    transform: scale(1.11) !important;
+  }
+
+  .reading-room-page__veil {
+    background:
+      linear-gradient(90deg, rgba(8,6,5,.22), rgba(8,6,5,.08) 48%, rgba(8,6,5,.24)) !important;
+  }
+
+  .poem-page__environment {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(11,8,6,.56) 0%,
+        rgba(14,10,8,.38) 34%,
+        rgba(14,10,8,.31) 67%,
+        rgba(9,7,6,.58) 100%
+      ),
+      radial-gradient(
+        ellipse at 65% 36%,
+        rgba(214,164,86,.15) 0%,
+        rgba(214,164,86,.07) 28%,
+        rgba(214,164,86,.025) 48%,
+        transparent 74%
+      ),
+      url("/media/reading-room/reading-room-background.jpg") 80% center / 178% auto no-repeat !important;
+    filter: saturate(.50) brightness(.58) blur(18px) !important;
+    transform: scale(1.15) !important;
+  }
+}
+
+/* DAFFODILS — reset obsolete positioning from the former 11-image edit.
+   The new 8-image sequence carries myth through lived identity at both ends. */
+.garden-section--daffodils .artwork-image[data-artwork-index="6"] {
+  transform: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-self: auto !important;
+}
+
+.garden-section--daffodils .artwork-image:nth-child(1) { width: min(46vw, 39rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(2) { width: min(66vw, 59rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(3) { width: min(54vw, 47rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(4) { width: min(42vw, 35rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(5) { width: min(44vw, 37rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(6) { width: min(52vw, 44rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(7) { width: min(68vw, 61rem) !important; }
+.garden-section--daffodils .artwork-image:nth-child(8) { width: min(43vw, 36rem) !important; }
+
+/* CURRENT — six-image Maria edit: object, ignition, burning, encounter, trace. */
+.current-ember-work:nth-child(1) { width: min(60vw, 52rem) !important; }
+.current-ember-work:nth-child(2) { width: min(48vw, 42rem) !important; }
+.current-ember-work:nth-child(3) { width: min(54vw, 47rem) !important; }
+.current-ember-work:nth-child(4) { width: min(58vw, 50rem) !important; }
+.current-ember-work:nth-child(5) { width: min(46vw, 40rem) !important; }
+.current-ember-work:nth-child(6) { width: min(60vw, 52rem) !important; }
+
+/* MOBILE INDEX / ROOM QA */
+@media (max-width: 680px) {
+  /* Give each body enough air to end before the next title begins. */
+  .index-work {
+    padding-bottom: 2rem !important;
+  }
+
+  .index-work + .index-work {
+    margin-top: 5.5rem !important;
+    padding-top: 1rem !important;
+  }
+
+  .index-room-group + .index-room-group {
+    margin-top: 7.5rem !important;
+  }
+
+  /* Relative: preserve pair logic through consistent two-cell fields. */
+  .index-work[data-work-id="relative"] .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .8rem !important;
+  }
+
+  .index-work[data-work-id="relative"] .artwork-lightbox-trigger {
+    height: 190px !important;
+    padding: .38rem !important;
+  }
+
+  .index-work[data-work-id="relative"] .index-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  /* Garden: override the desktop five-across rule and normalize the rhythm. */
+  .index-work[data-work-id="daffodils"] .index-work__grid,
+  .index-work[data-work-id="fear-not"] .index-work__grid,
+  .index-work[data-work-id="taste-and-see"] .index-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .85rem !important;
+  }
+
+  .index-work[data-work-id="fear-not"] .artwork-lightbox-trigger,
+  .index-work[data-work-id="taste-and-see"] .artwork-lightbox-trigger {
+    height: 205px !important;
+    padding: .42rem !important;
+    background: rgba(238,232,220,.48) !important;
+  }
+
+  .index-work[data-work-id="fear-not"] .index-thumb img,
+  .index-work[data-work-id="taste-and-see"] .index-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  /* Threshold / Red Thread / Membrane / Body of Water: no accidental mobile crops. */
+  .index-work[data-work-id="threshold"] .artwork-lightbox-trigger,
+  .index-work[data-work-id="red-thread"] .artwork-lightbox-trigger,
+  .index-work[data-work-id="membrane"] .artwork-lightbox-trigger,
+  .index-work[data-work-id="body-of-water"] .artwork-lightbox-trigger {
+    height: 210px !important;
+    padding: .42rem !important;
+    background: rgba(238,232,220,.48) !important;
+  }
+
+  .index-work[data-work-id="threshold"] .index-thumb img,
+  .index-work[data-work-id="red-thread"] .index-thumb img,
+  .index-work[data-work-id="membrane"] .index-thumb img,
+  .index-work[data-work-id="body-of-water"] .index-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  /* Maria Archive: two compact research columns rather than one oversized stack. */
+  .archive-work[data-work-id="maria"] .archive-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: .75rem !important;
+  }
+
+  .archive-work[data-work-id="maria"] .artwork-lightbox-trigger {
+    height: 168px !important;
+    padding: .32rem !important;
+  }
+
+  .archive-work[data-work-id="maria"] .archive-image img {
+    max-height: 160px !important;
+  }
+
+  /* Water Room: bring the first photograph closer to the architectural opening. */
+  .water-room__header {
+    min-height: 92svh !important;
+  }
+
+  .water-room-installation {
+    margin-top: -4.5rem !important;
+  }
+
+  /* Daffodils installed sequence becomes one readable mobile procession. */
+  .garden-section--daffodils .artwork-image {
+    width: min(88vw, 31rem) !important;
+    transform: none !important;
+    margin-inline: auto !important;
+  }
+
+  /* Current / Maria remains cinematic without oversized single frames. */
+  .current-ember-work {
+    width: min(88vw, 31rem) !important;
+    margin-inline: auto !important;
+  }
+
+  /* Map utility rooms need smaller type so the Narthex/upper band remains legible. */
+  .museum-map__room--canonical[data-room="reading-room"] .museum-map__room-name,
+  .museum-map__room--canonical[data-room="index"] .museum-map__room-name,
+  .museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+    font-size: .58rem !important;
+    letter-spacing: .055em !important;
+    line-height: 1.05 !important;
+  }
+
+  .museum-map__room--canonical[data-room="reading-room"],
+  .museum-map__room--canonical[data-room="index"],
+  .museum-map__room--canonical[data-room="archive"] {
+    padding-inline: .12rem !important;
+  }
+
+  .museum-map__room--canonical[data-room="narthex"] {
+    padding-bottom: .42rem !important;
+  }
+
+  .museum-map__room--canonical[data-room="vestibule"] .museum-map__room-name {
+    font-size: .68rem !important;
+  }
+}
