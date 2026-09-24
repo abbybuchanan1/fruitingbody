@@ -135,27 +135,33 @@ export const mariaWorks: Artwork[] = Array.from({ length: 11 }, (_, index) => ({
   alt: `Maria Burns Her Wedding Dress, work ${index + 1}. Provisional curatorial alt text pending.`,
 }));
 
+// Current / Index edit: object → ignition → burning → encounter → carried flame → trace.
+// The full 11-image witnessed sequence remains available in Archive.
+export const mariaCurrentWorks: Artwork[] = [1, 2, 5, 4, 8, 7].map((number) => ({
+  ...mariaWorks[number - 1],
+  alt: `Maria Burns Her Wedding Dress, current edit, image ${number}.`,
+}));
+
+// Installed Daffodils edit. The profile and pearl portrait remain as deliberate
+// present-day anchors inside the mythic sequence; the Archive retains the full body.
+export const daffodilsCurrentWorks: Artwork[] = [
+  1, 2, 4, 5, 7, 9, 10,
+].map((number) => ({
+  src: `/art/daffodils/daffodils-${String(number).padStart(2, "0")}.jpg`,
+  alt: `This Morning I Was Gathering Daffodils, installed edit, work ${number}.`,
+})).concat({
+  src: "/art/archive/daffodils/daffodils-index-17.jpg",
+  alt: "This Morning I Was Gathering Daffodils, final work.",
+});
+
 export const artworkSets = {
   membrane: membraneWorks,
   miscarriage: miscarriageWorks,
-  daffodils: exhibitionSequence(
-    "daffodils",
-    "daffodils",
-    11,
-    "This Morning I Was Gathering Daffodils",
-  ).map((work, index) =>
-    index === 10
-      ? {
-          ...work,
-          src: "/art/archive/daffodils/daffodils-index-17.jpg",
-          alt: "This Morning I Was Gathering Daffodils, final work.",
-        }
-      : work,
-  ),
+  daffodils: daffodilsCurrentWorks,
   fearNot: exhibitionSequence("fear-not", "fear-not", 5, "Fear Not"),
   taste: exhibitionSequence("taste", "taste-and-see", 6, "Taste and See"),
   phase: exhibitionSequence("phase", "phase", 5, "Phase"),
-  maria: mariaWorks,
+  maria: mariaCurrentWorks,
   threshold: sequence("threshold", 3, "Threshold"),
   relative: sequence("relative", 6, "Relative"),
   bodyOfWater: bodyOfWaterWorks,
