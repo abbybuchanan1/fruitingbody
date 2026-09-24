@@ -7350,3 +7350,19 @@
     width: min(62vw, 20rem) !important;
   }
 }
+
+
+/* ============================================================
+   BODY OF WATER MOBILE — final-final micro-adjustment
+   ============================================================ */
+@media (max-width: 680px) {
+  .water-room__header .room-opening .room-opening__question {
+    transform: translateY(28svh) !important;
+    margin-top: 30vh !important;
+  }
+
+  .water-room-installation .artwork-image[data-artwork-index="4"],
+  .water-room-installation .artwork-image:nth-child(4) {
+    width: min(58vw, 19rem) !important;
+  }
+}
