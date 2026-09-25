@@ -937,6 +937,308 @@ Once
 More
 Than before`,
   },
+  {
+    slug: "joy",
+    title: "Joy",
+    year: "2026",
+    preview: ["Her name is Joy.", "Never a moment", "my fingers couldn’t find her", "in the dark."],
+    body: `Her name is Joy.
+
+Never a moment
+my fingers couldn’t find her
+in the dark.
+
+She has never missed a beat
+or a breath.
+
+She is pigment,
+paper,
+eyes and hands.
+
+And maybe I am the impulse.
+
+But maybe I’m not.
+
+Her ovaries flash like opals.
+
+She will always attempt
+one more heartbeat.
+She will always attempt
+one more breath.
+
+Of all the animated creatures and beings
+that form and populate the earth,
+
+what if she’s the only one
+who knows she won’t live forever?
+
+That no amount of pleading,
+new tech,
+or face cream
+can make this form immortal?
+
+She knows that she’s made
+of the bones and feathers and apples
+of her comrades on earth.
+
+She knows that she will return to them
+and be reformed
+again and again.
+
+And this time
+she said yes to me.
+
+First becoming two:
+
+unbothered orb,
+master of the tide,
+
+frantic swimmer
+determined to survive,
+
+gathering speed
+until they collide—
+
+merging again
+with herself
+
+and with me.
+
+She’s definitely been a glacier
+or a redwood before.
+
+Her ability to be walked like a dog
+and not lose her dignity.
+
+Her welcome
+of this form where
+
+infinite rivers,
+carbon,
+chlorophyll
+
+become eyelids, organs, bone.
+
+Where her canyons and bark and ivory
+are now utterly singular
+swirls and grooves
+on the pads of her fingertips,
+
+formed by pressing her hands
+against the walls
+of my mother’s uterus.
+
+My fingerprints.
+
+To think that I’m deciding
+to give her a say in things now,
+
+now that I’m halfway through.
+
+That she’s waited this long,
+indulged my heat and recklessness,
+borne with my ignorance.
+
+I wonder how many other creatures
+think they’re immortal
+when they’re not?
+
+I have the strange honor
+of being the place
+where she meets a soul
+
+and these ancient ones
+add one more shape
+to the universe.
+
+And the hell of it is
+I was so underprepared.
+
+The hell of it is
+we are all underprepared.
+
+And the only way to learn
+is to put them through the wringer.
+
+Which I do.
+
+Good thing they know
+how intoxicating it is
+to think you are invincible.
+
+Good thing they know
+when enough is enough.
+
+Of all the shapes
+I could have taken,
+
+this one is
+interesting.
+
+I like the power
+I think I have.
+
+I don’t like
+that she’s submitted to me
+all these years.
+
+And then I do.
+
+I like to think
+I’m in control of these two
+vast beings
+
+like I got to decide
+when and how they met.
+
+But they are teaching me.
+
+They are allowing me
+every drop of power
+I imagine that I have.
+
+They tell me it’s time
+for my turn.
+
+And in the moments
+I forget I exist—
+or really,
+in the moments
+I know I am
+everything and nothing,
+both empty and full,
+
+when I soften
+and stretch open,
+
+becoming more
+
+bridge,
+channel,
+sacred grove,
+meeting place,
+
+less gatekeeper,
+guard,
+or a tyrannical toddler king—
+
+the real fun begins.
+
+I am so happy
+I get to participate.
+
+Sometimes I pretend
+I don’t care
+
+so I don’t implode
+or incinerate.
+
+I can’t believe
+I’m the reason
+they get to merge
+
+here,
+in this place and time.
+
+I am not the teacher
+or the student.
+
+I am the classroom.
+
+I will never be impervious.
+
+Or really
+even durable.
+
+I am wildly at the mercy
+of my environment.
+
+I am so easily afraid.
+
+I am stunned
+by the way I transcend
+the skull that holds me,
+
+by the way gravity and time
+can’t touch me
+the way they touch her,
+
+at the way I feel infinite
+and the way that’s almost true.
+
+But then
+I am afraid again.
+
+And I feel the need
+to protect her from
+
+disapproving glances,
+bad weather,
+mice,
+loud noises,
+late bills,
+minor inconveniences,
+newness,
+boredom,
+freedom,
+exile,
+and unfamiliar foods.
+
+She will go on
+with or without me.
+
+They both will.
+
+And we all know this.
+
+But this fragile meeting—
+
+where a soul
+with all its fire
+and the ancient earth
+
+rendezvous
+within the paper-thin membranes
+of a consciousness
+
+and give themselves to me
+with all the trust
+I have not yet earned—
+
+is the stupidest
+and most extravagant thing
+I can imagine.
+
+That they chose this—
+
+chose me,
+made me,
+and need me—
+
+the fertile void,
+
+becoming something
+temporarily singular,
+
+temporarily alive,
+
+with hazel eyes,
+big feet,
+
+who is learning
+not to be so hard on herself,
+
+who is splitting the difference
+between nothing and everything,
+
+who sometimes remembers
+
+who
+and what
+
+she is.`,
+  },
+
 ];
 
 export function getPoem(slug: string) {
