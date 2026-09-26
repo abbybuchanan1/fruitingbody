@@ -114,7 +114,13 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What forms of freedom remain available inside the conditions that make us?",
     exhibition: artworkSets.daffodils,
-    archive: numberedArchive("daffodils", "daffodils-index", 22, "This Morning I Was Gathering Daffodils"),
+    archive: archiveSequence(
+      "daffodils",
+      ["01", "02", "04", "05", "06", "07", "09", "10", "11", "13", "14", "17", "18", "22"].map(
+        (n) => `daffodils-index-${n}.jpg`,
+      ),
+      "This Morning I Was Gathering Daffodils",
+    ),
     reflection: reflections.daffodils,
   },
   {
