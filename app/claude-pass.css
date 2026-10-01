@@ -1,0 +1,87 @@
+/* ============================================================
+   CLAUDE PASS 1 — launch fixes (October 2026)
+   Loaded last, after globals.css and next-pass.css.
+   Each block is self-contained so it can be removed on its own.
+   ============================================================ */
+
+/* EXTERIOR — artist name under the museum sign */
+.museum-exterior__artist {
+  display: block;
+  margin-top: .4em;
+  font-size: .8em;
+  font-weight: 400;
+  letter-spacing: .14em;
+  opacity: .92;
+}
+
+/* EXTERIOR — a quiet, visible "Enter" cue at the foot of the door.
+   It arrives with the image and brightens on hover/focus. */
+.museum-exterior__enter {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  z-index: 2;
+  transform: translateX(-50%);
+  padding: .3rem .55rem;
+  font: 500 .66rem/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(255, 252, 244, .9);
+  text-shadow:
+    0 1px 3px rgba(18, 14, 10, .8),
+    0 0 12px rgba(18, 14, 10, .5);
+  opacity: 0;
+  transition: opacity 1.4s ease .6s, letter-spacing .6s ease;
+  pointer-events: none;
+}
+
+.museum-exterior.is-image-ready .museum-exterior__enter {
+  opacity: .78;
+}
+
+.museum-exterior__door:hover .museum-exterior__enter,
+.museum-exterior__door:focus-visible .museum-exterior__enter {
+  opacity: 1;
+  letter-spacing: .3em;
+  transition-delay: 0s;
+}
+
+.museum-exterior.is-entering .museum-exterior__enter {
+  opacity: 0 !important;
+  transition: opacity .18s linear !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__enter {
+    transition: none !important;
+  }
+}
+
+/* EXTERIOR (phones) — the soundscape invitation becomes a single slim line
+   in the strip below the door, so it no longer covers the door itself. */
+@media (max-width: 760px) {
+  .soundscape-invitation {
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: .75rem !important;
+    width: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .5rem .8rem !important;
+  }
+
+  .soundscape-invitation__eyebrow {
+    margin: 0 !important;
+  }
+
+  .soundscape-invitation__copy {
+    display: none;
+  }
+
+  .museum-exterior__enter {
+    bottom: 7%;
+  }
+}

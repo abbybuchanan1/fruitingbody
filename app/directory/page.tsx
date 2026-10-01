@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
+import { showInterpretiveQuestions } from "@/lib/editorial";
 import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
 export default function IndexPage() {
@@ -28,7 +29,7 @@ export default function IndexPage() {
                       <p className="index-work__meta">{work.year} · {work.medium}</p>
                       <h3><Link href={work.href}>{work.title}</Link></h3>
                       <p className="index-work__statement">{work.statement}</p>
-                      <p className="index-work__question">{work.question}</p>
+                      {showInterpretiveQuestions ? <p className="index-work__question">{work.question}</p> : null}
                     </div>
                   </header>
 

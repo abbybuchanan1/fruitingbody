@@ -71,11 +71,11 @@ export const miscarriageWorks: Artwork[] = [
 
 export const relativePairs: RelativePair[] = [
   ["01", "side-by-side"],
-  ["02", "stagger-b"],
+  ["02", "side-by-side"],
   ["05", "side-by-side"],
-  ["04", "stagger-a"],
+  ["04", "side-by-side"],
   ["10", "side-by-side"],
-  ["06", "stagger-b"],
+  ["06", "side-by-side"],
   ["07", "side-by-side"],
   ["09", "side-by-side"],
 ].map(([id, layout]) => ({

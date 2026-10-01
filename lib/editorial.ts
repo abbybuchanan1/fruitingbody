@@ -1,3 +1,8 @@
+// Interpretive questions ("WHAT BINDS US?") under each wall text.
+// Off for launch. Set to true to bring them back everywhere at once;
+// the questions themselves are still stored with each work in lib/works.ts.
+export const showInterpretiveQuestions = false;
+
 export const artistStatement = [
   "I use self-portraiture to investigate what it means to inhabit a body that is singular and also embedded in larger systems: ecological, relational, biological, inherited, and temporal.",
   "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water, gravity, weather, grief, desire, lineage, motherhood, seasonality, and time.",

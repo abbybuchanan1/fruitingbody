@@ -48,6 +48,7 @@ export default function ExteriorPage() {
 
       <div className="museum-exterior__sign">
         Fruiting Body
+        <span className="museum-exterior__artist">Abby Buchanan</span>
       </div>
 
       <Link
@@ -55,7 +56,9 @@ export default function ExteriorPage() {
         aria-label="Enter Fruiting Body"
         className="museum-exterior__door"
         onClick={enterVestibule}
-      />
+      >
+        <span className="museum-exterior__enter" aria-hidden="true">Enter</span>
+      </Link>
 
       <div className="museum-exterior__entry-veil" aria-hidden="true" />
     </main>

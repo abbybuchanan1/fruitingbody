@@ -2,12 +2,40 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./next-pass.css";
+import "./claude-pass.css";
 import { SiteNav } from "@/components/SiteNav";
 import { MuseumAudio } from "@/components/MuseumAudio";
 
+const siteTitle = "Fruiting Body — Abby Buchanan";
+const siteDescription =
+  "Fruiting Body is a digital museum of photographic work by Abby Buchanan, a Portland, Oregon artist working in self-portraiture.";
+
 export const metadata: Metadata = {
-  title: "Fruiting Body",
-  description: "A digital museum for an evolving artistic practice.",
+  metadataBase: new URL("https://www.fruitingbody.works"),
+  title: siteTitle,
+  description: siteDescription,
+  authors: [{ name: "Abby Buchanan" }],
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    siteName: "Fruiting Body",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "A figure wrapped in red fabric floating in a river gorge.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

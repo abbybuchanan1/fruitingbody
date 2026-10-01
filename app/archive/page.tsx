@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
-import { artistBio, artistStatement, fruitingBodyStatement, processStatement } from "@/lib/editorial";
+import { artistBio, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 import type { Artwork } from "@/lib/artworks";
 
@@ -132,7 +132,7 @@ export default function ArchivePage() {
                     <p className="archive-historical-edit__label">Original edit</p>
                     <h3>{set.title}</h3>
                     <p className="archive-historical-edit__statement">{set.statement}</p>
-                    <p className="archive-historical-edit__question">{set.question}</p>
+                    {showInterpretiveQuestions ? <p className="archive-historical-edit__question">{set.question}</p> : null}
                     <ArtworkLightboxGrid images={set.images} mode="archive" />
                   </article>
                 ))}

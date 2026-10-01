@@ -14,7 +14,7 @@ export default function CurrentPage() {
           <WorkIntroCard
             room="Current"
             title={work.title}
-            roomNote="A rotating room for the newest work in the practice and for work presently on view. Exhibition details will appear here as they are confirmed."
+            roomNote="A rotating room for the newest work in the practice."
             statement={work.statement}
             headingLevel={1}
           />

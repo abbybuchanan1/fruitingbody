@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { showInterpretiveQuestions } from "@/lib/editorial";
 
 export function QuestionPrompt({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -31,6 +32,21 @@ export function QuestionPrompt({ children }: { children: React.ReactNode }) {
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
+
+  // When questions are switched off, the element keeps its place on the wall
+  // (so the scroll rhythm of each room is unchanged) but is invisible and
+  // hidden from screen readers.
+  if (!showInterpretiveQuestions) {
+    return (
+      <p
+        className="room-opening__question question-prompt"
+        aria-hidden="true"
+        style={{ visibility: "hidden" }}
+      >
+        {children}
+      </p>
+    );
+  }
 
   return (
     <p
