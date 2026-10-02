@@ -142,17 +142,23 @@ export const mariaCurrentWorks: Artwork[] = [1, 2, 5, 4, 8, 7].map((number) => (
   alt: `Maria Burns Her Wedding Dress, current edit, image ${number}.`,
 }));
 
-// Installed Daffodils edit. The profile and pearl portrait remain as deliberate
-// present-day anchors inside the mythic sequence; the Archive retains the full body.
-export const daffodilsCurrentWorks: Artwork[] = [
-  1, 2, 4, 5, 7, 9, 10,
-].map((number) => ({
-  src: `/art/daffodils/daffodils-${String(number).padStart(2, "0")}.jpg`,
-  alt: `This Morning I Was Gathering Daffodils, installed edit, work ${number}.`,
-})).concat({
-  src: "/art/archive/daffodils/daffodils-index-17.jpg",
-  alt: "This Morning I Was Gathering Daffodils, final work.",
-});
+// Installed Daffodils edit (October 2026): six frames, each with its title.
+// Vertical frames are the upright body; the two 16:9 frames are where the body
+// goes horizontal (the fall, and lying on the ground). Older edits stay in the Archive.
+const daffodilsTitles = [
+  ["01", "hades", "Hades"],
+  ["02", "this-is-my-body", "This Is My Body"],
+  ["03", "the-fall", "The Fall"],
+  ["04", "take-and-eat", "Take and Eat"],
+  ["05", "shadow-queen", "Shadow Queen"],
+  ["06", "the-return", "The Return"],
+] as const;
+
+export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, slug, title]) => ({
+  src: `/art/daffodils/daffodils-${number}-${slug}.jpg`,
+  alt: `This Morning I Was Gathering Daffodils: ${title}.`,
+  title,
+}));
 
 export const artworkSets = {
   membrane: membraneWorks,

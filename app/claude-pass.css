@@ -85,3 +85,59 @@
     bottom: 7%;
   }
 }
+
+/* DAFFODILS — six-frame edit (October 2026).
+   Verticals are sized by height so the whole frame fits the screen;
+   the two 16:9 frames (3: The Fall, 6: The Return) open wide.
+   Higher specificity than the earlier eight-image rules in next-pass.css. */
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(4) {
+  width: min(48vh, 40vw, 30rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+  width: min(52vh, 44vw, 32rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(3) {
+  width: min(80vw, 74rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(6) {
+  width: min(84vw, 78rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image img {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(4),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+    width: min(86vw, 30rem) !important;
+  }
+
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(3),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(6) {
+    width: 96vw !important;
+  }
+}
+
+/* Titles under each frame — a quiet museum caption. Only works that carry a
+   title (currently the Daffodils frames) show one. */
+.artwork-image__caption {
+  margin-top: .85rem;
+  font: italic 400 .86rem/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: .02em;
+  color: rgba(244, 238, 226, .82);
+  text-shadow: 0 1px 6px rgba(12, 10, 8, .55);
+  text-align: left;
+}
