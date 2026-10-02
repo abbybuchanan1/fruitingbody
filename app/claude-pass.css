@@ -141,3 +141,37 @@
   text-shadow: 0 1px 6px rgba(12, 10, 8, .55);
   text-align: left;
 }
+
+/* GARDEN — leaf shadows cast by the room's plants, moving slightly as if in
+   air. A separate layer multiplied onto the wall, so the shadows can sway
+   without moving the wall itself. Sits behind the Daffodils frames, after the
+   planted corridor; it fades in and out at both ends. */
+.garden-environment::before {
+  content: "";
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  top: 19%;
+  height: 31%;
+  pointer-events: none;
+  background: url("/media/architecture/environments/garden/garden-leaf-shadows.jpg") center / cover no-repeat;
+  mix-blend-mode: multiply;
+  opacity: .9;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  transform-origin: 50% 0%;
+  animation: garden-leaf-sway 17s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes garden-leaf-sway {
+  0%   { transform: translate3d(-0.7%, 0, 0) rotate(-0.28deg); }
+  45%  { transform: translate3d(0.3%, 0.25%, 0) rotate(0.12deg) scale(1.004); }
+  100% { transform: translate3d(0.8%, -0.15%, 0) rotate(0.3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .garden-environment::before {
+    animation: none;
+  }
+}
