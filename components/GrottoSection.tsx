@@ -19,6 +19,7 @@ export function GrottoSection() {
               room="Grotto"
               title={miscarriage.title}
               statement={miscarriage.statement}
+              note="This work documents a miscarriage as it happened."
               headingLevel={1}
             />
             <QuestionPrompt>{miscarriage.question}</QuestionPrompt>

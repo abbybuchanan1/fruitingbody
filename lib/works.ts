@@ -78,7 +78,7 @@ const miscarriageArchive: Artwork[] = [
   ["miscarriage-slide-archive-02.jpg", "Slide"],
   ["miscarriage-follicle-portal-drain-archive-03.jpg", "Follicle, Portal, Drain"],
   ["miscarriage-drift-archive-06.jpg", "Drift"],
-  ["miscarriage-passage-archive-05.jpg", "Passage"],
+  ["miscarriage-passage-archive-05.jpg", "Pass"],
   ["miscarriage-want-archive-04.jpg", "Want"],
 ].map(([filename, title]) => ({
   src: `/art/archive/miscarriage/${filename}`,

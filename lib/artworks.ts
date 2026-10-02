@@ -59,8 +59,8 @@ export const miscarriageWorks: Artwork[] = [
   },
   {
     src: "/art/archive/miscarriage/miscarriage-passage-06.jpg",
-    title: "Passage",
-    alt: "A Miscarriage, Passage.",
+    title: "Pass",
+    alt: "A Miscarriage, Pass.",
   },
   {
     src: "/art/miscarriage/miscarriage-want-02.jpg",
