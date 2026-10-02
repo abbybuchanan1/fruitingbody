@@ -20,7 +20,12 @@ export function ArtworkSequence({ artworks, label, mode = "standard", eagerFirst
             decoding="async"
           />
           {artwork.title ? (
-            <figcaption className="artwork-image__caption">{artwork.title}</figcaption>
+            <figcaption className="artwork-image__caption">
+              {artwork.title}
+              {artwork.medium ? (
+                <span className="artwork-image__medium">{artwork.medium}</span>
+              ) : null}
+            </figcaption>
           ) : null}
         </figure>
       ))}

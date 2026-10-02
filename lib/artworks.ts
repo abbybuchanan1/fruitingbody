@@ -2,6 +2,8 @@ export type Artwork = {
   src: string;
   alt: string;
   title?: string;
+  /** Shown under the title when a work needs its medium named (e.g. a collage in a photographic series). */
+  medium?: string;
 };
 
 export type RelativePair = {
@@ -129,19 +131,22 @@ export const mariaCurrentWorks: Artwork[] = [1, 2, 5, 4, 8, 7].map((number) => (
 // Installed Daffodils edit (October 2026): six frames, each with its title.
 // Vertical frames are the upright body; the two 16:9 frames are where the body
 // goes horizontal (the fall, and lying on the ground). Older edits stay in the Archive.
+// The first and last frames are digital collages built from Abby's footage;
+// the four between are photographs with minimal editing.
 const daffodilsTitles = [
-  ["01", "hades", "Hades"],
-  ["02", "this-is-my-body", "This Is My Body"],
-  ["03", "the-fall", "The Fall"],
-  ["04", "take-and-eat", "Take and Eat"],
-  ["05", "shadow-queen", "Shadow Queen"],
-  ["06", "the-return", "The Return"],
+  ["01", "hades", "Hades", "Digital collage"],
+  ["02", "this-is-my-body", "This Is My Body", "Photograph"],
+  ["03", "the-fall", "The Fall", "Photograph"],
+  ["04", "take-and-eat", "Take and Eat", "Photograph"],
+  ["05", "shadow-queen", "Shadow Queen", "Photograph"],
+  ["06", "the-return", "The Return", "Digital collage"],
 ] as const;
 
-export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, slug, title]) => ({
+export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, slug, title, medium]) => ({
   src: `/art/daffodils/daffodils-${number}-${slug}.jpg`,
-  alt: `This Morning I Was Gathering Daffodils: ${title}.`,
+  alt: `This Morning I Was Gathering Daffodils: ${title}. ${medium}.`,
   title,
+  medium,
 }));
 
 export const artworkSets = {

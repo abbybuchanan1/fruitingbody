@@ -97,7 +97,7 @@ export const museumWorks: MuseumWork[] = [
     title: "This Morning I Was Gathering Daffodils",
     room: "Garden",
     year: "2024-2025",
-    medium: "Self-portrait photography",
+    medium: "Self-portrait photography and digital collage",
     href: "/exhibition?jump=garden",
     statement:
       "The work investigates the relationship between agency and inevitability, exploring forms of sovereignty that emerge through participation rather than\u00a0escape.",
