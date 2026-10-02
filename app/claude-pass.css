@@ -178,3 +178,41 @@
     animation: none;
   }
 }
+
+/* A MISCARRIAGE — eight-frame edit (October 2026).
+   Landscape frames (1 Stay, 3 Drain, 5 Drift) open wider; portrait frames are
+   sized by height so each fits the screen. Replaces the six-image widths. */
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--1,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--3,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--5 {
+  width: min(60vw, 50rem) !important;
+}
+
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--2,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--4,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--6,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--7,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--8 {
+  width: min(62vh, 46vw, 36rem) !important;
+}
+
+/* The old border-trim on image 2 no longer applies: no frame has an edge now. */
+.grotto-section--miscarriage .miscarriage-votive:nth-child(2) img {
+  clip-path: none !important;
+}
+
+@media (max-width: 760px) {
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--1,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--3,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--5 {
+    width: 94vw !important;
+  }
+
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--2,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--4,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--6,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--7,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--8 {
+    width: min(86vw, 30rem) !important;
+  }
+}

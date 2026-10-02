@@ -36,38 +36,22 @@ function exhibitionSequence(
   }));
 }
 
-export const miscarriageWorks: Artwork[] = [
-  {
-    src: "/art/miscarriage/miscarriage-stay-01.jpg",
-    title: "Stay",
-    alt: "A Miscarriage, Stay.",
-  },
-  {
-    src: "/art/miscarriage/miscarriage-slide-03.jpg",
-    title: "Slide",
-    alt: "A Miscarriage, Slide.",
-  },
-  {
-    src: "/art/miscarriage/miscarriage-follicle-portal-drain-04a.jpg",
-    title: "Follicle, Portal, Drain",
-    alt: "A Miscarriage, Follicle, Portal, Drain.",
-  },
-  {
-    src: "/art/miscarriage/miscarriage-drift-05.jpg",
-    title: "Drift",
-    alt: "A Miscarriage, Drift.",
-  },
-  {
-    src: "/art/archive/miscarriage/miscarriage-passage-06.jpg",
-    title: "Pass",
-    alt: "A Miscarriage, Pass.",
-  },
-  {
-    src: "/art/miscarriage/miscarriage-want-02.jpg",
-    title: "Want",
-    alt: "A Miscarriage, Want.",
-  },
+const miscarriageSequence: Array<[string, string]> = [
+  ["01-stay", "Stay"],
+  ["02-tear", "Tear"],
+  ["03-follicle-portal-drain", "Follicle, Portal, Drain"],
+  ["04-slide", "Slide"],
+  ["05-drift", "Drift"],
+  ["06-pass", "Pass"],
+  ["07-want", "Want"],
+  ["08-left", "Left"],
 ];
+
+export const miscarriageWorks: Artwork[] = miscarriageSequence.map(([slug, title]) => ({
+  src: `/art/miscarriage/miscarriage-${slug}.jpg`,
+  title,
+  alt: `A Miscarriage, ${title}.`,
+}));
 
 export const relativePairs: RelativePair[] = [
   ["01", "side-by-side"],

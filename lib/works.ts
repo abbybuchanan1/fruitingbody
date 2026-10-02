@@ -73,18 +73,8 @@ const relativeArchive = archiveSequence(
   "Relative",
 );
 
-const miscarriageArchive: Artwork[] = [
-  ["miscarriage-stay-archive-01.jpg", "Stay"],
-  ["miscarriage-slide-archive-02.jpg", "Slide"],
-  ["miscarriage-follicle-portal-drain-archive-03.jpg", "Follicle, Portal, Drain"],
-  ["miscarriage-drift-archive-06.jpg", "Drift"],
-  ["miscarriage-passage-archive-05.jpg", "Pass"],
-  ["miscarriage-want-archive-04.jpg", "Want"],
-].map(([filename, title]) => ({
-  src: `/art/archive/miscarriage/${filename}`,
-  title,
-  alt: `A Miscarriage, ${title}.`,
-}));
+// Installed A Miscarriage edit (October 2026): eight frames, all 2017, no tintype edge.
+const miscarriageArchive: Artwork[] = miscarriageWorks;
 
 export const museumWorks: MuseumWork[] = [
   {
