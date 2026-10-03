@@ -309,3 +309,33 @@
     width: 88vw !important;
   }
 }
+
+/* FEAR NOT — five-frame edit (October 2026).
+   All frames are 9:16 video stills, sized by height so each fits the screen.
+   3, the hinge, is slightly larger; 5, the closing gaze, nearly so. */
+.garden-section--fear-not .artwork-image:nth-child(n) {
+  width: min(52vh, 80vw, 36rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--fear-not .artwork-image:nth-child(3) {
+  width: min(56vh, 84vw, 38rem) !important;
+}
+
+.garden-section--fear-not .artwork-image:nth-child(5) {
+  width: min(54vh, 82vw, 37rem) !important;
+}
+
+.garden-section--fear-not .artwork-image img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  clip-path: none !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--fear-not .artwork-image:nth-child(n) {
+    width: 86vw !important;
+  }
+}

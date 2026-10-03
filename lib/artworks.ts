@@ -149,6 +149,20 @@ export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, sl
   medium,
 }));
 
+// Fear Not: five frames from night video in the vines.
+const fearNotAlts = [
+  "Fear Not, 1 of 5. Standing in dark vines at night, both hands covering the face.",
+  "Fear Not, 2 of 5. Back turned, looking over the shoulder toward the camera, vines at the waist.",
+  "Fear Not, 3 of 5. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves.",
+  "Fear Not, 4 of 5. Biting a green apple among the vines, eyes raised, one hand low against the body.",
+  "Fear Not, 5 of 5. Facing the camera with a direct gaze, holding the eaten core of the apple.",
+];
+
+export const fearNotWorks: Artwork[] = fearNotAlts.map((alt, i) => ({
+  src: `/art/fear-not/fear-not-0${i + 1}.jpg`,
+  alt,
+}));
+
 // Taste and See: three photographs shown five ways. It opens on a close crop
 // of the second frame and ends on a close crop of the fourth.
 const tasteAndSeeAlts = [
@@ -183,7 +197,7 @@ export const artworkSets = {
   membrane: membraneWorks,
   miscarriage: miscarriageWorks,
   daffodils: daffodilsCurrentWorks,
-  fearNot: exhibitionSequence("fear-not", "fear-not", 5, "Fear Not"),
+  fearNot: fearNotWorks,
   taste: tasteAndSeeWorks,
   phase: phaseWorks,
   maria: mariaCurrentWorks,
