@@ -105,13 +105,7 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What forms of freedom remain available inside the conditions that make us?",
     exhibition: artworkSets.daffodils,
-    archive: archiveSequence(
-      "daffodils",
-      ["01", "02", "04", "05", "06", "07", "09", "10", "11", "13", "14", "17", "18", "22"].map(
-        (n) => `daffodils-index-${n}.jpg`,
-      ),
-      "This Morning I Was Gathering Daffodils",
-    ),
+    archive: artworkSets.daffodils,
     reflection: reflections.daffodils,
   },
   {
@@ -126,7 +120,7 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What becomes possible when curiosity matters more than certainty?",
     exhibition: artworkSets.fearNot,
-    archive: numberedArchive("fear-not", "fear-not-index", 8, "Fear Not"),
+    archive: artworkSets.fearNot,
     reflection: reflections["fear-not"],
   },
   {
@@ -141,7 +135,7 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What is beauty when it no longer exists for the gaze of others?",
     exhibition: artworkSets.taste,
-    archive: numberedArchive("taste-and-see", "taste-and-see-index", 8, "Taste and See"),
+    archive: artworkSets.taste,
     reflection: reflections["taste-and-see"],
   },
   {
