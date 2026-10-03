@@ -149,6 +149,21 @@ export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, sl
   medium,
 }));
 
+// Taste and See: three photographs shown five ways. It opens on a close crop
+// of the second frame and ends on a close crop of the fourth.
+const tasteAndSeeAlts = [
+  "Taste and See, 1 of 5. Close crop of a closed eye; honey runs over the lid and a drop hangs from the lashes, a small white flower at the brow.",
+  "Taste and See, 2 of 5. Head bowed, eyes closed, honey running from the forehead over the eyes, nose and lips; white flowers in the honey, a pearl necklace.",
+  "Taste and See, 3 of 5. Head tipped back in hard sun, a flower over one eye, mascara smudged beneath the other, honey running down the cheek like tears.",
+  "Taste and See, 4 of 5. Facing the camera with a direct gaze, the face covered in honey and petals, a pearl necklace.",
+  "Taste and See, 5 of 5. Close crop of an open eye with a gold iris, honey and petals around it.",
+];
+
+export const tasteAndSeeWorks: Artwork[] = tasteAndSeeAlts.map((alt, i) => ({
+  src: `/art/taste/taste-and-see-0${i + 1}.jpg`,
+  alt,
+}));
+
 // Phase hangs as one work: six frames in a single grid (2 rows of 3),
 // read left to right, top to bottom. The frames also exist on their own
 // for the Directory and Archive.
@@ -169,7 +184,7 @@ export const artworkSets = {
   miscarriage: miscarriageWorks,
   daffodils: daffodilsCurrentWorks,
   fearNot: exhibitionSequence("fear-not", "fear-not", 5, "Fear Not"),
-  taste: exhibitionSequence("taste", "taste-and-see", 6, "Taste and See"),
+  taste: tasteAndSeeWorks,
   phase: phaseWorks,
   maria: mariaCurrentWorks,
   threshold: sequence("threshold", 3, "Threshold"),

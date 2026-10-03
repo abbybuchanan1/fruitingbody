@@ -256,3 +256,56 @@
     width: 96vw !important;
   }
 }
+
+/* TASTE AND SEE — five-frame edit (October 2026).
+   1 and 5 are close crops of 2 and 4. They hang small (the camera crops are
+   about 760px wide) with a wider pause beside their source, so the change in
+   scale reads as attention moving, not repetition. Portraits are sized by
+   height so each face fits the screen; 4, the direct gaze, is the largest. */
+.garden-section--taste-and-see .artwork-image:nth-child(1),
+.garden-section--taste-and-see .artwork-image:nth-child(5) {
+  width: min(28vw, 40vh, 24rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(1) {
+  margin-bottom: 14vh !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(5) {
+  margin-top: 14vh !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(2),
+.garden-section--taste-and-see .artwork-image:nth-child(3) {
+  width: min(55vh, 72vw, 38rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(4) {
+  width: min(58vh, 80vw, 40rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--taste-and-see .artwork-image img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  clip-path: none !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--taste-and-see .artwork-image:nth-child(1),
+  .garden-section--taste-and-see .artwork-image:nth-child(5) {
+    width: 60vw !important;
+  }
+
+  .garden-section--taste-and-see .artwork-image:nth-child(2),
+  .garden-section--taste-and-see .artwork-image:nth-child(3),
+  .garden-section--taste-and-see .artwork-image:nth-child(4) {
+    width: 88vw !important;
+  }
+}
