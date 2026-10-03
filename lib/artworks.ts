@@ -109,11 +109,13 @@ export const redThreadWorks = exhibitionSequence(
   "Red Thread",
 );
 
-export const bodyOfWaterWorks = exhibitionSequence(
-  "body-of-water",
-  "body-of-water",
-  8,
-  "Body of Water",
+// Body of Water: frame 03 is withdrawn (its background was repaired with
+// generative AI). The remaining seven keep their original file numbers.
+export const bodyOfWaterWorks: Artwork[] = ["01", "02", "04", "05", "06", "07", "08"].map(
+  (n, i) => ({
+    src: `/art/body-of-water/body-of-water-${n}.jpg`,
+    alt: `Body of Water, image ${i + 1} of 7.`,
+  }),
 );
 
 export const mariaWorks: Artwork[] = Array.from({ length: 11 }, (_, index) => ({

@@ -339,3 +339,46 @@
     width: 86vw !important;
   }
 }
+
+/* BODY OF WATER — seven frames (October 2026). Frame 03 was withdrawn, so the
+   positional rules written for eight images are reset here. Positions:
+   1, 2 (4:3), 3 (the tall underwater portrait), 4 (3:2), 5, 6 (16:9), 7 (3:2).
+   4 and 7 keep the small edge shave their files needed. */
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] {
+  overflow: visible !important;
+}
+
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] img {
+  position: static !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+
+.water-room-installation .art-sequence .artwork-image[data-artwork-index="4"] img,
+.water-room-installation .art-sequence .artwork-image[data-artwork-index="7"] img {
+  clip-path: inset(.72%) !important;
+}
+
+@media (min-width: 681px) {
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="1"] { width: min(90vw, 84rem) !important; transform: translateX(-3vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="2"] { width: min(65vw, 58rem) !important; transform: translateX(10vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="3"] { width: min(50vh, 56vw, 28rem) !important; transform: translateX(-10vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="4"] { width: min(88vw, 82rem) !important; transform: translateX(5vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="5"] { width: min(70vw, 64rem) !important; transform: translateX(-8vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="6"] { width: min(94vw, 90rem) !important; transform: translateX(1vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="7"] { width: min(82vw, 76rem) !important; transform: translateX(-4vw) !important; }
+}
+
+@media (max-width: 680px) {
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index] {
+    width: 88vw !important;
+  }
+
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="3"] {
+    width: min(58vw, 19rem) !important;
+  }
+}

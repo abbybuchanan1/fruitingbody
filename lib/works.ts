@@ -225,7 +225,13 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What happens when we stop resisting transformation and begin moving with it?",
     exhibition: bodyOfWaterWorks,
-    archive: numberedArchive("body-of-water", "body-of-water-index", 11, "Body of Water"),
+    archive: archiveSequence(
+      "body-of-water",
+      ["01", "02", "04", "05", "06", "07", "08", "09", "10", "11"].map(
+        (n) => `body-of-water-index-${n}.jpg`,
+      ),
+      "Body of Water",
+    ),
     reflection: reflections["body-of-water"],
   },
   {
