@@ -149,13 +149,28 @@ export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, sl
   medium,
 }));
 
+// Phase hangs as one work: six frames in a single grid (2 rows of 3),
+// read left to right, top to bottom. The frames also exist on their own
+// for the Directory and Archive.
+export const phaseWorks: Artwork[] = [
+  {
+    src: "/art/phase/phase-grid.jpg",
+    alt: "Phase. Six self-portraits in a grid of two rows of three, moving from a direct, still gaze through blurred motion and an open red mouth, to a face dissolved and erased, ending in profile, turned away.",
+  },
+];
+
+export const phaseFrames: Artwork[] = Array.from({ length: 6 }, (_, i) => ({
+  src: `/art/phase/phase-frame-0${i + 1}.jpg`,
+  alt: `Phase, frame ${i + 1} of 6.`,
+}));
+
 export const artworkSets = {
   membrane: membraneWorks,
   miscarriage: miscarriageWorks,
   daffodils: daffodilsCurrentWorks,
   fearNot: exhibitionSequence("fear-not", "fear-not", 5, "Fear Not"),
   taste: exhibitionSequence("taste", "taste-and-see", 6, "Taste and See"),
-  phase: exhibitionSequence("phase", "phase", 5, "Phase"),
+  phase: phaseWorks,
   maria: mariaCurrentWorks,
   threshold: sequence("threshold", 3, "Threshold"),
   relative: sequence("relative", 6, "Relative"),

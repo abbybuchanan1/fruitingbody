@@ -3,6 +3,7 @@ import {
   artworkSets,
   bodyOfWaterWorks,
   miscarriageWorks,
+  phaseFrames,
   mariaWorks,
   relativePairs,
   thresholdPairs,
@@ -170,11 +171,7 @@ export const museumWorks: MuseumWork[] = [
     question:
       "Who are we while we are becoming someone we cannot yet recognize?",
     exhibition: artworkSets.phase,
-    archive: [
-      ...artworkSets.phase,
-      { src: "/art/phase/06.webp", alt: "Phase, archive image 6." },
-      { src: "/art/phase/07.webp", alt: "Phase, archive image 7." },
-    ],
+    archive: phaseFrames,
     reflection: reflections.phase,
   },
   {

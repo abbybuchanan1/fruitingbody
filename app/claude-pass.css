@@ -226,3 +226,33 @@
   text-transform: uppercase;
   color: rgba(244, 238, 226, .6);
 }
+
+/* PHASE — one work, hung as a single grid (October 2026).
+   Six frames, 2 rows of 3, with dark gutters that sit into the Grotto wall.
+   Replaces the staggered five-image column. */
+.exhibition-scroll .grotto-section--phase .artwork-sequence {
+  gap: 0 !important;
+}
+
+.exhibition-scroll .grotto-section--phase .artwork-image,
+.exhibition-scroll .grotto-section--phase .artwork-image:nth-child(odd),
+.exhibition-scroll .grotto-section--phase .artwork-image:nth-child(even) {
+  width: min(86vw, 88vh, 68rem) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+.grotto-section--phase .artwork-image img {
+  clip-path: none !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 760px) {
+  .exhibition-scroll .grotto-section--phase .artwork-image,
+  .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(odd),
+  .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(even) {
+    width: 96vw !important;
+  }
+}
