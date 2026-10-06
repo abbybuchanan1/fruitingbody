@@ -73,6 +73,6 @@ export const reflections: Record<string, string[]> = {
     "I remember the mist of river water coming through the fabric and the warmth of the sun on my body. I walked out of the river understanding that the experience itself could be the site of the photograph, and that photography might be able to carry things I had not been able to communicate in another form.",
   ],
   maria: [
-    "Maria Burns Her Wedding Dress documents an unstaged ritual. I did not direct her or construct the event. My role was to remain present, witness it, and make photographs without interrupting what was unfolding.",
+    "My dear friend Maria invited me to witness a ritual she created. I did not direct her or arrange any part of it. My role was to stay present and make photographs without interrupting what was unfolding.",
   ],
 };

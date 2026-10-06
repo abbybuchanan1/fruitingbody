@@ -37,7 +37,7 @@ const redThreadDevelopment = [
   {
     title: "Red Thread",
     statement:
-      "The work investigates inheritance as an ongoing relationship rather than a problem to be solved, exploring the tensions between entanglement, belonging, and becoming.",
+      "Thread binds and traces.",
     question:
       "How do we become ourselves when we can never fully separate from the whole?",
     images: numberedImages("red-thread-original", "red-thread-original", 8, "Red Thread"),
@@ -45,7 +45,7 @@ const redThreadDevelopment = [
   {
     title: "It Was Shelter Before It Was a Lie",
     statement:
-      "The work investigates the relationship between identity and protection, asking how forms of shelter evolve, persist, and eventually require renegotiation.",
+      "Protection hardens into identity.",
     question:
       "How do we recognize when a form of protection has become a form of confinement?",
     images: numberedImages("shelter-original", "shelter-original", 8, "It Was Shelter Before It Was a Lie"),
@@ -53,7 +53,7 @@ const redThreadDevelopment = [
   {
     title: "Unravel",
     statement:
-      "The work investigates participation as an alternative to control, exploring what emerges when certainty gives way to movement, attention, and trust.",
+      "Blur and movement loosen the figure.",
     question:
       "What emerges when we stop trying to manage the process of becoming?",
     images: numberedImages("unravel-original", "unravel-original", 4, "Unravel"),
