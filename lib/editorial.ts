@@ -30,6 +30,24 @@ export const artistBio = [
   "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, embodiment, and lived processes of transformation.",
 ];
 
+// CV — newest first within each section. Add sections (Exhibitions,
+// Publications) as they happen; empty headings are left out on purpose.
+export const artistCv: Array<{ heading: string; entries: Array<{ year: string; text: string }> }> = [
+  {
+    heading: "Education",
+    entries: [
+      { year: "2005", text: "B.M. in Music Composition, minor in Music Technology, Oral Roberts University, Tulsa, Oklahoma" },
+    ],
+  },
+  {
+    heading: "Training",
+    entries: [
+      { year: "2022", text: "The Art of Candid Photography: Shoot Like a Pro With Any Camera, Greg Williams" },
+      { year: "2017", text: "Self-Portraiture as Medicine, Catherine Just" },
+    ],
+  },
+];
+
 export const reflections: Record<string, string[]> = {
   phase: [
     "These images began as synesthetic translations of emotional states experienced during the winter of 2024. For much of my life, an emotional state could feel total: not I feel hopeless, but I am hopelessness.",

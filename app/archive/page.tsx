@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
-import { artistBio, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
+import { artistBio, artistCv, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 import type { Artwork } from "@/lib/artworks";
 
@@ -88,6 +88,24 @@ export default function ArchivePage() {
         <PracticeDetails id="fruiting-body" title="Fruiting Body" paragraphs={fruitingBodyStatement} />
         <PracticeDetails id="process" title="Process" paragraphs={processStatement} />
         <PracticeDetails id="bio" title="Bio" paragraphs={artistBio} />
+        <details className="archive-practice-detail" id="cv">
+          <summary>CV</summary>
+          <div className="archive-practice-detail__body archive-cv">
+            {artistCv.map((section) => (
+              <section className="archive-cv__section" key={section.heading}>
+                <h3>{section.heading}</h3>
+                <ul>
+                  {section.entries.map((entry) => (
+                    <li key={entry.text}>
+                      <span className="archive-cv__year">{entry.year}</span>
+                      <span className="archive-cv__text">{entry.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </details>
         <details className="archive-practice-detail" id="contact">
           <summary>Contact</summary>
           <div className="archive-practice-detail__body archive-contact-detail__body">
