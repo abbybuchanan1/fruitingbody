@@ -87,8 +87,8 @@ export const reflections: Record<string, string[]> = {
     "As I worked, anatomy began behaving like architecture. Folds became passages, openings became rooms, and the body became a spatial boundary that could be approached from either side.",
   ],
   "fear-not": [
-    "Fear Not began with Eve and with curiosity. I kept returning to the fact that a woman reaching toward knowledge is so often framed as the beginning of ruin.",
-    "In these photographs, curiosity becomes an action: reaching, tasting, knowing, and accepting that knowledge changes the person who receives it. Fear can still be present. The body moves anyway.",
+    "Fear Not began with Eve and with curiosity. I kept returning to the fact that a woman choosing to open her own eyes is so often framed as the beginning of ruin.",
+    "In these photographs, curiosity becomes an action: reaching, tasting, seeing, and accepting that what is seen changes the one who sees it. Fear can still be present. The body moves anyway.",
   ],
   "taste-and-see": [
     "The first images began with Venus imagery and the long visual history of arranging feminine beauty for a viewer. Appetite gradually moved to the center of the work.",
