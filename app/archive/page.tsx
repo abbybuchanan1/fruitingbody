@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
+import { FilmThumbnail } from "@/components/FilmThumbnail";
 import { artistBio, artistCv, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 import type { Artwork } from "@/lib/artworks";
@@ -137,6 +138,7 @@ export default function ArchivePage() {
             </header>
 
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
+            {work.id === "body-of-water" ? <FilmThumbnail /> : null}
 
             {work.id === "red-thread" ? (
               <section className="archive-historical-edits" aria-label="Red Thread developmental archive">

@@ -927,3 +927,59 @@
   .catalog-grid--uniform,
   .catalog-grid--archive.catalog-grid--uniform { --edge: 200px; }
 }
+
+/* INDEX + ARCHIVE — Body of Water film still, sized like a landscape
+   photograph in the catalog, with a quiet play mark. */
+.catalog-film {
+  margin-top: 1.6rem;
+}
+
+.catalog-film__link {
+  position: relative;
+  display: block;
+  width: var(--edge);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  color: inherit;
+}
+
+.catalog-film__link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-film__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 252, 244, .75);
+  border-radius: 50%;
+  background: rgba(20, 18, 15, .25);
+  transition: background .3s ease, border-color .3s ease;
+}
+
+.catalog-film__play::after {
+  content: "";
+  position: absolute;
+  left: 54%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: .5rem 0 .5rem .8rem;
+  border-color: transparent transparent transparent rgba(255, 252, 244, .9);
+}
+
+.catalog-film__link:hover .catalog-film__play,
+.catalog-film__link:focus-visible .catalog-film__play {
+  background: rgba(20, 18, 15, .45);
+  border-color: rgba(255, 252, 244, 1);
+}
+
+.index-moving-image .catalog-film {
+  margin-top: .8rem;
+}

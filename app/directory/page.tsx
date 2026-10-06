@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
+import { FilmThumbnail } from "@/components/FilmThumbnail";
 import { showInterpretiveQuestions } from "@/lib/editorial";
 import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
@@ -45,7 +46,7 @@ export default function IndexPage() {
 
       <aside className="index-moving-image">
         <p className="index-work__meta">Water Room · Moving image</p>
-        <Link href="/film-room?from=water-room">Body of Water — film</Link>
+        <FilmThumbnail />
       </aside>
 
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">

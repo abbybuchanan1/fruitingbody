@@ -139,9 +139,10 @@ export const mariaWorks: Artwork[] = Array.from({ length: 11 }, (_, index) => ({
   alt: `Maria Burns Her Wedding Dress, image ${index + 1} of 11.`,
 }));
 
-// Current / Index edit: object → ignition → burning → encounter → carried flame → trace.
+// Current / Index edit: object → ignition → burning → carried flame → trace.
+// (The second burning-dress frame, image 4, was cut in October 2026.)
 // The full 11-image witnessed sequence remains available in Archive.
-export const mariaCurrentWorks: Artwork[] = [1, 2, 5, 4, 8, 7].map((number) => ({
+export const mariaCurrentWorks: Artwork[] = [1, 2, 5, 8, 7].map((number) => ({
   ...mariaWorks[number - 1],
   alt: `Maria Burns Her Wedding Dress, current edit, image ${number}.`,
 }));
