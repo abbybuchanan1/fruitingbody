@@ -1324,8 +1324,9 @@
   }
 }
 
-/* DAFFODILS — a soft shade around each frame so the flower bed falls away
+/* DAFFODILS — a soft shade around each photograph (on the image itself, not
+   its wider frame box, which left a lighter panel) so the flower bed falls away
    before it reaches the photograph. */
-.garden-section--daffodils .art-sequence .artwork-image {
+.garden-section--daffodils .art-sequence .artwork-image img {
   box-shadow: 0 0 5rem 2.5rem rgba(10, 12, 9, .5) !important;
 }
