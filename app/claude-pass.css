@@ -1101,7 +1101,6 @@
 
 /* ROOMS — open a single work, then close it. The only cue is the cursor. */
 .art-sequence .artwork-image,
-.miscarriage-votive,
 .current-ember-work,
 .membrane-plane {
   cursor: zoom-in;
@@ -1190,4 +1189,27 @@
 
 @media (prefers-reduced-motion: reduce) {
   .room-viewer { animation: none; }
+}
+
+/* Phase frames: quiet arrows either side. */
+.room-viewer__step {
+  position: fixed;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(240, 234, 222, .7);
+  font: 300 2.6rem/1 Georgia, serif;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.room-viewer__step--prev { left: clamp(.2rem, 1.5vw, 1.4rem); }
+.room-viewer__step--next { right: clamp(.2rem, 1.5vw, 1.4rem); }
+
+.room-viewer__step:hover,
+.room-viewer__step:focus-visible {
+  color: #fff;
 }
