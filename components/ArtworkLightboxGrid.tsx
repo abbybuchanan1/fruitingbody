@@ -10,6 +10,7 @@ type LightboxImage = {
   group?: string;
   groupTitle?: string;
   breakBefore?: boolean;
+  stack?: string;
 };
 
 const sizes = imageSizes;
@@ -55,7 +56,7 @@ function isUniform(images: LightboxImage[]) {
   return Math.max(...ratios) / Math.min(...ratios) < 1.08;
 }
 
-type Block = { key: string; title?: string; breakBefore?: boolean; items: Array<{ image: LightboxImage; index: number }> };
+type Block = { key: string; title?: string; breakBefore?: boolean; stack?: boolean; items: Array<{ image: LightboxImage; index: number }> };
 
 // Consecutive images that share a group (a Relative or Threshold pair) are
 // kept together on one row with one caption.
@@ -63,6 +64,14 @@ function toBlocks(images: LightboxImage[]): Block[] {
   const blocks: Block[] = [];
   images.forEach((image, index) => {
     const last = blocks[blocks.length - 1];
+    if (image.stack && last && last.key === `s-${image.stack}`) {
+      last.items.push({ image, index });
+      return;
+    }
+    if (image.stack) {
+      blocks.push({ key: `s-${image.stack}`, stack: true, breakBefore: image.breakBefore, items: [{ image, index }] });
+      return;
+    }
     if (image.group && last && last.key === `g-${image.group}`) {
       last.items.push({ image, index });
       if (!last.title && image.groupTitle) last.title = image.groupTitle;
@@ -116,6 +125,29 @@ export function ArtworkLightboxGrid({
       >
         {toBlocks(images).map((block) => {
           const ratio = block.items.reduce((sum, { image: item }) => sum + ratioOf(item.src), 0);
+          if (block.stack) {
+            return [
+              block.breakBefore ? <span className="catalog-break" key={`${block.key}-break`} aria-hidden="true" /> : null,
+              <div className="catalog-stack" key={block.key}>
+                {block.items.map(({ image: item, index }) => (
+                  <figure className="catalog-block" key={`${item.src}-${index}`}>
+                    <div className="catalog-block__images">
+                      <button
+                        className="catalog-thumb"
+                        type="button"
+                        onClick={() => setOpenIndex(index)}
+                        aria-label={`Open ${item.title ?? item.alt} large`}
+                        style={thumbStyle(ratioOf(item.src), false)}
+                      >
+                        <img src={item.src} alt={item.alt} loading={mode === "index" ? "eager" : "lazy"} decoding="async" />
+                      </button>
+                    </div>
+                    {item.title ? <figcaption className="catalog-block__title">{item.title}</figcaption> : null}
+                  </figure>
+                ))}
+              </div>,
+            ];
+          }
           return [
             block.breakBefore ? <span className="catalog-break" key={`${block.key}-break`} aria-hidden="true" /> : null,
             <figure

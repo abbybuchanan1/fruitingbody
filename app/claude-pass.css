@@ -894,3 +894,36 @@
 .catalog-grid {
   align-items: center;
 }
+
+/* INDEX + ARCHIVE — the Index hangs at the Archive's size (pass 5), and a
+   stack (Daffodils: The Return under The Fall) keeps a set on one row. */
+.catalog-grid,
+.catalog-grid--archive {
+  --row: 250px;
+  --edge: 310px;
+}
+
+.catalog-grid--uniform,
+.catalog-grid--archive.catalog-grid--uniform {
+  --edge: 380px;
+}
+
+.catalog-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid,
+  .catalog-grid--archive { --row: 210px; --edge: 260px; }
+  .catalog-grid--uniform,
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 310px; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid,
+  .catalog-grid--archive { --row: 140px; --edge: 170px; }
+  .catalog-grid--uniform,
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 200px; }
+}

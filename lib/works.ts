@@ -101,7 +101,11 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What forms of freedom remain available inside the conditions that make us?",
     exhibition: artworkSets.daffodils,
-    archive: artworkSets.daffodils,
+    // Archive: The Return hangs under The Fall so the six frames read as one row.
+    archive: [0, 1, 2, 5, 3, 4].map((i) => {
+      const work = artworkSets.daffodils[i];
+      return i === 2 || i === 5 ? { ...work, stack: "fall-return" } : work;
+    }),
     reflection: reflections.daffodils,
   },
   {

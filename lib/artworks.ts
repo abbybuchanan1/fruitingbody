@@ -9,6 +9,8 @@ export type Artwork = {
   groupTitle?: string;
   /** Start a new row in the Index and Archive catalog before this image. */
   breakBefore?: boolean;
+  /** Images sharing a stack key hang one above the other in the catalog. */
+  stack?: string;
 };
 
 export type RelativePair = {
