@@ -222,7 +222,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/water-room?jump=water-room-start",
     statement:
-      "The pleasure of no longer resisting every force.",
+      "The pleasure of a body that adopts the logic of water rather than resisting it.",
     question:
       "What happens when we stop resisting transformation and begin moving with it?",
     exhibition: bodyOfWaterWorks,
