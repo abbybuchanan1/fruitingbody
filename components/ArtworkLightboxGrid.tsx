@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
-import imageSizes from "@/lib/image-sizes.json";
+import { imageSizes } from "@/lib/image-sizes";
 
 type LightboxImage = {
   src: string;
@@ -11,7 +11,7 @@ type LightboxImage = {
   groupTitle?: string;
 };
 
-const sizes = imageSizes as Record<string, [number, number]>;
+const sizes = imageSizes;
 
 // Width-to-height ratio from the manifest, so each thumbnail keeps the
 // photograph's own shape (no cropping, no letterboxing).
