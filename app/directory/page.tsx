@@ -13,6 +13,9 @@ export default function IndexPage() {
         <p>
           A fast view of the installed work. Image order follows the museum rooms.
         </p>
+        <p className="utility-header__contact">
+          Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+        </p>
       </header>
 
       <div className="index-page__groups">

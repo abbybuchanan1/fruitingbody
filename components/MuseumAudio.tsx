@@ -63,7 +63,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     src: "/media/audio/cloister-new.mp3",
     // The cloister file is mastered ~11 dB hotter than the Narthex and Water
     // Room it sits between; bring it down to sit with them.
-    gain: 0.36,
+    gain: 0.25,
     panDepth: 0.075,
   },
   "film-room": {
