@@ -1013,3 +1013,24 @@
   z-index: -1;
   background: #eee6d8;
 }
+
+/* INDEX + ARCHIVE — pairs (Relative, Threshold) breathe: the two halves stay
+   close, the space between pairs opens up so each pair reads as one work. */
+.catalog-grid--pairs {
+  --row: 220px;
+  --pair-gap: .35rem;
+  gap: 3.4rem 4.2rem;
+  margin-top: 2rem;
+}
+
+.catalog-grid--pairs .catalog-block__title {
+  margin-top: .9rem;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid--pairs { --row: 190px; gap: 2.6rem 3rem; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid--pairs { --row: 130px; gap: 2rem 1.4rem; }
+}

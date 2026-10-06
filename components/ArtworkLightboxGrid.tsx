@@ -148,7 +148,7 @@ export function ArtworkLightboxGrid({
   return (
     <>
       <div
-        className={`catalog-grid catalog-grid--${mode}${isUniform(images) ? " catalog-grid--uniform" : ""}${images.some((image) => image.sameHeight) ? " catalog-grid--rows" : ""}`}
+        className={`catalog-grid catalog-grid--${mode}${isUniform(images) ? " catalog-grid--uniform" : ""}${images.some((image) => image.sameHeight) ? " catalog-grid--rows" : ""}${images.some((image) => image.group) ? " catalog-grid--pairs" : ""}`}
         style={fitStyle(images)}
       >
         {toBlocks(images).map((block) => {
