@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
-import { artistBio, artistStatement, fruitingBodyStatement, processStatement } from "@/lib/editorial";
+import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
+import { FilmThumbnail } from "@/components/FilmThumbnail";
+import { artistBio, artistCv, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 import type { Artwork } from "@/lib/artworks";
 
@@ -37,15 +39,18 @@ const redThreadDevelopment = [
   {
     title: "Red Thread",
     statement:
-      "The work investigates inheritance as an ongoing relationship rather than a problem to be solved, exploring the tensions between entanglement, belonging, and becoming.",
+      "Thread binds and traces.",
     question:
       "How do we become ourselves when we can never fully separate from the whole?",
-    images: numberedImages("red-thread-original", "red-thread-original", 8, "Red Thread"),
+    // Original 07 is withdrawn: its textures began as generative AI material.
+    images: numberedImages("red-thread-original", "red-thread-original", 8, "Red Thread").filter(
+      (image) => !image.src.endsWith("-07.jpg"),
+    ),
   },
   {
     title: "It Was Shelter Before It Was a Lie",
     statement:
-      "The work investigates the relationship between identity and protection, asking how forms of shelter evolve, persist, and eventually require renegotiation.",
+      "Protection hardens into identity.",
     question:
       "How do we recognize when a form of protection has become a form of confinement?",
     images: numberedImages("shelter-original", "shelter-original", 8, "It Was Shelter Before It Was a Lie"),
@@ -53,7 +58,7 @@ const redThreadDevelopment = [
   {
     title: "Unravel",
     statement:
-      "The work investigates participation as an alternative to control, exploring what emerges when certainty gives way to movement, attention, and trust.",
+      "Blur and movement loosen the figure.",
     question:
       "What emerges when we stop trying to manage the process of becoming?",
     images: numberedImages("unravel-original", "unravel-original", 4, "Unravel"),
@@ -63,6 +68,7 @@ const redThreadDevelopment = [
 export default function ArchivePage() {
   return (
     <main className="archive-page">
+      <OpenDetailsFromHash />
       <header className="utility-header archive-header">
         <p className="utility-header__eyebrow">Research Room</p>
         <h1>Archive</h1>
@@ -83,6 +89,24 @@ export default function ArchivePage() {
         <PracticeDetails id="fruiting-body" title="Fruiting Body" paragraphs={fruitingBodyStatement} />
         <PracticeDetails id="process" title="Process" paragraphs={processStatement} />
         <PracticeDetails id="bio" title="Bio" paragraphs={artistBio} />
+        <details className="archive-practice-detail" id="cv">
+          <summary>CV</summary>
+          <div className="archive-practice-detail__body archive-cv">
+            {artistCv.map((section) => (
+              <section className="archive-cv__section" key={section.heading}>
+                <h3>{section.heading}</h3>
+                <ul>
+                  {section.entries.map((entry) => (
+                    <li key={entry.text}>
+                      <span className="archive-cv__year">{entry.year}</span>
+                      <span className="archive-cv__text">{entry.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </details>
         <details className="archive-practice-detail" id="contact">
           <summary>Contact</summary>
           <div className="archive-practice-detail__body archive-contact-detail__body">
@@ -114,6 +138,7 @@ export default function ArchivePage() {
             </header>
 
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
+            {work.id === "body-of-water" ? <FilmThumbnail /> : null}
 
             {work.id === "red-thread" ? (
               <section className="archive-historical-edits" aria-label="Red Thread developmental archive">
@@ -132,7 +157,7 @@ export default function ArchivePage() {
                     <p className="archive-historical-edit__label">Original edit</p>
                     <h3>{set.title}</h3>
                     <p className="archive-historical-edit__statement">{set.statement}</p>
-                    <p className="archive-historical-edit__question">{set.question}</p>
+                    {showInterpretiveQuestions ? <p className="archive-historical-edit__question">{set.question}</p> : null}
                     <ArtworkLightboxGrid images={set.images} mode="archive" />
                   </article>
                 ))}

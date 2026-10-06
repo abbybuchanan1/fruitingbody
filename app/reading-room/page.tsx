@@ -22,7 +22,7 @@ export default function ReadingRoomPage() {
             >
               <div className="reading-room-poem-card__heading">
                 <h2>{poem.title}</h2>
-                {poem.year ? <p>{poem.year}</p> : null}
+                {poem.year && !poem.title.includes(poem.year) ? <p>{poem.year}</p> : null}
               </div>
               {poem.preview.length ? (
                 <p className="reading-room-poem-card__preview">

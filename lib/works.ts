@@ -3,6 +3,7 @@ import {
   artworkSets,
   bodyOfWaterWorks,
   miscarriageWorks,
+  phaseFrames,
   mariaWorks,
   relativePairs,
   thresholdPairs,
@@ -38,8 +39,12 @@ export type MuseumWork = {
 };
 
 const flattenPairs = (
-  pairs: Array<{ a: Artwork; b: Artwork }>,
-): Artwork[] => pairs.flatMap((pair) => [pair.a, pair.b]);
+  pairs: Array<{ id: string; title?: string; a: Artwork; b: Artwork }>,
+): Artwork[] =>
+  pairs.flatMap((pair) => [
+    { ...pair.a, group: pair.id, groupTitle: pair.title },
+    { ...pair.b, group: pair.id, groupTitle: pair.title },
+  ]);
 
 const archiveSequence = (
   folder: string,
@@ -65,26 +70,8 @@ const numberedArchive = (
     title,
   );
 
-const relativeArchive = archiveSequence(
-  "relative",
-  ["01", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"].map(
-    (n) => `relative-index-${n}.jpg`,
-  ),
-  "Relative",
-);
-
-const miscarriageArchive: Artwork[] = [
-  ["miscarriage-stay-archive-01.jpg", "Stay"],
-  ["miscarriage-slide-archive-02.jpg", "Slide"],
-  ["miscarriage-follicle-portal-drain-archive-03.jpg", "Follicle, Portal, Drain"],
-  ["miscarriage-drift-archive-06.jpg", "Drift"],
-  ["miscarriage-passage-archive-05.jpg", "Passage"],
-  ["miscarriage-want-archive-04.jpg", "Want"],
-].map(([filename, title]) => ({
-  src: `/art/archive/miscarriage/${filename}`,
-  title,
-  alt: `A Miscarriage, ${title}.`,
-}));
+// Installed A Miscarriage edit (October 2026): eight frames, all 2017, no tintype edge.
+const miscarriageArchive: Artwork[] = miscarriageWorks;
 
 export const museumWorks: MuseumWork[] = [
   {
@@ -95,11 +82,11 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=relative",
     statement:
-      "The work investigates the ways bodies and landscapes participate in the same forces rather than functioning as metaphors for one another.",
+      "Body and land, moved by the same forces.",
     question:
       "What becomes visible when the body is understood as part of the same living system as the land?",
     exhibition: flattenPairs(relativePairs),
-    archive: relativeArchive,
+    archive: flattenPairs(relativePairs),
     reflection: reflections.relative,
   },
   {
@@ -107,20 +94,18 @@ export const museumWorks: MuseumWork[] = [
     title: "This Morning I Was Gathering Daffodils",
     room: "Garden",
     year: "2024-2025",
-    medium: "Self-portrait photography",
+    medium: "Self-portrait photography and digital collage",
     href: "/exhibition?jump=garden",
     statement:
-      "The work investigates the relationship between agency and inevitability, exploring forms of sovereignty that emerge through participation rather than\u00a0escape.",
+      "A cycle imposed and inhabited at the same time.",
     question:
       "What forms of freedom remain available inside the conditions that make us?",
     exhibition: artworkSets.daffodils,
-    archive: archiveSequence(
-      "daffodils",
-      ["01", "02", "04", "05", "06", "07", "09", "10", "11", "13", "14", "17", "18", "22"].map(
-        (n) => `daffodils-index-${n}.jpg`,
-      ),
-      "This Morning I Was Gathering Daffodils",
-    ),
+    // Archive: The Return hangs under The Fall so the six frames read as one row.
+    archive: [0, 1, 2, 5, 3, 4].map((i) => {
+      const work = artworkSets.daffodils[i];
+      return i === 2 || i === 5 ? { ...work, stack: "fall-return" } : work;
+    }),
     reflection: reflections.daffodils,
   },
   {
@@ -131,11 +116,11 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=fear-not",
     statement:
-      "The work investigates curiosity as a transformative force, reclaiming knowledge, desire, and participation from narratives of transgression and fear.",
+      "Fear can still be present. The body moves anyway.",
     question:
       "What becomes possible when curiosity matters more than certainty?",
     exhibition: artworkSets.fearNot,
-    archive: numberedArchive("fear-not", "fear-not-index", 8, "Fear Not"),
+    archive: artworkSets.fearNot,
     reflection: reflections["fear-not"],
   },
   {
@@ -146,11 +131,11 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=taste-and-see",
     statement:
-      "The work investigates beauty as an embodied experience rather than a performed identity, asking what remains when beauty is no longer organized around spectatorship.",
+      "The body can be seen and still be allowed to want.",
     question:
       "What is beauty when it no longer exists for the gaze of others?",
     exhibition: artworkSets.taste,
-    archive: numberedArchive("taste-and-see", "taste-and-see-index", 8, "Taste and See"),
+    archive: artworkSets.taste,
     reflection: reflections["taste-and-see"],
   },
   {
@@ -161,7 +146,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=a-miscarriage",
     statement:
-      "The work investigates transformation through interruption, exploring longing, absence, and passage as conditions of becoming.",
+      "Witnessing myself inside an experience I could barely understand.",
     question:
       "How does a body continue becoming through loss, longing, and interrupted passage?",
     exhibition: miscarriageWorks,
@@ -176,15 +161,11 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=phase",
     statement:
-      "The work investigates identity during periods of dissolution, attending to the unstable interval between one state of being and another.",
+      "Not “I am hopelessness,” but “I am experiencing hopelessness.”",
     question:
       "Who are we while we are becoming someone we cannot yet recognize?",
     exhibition: artworkSets.phase,
-    archive: [
-      ...artworkSets.phase,
-      { src: "/art/phase/06.webp", alt: "Phase, archive image 6." },
-      { src: "/art/phase/07.webp", alt: "Phase, archive image 7." },
-    ],
+    archive: phaseFrames,
     reflection: reflections.phase,
   },
   {
@@ -195,7 +176,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=threshold",
     statement:
-      "The work investigates the unstable territory between states, where transformation has begun but cannot yet be named.",
+      "Transformation has begun but cannot yet be named.",
     question:
       "What occurs in the space between what has ended and what has not yet emerged?",
     exhibition: flattenPairs(thresholdPairs),
@@ -210,10 +191,15 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/red-room?jump=red-thread",
     statement:
-      "This work explores the tensions between entanglement, belonging, and becoming.",
+      "Connection, held as visible tension.",
     question: "What binds us?",
     exhibition: artworkSets.redThread,
-    archive: artworkSets.redThread,
+    // Catalog: three rows of one height each (1–4, 5–7, 8–10).
+    archive: artworkSets.redThread.map((work, i) => ({
+      ...work,
+      sameHeight: true,
+      breakBefore: i === 4 || i === 7,
+    })),
     reflection: reflections["red-thread"],
     archiveNote:
       "The current edit combines work originally developed as Red Thread, Unravel, and It Was Shelter Before It Was a Lie.",
@@ -226,10 +212,15 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/red-room?jump=membrane",
     statement:
-      "The work investigates permeability as a condition of becoming, where bodily boundaries function as thresholds rather than fixed edges.",
+      "The experience itself as the site of the photograph.",
     question: "What must pass through us in order for us to become?",
     exhibition: artworkSets.membrane,
-    archive: numberedArchive("membrane", "membrane-index", 15, "Membrane"),
+    // Trimmed to nine: near-repeats of the veil over the head were removed.
+    archive: archiveSequence(
+      "membrane",
+      ["01", "03", "04", "05", "07", "09", "10", "12", "15"].map((n) => `membrane-index-${n}.jpg`),
+      "Membrane",
+    ),
     reflection: reflections.membrane,
   },
   {
@@ -240,11 +231,17 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/water-room?jump=water-room-start",
     statement:
-      "The work explores what becomes possible when the body adopts the logic of water rather than resisting it.",
+      "The pleasure of a body that adopts the logic of water rather than resisting it.",
     question:
       "What happens when we stop resisting transformation and begin moving with it?",
     exhibition: bodyOfWaterWorks,
-    archive: numberedArchive("body-of-water", "body-of-water-index", 11, "Body of Water"),
+    archive: archiveSequence(
+      "body-of-water",
+      ["01", "02", "04", "05", "06", "07", "08", "09", "10", "11"].map(
+        (n) => `body-of-water-index-${n}.jpg`,
+      ),
+      "Body of Water",
+    ),
     reflection: reflections["body-of-water"],
   },
   {
@@ -255,7 +252,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Photography",
     href: "/current",
     statement:
-      "An unstaged ritual, witnessed rather than arranged. The image documents a ritual event without intervention.",
+      "A ritual, witnessed rather than directed.",
     question: "Can a deliberate act of witnessing transform identity?",
     exhibition: artworkSets.maria,
     archive: mariaWorks,

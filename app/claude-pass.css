@@ -1,0 +1,1050 @@
+/* ============================================================
+   CLAUDE PASS 1 — launch fixes (October 2026)
+   Loaded last, after globals.css and next-pass.css.
+   Each block is self-contained so it can be removed on its own.
+   ============================================================ */
+
+/* EXTERIOR — artist name under the museum sign */
+.museum-exterior__artist {
+  display: block;
+  margin-top: .4em;
+  font-size: .8em;
+  font-weight: 400;
+  letter-spacing: .14em;
+  opacity: .92;
+}
+
+/* EXTERIOR — a quiet, visible "Enter" cue at the foot of the door.
+   It arrives with the image and brightens on hover/focus. */
+.museum-exterior__enter {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  z-index: 2;
+  transform: translateX(-50%);
+  padding: .3rem .55rem;
+  font: 500 .66rem/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(255, 252, 244, .9);
+  text-shadow:
+    0 1px 3px rgba(18, 14, 10, .8),
+    0 0 12px rgba(18, 14, 10, .5);
+  opacity: 0;
+  transition: opacity 1.4s ease .6s, letter-spacing .6s ease;
+  pointer-events: none;
+}
+
+.museum-exterior.is-image-ready .museum-exterior__enter {
+  opacity: .78;
+}
+
+.museum-exterior__door:hover .museum-exterior__enter,
+.museum-exterior__door:focus-visible .museum-exterior__enter {
+  opacity: 1;
+  letter-spacing: .3em;
+  transition-delay: 0s;
+}
+
+.museum-exterior.is-entering .museum-exterior__enter {
+  opacity: 0 !important;
+  transition: opacity .18s linear !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__enter {
+    transition: none !important;
+  }
+}
+
+/* EXTERIOR (phones) — the soundscape invitation becomes a single slim line
+   in the strip below the door, so it no longer covers the door itself. */
+@media (max-width: 760px) {
+  .soundscape-invitation {
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: .75rem !important;
+    width: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .5rem .8rem !important;
+  }
+
+  .soundscape-invitation__eyebrow {
+    margin: 0 !important;
+  }
+
+  .soundscape-invitation__copy {
+    display: none;
+  }
+
+  .museum-exterior__enter {
+    bottom: 7%;
+  }
+}
+
+/* DAFFODILS — six-frame edit (October 2026).
+   Verticals are sized by height so the whole frame fits the screen;
+   the two 16:9 frames (3: The Fall, 6: The Return) open wide.
+   Higher specificity than the earlier eight-image rules in next-pass.css. */
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(4) {
+  width: min(48vh, 40vw, 30rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+  width: min(52vh, 44vw, 32rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(3) {
+  width: min(80vw, 74rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(6) {
+  width: min(84vw, 78rem) !important;
+  max-width: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image img {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(4),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+    width: min(86vw, 30rem) !important;
+  }
+
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(3),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(6) {
+    width: 96vw !important;
+  }
+}
+
+/* Titles under each frame — a quiet museum caption. Only works that carry a
+   title (currently the Daffodils frames) show one. */
+.artwork-image__caption {
+  margin-top: .85rem;
+  font: italic 400 .86rem/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: .02em;
+  color: rgba(244, 238, 226, .82);
+  text-shadow: 0 1px 6px rgba(12, 10, 8, .55);
+  text-align: left;
+}
+
+/* GARDEN — leaf shadows cast by the room's plants, moving slightly as if in
+   air. A separate layer multiplied onto the wall, so the shadows can sway
+   without moving the wall itself. Sits behind the Daffodils frames, after the
+   planted corridor; it fades in and out at both ends. */
+.garden-environment::before {
+  content: "";
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  top: 18%;
+  height: 36%;
+  pointer-events: none;
+  background: url("/media/architecture/environments/garden/garden-leaf-shadows.jpg") center / 100% 100% no-repeat;
+  /* Overlay: mid-grey leaves the wall alone, lighter patches read as sun
+     coming through, darker ones as leaf shadow. */
+  mix-blend-mode: overlay;
+  opacity: 1;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  transform-origin: 50% 0%;
+  animation: garden-leaf-sway 13s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes garden-leaf-sway {
+  0%   { transform: translate3d(-1.4%, 0, 0) rotate(-0.55deg); }
+  40%  { transform: translate3d(0.5%, 0.35%, 0) rotate(0.2deg) scale(1.008); }
+  70%  { transform: translate3d(-0.3%, -0.1%, 0) rotate(-0.1deg) scale(1.004); }
+  100% { transform: translate3d(1.5%, -0.25%, 0) rotate(0.6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .garden-environment::before {
+    animation: none;
+  }
+}
+
+/* A MISCARRIAGE — eight-frame edit (October 2026).
+   Landscape frames (1 Stay, 3 Drain, 5 Drift) open wider; portrait frames are
+   sized by height so each fits the screen. Replaces the six-image widths. */
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--1,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--3,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--5 {
+  width: min(60vw, 50rem) !important;
+}
+
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--2,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--4,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--6,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--7,
+.grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--8 {
+  width: min(62vh, 46vw, 36rem) !important;
+}
+
+/* The old border-trim on image 2 no longer applies: no frame has an edge now. */
+.grotto-section--miscarriage .miscarriage-votive:nth-child(2) img {
+  clip-path: none !important;
+}
+
+@media (max-width: 760px) {
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--1,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--3,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--5 {
+    width: 94vw !important;
+  }
+
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--2,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--4,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--6,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--7,
+  .grotto-section--miscarriage .miscarriage-votive.miscarriage-votive--8 {
+    width: min(86vw, 30rem) !important;
+  }
+}
+
+/* Medium line under a title (e.g. "Digital collage"), quieter than the title. */
+.artwork-image__medium {
+  display: block;
+  margin-top: .2rem;
+  font: normal 400 .66rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(244, 238, 226, .6);
+}
+
+/* PHASE — one work, hung as a single grid (October 2026).
+   Six frames, 2 rows of 3, with dark gutters that sit into the Grotto wall.
+   Replaces the staggered five-image column. */
+.exhibition-scroll .grotto-section--phase .artwork-sequence {
+  gap: 0 !important;
+}
+
+.exhibition-scroll .grotto-section--phase .artwork-image,
+.exhibition-scroll .grotto-section--phase .artwork-image:nth-child(odd),
+.exhibition-scroll .grotto-section--phase .artwork-image:nth-child(even) {
+  width: min(98vw, 130vh, 112rem) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+.grotto-section--phase .artwork-image img {
+  clip-path: none !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 760px) {
+  .exhibition-scroll .grotto-section--phase .artwork-image,
+  .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(odd),
+  .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(even) {
+    width: 96vw !important;
+  }
+}
+
+/* TASTE AND SEE — five-frame edit (October 2026).
+   1 and 5 are close crops of 2 and 4. They hang small (the camera crops are
+   about 760px wide) with a wider pause beside their source, so the change in
+   scale reads as attention moving, not repetition. Portraits are sized by
+   height so each face fits the screen; 4, the direct gaze, is the largest. */
+.garden-section--taste-and-see .artwork-image:nth-child(1),
+.garden-section--taste-and-see .artwork-image:nth-child(5) {
+  width: min(28vw, 40vh, 24rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(1) {
+  margin-bottom: 14vh !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(5) {
+  margin-top: 14vh !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(2),
+.garden-section--taste-and-see .artwork-image:nth-child(3) {
+  width: min(55vh, 72vw, 38rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--taste-and-see .artwork-image:nth-child(4) {
+  width: min(58vh, 80vw, 40rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--taste-and-see .artwork-image img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  clip-path: none !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--taste-and-see .artwork-image:nth-child(1),
+  .garden-section--taste-and-see .artwork-image:nth-child(5) {
+    width: 60vw !important;
+  }
+
+  .garden-section--taste-and-see .artwork-image:nth-child(2),
+  .garden-section--taste-and-see .artwork-image:nth-child(3),
+  .garden-section--taste-and-see .artwork-image:nth-child(4) {
+    width: 88vw !important;
+  }
+}
+
+/* FEAR NOT — five-frame edit (October 2026).
+   All frames are 9:16 video stills, sized by height so each fits the screen.
+   3, the hinge, is slightly larger; 5, the closing gaze, nearly so. */
+.garden-section--fear-not .artwork-image:nth-child(n) {
+  width: min(52vh, 80vw, 36rem) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+
+.garden-section--fear-not .artwork-image:nth-child(3) {
+  width: min(56vh, 84vw, 38rem) !important;
+}
+
+.garden-section--fear-not .artwork-image:nth-child(5) {
+  width: min(54vh, 82vw, 37rem) !important;
+}
+
+.garden-section--fear-not .artwork-image img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  clip-path: none !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--fear-not .artwork-image:nth-child(n) {
+    width: 86vw !important;
+  }
+}
+
+/* BODY OF WATER — seven frames (October 2026). Frame 03 was withdrawn, so the
+   positional rules written for eight images are reset here. Positions:
+   1, 2 (4:3), 3 (the tall underwater portrait), 4 (3:2), 5, 6 (16:9), 7 (3:2).
+   4 and 7 keep the small edge shave their files needed. */
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] {
+  overflow: visible !important;
+}
+
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] img {
+  position: static !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+
+.water-room-installation .art-sequence .artwork-image[data-artwork-index="4"] img,
+.water-room-installation .art-sequence .artwork-image[data-artwork-index="7"] img {
+  clip-path: inset(.72%) !important;
+}
+
+@media (min-width: 681px) {
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="1"] { width: min(90vw, 84rem) !important; transform: translateX(-3vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="2"] { width: min(65vw, 58rem) !important; transform: translateX(10vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="3"] { width: min(50vh, 56vw, 28rem) !important; transform: translateX(-10vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="4"] { width: min(88vw, 82rem) !important; transform: translateX(5vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="5"] { width: min(70vw, 64rem) !important; transform: translateX(-8vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="6"] { width: min(94vw, 90rem) !important; transform: translateX(1vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="7"] { width: min(82vw, 76rem) !important; transform: translateX(-4vw) !important; }
+}
+
+@media (max-width: 680px) {
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index] {
+    width: 88vw !important;
+  }
+
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="3"] {
+    width: min(58vw, 19rem) !important;
+  }
+}
+
+/* RELATIVE — seven named pairs (October 2026). The name sits centered under
+   each pair, dark on the pale gallery wall, in the same face as the
+   Daffodils captions. */
+.relative-pair__title {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: .4rem;
+  font: italic 400 .95rem/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: .04em;
+  color: rgba(40, 35, 28, .8);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .relative-pair__title {
+    margin-top: 0;
+    font-size: .88rem;
+  }
+}
+
+/* PHASE — the grid sits close under its title card: the room-opening's
+   bottom padding and the sequence's top margin are cut back. */
+.exhibition-scroll .grotto-section--phase .room-opening {
+  padding-bottom: 4vh !important;
+}
+
+.exhibition-scroll .grotto-section--phase .art-sequence {
+  margin-top: 2vh !important;
+}
+
+/* TITLE CARDS — the Artist reflection opens on request, so the card itself
+   stays short. Colors follow each room's card (light or dark). */
+.work-intro-card__reflection {
+  margin-top: 1.1rem;
+}
+
+.work-intro-card__reflection summary {
+  display: inline-block;
+  cursor: pointer;
+  list-style: none;
+  font: 500 .7rem/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .66;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: .15rem;
+  transition: opacity .3s ease;
+}
+
+.work-intro-card__reflection summary::-webkit-details-marker {
+  display: none;
+}
+
+.work-intro-card__reflection summary::after {
+  content: " +";
+}
+
+.work-intro-card__reflection[open] summary::after {
+  content: " –";
+}
+
+.work-intro-card__reflection summary:hover,
+.work-intro-card__reflection summary:focus-visible {
+  opacity: 1;
+}
+
+.work-intro-card__reflection-body {
+  margin-top: .9rem;
+  max-width: 58ch;
+}
+
+.work-intro-card__reflection-body p {
+  margin: 0 0 .8rem;
+  font-size: .95rem;
+  line-height: 1.55;
+  opacity: .86;
+}
+
+/* ============================================================
+   CLAUDE PASS 2 — launch punch list (October 2026)
+   ============================================================ */
+
+/* TITLES — one caption style site-wide, taken from A Miscarriage: small,
+   spaced capitals. The medium line sits smaller beneath it. */
+.artwork-image__caption,
+.relative-pair__title,
+.catalog-block__title,
+.artwork-lightbox__figure figcaption {
+  font: 500 .72rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: .085em !important;
+  text-transform: uppercase !important;
+}
+
+.artwork-image__caption {
+  margin-top: .95rem;
+  color: rgba(235, 225, 210, .72);
+}
+
+.artwork-image__medium {
+  margin-top: .3rem;
+  font-size: .56rem !important;
+  letter-spacing: .14em;
+  color: rgba(235, 225, 210, .5);
+}
+
+.relative-pair__title {
+  color: rgba(40, 35, 28, .72);
+}
+
+@media (max-width: 760px) {
+  .artwork-image__caption,
+  .relative-pair__title,
+  .catalog-block__title {
+    font-size: .66rem !important;
+  }
+}
+
+/* INDEX + ARCHIVE — a catalog with one fixed image height. Every photograph,
+   portrait or landscape, single or paired, is the same height; its width
+   follows its own shape. Rows are not stretched, so nothing grows larger
+   than its neighbours. */
+.catalog-grid {
+  --row: 200px;
+  --pair-gap: .4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.6rem 1.1rem;
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+.catalog-grid--archive {
+  --row: 250px;
+}
+
+.catalog-block {
+  margin: 0;
+  flex: 0 0 auto;
+  width: calc(var(--ratio) * var(--row));
+  max-width: 100%;
+}
+
+.catalog-block--group {
+  width: calc(var(--ratio) * var(--row) + var(--pair-gap));
+}
+
+.catalog-block__images {
+  display: flex;
+  gap: var(--pair-gap);
+}
+
+.catalog-thumb {
+  appearance: none;
+  display: block;
+  flex: 0 1 auto;
+  min-width: 0;
+  width: calc(var(--ratio) * var(--row));
+  height: var(--row);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.catalog-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-thumb:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.catalog-block__title {
+  margin-top: .6rem;
+  opacity: .78;
+}
+
+.catalog-block--group .catalog-block__title {
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid { --row: 170px; }
+  .catalog-grid--archive { --row: 210px; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid { --row: 118px; gap: 1.1rem .6rem; }
+  .catalog-grid--archive { --row: 140px; }
+}
+
+/* MAP — handled in data (sets listed in the order they are walked). */
+
+/* DAFFODILS — frames hang larger; the flower bed behind the first frames is
+   quieted so it no longer competes with Hades. */
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(4) {
+  width: min(60vh, 46vw, 37rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+  width: min(64vh, 50vw, 40rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(3) {
+  width: min(88vw, 84rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image img {
+  background: transparent !important;
+  clip-path: none !important;
+}
+
+.garden-environment::after {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 12, 9, .52) 0%,
+      rgba(10, 12, 9, .46) 12%,
+      rgba(10, 12, 9, .28) 19%,
+      rgba(10, 12, 9, .16) 34%,
+      rgba(10, 12, 9, .11) 68%,
+      rgba(10, 12, 9, .04) 100%
+    ) !important;
+}
+
+/* FEAR NOT — the moving leaf shadows now carry on down the wall until the
+   lower texture takes over, instead of stopping at plain beige. */
+.garden-environment::before {
+  height: 52% !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 100%) !important;
+}
+
+/* TASTE AND SEE — the close crops hang large, and the Garden → Grotto
+   transition now fades in instead of starting on a hard edge. */
+.garden-section--taste-and-see .artwork-image:nth-child(1),
+.garden-section--taste-and-see .artwork-image:nth-child(5) {
+  width: min(58vw, 76vh, 46rem) !important;
+}
+
+.exhibition-transition--garden-grotto {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 17%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 17%);
+}
+
+@media (max-width: 680px) {
+  .garden-section--taste-and-see .artwork-image:nth-child(1),
+  .garden-section--taste-and-see .artwork-image:nth-child(5) {
+    width: 86vw !important;
+  }
+}
+
+/* A MISCARRIAGE — the content note must be easy to read before the work. */
+.grotto-section--miscarriage .work-intro-card__note {
+  opacity: 1 !important;
+  color: rgba(244, 236, 222, .9) !important;
+  font-size: inherit !important;
+  letter-spacing: .02em;
+  border-top: 1px solid rgba(244, 236, 222, .22);
+  padding-top: .8rem;
+  margin-top: 1rem;
+}
+
+/* PHASE — shorter descent from A Miscarriage into Phase. */
+.exhibition-scroll .grotto-transition--miscarriage-phase {
+  height: 105vh !important;
+}
+
+.exhibition-scroll .grotto-section--phase {
+  padding-top: 26vh !important;
+}
+
+/* BODY OF WATER — the generic "varied" layout pinned some frames to the
+   right edge; centre every frame so only the intended offsets apply. */
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-self: center !important;
+}
+
+/* NARTHEX — the five paths as a centred 3 + 2. */
+.narthex-room__paths {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .7rem !important;
+  width: min(42rem, 88vw) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.narthex-room__paths > * {
+  flex: 0 0 calc((100% - 1.4rem) / 3);
+}
+
+@media (max-width: 700px) {
+  .narthex-room__paths > * {
+    flex-basis: calc((100% - .7rem) / 2);
+  }
+}
+
+/* READING ROOM — dedication under a poem title. */
+.poem-page__header .poem-page__dedication {
+  margin: .9rem 0 0;
+  font: italic 400 1rem/1.4 Georgia, "Times New Roman", serif;
+  letter-spacing: .01em;
+  text-transform: none;
+  opacity: .72;
+}
+
+/* ARCHIVE — CV: year in a narrow column, entry beside it. */
+.archive-cv__section + .archive-cv__section {
+  margin-top: 1.6rem;
+}
+
+.archive-cv h3 {
+  margin: 0 0 .7rem;
+  font: 500 .7rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+.archive-cv ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archive-cv li {
+  display: grid;
+  grid-template-columns: 6.2rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: .55rem;
+  line-height: 1.5;
+}
+
+.archive-cv__year {
+  font-variant-numeric: tabular-nums;
+  opacity: .66;
+}
+
+/* EXTERIOR — the clickable door now sits exactly on the painted door at any
+   screen shape. The photograph is 16:9 and fills the screen ("cover"), so its
+   rendered width is the larger of the screen width and 16/9 of its height;
+   the door occupies x 38.5%–59.5%, y 24.4%–87.5% of the photograph. */
+.museum-exterior {
+  --ext-w: max(100vw, 100svh * 1.7778);
+  --ext-h: calc(var(--ext-w) / 1.7778);
+}
+
+.museum-exterior__door {
+  left: calc(50% + (0.385 - 0.5) * var(--ext-w)) !important;
+  right: auto !important;
+  width: calc(0.21 * var(--ext-w)) !important;
+  top: calc(50% + (0.244 - 0.5) * var(--ext-h)) !important;
+  bottom: auto !important;
+  height: calc(0.631 * var(--ext-h)) !important;
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+}
+
+/* The "Enter" cue: centred on the door (the trailing letter-space is
+   balanced so the word sits on the true centre), low on the door, small,
+   with a hairline beneath like the site's other quiet links. */
+.museum-exterior__enter,
+.museum-exterior__door:hover .museum-exterior__enter,
+.museum-exterior__door:focus-visible .museum-exterior__enter {
+  left: 50% !important;
+  bottom: 13% !important;
+  transform: translateX(-50%) !important;
+  padding: 0 0 .32rem .26em !important;
+  font-size: .62rem !important;
+  letter-spacing: .26em !important;
+  border-bottom: 1px solid rgba(255, 252, 244, .45);
+}
+
+.museum-exterior__door:hover .museum-exterior__enter,
+.museum-exterior__door:focus-visible .museum-exterior__enter {
+  border-bottom-color: rgba(255, 252, 244, .9);
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__enter {
+    bottom: 11% !important;
+  }
+}
+
+/* EXTERIOR — no label on devices that can hover: the door itself answers,
+   brightening a little under the pointer or keyboard focus. Touch screens,
+   which cannot hover, keep the small "Enter" cue. */
+@media (hover: hover) and (pointer: fine) {
+  .museum-exterior__enter {
+    display: none !important;
+  }
+
+  .museum-exterior__door::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at 50% 55%, rgba(255, 238, 205, .22), rgba(255, 238, 205, .06) 70%, transparent 100%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity .7s ease;
+  }
+
+  .museum-exterior__door:hover::after,
+  .museum-exterior__door:focus-visible::after {
+    opacity: 1;
+  }
+
+  .museum-exterior.is-entering .museum-exterior__door::after {
+    opacity: 0;
+    transition: opacity .18s linear;
+  }
+}
+
+.museum-exterior__door:focus-visible {
+  outline: 1px solid rgba(255, 252, 244, .55);
+  outline-offset: 4px;
+}
+
+/* GARDEN — leaf shadows a step quieter. */
+.garden-environment::before {
+  opacity: .68 !important;
+}
+
+.catalog-break {
+  flex: 0 0 100%;
+  height: 0;
+}
+
+/* INDEX + ARCHIVE — long-edge sizing (October 2026, pass 3).
+   Single images share one long edge (--edge): a landscape's width equals a
+   portrait's height. Pairs keep a shared height (--row). Sets of one shape
+   hang larger. Rows sit on a common baseline so captions line up.
+   The previous equal-height version is saved on the branch
+   claude/catalog-uniform-height (commit fea2e77). */
+.catalog-grid {
+  --edge: 250px;
+  align-items: flex-end;
+}
+
+.catalog-grid--archive {
+  --edge: 310px;
+}
+
+.catalog-grid--uniform {
+  --edge: 300px;
+}
+
+.catalog-grid--archive.catalog-grid--uniform {
+  --edge: 380px;
+}
+
+.catalog-block,
+.catalog-block--group {
+  width: auto;
+  max-width: 100%;
+}
+
+.catalog-thumb {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid { --edge: 210px; }
+  .catalog-grid--archive { --edge: 260px; }
+  .catalog-grid--uniform { --edge: 250px; }
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 310px; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid { --edge: 150px; }
+  .catalog-grid--archive { --edge: 170px; }
+  .catalog-grid--uniform { --edge: 180px; }
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 200px; }
+}
+
+.catalog-grid--uniform {
+  container-type: inline-size;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid--uniform .catalog-thumb {
+    --fit-edge: 9999px;
+  }
+}
+
+/* INDEX + ARCHIVE — images sit on a shared middle line rather than a common
+   base (pass 4). Sizes and row breaks unchanged. Previous version (bottoms
+   aligned): branch claude/catalog-long-edge. */
+.catalog-grid {
+  align-items: center;
+}
+
+/* INDEX + ARCHIVE — the Index hangs at the Archive's size (pass 5), and a
+   stack (Daffodils: The Return under The Fall) keeps a set on one row. */
+.catalog-grid,
+.catalog-grid--archive {
+  --row: 250px;
+  --edge: 310px;
+}
+
+.catalog-grid--uniform,
+.catalog-grid--archive.catalog-grid--uniform {
+  --edge: 380px;
+}
+
+.catalog-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid,
+  .catalog-grid--archive { --row: 210px; --edge: 260px; }
+  .catalog-grid--uniform,
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 310px; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid,
+  .catalog-grid--archive { --row: 140px; --edge: 170px; }
+  .catalog-grid--uniform,
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 200px; }
+}
+
+/* INDEX + ARCHIVE — Body of Water film still, sized like a landscape
+   photograph in the catalog, with a quiet play mark. */
+.catalog-film {
+  margin-top: 1.6rem;
+}
+
+.catalog-film__link {
+  position: relative;
+  display: block;
+  width: var(--edge);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  color: inherit;
+}
+
+.catalog-film__link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-film__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 252, 244, .75);
+  border-radius: 50%;
+  background: rgba(20, 18, 15, .25);
+  transition: background .3s ease, border-color .3s ease;
+}
+
+.catalog-film__play::after {
+  content: "";
+  position: absolute;
+  left: 54%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: .5rem 0 .5rem .8rem;
+  border-color: transparent transparent transparent rgba(255, 252, 244, .9);
+}
+
+.catalog-film__link:hover .catalog-film__play,
+.catalog-film__link:focus-visible .catalog-film__play {
+  background: rgba(20, 18, 15, .45);
+  border-color: rgba(255, 252, 244, 1);
+}
+
+.index-moving-image .catalog-film {
+  margin-top: .8rem;
+}
+
+.catalog-grid--rows {
+  container-type: inline-size;
+}
+
+@media (max-width: 680px) {
+  .catalog-grid--rows .catalog-thumb {
+    --fit-edge: 9999px;
+  }
+}
+
+/* GROTTO → REAR GALLERY (Threshold) — the Threshold wall used to start on a
+   hard line over the end of the transition. It now fades in over the
+   overlap, so the warm grey of the transition dissolves into the plaster. */
+.exhibition-scroll .threshold-page {
+  background: transparent !important;
+}
+
+.exhibition-scroll .threshold-environment {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .35) 14vh, #000 40vh);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .35) 14vh, #000 40vh);
+}
+
+.exhibition-scroll .threshold-page::before {
+  content: "";
+  position: absolute;
+  inset: 40vh 0 0 0;
+  z-index: -1;
+  background: #eee6d8;
+}
+
+/* INDEX + ARCHIVE — pairs (Relative, Threshold) breathe: the two halves stay
+   close, the space between pairs opens up so each pair reads as one work. */
+.catalog-grid--pairs {
+  --row: 220px;
+  --pair-gap: .35rem;
+  gap: 3.4rem 4.2rem;
+  margin-top: 2rem;
+}
+
+.catalog-grid--pairs .catalog-block__title {
+  margin-top: .9rem;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid--pairs { --row: 190px; gap: 2.6rem 3rem; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid--pairs { --row: 130px; gap: 2rem 1.4rem; }
+}
+
+/* TITLE CARDS — content notes at the same size as the statement, set off by
+   a hairline so they read as a note rather than part of the statement. */
+.work-intro-card .work-intro-card__note {
+  font-size: inherit !important;
+  line-height: inherit;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  opacity: .9 !important;
+  border-top: 1px solid currentColor;
+  border-color: rgba(127, 120, 110, .3);
+  padding-top: .8rem;
+  margin-top: 1.1rem;
+}

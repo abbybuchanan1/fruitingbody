@@ -31,7 +31,7 @@ export default function RedRoomPage() {
             <WorkIntroCard
               room="Red Room"
               title={redThread.title}
-              statement={redThread.statement}
+              statement={redThread.statement} reflection={redThread.reflection}
               note="Some works contain nudity and close studies of the human body."
               headingLevel={1}
             />
@@ -46,7 +46,7 @@ export default function RedRoomPage() {
 
         <section id="membrane" className="red-room-project red-room-project--membrane">
           <div className="room-opening room-opening--red room-opening--secondary">
-            <WorkIntroCard room="Red Room" title={membrane.title} statement={membrane.statement} />
+            <WorkIntroCard room="Red Room" title={membrane.title} statement={membrane.statement} reflection={membrane.reflection} />
             <QuestionPrompt>{membrane.question}</QuestionPrompt>
           </div>
           <div className="membrane-installation">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FilmPlayer } from "@/components/FilmPlayer";
 
 export default function FilmRoomPage() {
   return (
@@ -11,12 +12,9 @@ export default function FilmRoomPage() {
 
       <section className="film-installation" aria-label="Body of Water film">
         <div className="film-installation__screen">
-          <video
+          <FilmPlayer
             className="film-installation__video"
             src="/media/films/body-of-water-film.mp4"
-            controls
-            playsInline
-            preload="metadata"
           />
         </div>
       </section>

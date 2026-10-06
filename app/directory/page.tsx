@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
+import { FilmThumbnail } from "@/components/FilmThumbnail";
+import { showInterpretiveQuestions } from "@/lib/editorial";
 import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
 export default function IndexPage() {
@@ -20,7 +22,9 @@ export default function IndexPage() {
 
             {group.ids.map((id) => {
               const work = museumWorksById[id as WorkId];
-              const images = work.id === "miscarriage" ? work.archive : work.exhibition;
+              // The Index shows the catalog edit where it differs from the room: Phase as
+              // six frames, Daffodils with The Return under The Fall, Red Thread in three rows.
+              const images = ["phase", "daffodils", "red-thread"].includes(work.id) ? work.archive : work.exhibition;
               return (
                 <article className="index-work" data-work-id={work.id} key={work.id}>
                   <header className="index-work__header">
@@ -28,7 +32,7 @@ export default function IndexPage() {
                       <p className="index-work__meta">{work.year} · {work.medium}</p>
                       <h3><Link href={work.href}>{work.title}</Link></h3>
                       <p className="index-work__statement">{work.statement}</p>
-                      <p className="index-work__question">{work.question}</p>
+                      {showInterpretiveQuestions ? <p className="index-work__question">{work.question}</p> : null}
                     </div>
                   </header>
 
@@ -42,7 +46,7 @@ export default function IndexPage() {
 
       <aside className="index-moving-image">
         <p className="index-work__meta">Water Room · Moving image</p>
-        <Link href="/film-room?from=water-room">Body of Water — film</Link>
+        <FilmThumbnail />
       </aside>
 
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">

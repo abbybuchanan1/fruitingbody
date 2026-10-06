@@ -31,7 +31,8 @@ export default async function PoemPage({
           <header className="poem-page__header">
             <p>Reading Room</p>
             <h1>{poem.title}</h1>
-            {poem.year ? <span>{poem.year}</span> : null}
+            {poem.year && !poem.title.includes(poem.year) ? <span>{poem.year}</span> : null}
+            {poem.dedication ? <p className="poem-page__dedication">{poem.dedication}</p> : null}
           </header>
 
           <div className="poem-page__poem">

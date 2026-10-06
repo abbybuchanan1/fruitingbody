@@ -1,3 +1,8 @@
+// Interpretive questions ("WHAT BINDS US?") under each wall text.
+// Off for launch. Set to true to bring them back everywhere at once;
+// the questions themselves are still stored with each work in lib/works.ts.
+export const showInterpretiveQuestions = false;
+
 export const artistStatement = [
   "I use self-portraiture to investigate what it means to inhabit a body that is singular and also embedded in larger systems: ecological, relational, biological, inherited, and temporal.",
   "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water, gravity, weather, grief, desire, lineage, motherhood, seasonality, and time.",
@@ -10,19 +15,45 @@ export const processStatement = [
   "Each body of work usually begins with a question, a physical state, or something I cannot quite reach through language. I carry that into a material, place, gesture, or repeated action and let the body enter it first.",
   "I rarely previsualize individual photographs in detail. I often use video, burst capture, or rapid sequences so the encounter can keep moving without stopping to compose every frame. The camera functions as both mirror and witness. It records what I am doing and also returns something I could not fully perceive from inside the experience.",
   "Selection comes afterward. Looking through the images often gives me information I did not have while I was making them. The photographs become traces of the encounter and a way of discovering what happened there.",
-  "When accidental blurs, distortions, light leaks, reflections, or other optical events belong to the inquiry, I keep them. Those effects occur during capture and are not manufactured afterward.",
+  "When accidental blurs, distortions, light leaks, reflections, or other optical events belong to the inquiry, I keep them. Most images are minimally edited; Body of Water is the exception, with more extensive editing of light, contrast and sharpness. A Miscarriage and Phase were made with a tintype-style app, a technique I learned from Catherine Just. Two works in This Morning I Was Gathering Daffodils are digital collages built from my own footage; their captions say so.",
 ];
 
 export const fruitingBodyStatement = [
-  "Fruiting Body is an evolving digital exhibition and archive of my photographic work.",
+  "Fruiting Body is an evolving digital exhibition and archive of my photographic work and poetry.",
   "The title refers to the visible, temporary structure through which a larger living system emerges. I think of the works similarly: individual manifestations of longer processes involving embodiment, memory, ecology, relationship, and change.",
-  "The museum is organized through recurring questions, visual forms, and states of transformation as well as chronology. Bodies, landscapes, water, thresholds, openings, cycles, and acts of witnessing recur across projects made at different times and under different circumstances.",
+  "The museum is organized through recurring themes, visual forms, and states of transformation rather than chronology. Bodies, landscapes, water, thresholds, openings, cycles, and acts of witnessing recur across projects made at different times and under different circumstances.",
   "The site allows the bodies of work to remain distinct while making their deeper relationships visible.",
 ];
 
 export const artistBio = [
   "Abby Buchanan is a Portland, Oregon–based photographic artist working primarily in self-portraiture. Her practice investigates embodiment, ecological identity, transformation, permeability, and agency within conditions that cannot be fully controlled.",
   "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, embodiment, and lived processes of transformation.",
+];
+
+// CV — newest first within each section. Add sections (Exhibitions,
+// Publications) as they happen; empty headings are left out on purpose.
+export const artistCv: Array<{ heading: string; entries: Array<{ year: string; text: string }> }> = [
+  {
+    heading: "Education",
+    entries: [
+      { year: "2026", text: "Certificate in User Experience Design, Cornell University, through eCornell" },
+      { year: "2005", text: "B.M. in Music Composition, minor in Music Technology, Oral Roberts University, Tulsa, Oklahoma" },
+    ],
+  },
+  {
+    heading: "Training",
+    entries: [
+      { year: "2022", text: "The Art of Candid Photography: Shoot Like a Pro With Any Camera, Greg Williams" },
+      { year: "2017", text: "Self-Portraiture as Medicine, Catherine Just" },
+    ],
+  },
+  {
+    heading: "Licensure",
+    entries: [
+      { year: "2010–2020", text: "Licensed Massage Therapist, State of Oregon" },
+      { year: "1999–2010", text: "Licensed Massage Therapist, State of Texas" },
+    ],
+  },
 ];
 
 export const reflections: Record<string, string[]> = {
@@ -35,7 +66,7 @@ export const reflections: Record<string, string[]> = {
     "Over time the pairing became more literal to me. Body and land are both shaped by pressure, weather, history, use, repair, gravity, and time. The photographs place them beside one another as related material.",
   ],
   daffodils: [
-    "I came to Persephone as a way to think about power inside a cycle that cannot simply be escaped. Her movement between worlds is imposed and inhabited at the same time. That contradiction mattered to me.",
+    "I came to Persephone as a way to think about power inside a cycle that cannot simply be escaped. Her movement between worlds is imposed and inhabited at the same time. That led to an exploration of what it might look like to find agency within circumstances we cannot fully control.",
     "The phrase “powerful and powerless” gave me a way to stay inside the tension without resolving it into victimhood or triumph.",
     "“(Persephone) was winter, she was spring. When she ascended, the world awoke. When she descended, it lamented. She left; she returned. One year. Fifty. Five hundred. Forever. Powerful and powerless was she.” — Pádraig Ó Tuama, In a Garden by a Gate",
   ],
@@ -56,18 +87,18 @@ export const reflections: Record<string, string[]> = {
     "As I worked, anatomy began behaving like architecture. Folds became passages, openings became rooms, and the body became a spatial boundary that could be approached from either side.",
   ],
   "fear-not": [
-    "Fear Not began with Eve and with curiosity. I kept returning to the fact that a woman reaching toward knowledge is so often framed as the beginning of ruin.",
-    "In these photographs, curiosity becomes an action: reaching, tasting, knowing, and accepting that knowledge changes the person who receives it. Fear can still be present. The body moves anyway.",
+    "Fear Not began with Eve and with curiosity. I kept returning to the fact that a woman choosing to open her own eyes is so often framed as the beginning of ruin.",
+    "In these photographs, curiosity becomes an action: reaching, tasting, seeing, and accepting that what is seen changes the one who sees it. Fear can still be present. The body moves anyway.",
   ],
   "taste-and-see": [
     "The first images began with Venus imagery and the long visual history of arranging feminine beauty for a viewer. Appetite gradually moved to the center of the work.",
-    "Fruit, mouth, touch, pleasure, and excess let the body become an experiencing subject. Beauty could include hunger. The body could be seen and still be allowed to want.",
+    "Honey, flowers, anointing, pleasure, and excess let the body become an experiencing subject. Beauty could include hunger. The body could be seen and still be allowed to want.",
   ],
   membrane: [
     "Membrane was the first work I made in the river using the process that now underlies much of my practice: carrying something into the water, moving with a material, and letting video frames or a fast shutter reveal what I could not previsualize.",
     "I remember the mist of river water coming through the fabric and the warmth of the sun on my body. I walked out of the river understanding that the experience itself could be the site of the photograph, and that photography might be able to carry things I had not been able to communicate in another form.",
   ],
   maria: [
-    "Maria Burns Her Wedding Dress documents an unstaged ritual. I did not direct her or construct the event. My role was to remain present, witness it, and make photographs without interrupting what was unfolding.",
+    "My dear friend Maria invited me to witness a ritual she created. I did not direct her or arrange any part of it. My role was to stay present and make photographs without interrupting what was unfolding.",
   ],
 };

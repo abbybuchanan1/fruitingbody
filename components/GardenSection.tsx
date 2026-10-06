@@ -28,7 +28,7 @@ export function GardenSection({
             <WorkIntroCard
               room="Garden"
               title={daffodils.title}
-              statement={daffodils.statement}
+              statement={daffodils.statement} reflection={daffodils.reflection}
               headingLevel={1}
             />
             <QuestionPrompt>{daffodils.question}</QuestionPrompt>
@@ -38,7 +38,7 @@ export function GardenSection({
 
         <section id="fear-not" className="garden-section garden-section--fear-not">
           <div className="room-opening room-opening--secondary">
-            <WorkIntroCard room="Garden" title={fearNot.title} statement={fearNot.statement} />
+            <WorkIntroCard room="Garden" title={fearNot.title} statement={fearNot.statement} reflection={fearNot.reflection} />
             <QuestionPrompt>{fearNot.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={fearNot.exhibition} label={fearNot.title} mode="varied" />
@@ -46,7 +46,7 @@ export function GardenSection({
 
         <section id="taste-and-see" className="garden-section garden-section--taste-and-see">
           <div className="room-opening room-opening--secondary">
-            <WorkIntroCard room="Garden" title={taste.title} statement={taste.statement} />
+            <WorkIntroCard room="Garden" title={taste.title} statement={taste.statement} reflection={taste.reflection} />
             <QuestionPrompt>{taste.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={taste.exhibition} label={taste.title} mode="varied" />

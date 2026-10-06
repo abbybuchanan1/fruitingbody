@@ -28,7 +28,7 @@ export default function WaterRoomPage() {
           <WorkIntroCard
             room="Water Room"
             title={work.title}
-            statement={work.statement}
+            statement={work.statement} reflection={work.reflection}
             note="Some works contain nudity and close studies of the human body."
             headingLevel={1}
           />

@@ -19,6 +19,14 @@ export function ArtworkSequence({ artworks, label, mode = "standard", eagerFirst
             loading={eagerFirst && index === 0 ? "eager" : "lazy"}
             decoding="async"
           />
+          {artwork.title ? (
+            <figcaption className="artwork-image__caption">
+              {artwork.title}
+              {artwork.medium ? (
+                <span className="artwork-image__medium">{artwork.medium}</span>
+              ) : null}
+            </figcaption>
+          ) : null}
         </figure>
       ))}
     </section>

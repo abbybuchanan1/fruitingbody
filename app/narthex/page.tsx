@@ -16,7 +16,7 @@ export default function NarthexPage() {
 
         <nav className="narthex-room__paths" aria-label="Narthex destinations">
           <ArchitecturalLink href="/reading-room">Reading Room</ArchitecturalLink>
-          <ArchitecturalLink href="/index">Index</ArchitecturalLink>
+          <ArchitecturalLink href="/directory">Index</ArchitecturalLink>
           <ArchitecturalLink href="/archive">Archive</ArchitecturalLink>
           <a className="architectural-link architectural-link--default" href="/archive#contact">Contact</a>
           <ArchitecturalLink href="/exit">Exit</ArchitecturalLink>
