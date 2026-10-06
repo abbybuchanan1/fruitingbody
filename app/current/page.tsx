@@ -15,7 +15,7 @@ export default function CurrentPage() {
             room="Current"
             title={work.title}
             roomNote="A rotating room for the newest work in the practice."
-            statement={work.statement}
+            statement={work.statement} reflection={work.reflection}
             headingLevel={1}
           />
           <QuestionPrompt>{work.question}</QuestionPrompt>

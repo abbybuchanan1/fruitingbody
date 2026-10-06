@@ -15,7 +15,7 @@ export function ThresholdSection() {
             <WorkIntroCard
               room="Rear Gallery"
               title={work.title}
-              statement={work.statement}
+              statement={work.statement} reflection={work.reflection}
               headingLevel={1}
             />
             <QuestionPrompt>{work.question}</QuestionPrompt>

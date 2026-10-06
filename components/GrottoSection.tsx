@@ -18,7 +18,7 @@ export function GrottoSection() {
             <WorkIntroCard
               room="Grotto"
               title={miscarriage.title}
-              statement={miscarriage.statement}
+              statement={miscarriage.statement} reflection={miscarriage.reflection}
               note="This work documents a miscarriage as it happened."
               headingLevel={1}
             />
@@ -32,7 +32,7 @@ export function GrottoSection() {
 
         <section id="phase" className="grotto-section grotto-section--phase">
           <div className="room-opening room-opening--secondary">
-            <WorkIntroCard room="Grotto" title={phase.title} statement={phase.statement} />
+            <WorkIntroCard room="Grotto" title={phase.title} statement={phase.statement} reflection={phase.reflection} />
             <QuestionPrompt>{phase.question}</QuestionPrompt>
           </div>
           <ArtworkSequence artworks={phase.exhibition} label="Phase artworks" mode="varied" />
