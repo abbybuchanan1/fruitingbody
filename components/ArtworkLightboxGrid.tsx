@@ -1,12 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
+import imageSizes from "@/lib/image-sizes.json";
 
 type LightboxImage = {
   src: string;
   alt: string;
   title?: string;
+  group?: string;
+  groupTitle?: string;
 };
+
+const sizes = imageSizes as Record<string, [number, number]>;
+
+// Width-to-height ratio from the manifest, so each thumbnail keeps the
+// photograph's own shape (no cropping, no letterboxing).
+function ratioOf(src: string) {
+  const size = sizes[src];
+  return size ? size[0] / size[1] : 0.8;
+}
+
+type Block = { key: string; title?: string; items: Array<{ image: LightboxImage; index: number }> };
+
+// Consecutive images that share a group (a Relative or Threshold pair) are
+// kept together on one row with one caption.
+function toBlocks(images: LightboxImage[]): Block[] {
+  const blocks: Block[] = [];
+  images.forEach((image, index) => {
+    const last = blocks[blocks.length - 1];
+    if (image.group && last && last.key === `g-${image.group}`) {
+      last.items.push({ image, index });
+      if (!last.title && image.groupTitle) last.title = image.groupTitle;
+      return;
+    }
+    blocks.push({
+      key: image.group ? `g-${image.group}` : `i-${index}`,
+      title: image.group ? image.groupTitle : image.title,
+      items: [{ image, index }],
+    });
+  });
+  return blocks;
+}
 
 export function ArtworkLightboxGrid({
   images,
@@ -40,28 +74,38 @@ export function ArtworkLightboxGrid({
 
   return (
     <>
-      <div className={mode === "index" ? "index-work__grid" : "archive-work__grid"}>
-        {images.map((item, index) => (
-          <figure
-            className={mode === "index" ? "index-thumb" : "archive-image"}
-            key={`${item.src}-${index}`}
-          >
-            <button
-              className="artwork-lightbox-trigger"
-              type="button"
-              onClick={() => setOpenIndex(index)}
-              aria-label={`Open ${item.title ?? item.alt} large`}
+      <div className={`catalog-grid catalog-grid--${mode}`}>
+        {toBlocks(images).map((block) => {
+          const ratio = block.items.reduce((sum, { image: item }) => sum + ratioOf(item.src), 0);
+          return (
+            <figure
+              className={`catalog-block${block.items.length > 1 ? " catalog-block--group" : ""}`}
+              key={block.key}
+              style={{ "--ratio": ratio } as CSSProperties}
             >
-              <img
-                src={item.src}
-                alt={item.alt}
-                loading={mode === "index" ? "eager" : "lazy"}
-                decoding="async"
-              />
-            </button>
-            {item.title ? <figcaption>{item.title}</figcaption> : null}
-          </figure>
-        ))}
+              <div className="catalog-block__images">
+                {block.items.map(({ image: item, index }) => (
+                  <button
+                    className="catalog-thumb"
+                    type="button"
+                    key={`${item.src}-${index}`}
+                    onClick={() => setOpenIndex(index)}
+                    aria-label={`Open ${item.title ?? item.alt} large`}
+                    style={{ "--ratio": ratioOf(item.src) } as CSSProperties}
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading={mode === "index" ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                  </button>
+                ))}
+              </div>
+              {block.title ? <figcaption className="catalog-block__title">{block.title}</figcaption> : null}
+            </figure>
+          );
+        })}
       </div>
 
       {image ? (
@@ -107,7 +151,7 @@ export function ArtworkLightboxGrid({
           ) : null}
           <figure className="artwork-lightbox__figure">
             <img src={image.src} alt={image.alt} />
-            {image.title ? <figcaption>{image.title}</figcaption> : null}
+            {image.title ?? image.groupTitle ? <figcaption>{image.title ?? image.groupTitle}</figcaption> : null}
           </figure>
         </div>
       ) : null}

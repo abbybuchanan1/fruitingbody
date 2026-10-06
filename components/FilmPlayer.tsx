@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 // (about −17 dB average against roughly −40 dB). On first play the sound
 // fades in to a level closer to the rooms; after that the visitor's own
 // volume control is left alone.
-const TARGET_VOLUME = 0.3;
+const TARGET_VOLUME = 0.18;
 const FADE_MS = 3000;
 
 export function FilmPlayer({ src, className }: { src: string; className?: string }) {

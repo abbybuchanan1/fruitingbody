@@ -34,13 +34,16 @@ function notifyAudioRoom(roomId: MuseumRoomId) {
   );
 }
 
+// The plan is entered from the bottom and walked upward, so in these rooms the
+// first work you meet is listed lowest.
+const WALKED_UPWARD: MuseumRoomId[] = ["garden", "grotto", "red-room"];
+
 function roomCollections(roomId: MuseumRoomId) {
-  return [
-    ...museumCollections
-      .filter((collection) => collection.room === roomId)
-      .map((collection) => collection.title),
-    ...(supplementalCollections[roomId] ?? []),
-  ];
+  const titles = museumCollections
+    .filter((collection) => collection.room === roomId)
+    .map((collection) => collection.title);
+  if (WALKED_UPWARD.includes(roomId)) titles.reverse();
+  return [...titles, ...(supplementalCollections[roomId] ?? [])];
 }
 
 function boxStyle(box?: MapBox): CSSProperties | undefined {

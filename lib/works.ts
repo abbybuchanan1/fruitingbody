@@ -39,8 +39,12 @@ export type MuseumWork = {
 };
 
 const flattenPairs = (
-  pairs: Array<{ a: Artwork; b: Artwork }>,
-): Artwork[] => pairs.flatMap((pair) => [pair.a, pair.b]);
+  pairs: Array<{ id: string; title?: string; a: Artwork; b: Artwork }>,
+): Artwork[] =>
+  pairs.flatMap((pair) => [
+    { ...pair.a, group: pair.id, groupTitle: pair.title },
+    { ...pair.b, group: pair.id, groupTitle: pair.title },
+  ]);
 
 const archiveSequence = (
   folder: string,

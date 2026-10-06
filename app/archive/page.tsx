@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
+import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
 import { artistBio, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 import type { Artwork } from "@/lib/artworks";
@@ -40,7 +41,10 @@ const redThreadDevelopment = [
       "Thread binds and traces.",
     question:
       "How do we become ourselves when we can never fully separate from the whole?",
-    images: numberedImages("red-thread-original", "red-thread-original", 8, "Red Thread"),
+    // Original 07 is withdrawn: its textures began as generative AI material.
+    images: numberedImages("red-thread-original", "red-thread-original", 8, "Red Thread").filter(
+      (image) => !image.src.endsWith("-07.jpg"),
+    ),
   },
   {
     title: "It Was Shelter Before It Was a Lie",
@@ -63,6 +67,7 @@ const redThreadDevelopment = [
 export default function ArchivePage() {
   return (
     <main className="archive-page">
+      <OpenDetailsFromHash />
       <header className="utility-header archive-header">
         <p className="utility-header__eyebrow">Research Room</p>
         <h1>Archive</h1>

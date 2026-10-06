@@ -61,7 +61,9 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
   },
   cloisters: {
     src: "/media/audio/cloister-new.mp3",
-    gain: 0.70,
+    // The cloister file is mastered ~11 dB hotter than the Narthex and Water
+    // Room it sits between; bring it down to sit with them.
+    gain: 0.36,
     panDepth: 0.075,
   },
   "film-room": {
@@ -230,7 +232,41 @@ export function MuseumAudio() {
     move();
   };
 
-  const transitionTo = async (nextKey: EnvironmentKey, immediate = false) => {
+  // Transitions run one at a time. A map jump fires one transition for the map
+  // and another for the route change; run concurrently they could both pick
+  // the same idle element and leave the old room's sound playing underneath.
+  const chainRef = useRef<Promise<void>>(Promise.resolve());
+
+  const transitionTo = (nextKey: EnvironmentKey, immediate = false) => {
+    chainRef.current = chainRef.current
+      .then(() => runTransition(nextKey, immediate))
+      .catch(() => undefined);
+    return chainRef.current;
+  };
+
+  // Fade out and stop every element except the active one.
+  const silenceInactive = (duration: number) => {
+    const context = contextRef.current;
+    if (!context) return;
+    const now = context.currentTime;
+    audioRefs.forEach((ref, index) => {
+      if (index === activeIndexRef.current) return;
+      const audio = ref.current;
+      const gain = gainNodesRef.current[index];
+      if (!audio || !gain) return;
+      gain.gain.cancelScheduledValues(now);
+      gain.gain.setValueAtTime(gain.gain.value, now);
+      gain.gain.linearRampToValueAtTime(0, now + duration);
+      window.setTimeout(() => {
+        if (index === activeIndexRef.current) return;
+        audio.pause();
+        audio.removeAttribute("src");
+        audio.load();
+      }, duration * 1000 + 120);
+    });
+  };
+
+  const runTransition = async (nextKey: EnvironmentKey, immediate = false) => {
     const previousKey = environmentRef.current;
     environmentRef.current = nextKey;
     if (!soundOnRef.current) return;
@@ -261,6 +297,7 @@ export function MuseumAudio() {
       }
 
       schedulePanDrift(currentIndex, nextKey);
+      silenceInactive(immediate ? 0.45 : CROSSFADE_SECONDS);
       return;
     }
 
@@ -292,18 +329,8 @@ export function MuseumAudio() {
     const duration = immediate ? 0.45 : transitionDuration(previousKey, nextKey);
     nextGain.gain.linearRampToValueAtTime(nextEnvironment.gain, now + duration);
 
-    if (currentAudio && currentGain) {
-      currentGain.gain.cancelScheduledValues(now);
-      currentGain.gain.setValueAtTime(currentGain.gain.value, now);
-      currentGain.gain.linearRampToValueAtTime(0, now + duration);
-      window.setTimeout(() => {
-        currentAudio.pause();
-        currentAudio.removeAttribute("src");
-        currentAudio.load();
-      }, duration * 1000 + 120);
-    }
-
     activeIndexRef.current = nextIndex;
+    silenceInactive(duration);
     schedulePanDrift(nextIndex, nextKey);
   };
 

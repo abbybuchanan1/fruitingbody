@@ -2,6 +2,7 @@ export type Poem = {
   slug: string;
   title: string;
   year?: string;
+  dedication?: string;
   preview: string[];
   body: string;
 };
@@ -941,6 +942,7 @@ Than before`,
     slug: "joy",
     title: "Joy",
     year: "2026",
+    dedication: "for my body",
     preview: ["Her name is Joy.", "Never a moment", "my fingers couldn’t find her", "in the dark."],
     body: `Her name is Joy.
 

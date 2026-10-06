@@ -4,6 +4,9 @@ export type Artwork = {
   title?: string;
   /** Shown under the title when a work needs its medium named (e.g. a collage in a photographic series). */
   medium?: string;
+  /** Pairs (Relative, Threshold) share a group so the Index and Archive keep them together. */
+  group?: string;
+  groupTitle?: string;
 };
 
 export type RelativePair = {

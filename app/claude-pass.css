@@ -460,3 +460,241 @@
   line-height: 1.55;
   opacity: .86;
 }
+
+/* ============================================================
+   CLAUDE PASS 2 — launch punch list (October 2026)
+   ============================================================ */
+
+/* TITLES — one caption style site-wide, taken from A Miscarriage: small,
+   spaced capitals. The medium line sits smaller beneath it. */
+.artwork-image__caption,
+.relative-pair__title,
+.catalog-block__title,
+.artwork-lightbox__figure figcaption {
+  font: 500 .72rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: .085em !important;
+  text-transform: uppercase !important;
+}
+
+.artwork-image__caption {
+  margin-top: .95rem;
+  color: rgba(235, 225, 210, .72);
+}
+
+.artwork-image__medium {
+  margin-top: .3rem;
+  font-size: .56rem !important;
+  letter-spacing: .14em;
+  color: rgba(235, 225, 210, .5);
+}
+
+.relative-pair__title {
+  color: rgba(40, 35, 28, .72);
+}
+
+@media (max-width: 760px) {
+  .artwork-image__caption,
+  .relative-pair__title,
+  .catalog-block__title {
+    font-size: .66rem !important;
+  }
+}
+
+/* INDEX + ARCHIVE — a justified catalog. Each photograph keeps its own shape;
+   rows fill the width; pairs stay together under one title. */
+.catalog-grid {
+  --row: clamp(150px, 18vw, 270px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem 1rem;
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+.catalog-grid--archive {
+  --row: clamp(170px, 22vw, 340px);
+}
+
+.catalog-grid::after {
+  content: "";
+  flex-grow: 1000;
+}
+
+.catalog-block {
+  margin: 0;
+  min-width: 0;
+  flex: var(--ratio) 1 calc(var(--ratio) * var(--row));
+  max-width: calc(var(--ratio) * var(--row) * 1.5);
+}
+
+.catalog-block__images {
+  display: flex;
+  gap: .45rem;
+}
+
+.catalog-thumb {
+  appearance: none;
+  display: block;
+  flex: var(--ratio) 1 0;
+  min-width: 0;
+  aspect-ratio: var(--ratio);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.catalog-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-thumb:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.catalog-block__title {
+  margin-top: .6rem;
+  opacity: .78;
+}
+
+.catalog-block--group .catalog-block__title {
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .catalog-grid { --row: 120px; gap: 1.1rem .6rem; }
+  .catalog-grid--archive { --row: 140px; }
+}
+
+/* MAP — handled in data (sets listed in the order they are walked). */
+
+/* DAFFODILS — frames hang larger; the flower bed behind the first frames is
+   quieted so it no longer competes with Hades. */
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(4) {
+  width: min(60vh, 46vw, 37rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+  width: min(64vh, 50vw, 40rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(3) {
+  width: min(88vw, 84rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image img {
+  background: transparent !important;
+  clip-path: none !important;
+}
+
+.garden-environment::after {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 12, 9, .52) 0%,
+      rgba(10, 12, 9, .46) 12%,
+      rgba(10, 12, 9, .28) 19%,
+      rgba(10, 12, 9, .16) 34%,
+      rgba(10, 12, 9, .11) 68%,
+      rgba(10, 12, 9, .04) 100%
+    ) !important;
+}
+
+/* FEAR NOT — the moving leaf shadows now carry on down the wall until the
+   lower texture takes over, instead of stopping at plain beige. */
+.garden-environment::before {
+  height: 52% !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 100%) !important;
+}
+
+/* TASTE AND SEE — the close crops hang large, and the Garden → Grotto
+   transition now fades in instead of starting on a hard edge. */
+.garden-section--taste-and-see .artwork-image:nth-child(1),
+.garden-section--taste-and-see .artwork-image:nth-child(5) {
+  width: min(58vw, 76vh, 46rem) !important;
+}
+
+.exhibition-transition--garden-grotto {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 17%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 17%);
+}
+
+@media (max-width: 680px) {
+  .garden-section--taste-and-see .artwork-image:nth-child(1),
+  .garden-section--taste-and-see .artwork-image:nth-child(5) {
+    width: 86vw !important;
+  }
+}
+
+/* A MISCARRIAGE — the content note must be easy to read before the work. */
+.grotto-section--miscarriage .work-intro-card__note {
+  opacity: 1 !important;
+  color: rgba(244, 236, 222, .9) !important;
+  font-size: .9rem !important;
+  letter-spacing: .02em;
+  border-top: 1px solid rgba(244, 236, 222, .22);
+  padding-top: .8rem;
+  margin-top: 1rem;
+}
+
+/* PHASE — shorter descent from A Miscarriage into Phase. */
+.exhibition-scroll .grotto-transition--miscarriage-phase {
+  height: 105vh !important;
+}
+
+.exhibition-scroll .grotto-section--phase {
+  padding-top: 26vh !important;
+}
+
+/* BODY OF WATER — the generic "varied" layout pinned some frames to the
+   right edge; centre every frame so only the intended offsets apply. */
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-self: center !important;
+}
+
+/* NARTHEX — the five paths as a centred 3 + 2. */
+.narthex-room__paths {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .7rem !important;
+  width: min(42rem, 88vw) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.narthex-room__paths > * {
+  flex: 0 0 calc((100% - 1.4rem) / 3);
+}
+
+@media (max-width: 700px) {
+  .narthex-room__paths > * {
+    flex-basis: calc((100% - .7rem) / 2);
+  }
+}
+
+/* READING ROOM — dedication under a poem title. */
+.poem-page__header .poem-page__dedication {
+  margin: .9rem 0 0;
+  font: italic 400 1rem/1.4 Georgia, "Times New Roman", serif;
+  letter-spacing: .01em;
+  text-transform: none;
+  opacity: .72;
+}
