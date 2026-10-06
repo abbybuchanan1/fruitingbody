@@ -18,15 +18,11 @@ export default function IndexPage() {
         </p>
         <p className="utility-header__contact">
           Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+          {" · "}<a href="#artist-statement">Statement</a>
+          {" · "}<a href="#bio">Bio</a>
+          {" · "}<a href="#cv">CV</a>
         </p>
       </header>
-
-      <PracticeSection />
-
-      <p className="index-archive-note">
-        Earlier edits, fuller bodies of work and project histories are in the{" "}
-        <Link href="/archive">Archive</Link>.
-      </p>
 
       <div className="index-page__groups">
         {indexGroups.map((group) => (
@@ -61,6 +57,13 @@ export default function IndexPage() {
         <p className="index-work__meta">Water Room · Moving image</p>
         <FilmThumbnail />
       </aside>
+
+      <PracticeSection />
+
+      <p className="index-archive-note">
+        Earlier edits, fuller bodies of work and project histories are in the{" "}
+        <Link href="/archive">Archive</Link>.
+      </p>
 
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
         Return to Narthex

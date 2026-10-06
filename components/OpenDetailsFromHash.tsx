@@ -17,9 +17,19 @@ export function OpenDetailsFromHash() {
         );
       }
     };
+    // Clicking the same in-page link twice fires no hashchange, so links are
+    // also handled directly.
+    const onClick = (event: MouseEvent) => {
+      const link = (event.target as Element | null)?.closest?.('a[href^="#"]');
+      if (link && link.getAttribute("href") === window.location.hash) open();
+    };
     open();
     window.addEventListener("hashchange", open);
-    return () => window.removeEventListener("hashchange", open);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("hashchange", open);
+      document.removeEventListener("click", onClick);
+    };
   }, []);
 
   return null;

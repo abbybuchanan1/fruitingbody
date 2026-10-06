@@ -1282,3 +1282,19 @@
   color: inherit;
   text-underline-offset: .2em;
 }
+
+/* INDEX — practice sections close the page, after the works and film. The
+   top keeps one quiet line; the sections sit below with no empty band. */
+.index-page .archive-practice {
+  margin-top: clamp(5rem, 10vh, 8rem) !important;
+  margin-bottom: 0 !important;
+  scroll-margin-top: 2rem;
+}
+
+.index-page .archive-practice-detail {
+  scroll-margin-top: 2rem;
+}
+
+.index-page .index-archive-note {
+  margin: 2rem auto clamp(4rem, 8vh, 6rem) !important;
+}
