@@ -36,6 +36,7 @@ export const artistCv: Array<{ heading: string; entries: Array<{ year: string; t
   {
     heading: "Education",
     entries: [
+      { year: "2026", text: "Certificate in User Experience Design, Cornell University" },
       { year: "2005", text: "B.M. in Music Composition, minor in Music Technology, Oral Roberts University, Tulsa, Oklahoma" },
     ],
   },
