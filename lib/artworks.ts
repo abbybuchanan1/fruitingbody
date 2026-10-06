@@ -8,6 +8,7 @@ export type Artwork = {
 
 export type RelativePair = {
   id: string;
+  title?: string;
   a: Artwork;
   b: Artwork;
   layout: "side-by-side" | "stagger-a" | "stagger-b" | "wide" | "stacked";
@@ -55,26 +56,30 @@ export const miscarriageWorks: Artwork[] = miscarriageSequence.map(([slug, title
   alt: `A Miscarriage, ${title}.`,
 }));
 
-export const relativePairs: RelativePair[] = [
-  ["01", "side-by-side"],
-  ["02", "side-by-side"],
-  ["05", "side-by-side"],
-  ["04", "side-by-side"],
-  ["10", "side-by-side"],
-  ["06", "side-by-side"],
-  ["07", "side-by-side"],
-  ["09", "side-by-side"],
-].map(([id, layout]) => ({
-  id,
+// Relative (October 2026 edit): seven pairs, each named for the force the body
+// and the land share. Body image first (a), landscape second (b).
+const relativeEdit: Array<[string, string, string]> = [
+  ["01", "wind", "Wind"],
+  ["02", "insulation", "Insulation"],
+  ["03", "gravity", "Gravity"],
+  ["04", "striation", "Striation"],
+  ["05", "ramification", "Ramification"],
+  ["06", "umbra", "Umbra"],
+  ["07", "occlusion", "Occlusion"],
+];
+
+export const relativePairs: RelativePair[] = relativeEdit.map(([number, slug, title]) => ({
+  id: slug,
+  title,
   a: {
-    src: `/art/relative/relative-${id}A.jpg`,
-    alt: `Relative, pair ${id}, image A.`,
+    src: `/art/relative/relative-${number}-${slug}-a.jpg`,
+    alt: `Relative: ${title}. The body.`,
   },
   b: {
-    src: `/art/relative/relative-${id}B.jpg`,
-    alt: `Relative, pair ${id}, image B.`,
+    src: `/art/relative/relative-${number}-${slug}-b.jpg`,
+    alt: `Relative: ${title}. The land.`,
   },
-  layout: layout as RelativePair["layout"],
+  layout: "side-by-side",
 }));
 
 export const thresholdPairs: ThresholdPair[] = ["01", "02", "03"].map((id) => ({

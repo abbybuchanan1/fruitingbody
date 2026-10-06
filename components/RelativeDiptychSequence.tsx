@@ -8,7 +8,7 @@ export function RelativeDiptychSequence({
   return (
     <section className="relative-pairs" aria-label="Relative diptychs">
       {pairs.map((pair, index) => {
-        const layout = pair.id === "09" ? "side-by-side" : pair.layout;
+        const layout = pair.layout;
 
         return (
           <figure
@@ -32,6 +32,10 @@ export function RelativeDiptychSequence({
                 decoding="async"
               />
             </div>
+
+            {pair.title ? (
+              <figcaption className="relative-pair__title">{pair.title}</figcaption>
+            ) : null}
           </figure>
         );
       })}

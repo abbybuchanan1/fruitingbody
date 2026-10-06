@@ -382,3 +382,23 @@
     width: min(58vw, 19rem) !important;
   }
 }
+
+/* RELATIVE — seven named pairs (October 2026). The name sits centered under
+   each pair, dark on the pale gallery wall, in the same face as the
+   Daffodils captions. */
+.relative-pair__title {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: .4rem;
+  font: italic 400 .95rem/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: .04em;
+  color: rgba(40, 35, 28, .8);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .relative-pair__title {
+    margin-top: 0;
+    font-size: .88rem;
+  }
+}

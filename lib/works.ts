@@ -66,14 +66,6 @@ const numberedArchive = (
     title,
   );
 
-const relativeArchive = archiveSequence(
-  "relative",
-  ["01", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"].map(
-    (n) => `relative-index-${n}.jpg`,
-  ),
-  "Relative",
-);
-
 // Installed A Miscarriage edit (October 2026): eight frames, all 2017, no tintype edge.
 const miscarriageArchive: Artwork[] = miscarriageWorks;
 
@@ -90,7 +82,7 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What becomes visible when the body is understood as part of the same living system as the land?",
     exhibition: flattenPairs(relativePairs),
-    archive: relativeArchive,
+    archive: flattenPairs(relativePairs),
     reflection: reflections.relative,
   },
   {
