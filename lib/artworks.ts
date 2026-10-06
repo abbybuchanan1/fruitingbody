@@ -7,6 +7,8 @@ export type Artwork = {
   /** Pairs (Relative, Threshold) share a group so the Index and Archive keep them together. */
   group?: string;
   groupTitle?: string;
+  /** Start a new row in the Index and Archive catalog before this image. */
+  breakBefore?: boolean;
 };
 
 export type RelativePair = {
@@ -57,6 +59,8 @@ export const miscarriageWorks: Artwork[] = miscarriageSequence.map(([slug, title
   src: `/art/miscarriage/miscarriage-${slug}.jpg`,
   title,
   alt: `A Miscarriage, ${title}.`,
+  // In the Index and Archive, Drift opens the second row (four and four).
+  breakBefore: slug === "05-drift",
 }));
 
 // Relative (October 2026 edit): seven pairs, each named for the force the body

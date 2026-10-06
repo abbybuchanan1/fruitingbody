@@ -9,6 +9,7 @@ type LightboxImage = {
   title?: string;
   group?: string;
   groupTitle?: string;
+  breakBefore?: boolean;
 };
 
 const sizes = imageSizes;
@@ -20,7 +21,7 @@ function ratioOf(src: string) {
   return size ? size[0] / size[1] : 0.8;
 }
 
-type Block = { key: string; title?: string; items: Array<{ image: LightboxImage; index: number }> };
+type Block = { key: string; title?: string; breakBefore?: boolean; items: Array<{ image: LightboxImage; index: number }> };
 
 // Consecutive images that share a group (a Relative or Threshold pair) are
 // kept together on one row with one caption.
@@ -35,6 +36,7 @@ function toBlocks(images: LightboxImage[]): Block[] {
     }
     blocks.push({
       key: image.group ? `g-${image.group}` : `i-${index}`,
+      breakBefore: image.breakBefore,
       title: image.group ? image.groupTitle : image.title,
       items: [{ image, index }],
     });
@@ -77,7 +79,8 @@ export function ArtworkLightboxGrid({
       <div className={`catalog-grid catalog-grid--${mode}`}>
         {toBlocks(images).map((block) => {
           const ratio = block.items.reduce((sum, { image: item }) => sum + ratioOf(item.src), 0);
-          return (
+          return [
+            block.breakBefore ? <span className="catalog-break" key={`${block.key}-break`} aria-hidden="true" /> : null,
             <figure
               className={`catalog-block${block.items.length > 1 ? " catalog-block--group" : ""}`}
               key={block.key}
@@ -103,8 +106,8 @@ export function ArtworkLightboxGrid({
                 ))}
               </div>
               {block.title ? <figcaption className="catalog-block__title">{block.title}</figcaption> : null}
-            </figure>
-          );
+            </figure>,
+          ];
         })}
       </div>
 
