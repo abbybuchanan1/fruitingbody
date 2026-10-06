@@ -501,37 +501,39 @@
   }
 }
 
-/* INDEX + ARCHIVE — a justified catalog. Each photograph keeps its own shape;
-   rows fill the width; pairs stay together under one title. */
+/* INDEX + ARCHIVE — a catalog with one fixed image height. Every photograph,
+   portrait or landscape, single or paired, is the same height; its width
+   follows its own shape. Rows are not stretched, so nothing grows larger
+   than its neighbours. */
 .catalog-grid {
-  --row: clamp(150px, 18vw, 270px);
+  --row: 200px;
+  --pair-gap: .4rem;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 1.5rem 1rem;
+  gap: 1.6rem 1.1rem;
   width: 100%;
   margin-top: 1.4rem;
 }
 
 .catalog-grid--archive {
-  --row: clamp(170px, 22vw, 340px);
-}
-
-.catalog-grid::after {
-  content: "";
-  flex-grow: 1000;
+  --row: 250px;
 }
 
 .catalog-block {
   margin: 0;
-  min-width: 0;
-  flex: var(--ratio) 1 calc(var(--ratio) * var(--row));
-  max-width: calc(var(--ratio) * var(--row) * 1.5);
+  flex: 0 0 auto;
+  width: calc(var(--ratio) * var(--row));
+  max-width: 100%;
+}
+
+.catalog-block--group {
+  width: calc(var(--ratio) * var(--row) + var(--pair-gap));
 }
 
 .catalog-block__images {
   display: flex;
-  gap: .45rem;
+  gap: var(--pair-gap);
 }
 
 .catalog-thumb {
@@ -567,8 +569,13 @@
   text-align: center;
 }
 
+@media (max-width: 1100px) {
+  .catalog-grid { --row: 170px; }
+  .catalog-grid--archive { --row: 210px; }
+}
+
 @media (max-width: 680px) {
-  .catalog-grid { --row: 120px; gap: 1.1rem .6rem; }
+  .catalog-grid { --row: 118px; gap: 1.1rem .6rem; }
   .catalog-grid--archive { --row: 140px; }
 }
 
