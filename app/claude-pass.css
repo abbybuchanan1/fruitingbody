@@ -237,7 +237,7 @@
 .exhibition-scroll .grotto-section--phase .artwork-image,
 .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(odd),
 .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(even) {
-  width: min(86vw, 88vh, 68rem) !important;
+  width: min(94vw, 96vh, 84rem) !important;
   max-width: none !important;
   margin: 0 auto !important;
   transform: none !important;
@@ -401,4 +401,14 @@
     margin-top: 0;
     font-size: .88rem;
   }
+}
+
+/* PHASE — the grid sits close under its title card: the room-opening's
+   bottom padding and the sequence's top margin are cut back. */
+.exhibition-scroll .grotto-section--phase .room-opening {
+  padding-bottom: 4vh !important;
+}
+
+.exhibition-scroll .grotto-section--phase .art-sequence {
+  margin-top: 2vh !important;
 }
