@@ -39,11 +39,14 @@ function notifyAudioRoom(roomId: MuseumRoomId) {
 const WALKED_UPWARD: MuseumRoomId[] = ["garden", "grotto", "red-room"];
 
 function roomCollections(roomId: MuseumRoomId) {
-  const titles = museumCollections
+  const sets = museumCollections
     .filter((collection) => collection.room === roomId)
-    .map((collection) => collection.title);
-  if (WALKED_UPWARD.includes(roomId)) titles.reverse();
-  return [...titles, ...(supplementalCollections[roomId] ?? [])];
+    .map((collection) => ({ title: collection.title, href: collection.href }));
+  if (WALKED_UPWARD.includes(roomId)) sets.reverse();
+  return [
+    ...sets,
+    ...(supplementalCollections[roomId] ?? []).map((title) => ({ title, href: "/current" })),
+  ];
 }
 
 function boxStyle(box?: MapBox): CSSProperties | undefined {
@@ -231,10 +234,11 @@ export function MuseumMap({
 
             const box = roomBoxes[room.id];
 
+            // The room box is a container: its name links to the room, and
+            // each set listed inside links straight to that set.
             return (
-              <Link
+              <div
                 key={room.id}
-                href={room.href}
                 className="museum-map__room museum-map__room--canonical"
                 style={boxStyle(box)}
                 data-map-box={box ? "true" : "false"}
@@ -243,22 +247,36 @@ export function MuseumMap({
                 data-map-role={room.mapRole ?? "room"}
                 data-parent={room.parent}
                 data-current={isCurrent ? "true" : "false"}
-                aria-current={isCurrent ? "location" : undefined}
-                onClick={onClose}
                 onMouseEnter={() => setHoveredRoom(room.id)}
                 onMouseLeave={() => setHoveredRoom(undefined)}
-                onFocus={() => setHoveredRoom(room.id)}
-                onBlur={() => setHoveredRoom(undefined)}
               >
-                {roomTitle(room.id, room.title)}
+                <Link
+                  href={room.href}
+                  className="museum-map__room-link"
+                  aria-current={isCurrent ? "location" : undefined}
+                  onClick={onClose}
+                  onFocus={() => setHoveredRoom(room.id)}
+                  onBlur={() => setHoveredRoom(undefined)}
+                >
+                  {roomTitle(room.id, room.title)}
+                </Link>
                 {collections.length ? (
                   <span className="museum-map__collections">
-                    {collections.map((title) => (
-                      <span className="museum-map__collection" key={title}>{title}</span>
+                    {collections.map((set) => (
+                      <Link
+                        className="museum-map__collection"
+                        key={set.title}
+                        href={set.href}
+                        onClick={onClose}
+                        onFocus={() => setHoveredRoom(room.id)}
+                        onBlur={() => setHoveredRoom(undefined)}
+                      >
+                        {set.title}
+                      </Link>
                     ))}
                   </span>
                 ) : null}
-              </Link>
+              </div>
             );
           })}
         </div>

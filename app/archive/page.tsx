@@ -2,28 +2,10 @@ import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
 import { FilmThumbnail } from "@/components/FilmThumbnail";
-import { artistBio, artistCv, artistStatement, fruitingBodyStatement, processStatement, showInterpretiveQuestions } from "@/lib/editorial";
+import { showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
 import type { Artwork } from "@/lib/artworks";
 
-function PracticeDetails({
-  id,
-  title,
-  paragraphs,
-}: {
-  id: string;
-  title: string;
-  paragraphs: string[];
-}) {
-  return (
-    <details className="archive-practice-detail" id={id}>
-      <summary>{title}</summary>
-      <div className="archive-practice-detail__body">
-        {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-      </div>
-    </details>
-  );
-}
 
 function numberedImages(folder: string, prefix: string, count: number, title: string): Artwork[] {
   return Array.from({ length: count }, (_, index) => {
@@ -73,8 +55,8 @@ export default function ArchivePage() {
         <p className="utility-header__eyebrow">Research Room</p>
         <h1>Archive</h1>
         <p>
-          Full finished bodies of work, project histories, and optional reflections from the practice.
-          For a quick view of the installed exhibition, visit the <Link href="/directory">Index</Link>.
+          Fuller bodies of work, earlier edits and project histories.
+          For the installed exhibition and the artist statement, bio, CV and contact, visit the <Link href="/directory">Index</Link>.
         </p>
         <p className="utility-header__contact">
           Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
@@ -87,38 +69,6 @@ export default function ArchivePage() {
         </nav>
       </header>
 
-      <section className="archive-practice" aria-label="Practice context">
-        <PracticeDetails id="artist-statement" title="Artist Statement" paragraphs={artistStatement} />
-        <PracticeDetails id="fruiting-body" title="Fruiting Body" paragraphs={fruitingBodyStatement} />
-        <PracticeDetails id="process" title="Process" paragraphs={processStatement} />
-        <PracticeDetails id="bio" title="Bio" paragraphs={artistBio} />
-        <details className="archive-practice-detail" id="cv">
-          <summary>CV</summary>
-          <div className="archive-practice-detail__body archive-cv">
-            {artistCv.map((section) => (
-              <section className="archive-cv__section" key={section.heading}>
-                <h3>{section.heading}</h3>
-                <ul>
-                  {section.entries.map((entry) => (
-                    <li key={entry.text}>
-                      <span className="archive-cv__year">{entry.year}</span>
-                      <span className="archive-cv__text">{entry.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        </details>
-        <details className="archive-practice-detail" id="contact">
-          <summary>Contact</summary>
-          <div className="archive-practice-detail__body archive-contact-detail__body">
-            <p>Abby Buchanan</p>
-            <p>Portland, Oregon</p>
-            <p><a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a></p>
-          </div>
-        </details>
-      </section>
 
       <section className="archive-works" aria-label="Full finished bodies of work">
         {museumWorks.map((work) => (

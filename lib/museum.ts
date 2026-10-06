@@ -226,7 +226,7 @@ export const museumCollections: MuseumCollection[] = [
   {
     id: "daffodils",
     title: "This Morning I Was Gathering Daffodils",
-    href: "/exhibition?jump=garden",
+    href: "/exhibition?jump=daffodils",
     room: "garden",
     showInIndex: true,
   },

@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { FilmThumbnail } from "@/components/FilmThumbnail";
+import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
+import { PracticeSection } from "@/components/PracticeSection";
 import { showInterpretiveQuestions } from "@/lib/editorial";
 import { indexGroups, museumWorksById, type WorkId } from "@/lib/works";
 
 export default function IndexPage() {
   return (
     <main className="index-page">
+      <OpenDetailsFromHash />
       <header className="utility-header">
         <p className="utility-header__eyebrow">Fruiting Body</p>
         <h1>Index</h1>
@@ -17,6 +20,13 @@ export default function IndexPage() {
           Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
         </p>
       </header>
+
+      <PracticeSection />
+
+      <p className="index-archive-note">
+        Earlier edits, fuller bodies of work and project histories are in the{" "}
+        <Link href="/archive">Archive</Link>.
+      </p>
 
       <div className="index-page__groups">
         {indexGroups.map((group) => (
