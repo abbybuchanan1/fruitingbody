@@ -653,7 +653,7 @@
 .grotto-section--miscarriage .work-intro-card__note {
   opacity: 1 !important;
   color: rgba(244, 236, 222, .9) !important;
-  font-size: .9rem !important;
+  font-size: inherit !important;
   letter-spacing: .02em;
   border-top: 1px solid rgba(244, 236, 222, .22);
   padding-top: .8rem;
@@ -1033,4 +1033,18 @@
 
 @media (max-width: 680px) {
   .catalog-grid--pairs { --row: 130px; gap: 2rem 1.4rem; }
+}
+
+/* TITLE CARDS — content notes at the same size as the statement, set off by
+   a hairline so they read as a note rather than part of the statement. */
+.work-intro-card .work-intro-card__note {
+  font-size: inherit !important;
+  line-height: inherit;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  opacity: .9 !important;
+  border-top: 1px solid currentColor;
+  border-color: rgba(127, 120, 110, .3);
+  padding-top: .8rem;
+  margin-top: 1.1rem;
 }
