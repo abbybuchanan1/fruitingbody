@@ -829,3 +829,61 @@
   flex: 0 0 100%;
   height: 0;
 }
+
+/* INDEX + ARCHIVE — long-edge sizing (October 2026, pass 3).
+   Single images share one long edge (--edge): a landscape's width equals a
+   portrait's height. Pairs keep a shared height (--row). Sets of one shape
+   hang larger. Rows sit on a common baseline so captions line up.
+   The previous equal-height version is saved on the branch
+   claude/catalog-uniform-height (commit fea2e77). */
+.catalog-grid {
+  --edge: 250px;
+  align-items: flex-end;
+}
+
+.catalog-grid--archive {
+  --edge: 310px;
+}
+
+.catalog-grid--uniform {
+  --edge: 300px;
+}
+
+.catalog-grid--archive.catalog-grid--uniform {
+  --edge: 380px;
+}
+
+.catalog-block,
+.catalog-block--group {
+  width: auto;
+  max-width: 100%;
+}
+
+.catalog-thumb {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid { --edge: 210px; }
+  .catalog-grid--archive { --edge: 260px; }
+  .catalog-grid--uniform { --edge: 250px; }
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 310px; }
+}
+
+@media (max-width: 680px) {
+  .catalog-grid { --edge: 150px; }
+  .catalog-grid--archive { --edge: 170px; }
+  .catalog-grid--uniform { --edge: 180px; }
+  .catalog-grid--archive.catalog-grid--uniform { --edge: 200px; }
+}
+
+.catalog-grid--uniform {
+  container-type: inline-size;
+}
+
+@media (max-width: 1100px) {
+  .catalog-grid--uniform .catalog-thumb {
+    --fit-edge: 9999px;
+  }
+}
