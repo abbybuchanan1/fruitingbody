@@ -21,7 +21,7 @@ export const processStatement = [
 export const fruitingBodyStatement = [
   "Fruiting Body is an evolving digital exhibition and archive of my photographic work and poetry.",
   "The title refers to the visible, temporary structure through which a larger living system emerges. I think of the works similarly: individual manifestations of longer processes involving embodiment, memory, ecology, relationship, and change.",
-  "The museum is organized through recurring questions, visual forms, and states of transformation as well as chronology. Bodies, landscapes, water, thresholds, openings, cycles, and acts of witnessing recur across projects made at different times and under different circumstances.",
+  "The museum is organized through recurring themes, visual forms, and states of transformation rather than chronology. Bodies, landscapes, water, thresholds, openings, cycles, and acts of witnessing recur across projects made at different times and under different circumstances.",
   "The site allows the bodies of work to remain distinct while making their deeper relationships visible.",
 ];
 
