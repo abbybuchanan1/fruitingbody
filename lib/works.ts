@@ -78,7 +78,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=relative",
     statement:
-      "The work investigates the ways bodies and landscapes participate in the same forces rather than functioning as metaphors for one another.",
+      "Body and land, moved by the same forces.",
     question:
       "What becomes visible when the body is understood as part of the same living system as the land?",
     exhibition: flattenPairs(relativePairs),
@@ -93,7 +93,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography and digital collage",
     href: "/exhibition?jump=garden",
     statement:
-      "The work investigates the relationship between agency and inevitability, exploring forms of sovereignty that emerge through participation rather than\u00a0escape.",
+      "A cycle imposed and inhabited at the same time.",
     question:
       "What forms of freedom remain available inside the conditions that make us?",
     exhibition: artworkSets.daffodils,
@@ -108,7 +108,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=fear-not",
     statement:
-      "The work investigates curiosity as a transformative force, reclaiming knowledge, desire, and participation from narratives of transgression and fear.",
+      "Fear can still be present. The body moves anyway.",
     question:
       "What becomes possible when curiosity matters more than certainty?",
     exhibition: artworkSets.fearNot,
@@ -123,7 +123,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=taste-and-see",
     statement:
-      "The work investigates beauty as an embodied experience rather than a performed identity, asking what remains when beauty is no longer organized around spectatorship.",
+      "The body can be seen and still be allowed to want.",
     question:
       "What is beauty when it no longer exists for the gaze of others?",
     exhibition: artworkSets.taste,
@@ -138,7 +138,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=a-miscarriage",
     statement:
-      "The work investigates transformation through interruption, exploring longing, absence, and passage as conditions of becoming.",
+      "Witnessing myself inside an experience I could barely understand.",
     question:
       "How does a body continue becoming through loss, longing, and interrupted passage?",
     exhibition: miscarriageWorks,
@@ -153,7 +153,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=phase",
     statement:
-      "The work investigates identity during periods of dissolution, attending to the unstable interval between one state of being and another.",
+      "Not “I am hopelessness,” but “I am experiencing hopelessness.”",
     question:
       "Who are we while we are becoming someone we cannot yet recognize?",
     exhibition: artworkSets.phase,
@@ -168,7 +168,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/exhibition?jump=threshold",
     statement:
-      "The work investigates the unstable territory between states, where transformation has begun but cannot yet be named.",
+      "Transformation has begun but cannot yet be named.",
     question:
       "What occurs in the space between what has ended and what has not yet emerged?",
     exhibition: flattenPairs(thresholdPairs),
@@ -183,7 +183,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/red-room?jump=red-thread",
     statement:
-      "This work explores the tensions between entanglement, belonging, and becoming.",
+      "Connection, held as visible tension.",
     question: "What binds us?",
     exhibition: artworkSets.redThread,
     archive: artworkSets.redThread,
@@ -199,7 +199,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/red-room?jump=membrane",
     statement:
-      "The work investigates permeability as a condition of becoming, where bodily boundaries function as thresholds rather than fixed edges.",
+      "The experience itself as the site of the photograph.",
     question: "What must pass through us in order for us to become?",
     exhibition: artworkSets.membrane,
     archive: numberedArchive("membrane", "membrane-index", 15, "Membrane"),
@@ -213,7 +213,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Self-portrait photography",
     href: "/water-room?jump=water-room-start",
     statement:
-      "The work explores what becomes possible when the body adopts the logic of water rather than resisting it.",
+      "The pleasure of no longer resisting every force.",
     question:
       "What happens when we stop resisting transformation and begin moving with it?",
     exhibition: bodyOfWaterWorks,
@@ -234,7 +234,7 @@ export const museumWorks: MuseumWork[] = [
     medium: "Photography",
     href: "/current",
     statement:
-      "An unstaged ritual, witnessed rather than arranged. The image documents a ritual event without intervention.",
+      "A ritual, witnessed rather than directed.",
     question: "Can a deliberate act of witnessing transform identity?",
     exhibition: artworkSets.maria,
     archive: mariaWorks,

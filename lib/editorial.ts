@@ -66,7 +66,7 @@ export const reflections: Record<string, string[]> = {
   ],
   "taste-and-see": [
     "The first images began with Venus imagery and the long visual history of arranging feminine beauty for a viewer. Appetite gradually moved to the center of the work.",
-    "Fruit, mouth, touch, pleasure, and excess let the body become an experiencing subject. Beauty could include hunger. The body could be seen and still be allowed to want.",
+    "Honey, flowers, anointing, pleasure, and excess let the body become an experiencing subject. Beauty could include hunger. The body could be seen and still be allowed to want.",
   ],
   membrane: [
     "Membrane was the first work I made in the river using the process that now underlies much of my practice: carrying something into the water, moving with a material, and letting video frames or a fast shutter reveal what I could not previsualize.",
