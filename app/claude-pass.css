@@ -887,3 +887,10 @@
     --fit-edge: 9999px;
   }
 }
+
+/* INDEX + ARCHIVE — images sit on a shared middle line rather than a common
+   base (pass 4). Sizes and row breaks unchanged. Previous version (bottoms
+   aligned): branch claude/catalog-long-edge. */
+.catalog-grid {
+  align-items: center;
+}
