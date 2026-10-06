@@ -194,7 +194,12 @@ export const museumWorks: MuseumWork[] = [
       "Connection, held as visible tension.",
     question: "What binds us?",
     exhibition: artworkSets.redThread,
-    archive: artworkSets.redThread,
+    // Catalog: three rows of one height each (1–4, 5–7, 8–10).
+    archive: artworkSets.redThread.map((work, i) => ({
+      ...work,
+      sameHeight: true,
+      breakBefore: i === 4 || i === 7,
+    })),
     reflection: reflections["red-thread"],
     archiveNote:
       "The current edit combines work originally developed as Red Thread, Unravel, and It Was Shelter Before It Was a Lie.",

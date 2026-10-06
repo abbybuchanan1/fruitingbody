@@ -11,6 +11,8 @@ export type Artwork = {
   breakBefore?: boolean;
   /** Images sharing a stack key hang one above the other in the catalog. */
   stack?: string;
+  /** In the catalog, hang at the shared row height instead of the shared long edge. */
+  sameHeight?: boolean;
 };
 
 export type RelativePair = {

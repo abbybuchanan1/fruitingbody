@@ -21,8 +21,9 @@ export default function IndexPage() {
 
             {group.ids.map((id) => {
               const work = museumWorksById[id as WorkId];
-              // Phase hangs as one grid; the Index shows its six frames.
-              const images = work.id === "phase" ? work.archive : work.exhibition;
+              // The Index shows the catalog edit where it differs from the room: Phase as
+              // six frames, Daffodils with The Return under The Fall, Red Thread in three rows.
+              const images = ["phase", "daffodils", "red-thread"].includes(work.id) ? work.archive : work.exhibition;
               return (
                 <article className="index-work" data-work-id={work.id} key={work.id}>
                   <header className="index-work__header">

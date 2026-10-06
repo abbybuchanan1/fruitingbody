@@ -11,6 +11,7 @@ type LightboxImage = {
   groupTitle?: string;
   breakBefore?: boolean;
   stack?: string;
+  sameHeight?: boolean;
 };
 
 const sizes = imageSizes;
@@ -25,7 +26,15 @@ function ratioOf(src: string) {
 // Every single image shares one long edge: a landscape's width equals a
 // portrait's height. Pairs (Relative, Threshold) keep one shared height so the
 // two halves line up.
-function thumbStyle(ratio: number, inPair: boolean): CSSProperties {
+function thumbStyle(ratio: number, inPair: boolean, sameHeight = false): CSSProperties {
+  if (sameHeight) {
+    // Rows set to one height (Red Thread): every image is --edge tall.
+    return {
+      "--ratio": ratio,
+      width: `calc(${ratio.toFixed(4)} * min(var(--edge), var(--fit-edge, 9999px)))`,
+      height: "min(var(--edge), var(--fit-edge, 9999px))",
+    } as CSSProperties;
+  }
   if (inPair) {
     return { "--ratio": ratio, width: `calc(${ratio} * var(--row))`, height: "var(--row)" } as CSSProperties;
   }
@@ -137,7 +146,7 @@ export function ArtworkLightboxGrid({
                         type="button"
                         onClick={() => setOpenIndex(index)}
                         aria-label={`Open ${item.title ?? item.alt} large`}
-                        style={thumbStyle(ratioOf(item.src), false)}
+                        style={thumbStyle(ratioOf(item.src), false, item.sameHeight)}
                       >
                         <img src={item.src} alt={item.alt} loading={mode === "index" ? "eager" : "lazy"} decoding="async" />
                       </button>
@@ -163,7 +172,7 @@ export function ArtworkLightboxGrid({
                     key={`${item.src}-${index}`}
                     onClick={() => setOpenIndex(index)}
                     aria-label={`Open ${item.title ?? item.alt} large`}
-                    style={thumbStyle(ratioOf(item.src), block.items.length > 1)}
+                    style={thumbStyle(ratioOf(item.src), block.items.length > 1, item.sameHeight)}
                   >
                     <img
                       src={item.src}
