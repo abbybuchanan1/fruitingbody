@@ -50,6 +50,25 @@ function thumbStyle(ratio: number, inPair: boolean, sameHeight = false): CSSProp
 // A set of one shape stays on a single row on wider screens: the long edge
 // shrinks just enough for every image to fit across.
 function fitStyle(images: LightboxImage[]): CSSProperties | undefined {
+  if (images.some((image) => image.sameHeight)) {
+    // Rows of one height (Red Thread): the height shrinks just enough for the
+    // widest row to fit across, so each row stays on one line.
+    const rows: LightboxImage[][] = [];
+    images.forEach((image, i) => {
+      if (i === 0 || image.breakBefore) rows.push([]);
+      rows[rows.length - 1].push(image);
+    });
+    const widest = rows.reduce(
+      (best, row) => {
+        const sum = row.reduce((total, image) => total + ratioOf(image.src), 0);
+        return sum > best.sum ? { sum, n: row.length } : best;
+      },
+      { sum: 0, n: 1 },
+    );
+    return {
+      "--fit-edge": `calc((100cqw - ${widest.n - 1} * 1.1rem - 2px) / ${widest.sum.toFixed(4)})`,
+    } as CSSProperties;
+  }
   if (!isUniform(images)) return undefined;
   const ratio = Math.min(1, ratioOf(images[0].src));
   const n = images.length;
@@ -129,7 +148,7 @@ export function ArtworkLightboxGrid({
   return (
     <>
       <div
-        className={`catalog-grid catalog-grid--${mode}${isUniform(images) ? " catalog-grid--uniform" : ""}`}
+        className={`catalog-grid catalog-grid--${mode}${isUniform(images) ? " catalog-grid--uniform" : ""}${images.some((image) => image.sameHeight) ? " catalog-grid--rows" : ""}`}
         style={fitStyle(images)}
       >
         {toBlocks(images).map((block) => {

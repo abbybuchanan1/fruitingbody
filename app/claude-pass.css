@@ -983,3 +983,13 @@
 .index-moving-image .catalog-film {
   margin-top: .8rem;
 }
+
+.catalog-grid--rows {
+  container-type: inline-size;
+}
+
+@media (max-width: 680px) {
+  .catalog-grid--rows .catalog-thumb {
+    --fit-edge: 9999px;
+  }
+}
