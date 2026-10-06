@@ -237,7 +237,7 @@
 .exhibition-scroll .grotto-section--phase .artwork-image,
 .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(odd),
 .exhibition-scroll .grotto-section--phase .artwork-image:nth-child(even) {
-  width: min(94vw, 96vh, 84rem) !important;
+  width: min(98vw, 130vh, 112rem) !important;
   max-width: none !important;
   margin: 0 auto !important;
   transform: none !important;
