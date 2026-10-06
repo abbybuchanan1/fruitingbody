@@ -818,3 +818,8 @@
   outline: 1px solid rgba(255, 252, 244, .55);
   outline-offset: 4px;
 }
+
+/* GARDEN — leaf shadows a step quieter. */
+.garden-environment::before {
+  opacity: .68 !important;
+}
