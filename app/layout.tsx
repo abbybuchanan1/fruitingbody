@@ -8,7 +8,7 @@ import { MuseumAudio } from "@/components/MuseumAudio";
 
 const siteTitle = "Fruiting Body — Abby Buchanan";
 const siteDescription =
-  "Fruiting Body is a digital museum of photographic work by Abby Buchanan, a Portland, Oregon artist working in self-portraiture.";
+  "Fruiting Body is a digital museum of photographic work and poetry by Abby Buchanan, a Portland, Oregon artist working in self-portraiture.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.fruitingbody.works"),
