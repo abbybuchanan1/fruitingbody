@@ -1048,3 +1048,16 @@
   padding-top: .8rem;
   margin-top: 1.1rem;
 }
+
+/* CONTACT — email under the Index and Archive headings, for curators. */
+.utility-header .utility-header__contact {
+  margin-top: 1.1rem;
+  font: 500 .74rem/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .08em;
+  opacity: .78;
+}
+
+.utility-header__contact a {
+  color: inherit;
+  text-underline-offset: .22em;
+}

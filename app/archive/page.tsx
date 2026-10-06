@@ -76,6 +76,9 @@ export default function ArchivePage() {
           Full finished bodies of work, project histories, and optional reflections from the practice.
           For a quick view of the installed exhibition, visit the <Link href="/directory">Index</Link>.
         </p>
+        <p className="utility-header__contact">
+          Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+        </p>
 
         <nav className="archive-menu" aria-label="Archive works">
           {museumWorks.map((work) => (
