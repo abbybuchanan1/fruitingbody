@@ -1098,3 +1098,96 @@
   .relative-pairs .relative-pair:nth-child(odd) .relative-pair__title { text-align: left; }
   .relative-pairs .relative-pair:nth-child(even) .relative-pair__title { text-align: right; }
 }
+
+/* ROOMS — open a single work, then close it. The only cue is the cursor. */
+.art-sequence .artwork-image,
+.miscarriage-votive,
+.current-ember-work,
+.membrane-plane {
+  cursor: zoom-in;
+}
+
+.relative-pair,
+.relative-pair * {
+  cursor: auto;
+}
+
+.room-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(22, 20, 17, .92);
+  cursor: zoom-out;
+  animation: room-viewer-in .35s ease;
+}
+
+.room-viewer--dark {
+  background: rgba(4, 4, 4, .96);
+}
+
+@keyframes room-viewer-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.room-viewer__figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.room-viewer__figure img {
+  display: block;
+  max-width: 94vw;
+  max-height: calc(100svh - 6.5rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .35);
+}
+
+.room-viewer__caption {
+  margin-top: .9rem;
+  font: 500 .72rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  color: rgba(240, 234, 222, .78);
+  text-align: center;
+}
+
+.room-viewer__caption span {
+  display: block;
+  margin-top: .3rem;
+  font-size: .56rem;
+  letter-spacing: .14em;
+  opacity: .7;
+}
+
+.room-viewer__close {
+  position: fixed;
+  top: clamp(.6rem, 2vw, 1.4rem);
+  right: clamp(.8rem, 2.4vw, 1.8rem);
+  z-index: 1;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(240, 234, 222, .82);
+  font: 300 2rem/1 Georgia, serif;
+  cursor: pointer;
+  padding: .4rem .6rem;
+}
+
+.room-viewer__close:hover,
+.room-viewer__close:focus-visible {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room-viewer { animation: none; }
+}

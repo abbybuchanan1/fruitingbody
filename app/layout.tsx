@@ -5,6 +5,7 @@ import "./next-pass.css";
 import "./claude-pass.css";
 import { SiteNav } from "@/components/SiteNav";
 import { MuseumAudio } from "@/components/MuseumAudio";
+import { RoomImageViewer } from "@/components/RoomImageViewer";
 
 const siteTitle = "Fruiting Body — Abby Buchanan";
 const siteDescription =
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteNav />
         <Suspense fallback={null}><MuseumAudio /></Suspense>
         <div id="main-content">{children}</div>
+        <RoomImageViewer />
       </body>
     </html>
   );
