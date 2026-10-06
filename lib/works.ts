@@ -206,7 +206,12 @@ export const museumWorks: MuseumWork[] = [
       "The experience itself as the site of the photograph.",
     question: "What must pass through us in order for us to become?",
     exhibition: artworkSets.membrane,
-    archive: numberedArchive("membrane", "membrane-index", 15, "Membrane"),
+    // Trimmed to nine: near-repeats of the veil over the head were removed.
+    archive: archiveSequence(
+      "membrane",
+      ["01", "03", "04", "05", "07", "09", "10", "12", "15"].map((n) => `membrane-index-${n}.jpg`),
+      "Membrane",
+    ),
     reflection: reflections.membrane,
   },
   {

@@ -46,6 +46,13 @@ export const artistCv: Array<{ heading: string; entries: Array<{ year: string; t
       { year: "2017", text: "Self-Portraiture as Medicine, Catherine Just" },
     ],
   },
+  {
+    heading: "Licensure",
+    entries: [
+      { year: "2010–2020", text: "Licensed Massage Therapist, State of Oregon" },
+      { year: "1999–2010", text: "Licensed Massage Therapist, State of Texas" },
+    ],
+  },
 ];
 
 export const reflections: Record<string, string[]> = {
