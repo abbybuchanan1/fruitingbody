@@ -782,3 +782,39 @@
     bottom: 11% !important;
   }
 }
+
+/* EXTERIOR — no label on devices that can hover: the door itself answers,
+   brightening a little under the pointer or keyboard focus. Touch screens,
+   which cannot hover, keep the small "Enter" cue. */
+@media (hover: hover) and (pointer: fine) {
+  .museum-exterior__enter {
+    display: none !important;
+  }
+
+  .museum-exterior__door::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at 50% 55%, rgba(255, 238, 205, .22), rgba(255, 238, 205, .06) 70%, transparent 100%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity .7s ease;
+  }
+
+  .museum-exterior__door:hover::after,
+  .museum-exterior__door:focus-visible::after {
+    opacity: 1;
+  }
+
+  .museum-exterior.is-entering .museum-exterior__door::after {
+    opacity: 0;
+    transition: opacity .18s linear;
+  }
+}
+
+.museum-exterior__door:focus-visible {
+  outline: 1px solid rgba(255, 252, 244, .55);
+  outline-offset: 4px;
+}
