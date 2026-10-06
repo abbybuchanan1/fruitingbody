@@ -993,3 +993,23 @@
     --fit-edge: 9999px;
   }
 }
+
+/* GROTTO → REAR GALLERY (Threshold) — the Threshold wall used to start on a
+   hard line over the end of the transition. It now fades in over the
+   overlap, so the warm grey of the transition dissolves into the plaster. */
+.exhibition-scroll .threshold-page {
+  background: transparent !important;
+}
+
+.exhibition-scroll .threshold-environment {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .35) 14vh, #000 40vh);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .35) 14vh, #000 40vh);
+}
+
+.exhibition-scroll .threshold-page::before {
+  content: "";
+  position: absolute;
+  inset: 40vh 0 0 0;
+  z-index: -1;
+  background: #eee6d8;
+}
