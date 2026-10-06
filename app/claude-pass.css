@@ -1061,3 +1061,40 @@
   color: inherit;
   text-underline-offset: .22em;
 }
+
+/* FRONT GALLERY — Relative pairs hug the centre line instead of floating in
+   two wide columns, so narrow portrait pairs (Gravity, Ramification) no
+   longer open a pale stripe down the middle. The title sits flush with the
+   pair's outer edge, alternating left and right down the wall. */
+@media (min-width: 761px) {
+  .relative-pairs .relative-pair {
+    width: auto !important;
+    max-width: 94vw;
+    grid-template-columns: auto auto !important;
+    justify-content: center;
+    column-gap: clamp(.9rem, 1.6vw, 1.6rem) !important;
+    row-gap: 1.1rem !important;
+  }
+
+  .relative-pairs .relative-pair__image {
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .relative-pairs .relative-pair__image--a { justify-self: end; }
+  .relative-pairs .relative-pair__image--b { justify-self: start; }
+
+  .relative-pairs .relative-pair__image img {
+    max-width: min(45vw, 46rem) !important;
+    max-height: 86svh !important;
+  }
+
+  .relative-pairs .relative-pair__title {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    margin-top: 0;
+  }
+
+  .relative-pairs .relative-pair:nth-child(odd) .relative-pair__title { text-align: left; }
+  .relative-pairs .relative-pair:nth-child(even) .relative-pair__title { text-align: right; }
+}
