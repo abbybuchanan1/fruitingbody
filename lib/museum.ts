@@ -46,7 +46,7 @@ export type MuseumCollection = {
 export const museumRooms: MuseumRoom[] = [
   {
     id: "exterior",
-    title: "Exterior",
+    title: "Entrance",
     href: "/",
     mapGroup: "exterior",
     showOnMap: true,
@@ -205,7 +205,7 @@ export const museumRooms: MuseumRoom[] = [
 
   {
     id: "exit-exterior",
-    title: "Exit",
+    title: "Courtyard",
     href: "/exit",
     mapGroup: "exterior",
     showOnMap: true,

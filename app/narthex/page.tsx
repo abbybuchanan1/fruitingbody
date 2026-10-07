@@ -19,7 +19,7 @@ export default function NarthexPage() {
           <ArchitecturalLink href="/directory">Index</ArchitecturalLink>
           <ArchitecturalLink href="/archive">Archive</ArchitecturalLink>
           <a className="architectural-link architectural-link--default" href="/directory#contact">Contact</a>
-          <ArchitecturalLink href="/exit">Exit</ArchitecturalLink>
+          <ArchitecturalLink href="/exit">Courtyard</ArchitecturalLink>
         </nav>
 
         <NarthexReturn />

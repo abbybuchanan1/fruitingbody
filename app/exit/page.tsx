@@ -7,7 +7,7 @@ export default function ExitPage() {
       <ExitFilmPlaylist />
       <div className="exit-exterior__veil" aria-hidden="true" />
       <div className="exit-exterior__ui">
-        <p className="exit-exterior__label">Exterior</p>
+        <p className="exit-exterior__label">Courtyard</p>
         <Link className="exit-exterior__return" href="/narthex?arrived=1">Return to Narthex</Link>
       </div>
     </main>
