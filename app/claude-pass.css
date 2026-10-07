@@ -1344,19 +1344,22 @@
 .site-nav .site-nav__map {
   position: fixed !important;
   top: .9rem !important;
-  left: 50% !important;
-  transform: translateX(-50%);
-  padding: .72rem 1.7rem !important;
-  border: 1px solid rgba(42, 38, 34, .12) !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 auto !important;
+  width: max-content !important;
+  transform: none !important;
+  padding: .56rem 1.15rem .56rem 1.36rem !important;
+  border: 1px solid rgba(42, 38, 34, .1) !important;
   border-radius: 2px !important;
   background: rgba(240, 233, 220, .58) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
-  box-shadow: 0 10px 34px rgba(22, 18, 14, .14) !important;
+  box-shadow: 0 8px 28px rgba(22, 18, 14, .12) !important;
   color: rgba(32, 29, 27, .9) !important;
   font: 600 .84rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  letter-spacing: .26em !important;
-  text-indent: .26em;
+  letter-spacing: .21em !important;
+  text-indent: 0 !important;
   text-shadow: none !important;
   opacity: 1 !important;
 }
@@ -1378,7 +1381,7 @@
 @media (max-width: 700px) {
   .site-nav .site-nav__map {
     top: .6rem !important;
-    padding: .62rem 1.3rem !important;
+    padding: .5rem 1rem .5rem 1.18rem !important;
     font-size: .76rem !important;
   }
 }
