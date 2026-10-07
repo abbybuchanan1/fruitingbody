@@ -64,8 +64,8 @@ function highlightShape(room: MuseumRoomId, key: string): ReactNode {
   if (room === "cloisters") {
     return (
       <g key={key}>
-        <path d="M370 208 Q310 371 370 534 Q340 371 370 208 Z" />
-        <path d="M630 208 Q690 371 630 534 Q660 371 630 208 Z" />
+        <path d="M372 206 Q304 371 372 536 Q360 371 372 206 Z" />
+        <path d="M628 206 Q696 371 628 536 Q640 371 628 206 Z" />
       </g>
     );
   }
@@ -174,8 +174,8 @@ export function MuseumMap({
               <path d="M397 556 H603 V604 H397 Z" />
 
               {/* Cloisters: slim curved wings either side of the Garden and Grotto. */}
-              <path d="M370 208 Q310 371 370 534 Q340 371 370 208 Z" />
-              <path d="M630 208 Q690 371 630 534 Q660 371 630 208 Z" />
+              <path d="M372 206 Q304 371 372 536 Q360 371 372 206 Z" />
+              <path d="M628 206 Q696 371 628 536 Q640 371 628 206 Z" />
 
               <path d="M292 630 H708 V680 H292 Z" />
               <path d="M454 630 C466 612 534 612 546 630" />
