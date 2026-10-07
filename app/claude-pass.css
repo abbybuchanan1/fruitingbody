@@ -1420,10 +1420,22 @@
   background: rgba(246, 241, 231, .66) !important;
 }
 
-/* MAP on the dark rooms (Vestibule, Courtyard): more see-through, matching
-   Index. */
+/* MAP + INDEX on the dark rooms (Vestibule, Courtyard): a dark translucent
+   card with light lettering, like the Water Room title card, so they stay
+   readable without glaring. */
 body:has(.vestibule) .site-nav .site-nav__map,
-body:has(.exit-exterior) .site-nav .site-nav__map {
-  background: rgba(240, 233, 220, .4) !important;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, .18) !important;
+body:has(.exit-exterior) .site-nav .site-nav__map,
+body:has(.vestibule) .site-nav a,
+body:has(.exit-exterior) .site-nav a {
+  background: rgba(22, 26, 22, .5) !important;
+  border-color: rgba(241, 234, 220, .2) !important;
+  color: rgba(243, 236, 223, .92) !important;
+  box-shadow: none !important;
+}
+
+body:has(.vestibule) .site-nav .site-nav__map:hover,
+body:has(.exit-exterior) .site-nav .site-nav__map:hover,
+body:has(.vestibule) .site-nav a:hover,
+body:has(.exit-exterior) .site-nav a:hover {
+  background: rgba(22, 26, 22, .7) !important;
 }
