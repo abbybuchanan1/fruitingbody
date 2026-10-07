@@ -1385,3 +1385,45 @@
     font-size: .76rem !important;
   }
 }
+
+/* VESTIBULE — balance. Red Room mirrors Water Room across the arch (Current
+   stays out at the far right, as on the map), and Sound joins the top row. */
+@media (min-width: 701px) {
+  .vestibule__side-passages .architectural-link:nth-child(1) {
+    grid-column: 2 !important;
+  }
+
+  .ambient-sound-control--vestibule {
+    top: .9rem !important;
+    left: 1.2rem !important;
+  }
+}
+
+/* INDEX — the same translucent card as Map, quieter and smaller, so it reads
+   as the second control on light and dark rooms alike. */
+.site-nav a {
+  padding: .5rem .8rem .5rem .92rem !important;
+  border: 1px solid rgba(42, 38, 34, .08) !important;
+  border-radius: 2px !important;
+  background: rgba(240, 233, 220, .4) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: rgba(32, 29, 27, .86) !important;
+  font: 600 .7rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  letter-spacing: .14em !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: rgba(246, 241, 231, .66) !important;
+}
+
+/* MAP on the dark rooms (Vestibule, Courtyard): more see-through, matching
+   Index. */
+body:has(.vestibule) .site-nav .site-nav__map,
+body:has(.exit-exterior) .site-nav .site-nav__map {
+  background: rgba(240, 233, 220, .4) !important;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .18) !important;
+}
