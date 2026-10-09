@@ -2051,3 +2051,64 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     transform: none !important;
   }
 }
+
+/* DAFFODILS (phone) — captions as quiet as Relative's: small, centred under
+   the frame, the medium line smaller still. */
+@media (max-width: 760px) {
+  .garden-section--daffodils .artwork-image .artwork-image__caption {
+    margin-top: .9rem !important;
+    font: 500 .66rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    letter-spacing: .085em !important;
+    text-align: center !important;
+    color: rgba(235, 225, 210, .62) !important;
+    text-shadow: none !important;
+  }
+
+  .garden-section--daffodils .artwork-image .artwork-image__medium {
+    display: block;
+    margin-top: .3rem !important;
+    font-size: .52rem !important;
+    letter-spacing: .14em !important;
+    color: rgba(235, 225, 210, .42) !important;
+  }
+}
+
+/* FEAR NOT (phone) — the leaf shadows dapple rather than pan: the shadow
+   image tiles at its own proportions (not stretched down the whole wall),
+   in two layers drifting against each other, with a slow flicker of light. */
+@media (max-width: 760px) {
+  .garden-environment::before {
+    background-image:
+      url("/media/architecture/environments/garden/garden-leaf-shadows.jpg"),
+      url("/media/architecture/environments/garden/garden-leaf-shadows.jpg") !important;
+    background-size: 150vw auto, 230vw auto !important;
+    background-repeat: repeat, repeat !important;
+    background-position: 0 0, 40% 30% !important;
+    background-blend-mode: soft-light;
+    animation:
+      garden-dapple-drift 23s ease-in-out infinite alternate,
+      garden-dapple-flicker 6.5s ease-in-out infinite alternate !important;
+    transform: none !important;
+  }
+
+  @keyframes garden-dapple-drift {
+    0%   { background-position: 0 0, 40% 30%; }
+    33%  { background-position: 3vw 1.2vh, calc(40% - 4vw) calc(30% + .8vh); }
+    66%  { background-position: -2vw 2vh, calc(40% + 3vw) calc(30% - .6vh); }
+    100% { background-position: 4vw -.6vh, calc(40% - 2vw) calc(30% + 1.4vh); }
+  }
+
+  @keyframes garden-dapple-flicker {
+    0%   { opacity: .44; }
+    30%  { opacity: .54; }
+    55%  { opacity: .4; }
+    80%  { opacity: .52; }
+    100% { opacity: .46; }
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  .garden-environment::before {
+    animation: none !important;
+  }
+}
