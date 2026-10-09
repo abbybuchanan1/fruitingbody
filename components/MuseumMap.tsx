@@ -88,23 +88,21 @@ function roomCollections(roomId: MuseumRoomId) {
 
 function boxStyle(box?: MapBox, mbox?: MapBox): CSSProperties | undefined {
   if (!box) return undefined;
-  const mobile = mbox
-    ? {
-        "--mmap-left": `${mbox.x / 4}%`,
-        "--mmap-top": `${mbox.y / 8}%`,
-        "--mmap-width": `${mbox.w / 4}%`,
-        "--mmap-height": `${mbox.h / 8}%`,
-        "--mmap-z": mbox.z ?? 6,
-      }
-    : {};
-  return {
-    ...mobile,
+  const style: Record<string, string | number> = {
     "--map-left": `${box.x / 10}%`,
     "--map-top": `${(box.y / 700) * 100}%`,
     "--map-width": `${box.w / 10}%`,
     "--map-height": `${(box.h / 700) * 100}%`,
     "--map-z": box.z ?? 6,
-  } as CSSProperties;
+  };
+  if (mbox) {
+    style["--mmap-left"] = `${mbox.x / 4}%`;
+    style["--mmap-top"] = `${mbox.y / 8}%`;
+    style["--mmap-width"] = `${mbox.w / 4}%`;
+    style["--mmap-height"] = `${mbox.h / 8}%`;
+    style["--mmap-z"] = mbox.z ?? 6;
+  }
+  return style as unknown as CSSProperties;
 }
 
 function highlightShape(room: MuseumRoomId, key: string, mode: "desktop" | "mobile" = "desktop"): ReactNode {
