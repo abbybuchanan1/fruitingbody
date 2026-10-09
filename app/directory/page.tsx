@@ -17,10 +17,15 @@ export default function IndexPage() {
           A fast view of the installed work. Image order follows the museum rooms.
         </p>
         <p className="utility-header__contact">
-          Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
-          {" · "}<a href="#artist-statement">Statement</a>
-          {" · "}<a href="#bio">Bio</a>
-          {" · "}<a href="#cv">CV</a>
+          <span className="utility-header__contact-who">
+            Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+          </span>
+          <span className="utility-header__contact-sep" aria-hidden="true">{" · "}</span>
+          <span className="utility-header__contact-links">
+            <a href="#artist-statement">Statement</a>
+            {" · "}<a href="#bio">Bio</a>
+            {" · "}<a href="#cv">CV</a>
+          </span>
         </p>
       </header>
 
