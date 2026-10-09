@@ -1888,29 +1888,3 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     right: auto !important;
   }
 }
-
-/* EXTERIOR — on hover the door is lit from behind as well: warm light leaks
-   around its edges and spills from the gap at its foot, as if the museum
-   inside were bright. Drawn as the door's own shadow (its overflow is
-   clipped, so a pseudo-element glow would be cut off). */
-@media (hover: hover) and (pointer: fine) {
-  .museum-exterior__door {
-    box-shadow: 0 0 0 0 rgba(255, 220, 160, 0) !important;
-    transition: box-shadow .9s ease !important;
-  }
-
-  .museum-exterior__door:hover,
-  .museum-exterior__door:focus-visible {
-    box-shadow:
-      0 0 3px 2px rgba(255, 244, 214, .95),
-      0 0 24px 8px rgba(255, 228, 175, .75),
-      0 0 80px 26px rgba(255, 212, 150, .42),
-      0 16px 34px -6px rgba(255, 236, 190, .9),
-      inset 0 0 18px 4px rgba(255, 232, 188, .55) !important;
-  }
-
-  .museum-exterior.is-entering .museum-exterior__door {
-    box-shadow: 0 0 0 0 rgba(255, 220, 160, 0) !important;
-    transition: box-shadow .18s linear !important;
-  }
-}
