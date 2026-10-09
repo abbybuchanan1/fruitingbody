@@ -1830,3 +1830,45 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
 .grotto-section--miscarriage .work-intro-card__note {
   color: rgba(224, 214, 197, .7) !important;
 }
+
+/* VESTIBULE — the moving light on the walls fades all the way out before the
+   edge of its panel (the ellipse is sized to the panel's closest sides), so
+   no vertical seams show on the stone. */
+.vestibule__projection--left {
+  -webkit-mask-image: radial-gradient(closest-side ellipse at 55% 50%, #000 0 40%, rgba(0,0,0,.7) 62%, rgba(0,0,0,.25) 84%, transparent 100%) !important;
+  mask-image: radial-gradient(closest-side ellipse at 55% 50%, #000 0 40%, rgba(0,0,0,.7) 62%, rgba(0,0,0,.25) 84%, transparent 100%) !important;
+}
+
+.vestibule__projection--right {
+  -webkit-mask-image: radial-gradient(closest-side ellipse at 45% 50%, #000 0 40%, rgba(0,0,0,.7) 62%, rgba(0,0,0,.25) 84%, transparent 100%) !important;
+  mask-image: radial-gradient(closest-side ellipse at 45% 50%, #000 0 40%, rgba(0,0,0,.7) 62%, rgba(0,0,0,.25) 84%, transparent 100%) !important;
+}
+
+/* DIRECTIONS — the doorway labels share the wayfinding face with the top row,
+   at their current sizes. */
+.architectural-link,
+.narthex-room__return,
+.narthex-room__returns-label {
+  font-family: var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* VESTIBULE — Red Room and Water Room as exact mirrors across the centre:
+   each label hugs its text, and the inner edges (nearest the arch) sit the
+   same distance from the centre line. */
+@media (min-width: 701px) {
+  .vestibule__side-passages .architectural-link:nth-child(1),
+  .vestibule__side-passages .architectural-link:nth-child(2) {
+    width: max-content !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(1) {
+    justify-self: end !important;
+    margin-right: 67.5% !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2) {
+    justify-self: start !important;
+    margin-left: 67.5% !important;
+  }
+}
