@@ -1985,3 +1985,22 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     left: 67.25% !important;
   }
 }
+
+/* CLOISTERS — the film's crop shifts right, leaving out about the left
+   quarter of the frame. On wide screens the frame is enlarged a third so its
+   left quarter falls off-screen; on tall screens (where the sides are already
+   cropped) the view pans right by a quarter of the screen. */
+.cloisters-film__video-stack .cloisters-film__video {
+  inset: 0 auto 0 -33.333% !important;
+  width: 133.333% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (orientation: portrait) {
+  .cloisters-film__video-stack .cloisters-film__video {
+    inset: 0 auto 0 -50% !important;
+    width: 150% !important;
+  }
+}
