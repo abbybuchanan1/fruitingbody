@@ -2160,3 +2160,25 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     margin-top: -30vh !important;
   }
 }
+
+/* NARTHEX — "Return to": the three rooms sit in three equal columns, each
+   word centred in its own column, with the trailing letter-space balanced, so
+   the row reads as deliberately centred. */
+.narthex-room__returns:not(.narthex-room__courtyard) .narthex-room__return-links {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  column-gap: clamp(.8rem, 3vw, 1.6rem) !important;
+  justify-items: center !important;
+  width: 100%;
+}
+
+.narthex-room__return {
+  padding-left: .13em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.narthex-room__returns-label {
+  padding-left: .23em;
+  text-align: center;
+}
