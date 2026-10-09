@@ -2004,3 +2004,29 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     width: 150% !important;
   }
 }
+
+/* COURTYARD — films crossfade into the next one instead of cutting. */
+.exit-exterior__pane .exit-exterior__split-video {
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+}
+
+.exit-exterior__pane .exit-exterior__split-video.is-active {
+  opacity: 1;
+}
+
+/* ENTRANCE — once sound is on, its control sits in the upper right, clear of
+   the museum sign (the Entrance has no Map or Index). */
+.ambient-sound-control.ambient-sound-control--global.ambient-sound-control--entrance-on {
+  top: 1.2rem !important;
+  right: 1.2rem !important;
+  left: auto !important;
+  bottom: auto !important;
+}
+
+@media (max-width: 760px) {
+  .ambient-sound-control.ambient-sound-control--global.ambient-sound-control--entrance-on {
+    top: .9rem !important;
+    right: .9rem !important;
+  }
+}

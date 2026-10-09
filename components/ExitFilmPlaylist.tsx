@@ -24,48 +24,85 @@ function nextDifferent(current: number, avoid: number) {
   return order[0] ?? ((current + 1) % FILMS.length);
 }
 
+const CROSSFADE_SECONDS = 1.6;
+
+// One pane of the Courtyard: two stacked videos. As the playing film nears
+// its end, the next film starts underneath and the two crossfade.
+function FilmPane({ initial, avoidRef, onChange }: {
+  initial: number;
+  avoidRef: { current: number };
+  onChange: (index: number) => void;
+}) {
+  const refs = [useRef<HTMLVideoElement | null>(null), useRef<HTMLVideoElement | null>(null)];
+  const [sources, setSources] = useState<[number, number]>([initial, nextDifferent(initial, avoidRef.current)]);
+  const [active, setActive] = useState<0 | 1>(0);
+  const switchingRef = useRef(false);
+
+  useEffect(() => {
+    const video = refs[active].current;
+    if (!video) return;
+    void video.play().catch(() => undefined);
+
+    const onTime = () => {
+      if (switchingRef.current || !Number.isFinite(video.duration) || video.duration <= 0) return;
+      if (video.duration - video.currentTime > CROSSFADE_SECONDS) return;
+      switchingRef.current = true;
+      const nextSlot = (active === 0 ? 1 : 0) as 0 | 1;
+      const next = refs[nextSlot].current;
+      if (next) {
+        next.currentTime = 0;
+        void next.play().catch(() => undefined);
+      }
+      setActive(nextSlot);
+      onChange(sources[nextSlot]);
+      window.setTimeout(() => {
+        // Load a fresh film into the slot that just faded out.
+        setSources((current) => {
+          const updated: [number, number] = [current[0], current[1]];
+          updated[active] = nextDifferent(current[nextSlot], avoidRef.current);
+          return updated;
+        });
+        switchingRef.current = false;
+      }, CROSSFADE_SECONDS * 1000 + 200);
+    };
+
+    video.addEventListener("timeupdate", onTime);
+    return () => video.removeEventListener("timeupdate", onTime);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, sources]);
+
+  return (
+    <div className="exit-exterior__pane">
+      {[0, 1].map((slot) => (
+        <video
+          key={slot}
+          ref={refs[slot]}
+          className={`exit-exterior__split-video${slot === active ? " is-active" : ""}`}
+          src={FILMS[sources[slot]]}
+          muted
+          playsInline
+          autoPlay={slot === active}
+          preload="auto"
+        />
+      ))}
+    </div>
+  );
+}
+
 export function ExitFilmPlaylist() {
-  const leftRef = useRef<HTMLVideoElement | null>(null);
-  const rightRef = useRef<HTMLVideoElement | null>(null);
   const initial = useMemo(() => {
     const order = shuffledIndexes();
     return [order[0], order[1] ?? ((order[0] + 1) % FILMS.length)] as const;
   }, []);
 
-  const [leftIndex, setLeftIndex] = useState(initial[0]);
-  const [rightIndex, setRightIndex] = useState(initial[1]);
-
+  // Each pane avoids showing the film currently playing in the other.
+  const leftNow = useRef<number>(initial[0]);
+  const rightNow = useRef<number>(initial[1]);
 
   return (
-    <>
-      <div className="exit-exterior__split" aria-hidden="true">
-        <div className="exit-exterior__pane">
-          <video
-            ref={leftRef}
-            className="exit-exterior__split-video"
-            src={FILMS[leftIndex]}
-            muted
-            playsInline
-            autoPlay
-            preload="auto"
-            onEnded={() => setLeftIndex((current) => nextDifferent(current, rightIndex))}
-          />
-        </div>
-
-        <div className="exit-exterior__pane">
-          <video
-            ref={rightRef}
-            className="exit-exterior__split-video"
-            src={FILMS[rightIndex]}
-            muted
-            playsInline
-            autoPlay
-            preload="auto"
-            onEnded={() => setRightIndex((current) => nextDifferent(current, leftIndex))}
-          />
-        </div>
-      </div>
-
-    </>
+    <div className="exit-exterior__split" aria-hidden="true">
+      <FilmPane initial={initial[0]} avoidRef={rightNow} onChange={(index) => { leftNow.current = index; }} />
+      <FilmPane initial={initial[1]} avoidRef={leftNow} onChange={(index) => { rightNow.current = index; }} />
+    </div>
   );
 }

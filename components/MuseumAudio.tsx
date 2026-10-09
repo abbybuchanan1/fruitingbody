@@ -81,7 +81,9 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     panDepth: 0.035,
   },
   exit: {
-    src: "/media/video/exterior/exit-01.mp4",
+    // A 2.5-minute bed woven from the Courtyard film's sound, so the loop
+    // has no audible seam.
+    src: "/media/audio/courtyard.mp3",
     gain: 0.76,
     panDepth: 0.055,
   },
@@ -634,7 +636,7 @@ export function MuseumAudio() {
       ) : (
         <button
           type="button"
-          className={`ambient-sound-control ambient-sound-control--global${pathname.startsWith("/vestibule") ? " ambient-sound-control--vestibule" : ""}`}
+          className={`ambient-sound-control ambient-sound-control--global${pathname.startsWith("/vestibule") ? " ambient-sound-control--vestibule" : ""}${pathname === "/" ? " ambient-sound-control--entrance-on" : ""}`}
           onClick={() => {
             if (soundOnRef.current) stopSound();
             else void startSound();
