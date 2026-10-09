@@ -94,6 +94,11 @@ const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
 const PAN_MOVE_SECONDS = 18;
 const UNIFORM_PAN_DEPTH = 0.14;
 
+// Bilateral panning: every room's sound sweeps slowly left ↔ right on a sine
+// wave, 0.75 cycles per second, reaching most of the way to each side.
+const BILATERAL_RATE_HZ = 0.75;
+const BILATERAL_DEPTH = 0.85;
+
 function transitionDuration(from: EnvironmentKey, to: EnvironmentKey) {
   if (
     (from === "garden" && to === "grotto") ||
@@ -198,6 +203,14 @@ export function MuseumAudio() {
     master.gain.value = MASTER_GAIN;
     master.connect(context.destination);
 
+    const lfo = context.createOscillator();
+    lfo.type = "sine";
+    lfo.frequency.value = BILATERAL_RATE_HZ;
+    const lfoDepth = context.createGain();
+    lfoDepth.gain.value = BILATERAL_DEPTH;
+    lfo.connect(lfoDepth);
+    lfo.start();
+
     audioRefs.forEach((ref, index) => {
       const audio = ref.current;
       if (!audio) return;
@@ -209,6 +222,7 @@ export function MuseumAudio() {
       source.connect(gain);
       gain.connect(pan);
       pan.connect(master);
+      lfoDepth.connect(pan.pan);
       sourceNodesRef.current[index] = source;
       gainNodesRef.current[index] = gain;
       panNodesRef.current[index] = pan;
@@ -229,6 +243,12 @@ export function MuseumAudio() {
     const context = contextRef.current;
     const panNode = panNodesRef.current[index];
     if (!context || !panNode || !soundOnRef.current) return;
+    // The bilateral sweep now does the moving; keep the base pan centred.
+    if (BILATERAL_DEPTH > 0) {
+      panNode.pan.cancelScheduledValues(context.currentTime);
+      panNode.pan.setValueAtTime(0, context.currentTime);
+      return;
+    }
 
     const depth = UNIFORM_PAN_DEPTH;
     const move = () => {
