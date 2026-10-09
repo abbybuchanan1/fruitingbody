@@ -2030,3 +2030,24 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     right: .9rem !important;
   }
 }
+
+/* CURRENT (phone) — the photographs no longer step left and right past the
+   screen edge (which widened the page and left a pale strip); they hang
+   centred, and the dark wall covers the whole screen. */
+@media (max-width: 760px) {
+  .current-exhibition {
+    overflow-x: clip;
+    background-attachment: scroll, scroll !important;
+  }
+
+  .current-ember-work,
+  .current-ember-work:nth-child(n),
+  .current-ember-work.is-visible,
+  .current-ember-work:nth-child(n).is-visible {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+  }
+}
