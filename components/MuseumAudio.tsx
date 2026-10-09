@@ -80,6 +80,12 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
 };
 
 const MASTER_GAIN = 0.48;
+
+// Water Room: a running-water layer over the room's shared ambience. The
+// source is ~15 dB hotter than the ambience, so it sits low.
+const WATER_LAYER_SRC = "/media/audio/water-room-water.mp3";
+const WATER_LAYER_GAIN = 0.15;
+const WATER_LAYER_FADE_SECONDS = 2.6;
 const CROSSFADE_SECONDS = 3.4;
 const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
 const PAN_MOVE_SECONDS = 18;
@@ -177,6 +183,9 @@ export function MuseumAudio() {
   const environmentRef = useRef<EnvironmentKey>("exterior");
   const soundOnRef = useRef(false);
   const panTimerRef = useRef<number | null>(null);
+  const waterRef = useRef<HTMLAudioElement | null>(null);
+  const waterGainRef = useRef<GainNode | null>(null);
+  const waterActiveRef = useRef(false);
   const [soundOn, setSoundOn] = useState(false);
 
   const ensureGraph = () => {
@@ -204,9 +213,44 @@ export function MuseumAudio() {
       panNodesRef.current[index] = pan;
     });
 
+    const water = waterRef.current;
+    if (water) {
+      const waterSource = context.createMediaElementSource(water);
+      const waterGain = context.createGain();
+      waterGain.gain.value = 0;
+      waterSource.connect(waterGain);
+      waterGain.connect(master);
+      waterGainRef.current = waterGain;
+    }
+
     contextRef.current = context;
     masterRef.current = master;
     return context;
+  };
+
+  // Bring the water layer in or out (only in the Water Room, only with sound on).
+  const updateWaterLayer = (wanted: boolean) => {
+    const context = contextRef.current;
+    const water = waterRef.current;
+    const gain = waterGainRef.current;
+    if (!context || !water || !gain) return;
+    const now = context.currentTime;
+    const on = wanted && soundOnRef.current;
+    if (on === waterActiveRef.current && !(on && water.paused)) return;
+    waterActiveRef.current = on;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(gain.gain.value, now);
+    if (on) {
+      if (!water.getAttribute("src")) water.src = WATER_LAYER_SRC;
+      water.loop = true;
+      void water.play().catch(() => undefined);
+      gain.gain.linearRampToValueAtTime(WATER_LAYER_GAIN, now + WATER_LAYER_FADE_SECONDS);
+    } else {
+      gain.gain.linearRampToValueAtTime(0, now + WATER_LAYER_FADE_SECONDS);
+      window.setTimeout(() => {
+        if (!waterActiveRef.current) water.pause();
+      }, WATER_LAYER_FADE_SECONDS * 1000 + 150);
+    }
   };
 
   const schedulePanDrift = (index: 0 | 1, key: EnvironmentKey) => {
@@ -359,6 +403,7 @@ export function MuseumAudio() {
       await audio.play();
       gain.gain.linearRampToValueAtTime(environment.gain, context.currentTime + 0.9);
       schedulePanDrift(index, key);
+      updateWaterLayer(window.location.pathname.startsWith("/water-room"));
     } catch {
       soundOnRef.current = false;
       setSoundOn(false);
@@ -382,6 +427,8 @@ export function MuseumAudio() {
       gain.gain.setTargetAtTime(0, now, 0.16);
     });
 
+    updateWaterLayer(false);
+
     window.setTimeout(() => {
       audioRefs.forEach((ref) => ref.current?.pause());
     }, 650);
@@ -403,6 +450,7 @@ export function MuseumAudio() {
     const key = environmentForJump(pathname, jumpTarget) ?? environmentForPath(pathname);
     environmentRef.current = key;
     void transitionTo(key);
+    updateWaterLayer(pathname.startsWith("/water-room"));
 
     if (!pathname.startsWith("/exhibition")) return;
 
@@ -474,6 +522,10 @@ export function MuseumAudio() {
       if (activeAudio?.paused) {
         void activeAudio.play().catch(() => undefined);
       }
+
+      if (waterActiveRef.current && waterRef.current?.paused) {
+        void waterRef.current.play().catch(() => undefined);
+      }
     };
 
     const onVisibilityChange = () => {
@@ -501,6 +553,7 @@ export function MuseumAudio() {
     <>
       <audio ref={audioRefs[0]} aria-hidden="true" />
       <audio ref={audioRefs[1]} aria-hidden="true" />
+      <audio ref={waterRef} aria-hidden="true" />
 
       {pathname === "/" && !soundOn ? (
         <div className="soundscape-invitation" role="group" aria-label="Optional museum soundscape">
