@@ -1,11 +1,21 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { Jost } from "next/font/google";
 import "./globals.css";
 import "./next-pass.css";
 import "./claude-pass.css";
 import { SiteNav } from "@/components/SiteNav";
 import { MuseumAudio } from "@/components/MuseumAudio";
 import { RoomImageViewer } from "@/components/RoomImageViewer";
+
+// Wayfinding face for the Map, Index and Sound controls: a Futura-lineage
+// geometric sans, the kind used on printed museum plans and signage.
+const wayfinding = Jost({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-wayfinding",
+  display: "swap",
+});
 
 const siteTitle = "Fruiting Body — Abby Buchanan";
 const siteDescription =
@@ -41,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={wayfinding.variable}>
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <SiteNav />

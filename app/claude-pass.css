@@ -1615,3 +1615,183 @@
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
 }
+
+/* TOP ROW (trial, October 2026) — Sound · Map · Index along the top of every
+   room, set in a wayfinding face (Jost, Futura lineage) as on a printed
+   museum plan. Map is a long, nearly clear rectangle drawn with a hairline,
+   centred: the one obvious control. Sound and Index are quiet captions with a
+   hairline underline. Colours follow the room (light or dark). */
+.site-nav {
+  top: .9rem !important;
+  right: 1.2rem !important;
+  align-items: center !important;
+}
+
+.site-nav .site-nav__map {
+  top: .9rem !important;
+  padding: .55rem 3.3rem .55rem calc(3.3rem + .44em) !important;
+  border-radius: 0 !important;
+  font: 500 .86rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+  letter-spacing: .44em !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  box-shadow: none !important;
+}
+
+.site-nav[data-tone="light"] .site-nav__map {
+  background: rgba(250, 246, 238, .1) !important;
+  border: 1px solid rgba(32, 29, 27, .58) !important;
+  color: rgba(28, 25, 23, .94) !important;
+}
+
+.site-nav[data-tone="dark"] .site-nav__map {
+  background: rgba(14, 13, 11, .08) !important;
+  border: 1px solid rgba(243, 236, 223, .58) !important;
+  color: rgba(246, 240, 228, .95) !important;
+}
+
+.site-nav[data-tone="light"] .site-nav__map:hover,
+.site-nav[data-tone="light"] .site-nav__map:focus-visible {
+  background: rgba(250, 246, 238, .42) !important;
+}
+
+.site-nav[data-tone="dark"] .site-nav__map:hover,
+.site-nav[data-tone="dark"] .site-nav__map:focus-visible {
+  background: rgba(14, 13, 11, .32) !important;
+}
+
+/* Index and Sound: captions, not buttons. */
+.site-nav a,
+.ambient-sound-control.ambient-sound-control--global {
+  padding: .3rem 0 .26rem !important;
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  font: 400 .66rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+  letter-spacing: .3em !important;
+  text-transform: uppercase !important;
+  min-height: 0 !important;
+}
+
+.site-nav[data-tone="light"] a,
+html[data-nav-tone="light"] .ambient-sound-control--global {
+  color: rgba(28, 25, 23, .78) !important;
+  border-bottom-color: rgba(28, 25, 23, .3) !important;
+  text-shadow: 0 0 10px rgba(250, 246, 238, .7) !important;
+}
+
+.site-nav[data-tone="dark"] a,
+html[data-nav-tone="dark"] .ambient-sound-control--global {
+  color: rgba(246, 240, 228, .82) !important;
+  border-bottom-color: rgba(246, 240, 228, .34) !important;
+  text-shadow: 0 0 10px rgba(10, 9, 8, .6) !important;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.ambient-sound-control--global:hover,
+.ambient-sound-control--global:focus-visible {
+  background: none !important;
+  border-bottom-color: currentColor !important;
+}
+
+/* Sound joins the top row everywhere, mirroring Index. */
+.ambient-sound-control.ambient-sound-control--global {
+  position: fixed !important;
+  top: calc(.9rem + .62rem) !important;
+  left: 1.2rem !important;
+  right: auto !important;
+  bottom: auto !important;
+  gap: .5rem !important;
+}
+
+.site-nav {
+  top: calc(.9rem + .62rem) !important;
+}
+
+.ambient-sound-control--global .ambient-sound-control__icon {
+  width: .72rem !important;
+  height: .72rem !important;
+}
+
+@media (max-width: 700px) {
+  .site-nav .site-nav__map {
+    top: .7rem !important;
+    padding: .5rem 1.9rem .5rem calc(1.9rem + .36em) !important;
+    font-size: .72rem !important;
+    letter-spacing: .36em !important;
+  }
+
+  .site-nav,
+  .ambient-sound-control.ambient-sound-control--global {
+    top: calc(.7rem + .5rem) !important;
+  }
+
+  .site-nav {
+    right: .9rem !important;
+  }
+
+  .ambient-sound-control.ambient-sound-control--global {
+    left: .9rem !important;
+  }
+
+  .site-nav a,
+  .ambient-sound-control.ambient-sound-control--global {
+    font-size: .58rem !important;
+    letter-spacing: .22em !important;
+  }
+}
+
+/* INDEX — hierarchy. The small labels share the wayfinding face with the top
+   row, so the page reads: title → room → work → statement, with captions
+   quiet and consistent. The contact line stays on one line. */
+.index-page .utility-header__eyebrow,
+.index-page .utility-header .utility-header__contact,
+.index-room-group > h2,
+.index-work__meta {
+  font-family: var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+}
+
+.index-page .utility-header__eyebrow {
+  font-size: .7rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .34em !important;
+}
+
+.index-page .utility-header .utility-header__contact {
+  max-width: none !important;
+  white-space: nowrap;
+  font-size: .74rem !important;
+  font-weight: 400 !important;
+  letter-spacing: .12em !important;
+}
+
+.index-page .utility-header {
+  padding-bottom: clamp(1.5rem, 4vh, 3rem) !important;
+  margin-bottom: 0 !important;
+}
+
+.index-room-group > h2 {
+  font-size: .78rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .38em !important;
+  color: rgba(28, 25, 23, .9) !important;
+}
+
+.index-work__meta {
+  font-size: .64rem !important;
+  font-weight: 400 !important;
+  letter-spacing: .22em !important;
+  opacity: .7;
+}
+
+@media (max-width: 700px) {
+  .index-page .utility-header .utility-header__contact {
+    white-space: normal;
+    letter-spacing: .06em !important;
+  }
+}

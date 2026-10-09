@@ -92,21 +92,28 @@ export function SiteNav() {
   const [mapOpen, setMapOpen] = useState(false);
   const exhibitionLocation = useExhibitionLocation(pathname);
 
-  if (pathname === "/") {
-    return null;
-  }
-
   const currentLocation =
     pathname === "/exhibition"
       ? exhibitionLocation
       : getRouteLocation(pathname);
+  const tone = currentLocation && DARK_ROOMS.includes(currentLocation) ? "dark" : "light";
+
+  // The Sound control lives outside this nav, so the tone is also set on the
+  // page root for it to follow.
+  useEffect(() => {
+    document.documentElement.dataset.navTone = tone;
+  }, [tone]);
+
+  if (pathname === "/") {
+    return null;
+  }
 
   return (
     <>
       <nav
         className="site-nav"
         aria-label="Museum navigation"
-        data-tone={currentLocation && DARK_ROOMS.includes(currentLocation) ? "dark" : "light"}
+        data-tone={tone}
       >
         <button
           type="button"
