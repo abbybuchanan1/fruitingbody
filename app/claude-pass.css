@@ -2142,3 +2142,21 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     color: rgba(235, 225, 210, .62) !important;
   }
 }
+
+/* GROTTO → THRESHOLD — the transition no longer starts on a hard line: it
+   rises higher over the end of the Grotto and fades in over its first fifth,
+   while keeping its long fade into the Rear Gallery. Height grows with the
+   overlap, so the Rear Gallery still begins where it did. */
+.exhibition-transition--grotto-threshold {
+  height: 297vh !important;
+  margin-top: -40vh !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.2) 5%, rgba(0,0,0,.5) 10%, rgba(0,0,0,.82) 16%, #000 22%, #000 67%, rgba(0,0,0,.94) 73%, rgba(0,0,0,.78) 80%, rgba(0,0,0,.54) 87%, rgba(0,0,0,.28) 94%, transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.2) 5%, rgba(0,0,0,.5) 10%, rgba(0,0,0,.82) 16%, #000 22%, #000 67%, rgba(0,0,0,.94) 73%, rgba(0,0,0,.78) 80%, rgba(0,0,0,.54) 87%, rgba(0,0,0,.28) 94%, transparent 100%) !important;
+}
+
+@media (max-width: 760px) {
+  .exhibition-transition--grotto-threshold {
+    height: 173vh !important;
+    margin-top: -30vh !important;
+  }
+}
