@@ -2182,3 +2182,61 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   padding-left: .23em;
   text-align: center;
 }
+
+/* RED ROOM — the hanging fabric moves very slightly, as if in a breeze: each
+   panel sways from its top edge on its own slow rhythm. */
+@keyframes red-fabric-breeze {
+  0%   { transform: scaleY(1.015) translate3d(0, 0, 0) rotate(0deg); }
+  30%  { transform: scaleY(1.017) translate3d(.25%, .1%, 0) rotate(.12deg); }
+  62%  { transform: scaleY(1.014) translate3d(-.2%, -.05%, 0) rotate(-.08deg); }
+  100% { transform: scaleY(1.016) translate3d(.12%, .08%, 0) rotate(.05deg); }
+}
+
+.red-room-environment .environmental-panel-sequence__panel {
+  transform-origin: 50% 0 !important;
+  animation: red-fabric-breeze 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.red-room-environment .environmental-panel-sequence__panel-wrap:nth-child(2) .environmental-panel-sequence__panel {
+  animation-duration: 17s;
+  animation-delay: -4s;
+}
+
+.red-room-environment .environmental-panel-sequence__panel-wrap:nth-child(3) .environmental-panel-sequence__panel {
+  animation-duration: 15.5s;
+  animation-delay: -9s;
+}
+
+.red-room-environment .environmental-panel-sequence__panel-wrap:nth-child(4) .environmental-panel-sequence__panel {
+  animation-duration: 19s;
+  animation-delay: -2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .red-room-environment .environmental-panel-sequence__panel {
+    animation: none;
+  }
+}
+
+/* RED ROOM (phone) — the fabric runs the full length of the room: the panels
+   share the room's whole height (each cropped at the sides rather than
+   ending early), so the page never drops to plain pink. */
+@media (max-width: 760px) {
+  .red-room-environment.environmental-panel-sequence {
+    bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .red-room-environment .environmental-panel-sequence__panel-wrap {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+  }
+
+  .red-room-environment .environmental-panel-sequence__panel {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}

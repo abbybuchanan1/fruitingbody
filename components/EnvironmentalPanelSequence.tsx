@@ -17,7 +17,7 @@ export function EnvironmentalPanelSequence({ panels, className = "" }: Props) {
     <div className={classes} aria-hidden="true">
       {panels.map((panel, index) => (
         <div
-          key={panel.src}
+          key={`${index}-${panel.src}`}
           className="environmental-panel-sequence__panel-wrap"
           data-panel-index={index}
         >

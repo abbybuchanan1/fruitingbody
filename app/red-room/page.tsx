@@ -13,6 +13,11 @@ const redRoomEnvironment = [
   { src: "/media/architecture/red-room-environment-composite-B.jpg" },
   { src: "/media/architecture/red-room-environment-composite-C.jpg" },
   { src: "/media/architecture/red-room-environment-composite-D.jpg" },
+  // The fabric continues: the three textile panels repeat so the wall runs
+  // the full length of the room on tall phone layouts too.
+  { src: "/media/architecture/red-room-environment-composite-B.jpg" },
+  { src: "/media/architecture/red-room-environment-composite-C.jpg" },
+  { src: "/media/architecture/red-room-environment-composite-D.jpg" },
 ];
 
 export default function RedRoomPage() {
