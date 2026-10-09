@@ -15,9 +15,9 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   grotto: { x: 414, y: 204, w: 172, h: 150 },
   garden: { x: 414, y: 354, w: 172, h: 184 },
   "front-gallery": { x: 397, y: 556, w: 206, h: 48 },
-  "red-room": { x: 126, y: 190, w: 92, h: 374 },
-  "water-room": { x: 782, y: 190, w: 92, h: 374 },
-  "film-room": { x: 812, y: 250, w: 52, h: 78, z: 10 },
+  "red-room": { x: 110, y: 190, w: 108, h: 374 },
+  "water-room": { x: 782, y: 190, w: 108, h: 374 },
+  "film-room": { x: 806, y: 270, w: 44, h: 70, z: 10 },
   current: { x: 768, y: 612, w: 203, h: 64, z: 9 },
   vestibule: { x: 292, y: 630, w: 416, h: 50 },
   exterior: { x: 410, y: 680, w: 180, h: 20 },
@@ -27,6 +27,43 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   index: { x: 552, y: 43, w: 68, h: 55, z: 10 },
   archive: { x: 630, y: 43, w: 68, h: 55, z: 10 },
 };
+
+// The phone plan: the same building redrawn for a tall screen (viewBox
+// 400 × 800), with rooms wide enough for their names. Red Room and Water
+// Room are curved wings either side of the hall, as on desktop.
+const mobileBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
+  "exit-exterior": { x: 140, y: 6, w: 120, h: 30, z: 11 },
+  narthex: { x: 70, y: 46, w: 260, h: 104, z: 4 },
+  "reading-room": { x: 78, y: 58, w: 122, h: 60, z: 10 },
+  index: { x: 206, y: 58, w: 58, h: 60, z: 10 },
+  archive: { x: 268, y: 58, w: 56, h: 60, z: 10 },
+  "rear-gallery": { x: 130, y: 170, w: 140, h: 55 },
+  grotto: { x: 140, y: 245, w: 120, h: 157 },
+  garden: { x: 140, y: 402, w: 120, h: 158 },
+  "front-gallery": { x: 130, y: 580, w: 140, h: 55 },
+  "red-room": { x: 8, y: 200, w: 102, h: 420 },
+  "water-room": { x: 290, y: 200, w: 102, h: 420 },
+  "film-room": { x: 322, y: 300, w: 28, h: 80, z: 10 },
+  vestibule: { x: 110, y: 660, w: 180, h: 75 },
+  exterior: { x: 150, y: 740, w: 100, h: 30 },
+  current: { x: 296, y: 650, w: 96, h: 85, z: 9 },
+};
+
+// Curved wings (flat side on the hall wall, widest at the middle).
+const WINGS = {
+  desktop: {
+    red: "M218 190 Q2 377 218 564 Z",
+    water: "M782 190 Q998 377 782 564 Z",
+    cloisterLeft: "M372 206 Q304 371 372 536 Q360 371 372 206 Z",
+    cloisterRight: "M628 206 Q696 371 628 536 Q640 371 628 206 Z",
+  },
+  mobile: {
+    red: "M110 200 Q-94 410 110 620 Z",
+    water: "M290 200 Q494 410 290 620 Z",
+    cloisterLeft: "M136 250 Q96 405 136 560 Q126 405 136 250 Z",
+    cloisterRight: "M264 250 Q304 405 264 560 Q274 405 264 250 Z",
+  },
+} as const;
 
 function notifyAudioRoom(roomId: MuseumRoomId) {
   window.dispatchEvent(
@@ -49,9 +86,19 @@ function roomCollections(roomId: MuseumRoomId) {
   ];
 }
 
-function boxStyle(box?: MapBox): CSSProperties | undefined {
+function boxStyle(box?: MapBox, mbox?: MapBox): CSSProperties | undefined {
   if (!box) return undefined;
+  const mobile = mbox
+    ? {
+        "--mmap-left": `${mbox.x / 4}%`,
+        "--mmap-top": `${mbox.y / 8}%`,
+        "--mmap-width": `${mbox.w / 4}%`,
+        "--mmap-height": `${mbox.h / 8}%`,
+        "--mmap-z": mbox.z ?? 6,
+      }
+    : {};
   return {
+    ...mobile,
     "--map-left": `${box.x / 10}%`,
     "--map-top": `${(box.y / 700) * 100}%`,
     "--map-width": `${box.w / 10}%`,
@@ -60,32 +107,36 @@ function boxStyle(box?: MapBox): CSSProperties | undefined {
   } as CSSProperties;
 }
 
-function highlightShape(room: MuseumRoomId, key: string): ReactNode {
+function highlightShape(room: MuseumRoomId, key: string, mode: "desktop" | "mobile" = "desktop"): ReactNode {
+  const wings = WINGS[mode];
   if (room === "cloisters") {
     return (
       <g key={key}>
-        <path d="M372 206 Q304 371 372 536 Q360 371 372 206 Z" />
-        <path d="M628 206 Q696 371 628 536 Q640 371 628 206 Z" />
+        <path d={wings.cloisterLeft} />
+        <path d={wings.cloisterRight} />
       </g>
     );
   }
+  if (room === "red-room") return <path key={key} d={wings.red} />;
+  if (room === "water-room") return <path key={key} d={wings.water} />;
 
-  if (room === "reading-room") {
-    return <path key={key} d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />;
-  }
-  if (room === "index") {
-    return <path key={key} d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />;
-  }
-  if (room === "archive") {
-    return <path key={key} d="M630 53 Q630 43 642 43 H686 Q698 43 698 53 V98 H630 Z" />;
+  if (mode === "desktop") {
+    if (room === "reading-room") {
+      return <path key={key} d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />;
+    }
+    if (room === "index") {
+      return <path key={key} d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />;
+    }
+    if (room === "archive") {
+      return <path key={key} d="M630 53 Q630 43 642 43 H686 Q698 43 698 53 V98 H630 Z" />;
+    }
   }
 
-  const box = roomBoxes[room];
+  const box = (mode === "mobile" ? mobileBoxes : roomBoxes)[room];
   if (!box) return null;
 
   const rx =
-    room === "film-room" ? 8 :
-    room === "current" ? 2 :
+    room === "film-room" ? (mode === "mobile" ? 6 : 8) :
     room === "narthex" ? 0 :
     2;
 
@@ -144,7 +195,7 @@ export function MuseumMap({
         </div>
 
         <div className="museum-map__blueprint">
-          <svg className="museum-map__drawing" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+          <svg className="museum-map__drawing museum-map__drawing--desktop" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
             {currentLocation ? (
               <g className="museum-map__svg-highlight museum-map__svg-highlight--current">
                 {highlightShape(currentLocation, `current-${currentLocation}`)}
@@ -165,8 +216,8 @@ export function MuseumMap({
               <path d="M708 118 C754 118 782 149 782 192 V564 C782 608 755 630 708 630" />
               <path d="M292 630 H708" />
 
-              <path d="M126 190 H218 V564 H126 Z" />
-              <path d="M782 190 H874 V564 H782 Z" />
+              <path d={WINGS.desktop.red} />
+              <path d={WINGS.desktop.water} />
 
               <path d="M397 136 H603 V184 H397 Z" />
               <path d="M414 204 H586 V538 H414 Z" />
@@ -174,8 +225,8 @@ export function MuseumMap({
               <path d="M397 556 H603 V604 H397 Z" />
 
               {/* Cloisters: slim curved wings either side of the Garden and Grotto. */}
-              <path d="M372 206 Q304 371 372 536 Q360 371 372 206 Z" />
-              <path d="M628 206 Q696 371 628 536 Q640 371 628 206 Z" />
+              <path d={WINGS.desktop.cloisterLeft} />
+              <path d={WINGS.desktop.cloisterRight} />
 
               <path d="M292 630 H708 V680 H292 Z" />
               <path d="M454 630 C466 612 534 612 546 630" />
@@ -184,11 +235,54 @@ export function MuseumMap({
               <path d="M708 644 H768" />
               <rect x="768" y="612" width="203" height="64" rx="2" />
 
-              <rect x="812" y="250" width="52" height="78" rx="7" />
+              <rect x="806" y="270" width="44" height="70" rx="7" />
 
               <path d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />
               <path d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />
               <path d="M630 53 Q630 43 642 43 H686 Q698 43 698 53 V98 H630 Z" />
+            </g>
+          </svg>
+
+          <svg className="museum-map__drawing museum-map__drawing--mobile" viewBox="0 0 400 800" preserveAspectRatio="none" aria-hidden="true">
+            {currentLocation ? (
+              <g className="museum-map__svg-highlight museum-map__svg-highlight--current">
+                {highlightShape(currentLocation, `m-current-${currentLocation}`, "mobile")}
+              </g>
+            ) : null}
+
+            {hoveredRoom && hoveredRoom !== currentLocation ? (
+              <g className="museum-map__svg-highlight museum-map__svg-highlight--hover">
+                {highlightShape(hoveredRoom, `m-hover-${hoveredRoom}`, "mobile")}
+              </g>
+            ) : null}
+
+            <g className="museum-map__drawing-primary">
+              <rect x="140" y="6" width="120" height="30" rx="2" />
+              <path d="M200 36 V46" />
+              <path d="M70 46 H330 V150 H70 Z" />
+              <rect x="78" y="58" width="122" height="60" rx="6" />
+              <rect x="206" y="58" width="58" height="60" rx="6" />
+              <rect x="268" y="58" width="56" height="60" rx="6" />
+
+              <path d="M150 150 H250 Q290 150 290 190 V620 Q290 660 250 660 H150 Q110 660 110 620 V190 Q110 150 150 150 Z" />
+
+              <path d={WINGS.mobile.red} />
+              <path d={WINGS.mobile.water} />
+              <rect x="322" y="300" width="28" height="80" rx="6" />
+
+              <rect x="130" y="170" width="140" height="55" rx="2" />
+              <path d={WINGS.mobile.cloisterLeft} />
+              <path d={WINGS.mobile.cloisterRight} />
+              <path d="M140 245 H260 V560 H140 Z" />
+              <path d="M140 402 H260" />
+              <rect x="130" y="580" width="140" height="55" rx="2" />
+
+              <path d="M110 660 H290 V735 H110 Z" />
+              <path d="M182 660 Q200 644 218 660" />
+              <rect x="150" y="740" width="100" height="30" rx="2" />
+
+              <path d="M290 697 H296" />
+              <rect x="296" y="650" width="96" height="85" rx="2" />
             </g>
           </svg>
 
@@ -241,7 +335,7 @@ export function MuseumMap({
               <div
                 key={room.id}
                 className="museum-map__room museum-map__room--canonical"
-                style={boxStyle(box)}
+                style={boxStyle(box, mobileBoxes[room.id])}
                 data-map-box={box ? "true" : "false"}
                 data-room={room.id}
                 data-group={room.mapGroup}

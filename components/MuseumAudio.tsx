@@ -89,7 +89,7 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
 
 const MASTER_GAIN = 0.48;
 
-const CROSSFADE_SECONDS = 3.4;
+const CROSSFADE_SECONDS = 4.5;
 const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
 const PAN_MOVE_SECONDS = 18;
 const UNIFORM_PAN_DEPTH = 0.14;
@@ -322,8 +322,7 @@ export function MuseumAudio() {
         try {
           await currentAudio.play();
         } catch {
-          soundOnRef.current = false;
-          setSoundOn(false);
+          armGestureResume();
           return;
         }
       }
@@ -353,8 +352,13 @@ export function MuseumAudio() {
     try {
       await nextAudio.play();
     } catch {
-      soundOnRef.current = false;
-      setSoundOn(false);
+      // Phones can refuse to start audio outside a tap. Keep the room's sound
+      // set up and start it on the visitor's next touch; sound stays on.
+      const duration = immediate ? 0.45 : transitionDuration(previousKey, nextKey);
+      nextGain.gain.linearRampToValueAtTime(nextEnvironment.gain, context.currentTime + duration);
+      activeIndexRef.current = nextIndex;
+      silenceInactive(duration);
+      armGestureResume();
       return;
     }
 
@@ -366,11 +370,31 @@ export function MuseumAudio() {
     schedulePanDrift(nextIndex, nextKey);
   };
 
+  // Unlock both audio elements inside the visitor's tap, so later room
+  // changes may start them without another tap (required on iPhone).
+  const unlockElements = () => {
+    audioRefs.forEach((ref, index) => {
+      const audio = ref.current;
+      if (!audio || index === activeIndexRef.current) return;
+      if (!audio.getAttribute("src")) audio.src = ENVIRONMENTS[environmentRef.current].src;
+      const attempt = audio.play();
+      void attempt?.then(() => {
+        if (index !== activeIndexRef.current) audio.pause();
+      }).catch(() => undefined);
+    });
+  };
+
   const startSound = async () => {
     const context = ensureGraph();
+    unlockElements();
     await context.resume();
     soundOnRef.current = true;
     setSoundOn(true);
+    try {
+      window.sessionStorage.setItem("fb-sound", "on");
+    } catch {
+      // storage unavailable: sound simply won't be remembered across reloads
+    }
 
     const key = environmentRef.current;
     const index = activeIndexRef.current;
@@ -392,9 +416,46 @@ export function MuseumAudio() {
       gain.gain.linearRampToValueAtTime(environment.gain, context.currentTime + 0.9);
       schedulePanDrift(index, key);
     } catch {
-      soundOnRef.current = false;
-      setSoundOn(false);
+      armGestureResume();
     }
+  };
+
+  // Restart the current room's sound on the next touch, click or key press.
+  const gestureArmedRef = useRef(false);
+  const armGestureResume = () => {
+    if (gestureArmedRef.current) return;
+    gestureArmedRef.current = true;
+    const resume = () => {
+      window.removeEventListener("pointerdown", resume, true);
+      window.removeEventListener("touchend", resume, true);
+      window.removeEventListener("keydown", resume, true);
+      gestureArmedRef.current = false;
+      if (!soundOnRef.current) return;
+      const context = ensureGraph();
+      unlockElements();
+      const index = activeIndexRef.current;
+      const audio = audioRefs[index].current;
+      const gain = gainNodesRef.current[index];
+      const environment = ENVIRONMENTS[environmentRef.current];
+      if (audio && !audio.getAttribute("src")) {
+        audio.src = environment.src;
+        audio.loop = true;
+      }
+      void context.resume().then(() => {
+        if (!audio) return;
+        void audio.play().then(() => {
+          if (gain) {
+            const now = context.currentTime;
+            gain.gain.cancelScheduledValues(now);
+            gain.gain.setValueAtTime(gain.gain.value, now);
+            gain.gain.linearRampToValueAtTime(environment.gain, now + 0.9);
+          }
+        }).catch(() => armGestureResume());
+      });
+    };
+    window.addEventListener("pointerdown", resume, true);
+    window.addEventListener("touchend", resume, true);
+    window.addEventListener("keydown", resume, true);
   };
 
   const stopSound = () => {
@@ -402,6 +463,11 @@ export function MuseumAudio() {
     const now = context?.currentTime ?? 0;
     soundOnRef.current = false;
     setSoundOn(false);
+    try {
+      window.sessionStorage.removeItem("fb-sound");
+    } catch {
+      // ignore
+    }
 
     if (panTimerRef.current !== null) {
       window.clearTimeout(panTimerRef.current);
@@ -418,6 +484,21 @@ export function MuseumAudio() {
       audioRefs.forEach((ref) => ref.current?.pause());
     }, 650);
   };
+
+  // Sound turned on earlier in this visit stays on after a full page load:
+  // it is shown as on and starts with the visitor's first touch.
+  useEffect(() => {
+    let remembered = false;
+    try {
+      remembered = window.sessionStorage.getItem("fb-sound") === "on";
+    } catch {
+      remembered = false;
+    }
+    if (!remembered) return;
+    soundOnRef.current = true;
+    setSoundOn(true);
+    armGestureResume();
+  }, []);
 
   useEffect(() => {
     const handleMapAudioRoom = (event: Event) => {

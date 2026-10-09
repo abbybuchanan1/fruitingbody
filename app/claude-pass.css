@@ -1888,3 +1888,100 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     right: auto !important;
   }
 }
+
+/* INDEX (phone) — the contact line breaks deliberately: name and email on one
+   line, Statement · Bio · CV on the next. */
+.utility-header__contact-who,
+.utility-header__contact-links {
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .utility-header__contact-sep {
+    display: none;
+  }
+
+  .utility-header__contact-links {
+    display: block;
+    margin-top: .45rem;
+  }
+}
+
+/* TOP ROW — "Sound off" stays on one line. */
+.ambient-sound-control--global span:not(.ambient-sound-control__icon) {
+  white-space: nowrap !important;
+}
+
+/* MAP — two drawings: the wide plan on desktop, a tall plan on phones. */
+.museum-map__drawing--mobile {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .museum-map__drawing--desktop {
+    display: none !important;
+  }
+
+  .museum-map__drawing--mobile {
+    display: block !important;
+  }
+
+  /* Rooms sit on the phone plan's coordinates. */
+  .museum-map__room--canonical[data-map-box="true"] {
+    left: var(--mmap-left) !important;
+    top: var(--mmap-top) !important;
+    width: var(--mmap-width) !important;
+    height: var(--mmap-height) !important;
+    z-index: var(--mmap-z) !important;
+  }
+
+  /* One size for every room name (Vestibule and Narthex included); the three
+     small rooms inside the Narthex a step smaller. */
+  .museum-map__room--canonical .museum-map__room-name {
+    font-size: 8px !important;
+    letter-spacing: .1em !important;
+  }
+
+  .museum-map__room--canonical[data-room="reading-room"] .museum-map__room-name,
+  .museum-map__room--canonical[data-room="index"] .museum-map__room-name,
+  .museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+    font-size: 7px !important;
+    letter-spacing: .06em !important;
+  }
+
+  /* Film Room reads vertically, like the Cloisters. */
+  .museum-map__room--canonical[data-room="film-room"] .museum-map__room-name--stacked {
+    writing-mode: vertical-rl !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: .45em !important;
+    white-space: nowrap !important;
+  }
+
+  /* Daffodils' long title wraps inside the Garden. */
+  .museum-map__room--canonical[data-room="garden"] .museum-map__collections {
+    max-width: 88px !important;
+  }
+
+  .museum-map__room--canonical[data-room="red-room"] .museum-map__collections,
+  .museum-map__room--canonical[data-room="water-room"] .museum-map__collections,
+  .museum-map__room--canonical[data-room="current"] .museum-map__collections {
+    max-width: 78px !important;
+  }
+
+  /* Cloister labels sit inside the phone plan's wings. */
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+    top: 31.25% !important;
+    height: 38.75% !important;
+    width: 3.75% !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--left {
+    left: 29% !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--right {
+    left: 67.25% !important;
+  }
+}
