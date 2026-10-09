@@ -5,29 +5,33 @@ export const showInterpretiveQuestions = false;
 
 export const artistStatement = [
   "I use self-portraiture to investigate what it means to inhabit a body that is singular and also embedded in larger systems: ecological, relational, biological, inherited, and temporal.",
-  "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water, gravity, weather, grief, desire, lineage, motherhood, seasonality, and time.",
-  "I return often to agency inside conditions that cannot be fully controlled. Agency may look like choosing, witnessing, tending, participating, remaining present, or deciding how to inhabit what cannot simply be escaped. Myth gives me a structure for entering those questions without turning the photographs into illustrations of a story.",
-  "Landscape operates in a similar way. Bodies and landscapes are shaped by many of the same processes: gravity, erosion, growth, permeability, decay, and seasonal change. I think of that relationship as kinship.",
-  "Making these photographs has paralleled my own movement toward a more integrated sense of self, one capable of holding motherhood, neurodivergence, artistic practice, embodiment, and repeated cycles of descent and emergence without requiring those identities to resolve into one stable version of me.",
+  "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water and land, myth, cloth and ritual objects, grief, desire, lineage, and time.",
+  "I return often to agency inside conditions that cannot be fully controlled. Agency may look like choosing, witnessing, tending, or deciding how to inhabit what cannot simply be escaped. Myth gives me a structure for entering those questions without turning the photographs into illustrations of a story.",
+  "Landscape works in a similar way. Bodies and landscapes are shaped by many of the same processes: gravity, erosion, growth, permeability, decay, and seasonal change. I think of that relationship as kinship.",
+  "Making these photographs has paralleled my own movement toward a more integrated sense of self, one that can hold motherhood, neurodivergence, artistic practice, and repeated cycles of descent and emergence without needing them to resolve into one stable version of me.",
 ];
 
 export const processStatement = [
-  "Each body of work usually begins with a question, a physical state, or something I cannot quite reach through language. I carry that into a material, place, gesture, or repeated action and let the body enter it first.",
-  "I rarely previsualize individual photographs in detail. I often use video, burst capture, or rapid sequences so the encounter can keep moving without stopping to compose every frame. The camera functions as both mirror and witness. It records what I am doing and also returns something I could not fully perceive from inside the experience.",
-  "Selection comes afterward. Looking through the images often gives me information I did not have while I was making them. The photographs become traces of the encounter and a way of discovering what happened there.",
-  "When accidental blurs, distortions, light leaks, reflections, or other optical events belong to the inquiry, I keep them. Most images are minimally edited; Body of Water is the exception, with more extensive editing of light, contrast and sharpness. A Miscarriage and Phase were made with a tintype-style app, a technique I learned from Catherine Just. Two works in This Morning I Was Gathering Daffodils are digital collages built from my own footage; their captions say so.",
+  "Each body of work usually begins with a question, a physical state, or something I can’t quite reach through language. I carry it into a material, a place, a gesture, or a repeated action, and let my body enter it first.",
+  "Posing for the camera made me so self-conscious I could barely work. I found my stride when I began treating each shoot as a moving meditation: a real-time exploration of an idea through materials and surroundings.",
+  "I rarely previsualize individual photographs. I often use video, burst capture, or rapid sequences so the encounter can keep moving without stopping to compose each frame. The camera acts as both mirror and witness. It records what I am doing and returns something I couldn’t fully perceive from inside the experience.",
+  "Selection comes afterward. Looking through the images often tells me things I didn’t know while I was making them. The photographs become traces of the encounter and a way of discovering what happened there.",
+  "Most images are minimally edited. When blur, distortion, light leaks, reflections, or other accidents belong to the inquiry, I keep them as they were captured. The Fall is a frame from the moment I knocked over my tripod mid-shoot. I hadn’t known how to make an image of Persephone’s descent; looking back through the footage, this frame held the instability of that moment exactly, and I loved that its title became true in more ways than one.",
+  "Body of Water is the exception, with more extensive editing of light, contrast, and sharpness.",
+  "A Miscarriage and Phase were made with tintype-style editing techniques I learned from photographer Catherine Just.",
+  "Hades and The Return, from This Morning I Was Gathering Daffodils, are digital collages built from my own photographic footage. Their color and tone draw on Renaissance and Baroque painting.",
 ];
 
 export const fruitingBodyStatement = [
   "Fruiting Body is an evolving digital exhibition and archive of my photographic work and poetry.",
-  "The title refers to the visible, temporary structure through which a larger living system emerges. I think of the works similarly: individual manifestations of longer processes involving embodiment, memory, ecology, relationship, and change.",
-  "The museum is organized through recurring themes, visual forms, and states of transformation rather than chronology. Bodies, landscapes, water, thresholds, openings, cycles, and acts of witnessing recur across projects made at different times and under different circumstances.",
-  "The site allows the bodies of work to remain distinct while making their deeper relationships visible.",
+  "A fruiting body is the visible, temporary structure through which a larger living system emerges. I think of the works the same way: individual manifestations of longer processes of embodiment, memory, ecology, relationship, and change.",
+  "The museum is organized by theme, visual form, and states of transformation rather than chronology. Bodies, landscapes, water, thresholds, cycles, and acts of witnessing return across projects made at different times and under different circumstances.",
+  "The site lets each body of work stay distinct while making their deeper relationships visible.",
 ];
 
 export const artistBio = [
-  "Abby Buchanan is a Portland, Oregon–based photographic artist working primarily in self-portraiture. Her practice investigates embodiment, ecological identity, transformation, permeability, and agency within conditions that cannot be fully controlled.",
-  "After two decades of professional work in massage therapy, somatic practice, and other forms of bodywork, she began using photography as a form of embodied inquiry. Her images draw on motherhood, neurodivergence, myth, ecology, embodiment, and lived processes of transformation.",
+  "Abby Buchanan is a photographic artist based in Portland, Oregon, working primarily in self-portraiture.",
+  "After two decades as a licensed massage therapist and bodyworker, she began using photography as a form of embodied inquiry. Her work draws on motherhood, neurodivergence, myth, and the natural world.",
 ];
 
 // CV — newest first within each section. Add sections (Exhibitions,
