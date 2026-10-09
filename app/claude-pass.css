@@ -2112,3 +2112,33 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     animation: none !important;
   }
 }
+
+/* GARDEN → GROTTO — a longer, layered handover: the transition image starts
+   higher, overlapping the end of the Garden wall, and fades in over a third
+   of its height instead of beginning on a visible edge. (Heights grow by the
+   same amount the overlap does, so the Grotto still begins where it did.) */
+.exhibition-transition--garden-grotto {
+  height: 210vh !important;
+  margin-top: -45vh !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.18) 8%, rgba(0,0,0,.45) 16%, rgba(0,0,0,.78) 26%, #000 36%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.18) 8%, rgba(0,0,0,.45) 16%, rgba(0,0,0,.78) 26%, #000 36%) !important;
+}
+
+@media (max-width: 760px) {
+  .exhibition-transition--garden-grotto {
+    height: 166vh !important;
+    margin-top: -32vh !important;
+  }
+}
+
+/* A MISCARRIAGE (phone) — titles as small and quiet as the other rooms'. */
+@media (max-width: 760px) {
+  .grotto-section--miscarriage .miscarriage-votive .miscarriage-votive__title {
+    margin-top: .9rem !important;
+    font: 500 .66rem/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    letter-spacing: .085em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    color: rgba(235, 225, 210, .62) !important;
+  }
+}
