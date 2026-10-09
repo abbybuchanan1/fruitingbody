@@ -11,6 +11,7 @@ type EnvironmentKey =
   | "quiet"
   | "grotto"
   | "red-water-narthex"
+  | "water-room"
   | "cloisters"
   | "film-room"
   | "exit";
@@ -59,6 +60,13 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     gain: 0.76,
     panDepth: 0.06,
   },
+  "water-room": {
+    // A close fountain with the room's own air and a distant city in it;
+    // replaces the shared Red Room / Narthex ambience here.
+    src: "/media/audio/water-room.mp3",
+    gain: 0.32,
+    panDepth: 0.06,
+  },
   cloisters: {
     src: "/media/audio/cloister-new.mp3",
     // The cloister file is mastered ~11 dB hotter than the Narthex and Water
@@ -81,11 +89,6 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
 
 const MASTER_GAIN = 0.48;
 
-// Water Room: a running-water layer over the room's shared ambience. The
-// source is ~15 dB hotter than the ambience, so it sits low.
-const WATER_LAYER_SRC = "/media/audio/water-room-water.mp3";
-const WATER_LAYER_GAIN = 0.15;
-const WATER_LAYER_FADE_SECONDS = 2.6;
 const CROSSFADE_SECONDS = 3.4;
 const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
 const PAN_MOVE_SECONDS = 18;
@@ -105,7 +108,7 @@ function environmentForPath(pathname: string): EnvironmentKey {
   if (pathname === "/") return "exterior";
   if (pathname.startsWith("/vestibule")) return "vestibule";
   if (pathname.startsWith("/red-room")) return "red-water-narthex";
-  if (pathname.startsWith("/water-room")) return "red-water-narthex";
+  if (pathname.startsWith("/water-room")) return "water-room";
   if (pathname.startsWith("/narthex")) return "red-water-narthex";
   if (pathname.startsWith("/current")) return "gallery";
   if (pathname.startsWith("/cloisters")) return "cloisters";
@@ -130,7 +133,7 @@ function environmentForJump(pathname: string, jumpTarget: string | null): Enviro
   }
 
   if (pathname.startsWith("/red-room")) return "red-water-narthex";
-  if (pathname.startsWith("/water-room")) return "red-water-narthex";
+  if (pathname.startsWith("/water-room")) return "water-room";
   return null;
 }
 
@@ -147,8 +150,9 @@ function environmentForMapRoom(roomId: string): EnvironmentKey {
       return "garden";
     case "grotto":
       return "grotto";
-    case "red-room":
     case "water-room":
+      return "water-room";
+    case "red-room":
     case "narthex":
       return "red-water-narthex";
     case "cloisters":
@@ -183,9 +187,6 @@ export function MuseumAudio() {
   const environmentRef = useRef<EnvironmentKey>("exterior");
   const soundOnRef = useRef(false);
   const panTimerRef = useRef<number | null>(null);
-  const waterRef = useRef<HTMLAudioElement | null>(null);
-  const waterGainRef = useRef<GainNode | null>(null);
-  const waterActiveRef = useRef(false);
   const [soundOn, setSoundOn] = useState(false);
 
   const ensureGraph = () => {
@@ -213,45 +214,12 @@ export function MuseumAudio() {
       panNodesRef.current[index] = pan;
     });
 
-    const water = waterRef.current;
-    if (water) {
-      const waterSource = context.createMediaElementSource(water);
-      const waterGain = context.createGain();
-      waterGain.gain.value = 0;
-      waterSource.connect(waterGain);
-      waterGain.connect(master);
-      waterGainRef.current = waterGain;
-    }
 
     contextRef.current = context;
     masterRef.current = master;
     return context;
   };
 
-  // Bring the water layer in or out (only in the Water Room, only with sound on).
-  const updateWaterLayer = (wanted: boolean) => {
-    const context = contextRef.current;
-    const water = waterRef.current;
-    const gain = waterGainRef.current;
-    if (!context || !water || !gain) return;
-    const now = context.currentTime;
-    const on = wanted && soundOnRef.current;
-    if (on === waterActiveRef.current && !(on && water.paused)) return;
-    waterActiveRef.current = on;
-    gain.gain.cancelScheduledValues(now);
-    gain.gain.setValueAtTime(gain.gain.value, now);
-    if (on) {
-      if (!water.getAttribute("src")) water.src = WATER_LAYER_SRC;
-      water.loop = true;
-      void water.play().catch(() => undefined);
-      gain.gain.linearRampToValueAtTime(WATER_LAYER_GAIN, now + WATER_LAYER_FADE_SECONDS);
-    } else {
-      gain.gain.linearRampToValueAtTime(0, now + WATER_LAYER_FADE_SECONDS);
-      window.setTimeout(() => {
-        if (!waterActiveRef.current) water.pause();
-      }, WATER_LAYER_FADE_SECONDS * 1000 + 150);
-    }
-  };
 
   const schedulePanDrift = (index: 0 | 1, key: EnvironmentKey) => {
     if (panTimerRef.current !== null) {
@@ -403,7 +371,6 @@ export function MuseumAudio() {
       await audio.play();
       gain.gain.linearRampToValueAtTime(environment.gain, context.currentTime + 0.9);
       schedulePanDrift(index, key);
-      updateWaterLayer(window.location.pathname.startsWith("/water-room"));
     } catch {
       soundOnRef.current = false;
       setSoundOn(false);
@@ -427,8 +394,6 @@ export function MuseumAudio() {
       gain.gain.setTargetAtTime(0, now, 0.16);
     });
 
-    updateWaterLayer(false);
-
     window.setTimeout(() => {
       audioRefs.forEach((ref) => ref.current?.pause());
     }, 650);
@@ -450,7 +415,6 @@ export function MuseumAudio() {
     const key = environmentForJump(pathname, jumpTarget) ?? environmentForPath(pathname);
     environmentRef.current = key;
     void transitionTo(key);
-    updateWaterLayer(pathname.startsWith("/water-room"));
 
     if (!pathname.startsWith("/exhibition")) return;
 
@@ -522,10 +486,6 @@ export function MuseumAudio() {
       if (activeAudio?.paused) {
         void activeAudio.play().catch(() => undefined);
       }
-
-      if (waterActiveRef.current && waterRef.current?.paused) {
-        void waterRef.current.play().catch(() => undefined);
-      }
     };
 
     const onVisibilityChange = () => {
@@ -553,7 +513,6 @@ export function MuseumAudio() {
     <>
       <audio ref={audioRefs[0]} aria-hidden="true" />
       <audio ref={audioRefs[1]} aria-hidden="true" />
-      <audio ref={waterRef} aria-hidden="true" />
 
       {pathname === "/" && !soundOn ? (
         <div className="soundscape-invitation" role="group" aria-label="Optional museum soundscape">
