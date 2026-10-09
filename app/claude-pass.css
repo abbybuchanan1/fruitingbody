@@ -1872,3 +1872,19 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     margin-left: 67.5% !important;
   }
 }
+
+/* VESTIBULE (phone) — with Sound now in the top row, Current moves to the far
+   right, as on desktop and on the map, its rule on the outer side. */
+@media (max-width: 700px) {
+  .vestibule__side-passages .architectural-link:nth-child(3) {
+    left: auto !important;
+    right: 28px !important;
+    text-align: right !important;
+    justify-content: flex-end !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(3)::before {
+    left: calc(100% + 9px) !important;
+    right: auto !important;
+  }
+}
