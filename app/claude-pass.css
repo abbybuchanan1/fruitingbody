@@ -1631,7 +1631,7 @@
   top: .9rem !important;
   padding: .55rem 3.3rem .55rem calc(3.3rem + .44em) !important;
   border-radius: 0 !important;
-  font: 500 .86rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+  font: 400 .86rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
   letter-spacing: .44em !important;
   backdrop-filter: blur(4px) !important;
   -webkit-backdrop-filter: blur(4px) !important;
@@ -1679,6 +1679,9 @@
 
 .site-nav[data-tone="light"] a,
 html[data-nav-tone="light"] .ambient-sound-control--global {
+  border-width: 0 0 1px !important;
+  border-style: solid !important;
+  background: none !important;
   color: rgba(28, 25, 23, .78) !important;
   border-bottom-color: rgba(28, 25, 23, .3) !important;
   text-shadow: 0 0 10px rgba(250, 246, 238, .7) !important;
@@ -1686,6 +1689,9 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
 
 .site-nav[data-tone="dark"] a,
 html[data-nav-tone="dark"] .ambient-sound-control--global {
+  border-width: 0 0 1px !important;
+  border-style: solid !important;
+  background: none !important;
   color: rgba(246, 240, 228, .82) !important;
   border-bottom-color: rgba(246, 240, 228, .34) !important;
   text-shadow: 0 0 10px rgba(10, 9, 8, .6) !important;
@@ -1794,4 +1800,33 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     white-space: normal;
     letter-spacing: .06em !important;
   }
+}
+
+/* TITLE CARDS — hierarchy. The room label and "Artist reflection" share the
+   wayfinding face with the top row; the statement leads, the content note
+   follows at the same size but one step quieter. */
+.work-intro-card .work-intro-card__room,
+.work-intro-card .work-intro-card__reflection summary {
+  font-family: var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+}
+
+.work-intro-card .work-intro-card__room {
+  font-size: .7rem !important;
+  letter-spacing: .34em !important;
+}
+
+.work-intro-card .work-intro-card__reflection summary {
+  font-size: .68rem !important;
+  letter-spacing: .26em !important;
+}
+
+/* A Miscarriage: the note had become brighter than the statement. */
+.grotto-section--miscarriage .work-intro-card__statement {
+  color: rgba(232, 222, 205, .9) !important;
+}
+
+.grotto-section--miscarriage .work-intro-card__note {
+  color: rgba(224, 214, 197, .7) !important;
 }
