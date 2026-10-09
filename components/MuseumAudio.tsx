@@ -372,7 +372,7 @@ export function MuseumAudio() {
 
   // Unlock both audio elements inside the visitor's tap, so later room
   // changes may start them without another tap (required on iPhone).
-  const unlockElements = () => {
+  const unlockElements = (): void => {
     audioRefs.forEach((ref, index) => {
       const audio = ref.current;
       if (!audio || index === activeIndexRef.current) return;
@@ -422,7 +422,7 @@ export function MuseumAudio() {
 
   // Restart the current room's sound on the next touch, click or key press.
   const gestureArmedRef = useRef(false);
-  const armGestureResume = () => {
+  const armGestureResume = (): void => {
     if (gestureArmedRef.current) return;
     gestureArmedRef.current = true;
     const resume = () => {
@@ -450,7 +450,9 @@ export function MuseumAudio() {
             gain.gain.setValueAtTime(gain.gain.value, now);
             gain.gain.linearRampToValueAtTime(environment.gain, now + 0.9);
           }
-        }).catch(() => armGestureResume());
+        }).catch(() => {
+          armGestureResume();
+        });
       });
     };
     window.addEventListener("pointerdown", resume, true);
