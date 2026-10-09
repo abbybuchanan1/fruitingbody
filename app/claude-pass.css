@@ -1531,3 +1531,87 @@
 .site-nav[data-tone="dark"] a:focus-visible {
   background: rgba(14, 13, 11, .4) !important;
 }
+
+/* MAP ON PHONES — the plan keeps its outlines, as on desktop. Each room's
+   name (and its sets, as quiet text) is centred on its box, spilling evenly
+   past narrow walls. On a phone the whole room box is the link; the sets are
+   listed for orientation but are not separate links (too small to tap). */
+@media (max-width: 760px) {
+  .museum-map__blueprint {
+    overflow: visible !important;
+  }
+
+  .museum-map__drawing {
+    display: block !important;
+  }
+
+  .museum-map__room--canonical {
+    position: absolute !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    text-align: center !important;
+  }
+
+  .museum-map__room--canonical .museum-map__room-name {
+    display: block;
+    font-size: 8px !important;
+    letter-spacing: .1em !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+  }
+
+  .museum-map__room--canonical .museum-map__room-name--stacked {
+    white-space: normal !important;
+  }
+
+  .museum-map__room--canonical .museum-map__collections {
+    width: max-content !important;
+    max-width: 86px !important;
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+    gap: 2px !important;
+    pointer-events: none !important;
+  }
+
+  .museum-map__room--canonical .museum-map__collection {
+    pointer-events: none !important;
+  }
+
+  /* The Narthex name sits along its lower wall, below the three rooms
+     inside it. */
+  .museum-map__room--canonical[data-room="narthex"] {
+    justify-content: flex-end !important;
+    padding-bottom: 3px !important;
+  }
+
+  .museum-map__cloister-label {
+    font-size: 7.5px !important;
+    letter-spacing: .1em !important;
+  }
+
+  /* A soft paper-coloured halo lifts the lettering off any wall it crosses. */
+  .museum-map__room--canonical .museum-map__room-name,
+  .museum-map__room--canonical .museum-map__collections,
+  .museum-map__cloister-label {
+    text-shadow:
+      0 0 2px rgb(239, 235, 225),
+      0 0 3px rgb(239, 235, 225),
+      0 0 5px rgb(239, 235, 225) !important;
+  }
+}
+
+/* The map sheet blurs whatever page sits behind it, so the room's own
+   buttons and labels don't ghost through the plan. */
+.museum-map {
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
