@@ -1420,26 +1420,6 @@
   background: rgba(246, 241, 231, .66) !important;
 }
 
-/* MAP + INDEX on the dark rooms (Vestibule, Courtyard): a dark translucent
-   card with light lettering, like the Water Room title card, so they stay
-   readable without glaring. */
-body:has(.vestibule) .site-nav .site-nav__map,
-body:has(.exit-exterior) .site-nav .site-nav__map,
-body:has(.vestibule) .site-nav a,
-body:has(.exit-exterior) .site-nav a {
-  background: rgba(22, 26, 22, .5) !important;
-  border-color: rgba(241, 234, 220, .2) !important;
-  color: rgba(243, 236, 223, .92) !important;
-  box-shadow: none !important;
-}
-
-body:has(.vestibule) .site-nav .site-nav__map:hover,
-body:has(.exit-exterior) .site-nav .site-nav__map:hover,
-body:has(.vestibule) .site-nav a:hover,
-body:has(.exit-exterior) .site-nav a:hover {
-  background: rgba(22, 26, 22, .7) !important;
-}
-
 /* NARTHEX — hierarchy: the room's name reads as the title under the Map
    control, the Courtyard panel sits a step below it, and the small
    "Go to" / "Return to" captions are legible. */
@@ -1457,4 +1437,97 @@ body:has(.exit-exterior) .site-nav a:hover {
 
 .narthex-room__returns-label {
   opacity: .52 !important;
+}
+
+/* DAFFODILS — all six frames hang larger, on desktop and phone. (The mobile
+   sizes must come after the desktop ones, which carry no media query.) */
+/* The four upright frames are 9:16 and were capped at 90% of the screen's
+   height; they now fill the full screen height. */
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(4),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+  width: min(56.25vh, 52vw, 46rem) !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image img {
+  max-height: none !important;
+}
+
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(3),
+.garden-section--daffodils .art-sequence .artwork-image:nth-child(6) {
+  width: min(94vw, 96rem) !important;
+}
+
+@media (max-width: 700px) {
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(1),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(2),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(4),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(5) {
+    width: 92vw !important;
+    margin-left: calc((100% - 92vw) / 2) !important;
+    margin-right: 0 !important;
+  }
+
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(3),
+  .garden-section--daffodils .art-sequence .artwork-image:nth-child(6) {
+    width: 100vw !important;
+    margin-left: calc((100% - 100vw) / 2) !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* MAP + INDEX — faint glass that takes on the room behind it: dark lettering
+   and a hairline on light rooms, light lettering on dark rooms (the nav's
+   data-tone is set from the current room). Index is smaller and fainter. */
+.site-nav .site-nav__map,
+.site-nav a {
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.site-nav[data-tone="light"] .site-nav__map {
+  background: rgba(250, 246, 238, .2) !important;
+  border: 1px solid rgba(32, 29, 27, .24) !important;
+  color: rgba(32, 29, 27, .88) !important;
+}
+
+.site-nav[data-tone="dark"] .site-nav__map {
+  background: rgba(14, 13, 11, .16) !important;
+  border: 1px solid rgba(243, 236, 223, .3) !important;
+  color: rgba(243, 236, 223, .92) !important;
+}
+
+.site-nav a {
+  padding: .34rem .52rem .34rem .6rem !important;
+  font-size: .6rem !important;
+  letter-spacing: .14em !important;
+}
+
+.site-nav[data-tone="light"] a {
+  background: rgba(250, 246, 238, .1) !important;
+  border: 1px solid rgba(32, 29, 27, .16) !important;
+  color: rgba(32, 29, 27, .78) !important;
+}
+
+.site-nav[data-tone="dark"] a {
+  background: rgba(14, 13, 11, .1) !important;
+  border: 1px solid rgba(243, 236, 223, .2) !important;
+  color: rgba(243, 236, 223, .82) !important;
+}
+
+.site-nav[data-tone="light"] .site-nav__map:hover,
+.site-nav[data-tone="light"] .site-nav__map:focus-visible,
+.site-nav[data-tone="light"] a:hover,
+.site-nav[data-tone="light"] a:focus-visible {
+  background: rgba(250, 246, 238, .45) !important;
+}
+
+.site-nav[data-tone="dark"] .site-nav__map:hover,
+.site-nav[data-tone="dark"] .site-nav__map:focus-visible,
+.site-nav[data-tone="dark"] a:hover,
+.site-nav[data-tone="dark"] a:focus-visible {
+  background: rgba(14, 13, 11, .4) !important;
 }

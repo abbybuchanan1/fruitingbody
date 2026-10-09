@@ -13,6 +13,13 @@ const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
   { id: "threshold", room: "rear-gallery" },
 ];
 
+// Rooms whose walls are dark: the Map and Index cards switch to light
+// lettering on a faint dark glass there, and to dark lettering elsewhere.
+const DARK_ROOMS: MuseumRoomId[] = [
+  "vestibule", "garden", "grotto", "water-room", "film-room",
+  "current", "cloisters", "exit-exterior",
+];
+
 function getRouteLocation(pathname: string): MuseumRoomId | undefined {
   if (pathname === "/") return "exterior";
   if (pathname === "/vestibule") return "vestibule";
@@ -96,7 +103,11 @@ export function SiteNav() {
 
   return (
     <>
-      <nav className="site-nav" aria-label="Museum navigation">
+      <nav
+        className="site-nav"
+        aria-label="Museum navigation"
+        data-tone={currentLocation && DARK_ROOMS.includes(currentLocation) ? "dark" : "light"}
+      >
         <button
           type="button"
           className="site-nav__map"
