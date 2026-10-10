@@ -2412,3 +2412,21 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     max-width: 112px !important;
   }
 }
+
+/* VESTIBULE — the room is Abby's photograph (Nepal, 2013): doorway after
+   doorway receding to the light. The doorway sits left of centre, so on
+   desktop Exhibition is labelled over it, and on phones the photograph is
+   shifted so the doorway lands in the middle under the label. */
+@media (min-width: 701px) {
+  .vestibule__primary-passage {
+    left: 35.5% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .vestibule__stone,
+  .vestibule-arrival__image {
+    background-image: url("/media/architecture/vestibule-arch-mobile.jpg") !important;
+    background-position: 30% center !important;
+  }
+}
