@@ -2240,3 +2240,11 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     object-fit: cover !important;
   }
 }
+
+/* RED ROOM (phone) — a shorter passage between Red Thread and Membrane. */
+@media (max-width: 760px) {
+  .room[data-environment="textile"] .red-room-passage {
+    height: 18vh !important;
+    margin-top: 4vh !important;
+  }
+}
