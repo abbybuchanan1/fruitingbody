@@ -749,12 +749,14 @@
 }
 
 .museum-exterior__door {
-  left: calc(50% + (0.385 - 0.5) * var(--ext-w)) !important;
+  /* Abby's blue door (October 2026): the doors occupy x 41.9%–59%,
+     y 35.7%–85% of the photograph. */
+  left: calc(50% + (0.419 - 0.5) * var(--ext-w)) !important;
   right: auto !important;
-  width: calc(0.21 * var(--ext-w)) !important;
-  top: calc(50% + (0.244 - 0.5) * var(--ext-h)) !important;
+  width: calc(0.171 * var(--ext-w)) !important;
+  top: calc(50% + (0.357 - 0.5) * var(--ext-h)) !important;
   bottom: auto !important;
-  height: calc(0.631 * var(--ext-h)) !important;
+  height: calc(0.493 * var(--ext-h)) !important;
   border-radius: 50% 50% 0 0 / 30% 30% 0 0;
 }
 

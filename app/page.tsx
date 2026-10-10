@@ -35,7 +35,7 @@ export default function ExteriorPage() {
       className={`museum-exterior${imageReady ? " is-image-ready" : ""}${entering ? " is-entering" : ""}`}
     >
       <Image
-        src="/media/architecture/stone-exterior-wide-1.jpg"
+        src="/media/architecture/exterior-door.jpg"
         alt=""
         fill
         priority
