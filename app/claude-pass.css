@@ -2432,3 +2432,35 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     background-position: 30% center !important;
   }
 }
+
+/* VESTIBULE (phone) — the doorway labels read clearly against the pale stone
+   floor: the floor falls into shadow toward the bottom of the screen, and the
+   labels are a little larger and brighter, with a soft dark halo. */
+@media (max-width: 700px) {
+  .vestibule__shadow {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 7, 6, .06) 0%,
+      rgba(8, 7, 6, .04) 50%,
+      rgba(8, 7, 6, .40) 72%,
+      rgba(8, 7, 6, .66) 100%
+    ) !important;
+  }
+
+  .vestibule__side-passages .architectural-link,
+  .vestibule__primary-passage .architectural-link {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 251, 242, .98) !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 2px rgba(10, 8, 6, .85), 0 0 14px rgba(10, 8, 6, .65) !important;
+  }
+
+  .vestibule__side-passages .architectural-link::before {
+    background: rgba(255, 251, 242, .7) !important;
+  }
+
+  .vestibule__primary-passage .architectural-link::before {
+    background: linear-gradient(to top, rgba(255, 251, 242, .75), rgba(255, 251, 242, 0)) !important;
+  }
+}

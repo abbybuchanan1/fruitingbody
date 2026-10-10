@@ -96,10 +96,13 @@ const GARDEN_GROTTO_CROSSFADE_SECONDS = 7.5;
 const PAN_MOVE_SECONDS = 18;
 const UNIFORM_PAN_DEPTH = 0.14;
 
-// Bilateral panning: every room's sound sweeps slowly left ↔ right on a sine
-// wave, 0.75 cycles per second, reaching most of the way to each side.
-const BILATERAL_RATE_HZ = 0.75;
-const BILATERAL_DEPTH = 0.85;
+// Bilateral panning, kept subtle: each room's sound plays as two layers of the
+// same recording. The main layer stays centred and steady; a quieter copy
+// drifts slowly left ↔ right on a sine wave, one full sweep every ~12.5 s.
+const BILATERAL_RATE_HZ = 0.08;
+const BILATERAL_DEPTH = 1;
+const STEADY_LAYER_GAIN = 0.78;
+const MOVING_LAYER_GAIN = 0.28;
 
 function transitionDuration(from: EnvironmentKey, to: EnvironmentKey) {
   if (
@@ -222,7 +225,16 @@ export function MuseumAudio() {
       gain.gain.value = 0;
       pan.pan.value = 0;
       source.connect(gain);
-      gain.connect(pan);
+      // Steady layer: centred, carries most of the sound.
+      const steady = context.createGain();
+      steady.gain.value = STEADY_LAYER_GAIN;
+      gain.connect(steady);
+      steady.connect(master);
+      // Moving layer: the same signal, quieter, panned by the slow sweep.
+      const moving = context.createGain();
+      moving.gain.value = MOVING_LAYER_GAIN;
+      gain.connect(moving);
+      moving.connect(pan);
       pan.connect(master);
       lfoDepth.connect(pan.pan);
       sourceNodesRef.current[index] = source;
