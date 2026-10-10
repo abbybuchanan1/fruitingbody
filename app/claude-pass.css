@@ -2316,3 +2316,43 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     --row: 165px !important;
   }
 }
+
+/* INDEX (phone) — Red Thread in six lines:
+   1 / 2 / 3 · 4 (the ear) / 5 · 7 (floating feet) / 6 (wide) / 8 · 9 · 10.
+   Paired frames share a height (widths follow their proportions). */
+@media (max-width: 700px) {
+  .index-work[data-work-id="red-thread"] .catalog-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: .9rem .5rem !important;
+    width: 100% !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .catalog-break {
+    display: none !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .catalog-block {
+    margin: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .catalog-thumb,
+  .index-work[data-work-id="red-thread"] .catalog-thumb img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-01.jpg"]) { order: 1; flex: 0 0 100%; }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-02.jpg"]) { order: 2; flex: 0 0 100%; }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-03.jpg"]) { order: 3; flex: 0 0 calc(45.9% - .25rem); }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-04.jpg"]) { order: 4; flex: 0 0 calc(54.1% - .25rem); }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-05.jpg"]) { order: 5; flex: 0 0 calc(70.3% - .25rem); }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-07.jpg"]) { order: 6; flex: 0 0 calc(29.7% - .25rem); }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-06.jpg"]) { order: 7; flex: 0 0 100%; }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-08.jpg"]) { order: 8; flex: 0 0 calc(33.333% - .34rem); }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-09.jpg"]) { order: 9; flex: 0 0 calc(33.333% - .34rem); }
+  .index-work[data-work-id="red-thread"] .catalog-block:has(img[src$="red-thread-10.jpg"]) { order: 10; flex: 0 0 calc(33.333% - .34rem); }
+}
