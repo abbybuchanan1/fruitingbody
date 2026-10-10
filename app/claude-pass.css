@@ -2264,3 +2264,55 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     height: calc(min(calc(var(--short) * max(1, var(--ratio))), var(--half)) / var(--ratio)) !important;
   }
 }
+
+/* INDEX (phone) — Daffodils laid out in deliberate rows:
+   Hades · This Is My Body / The Fall (alone, as wide as the pair) /
+   Take and Eat · Shadow Queen / The Return (alone, like The Fall). */
+@media (max-width: 700px) {
+  .index-work[data-work-id="daffodils"] .catalog-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.1rem .6rem !important;
+    width: min(78%, 22rem) !important;
+    max-width: none !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .catalog-stack {
+    display: contents !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .catalog-break {
+    display: none !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .catalog-block {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .catalog-thumb {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .catalog-thumb img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+
+  .index-work[data-work-id="daffodils"] .catalog-block:has(img[src*="-01-hades"]) { order: 1; }
+  .index-work[data-work-id="daffodils"] .catalog-block:has(img[src*="-02-this-is-my-body"]) { order: 2; }
+  .index-work[data-work-id="daffodils"] .catalog-block:has(img[src*="-03-the-fall"]) { order: 3; grid-column: 1 / -1; }
+  .index-work[data-work-id="daffodils"] .catalog-block:has(img[src*="-04-take-and-eat"]) { order: 4; }
+  .index-work[data-work-id="daffodils"] .catalog-block:has(img[src*="-05-shadow-queen"]) { order: 5; }
+  .index-work[data-work-id="daffodils"] .catalog-block:has(img[src*="-06-the-return"]) { order: 6; grid-column: 1 / -1; }
+
+  /* Threshold's pairs a step larger. */
+  .index-work[data-work-id="threshold"] .catalog-grid {
+    --row: 165px !important;
+  }
+}
