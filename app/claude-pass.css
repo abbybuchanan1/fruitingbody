@@ -2396,3 +2396,11 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   .archive-work[data-work-id="red-thread"] > .catalog-grid .catalog-block:has(img[src$="red-thread-09.jpg"]) { order: 9; flex: 0 0 calc(33.333% - .34rem); }
   .archive-work[data-work-id="red-thread"] > .catalog-grid .catalog-block:has(img[src$="red-thread-10.jpg"]) { order: 10; flex: 0 0 calc(33.333% - .34rem); }
 }
+
+/* BODY OF WATER archive — the underwater light frame opens row two on wide
+   screens; on narrower screens the rows wrap on their own (no forced break). */
+@media (max-width: 1100px) {
+  .archive-work[data-work-id="body-of-water"] .catalog-break {
+    display: none !important;
+  }
+}

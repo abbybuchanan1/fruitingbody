@@ -12,6 +12,7 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/body-of-water/body-of-water-index-09.jpg": [1997, 1313],
   "/art/archive/body-of-water/body-of-water-index-10.jpg": [1996, 1330],
   "/art/archive/body-of-water/body-of-water-index-11.jpg": [2000, 1600],
+  "/art/archive/body-of-water/body-of-water-index-12.jpg": [1080, 1920],
   "/art/archive/daffodils/daffodils-index-01.jpg": [1728, 3072],
   "/art/archive/daffodils/daffodils-index-02.jpg": [1600, 2000],
   "/art/archive/daffodils/daffodils-index-03.jpg": [1728, 3072],
