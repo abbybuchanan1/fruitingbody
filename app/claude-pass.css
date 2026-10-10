@@ -2248,3 +2248,19 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     margin-top: 4vh !important;
   }
 }
+
+/* INDEX (phone) — Relative's pairs: every image's short edge is the same
+   (about the width of Striation's frames), so portrait pairs grow taller and
+   landscape pairs no longer run off the screen. Each image is capped at half
+   the column. */
+@media (max-width: 700px) {
+  .catalog-grid--index.catalog-grid--pairs {
+    --short: min(34vw, 9rem);
+    --half: calc((100vw - 3.4rem) / 2);
+  }
+
+  .catalog-grid--index.catalog-grid--pairs .catalog-thumb {
+    width: min(calc(var(--short) * max(1, var(--ratio))), var(--half)) !important;
+    height: calc(min(calc(var(--short) * max(1, var(--ratio))), var(--half)) / var(--ratio)) !important;
+  }
+}
