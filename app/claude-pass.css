@@ -2404,3 +2404,11 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     display: none !important;
   }
 }
+
+/* PHONE MAP — Current sits below the Vestibule now that the Water Room wing
+   opens into it; its caption runs wider to fit the shorter box. */
+@media (max-width: 760px) {
+  .museum-map__room--canonical[data-room="current"] .museum-map__collections {
+    max-width: 112px !important;
+  }
+}
