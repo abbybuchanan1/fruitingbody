@@ -2946,3 +2946,8 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     box-shadow: none !important;
   }
 }
+
+/* RELATIVE — pair titles a step darker on the pale wall. */
+.relative-pair__title {
+  color: rgba(34, 29, 23, .9) !important;
+}
