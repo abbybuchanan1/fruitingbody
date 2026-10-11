@@ -83,6 +83,14 @@ export default function IndexPage() {
           own footage.
         </p>
         <p>
+          Films by the artist: the mushrooms on the Entrance (Belknap Springs, Oregon, 2026),
+          the Water Room film (Columbia River Gorge, 2024), the Cloisters (Oregon, 2026) and the
+          Courtyard (Oregon City, 2026).
+        </p>
+        <p>
+          Texts by the artist, edited for clarity with AI assistance.
+        </p>
+        <p>
           Sound assembled by the artist from her own recordings and licensed recordings
           from Epidemic Sound.
         </p>

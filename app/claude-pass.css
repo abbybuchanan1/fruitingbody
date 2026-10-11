@@ -2613,7 +2613,7 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   bottom: 14%;
   width: 36%;
   overflow: hidden;
-  opacity: .42;
+  opacity: .28;
   mix-blend-mode: multiply;
   filter: grayscale(.5) sepia(.2) contrast(1.08) blur(.8px);
   -webkit-mask-image: radial-gradient(closest-side ellipse at 50% 50%, #000 0 38%, rgba(0,0,0,.6) 66%, transparent 100%);
@@ -2653,20 +2653,20 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
 /* A slow fade up from nothing, like a projector warming on the wall. */
 @keyframes entrance-film-fade {
   from { opacity: 0; }
-  to   { opacity: .42; }
+  to   { opacity: .28; }
 }
 
 @media (max-width: 760px) {
   .entrance-film__pane {
     width: 44%;
-    opacity: .34;
+    opacity: .23;
     animation-name: entrance-film-fade-phone;
   }
 }
 
 @keyframes entrance-film-fade-phone {
   from { opacity: 0; }
-  to   { opacity: .34; }
+  to   { opacity: .23; }
 }
 
 /* VESTIBULE (desktop, October 2026) — label placement from Abby's mockup:
