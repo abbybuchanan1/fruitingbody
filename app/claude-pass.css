@@ -2609,7 +2609,7 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   top: 6% !important;
   bottom: 16% !important;
   width: 38% !important;
-  opacity: .2 !important;
+  opacity: .38 !important;
   mix-blend-mode: multiply !important;
   filter: grayscale(.55) sepia(.25) contrast(1.05) blur(1px) !important;
   animation: entrance-projection-open 5.5s cubic-bezier(.22, .61, .36, 1) both;
@@ -2636,7 +2636,7 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
 @media (max-width: 760px) {
   .vestibule__projection-field--entrance .vestibule__projection {
     width: 44% !important;
-    opacity: .16 !important;
+    opacity: .3 !important;
   }
 }
 
