@@ -88,16 +88,14 @@ export default function IndexPage() {
           Courtyard (Oregon City, 2026).
         </p>
         <p>
-          Texts by the artist, edited for clarity with AI assistance.
-        </p>
-        <p>
           Sound assembled by the artist from her own recordings and licensed recordings
           from Epidemic Sound.
         </p>
         <p>
-          Built to the artist&rsquo;s wireframes and specifications; the code was written with
-          AI assistance. Every design decision is the artist&rsquo;s own, and no generative AI
-          was used in the artworks or the artist&rsquo;s photographs.
+          The concept, design and writing are the artist&rsquo;s own. AI was
+          used only as a tool: to write code to her wireframes and specifications, and to
+          copy-edit her texts. No generative AI was used in the artworks or the
+          artist&rsquo;s photographs.
         </p>
       </section>
 
