@@ -17,7 +17,7 @@ const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
 // lettering on a faint dark glass there, and to dark lettering elsewhere.
 const DARK_ROOMS: MuseumRoomId[] = [
   "vestibule", "garden", "grotto", "water-room", "film-room",
-  "current", "cloisters", "exit-exterior",
+  "current", "cloisters", "exit-exterior", "reading-room",
 ];
 
 function getRouteLocation(pathname: string): MuseumRoomId | undefined {
