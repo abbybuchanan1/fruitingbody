@@ -70,6 +70,29 @@ export default function IndexPage() {
         <Link href="/archive">Archive</Link>.
       </p>
 
+      <section className="index-colophon" aria-label="Colophon">
+        <p className="index-work__meta">Colophon</p>
+        <p>
+          Concept, art direction, design, photography and sound design by Abby Buchanan.
+          The artworks are the artist&rsquo;s own photographs.
+        </p>
+        <p>
+          Rooms: the Entrance (London, 2013), Vestibule (Kathmandu, 2013) and Narthex
+          (San Francisco, 2024) are the artist&rsquo;s photographs. The Garden, Red Room and
+          Water Room are collages by the artist, combining licensed stock imagery with her
+          own footage.
+        </p>
+        <p>
+          Sound assembled by the artist from her own recordings and licensed recordings
+          from Epidemic Sound.
+        </p>
+        <p>
+          Built to the artist&rsquo;s wireframes and specifications; the code was written with
+          AI assistance. Every design decision is the artist&rsquo;s own, and no generative AI
+          was used in the artworks or the artist&rsquo;s photographs.
+        </p>
+      </section>
+
       <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
         Return to Narthex
       </Link>

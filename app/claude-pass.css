@@ -2464,3 +2464,307 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     background: linear-gradient(to top, rgba(255, 251, 242, .75), rgba(255, 251, 242, 0)) !important;
   }
 }
+
+/* ENTRANCE (October 2026) — tree shadows. Leaf shadows cut from Abby's own
+   pavement footage hang on the wall either side of the door and sway around
+   a point high above the frame, like branches in a light wind (they no longer
+   travel across the wall). Two layers per wall move on different, unrelated
+   periods so the motion never visibly repeats. */
+.museum-exterior__leaves {
+  opacity: 0;
+  transition: opacity 1.6s ease !important;
+}
+
+.museum-exterior__leaves.is-ready {
+  opacity: 1 !important;
+}
+
+.museum-exterior__leaf-wall {
+  position: absolute;
+  top: 2%;
+  bottom: 14%;
+  width: 40%;
+  overflow: hidden;
+  filter: blur(2.6px);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 46%, #000 0 42%, rgba(0,0,0,.6) 66%, transparent 92%);
+  mask-image: radial-gradient(ellipse at 50% 46%, #000 0 42%, rgba(0,0,0,.6) 66%, transparent 92%);
+}
+
+.museum-exterior__leaf-wall--left { left: -3%; }
+.museum-exterior__leaf-wall--right { right: -3%; top: 6%; }
+
+.museum-exterior__leaf {
+  position: absolute;
+  inset: -18%;
+  background: center / cover no-repeat;
+  transform-origin: 50% -70%;
+  will-change: transform;
+}
+
+.museum-exterior__leaf--a {
+  background-image: url("/media/atmosphere/leaf-shadow-a.png");
+  opacity: .11;
+  animation: entrance-branch-sway-a 11.3s ease-in-out infinite;
+}
+
+.museum-exterior__leaf--b {
+  background-image: url("/media/atmosphere/leaf-shadow-b.png");
+  opacity: .08;
+  animation: entrance-branch-sway-b 7.7s ease-in-out infinite;
+}
+
+.museum-exterior__leaf-wall--right .museum-exterior__leaf {
+  transform-origin: 40% -60%;
+}
+
+.museum-exterior__leaf-wall--right .museum-exterior__leaf--a {
+  animation-duration: 13.1s;
+  animation-delay: -4.2s;
+  background-position: 30% 40%;
+}
+
+.museum-exterior__leaf-wall--right .museum-exterior__leaf--b {
+  animation-duration: 8.9s;
+  animation-delay: -2.6s;
+}
+
+/* A slow sway with an occasional stronger gust. */
+@keyframes entrance-branch-sway-a {
+  0%   { transform: rotate(0deg) translate3d(0, 0, 0); }
+  18%  { transform: rotate(.9deg) translate3d(.4%, .2%, 0); }
+  31%  { transform: rotate(.35deg) translate3d(.1%, 0, 0); }
+  47%  { transform: rotate(1.6deg) translate3d(.8%, .3%, 0); }
+  58%  { transform: rotate(.6deg) translate3d(.2%, .1%, 0); }
+  76%  { transform: rotate(-.5deg) translate3d(-.3%, -.1%, 0); }
+  100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+}
+
+/* The smaller branches: quicker, shallower flutter. */
+@keyframes entrance-branch-sway-b {
+  0%   { transform: rotate(0deg) translate3d(0, 0, 0); }
+  22%  { transform: rotate(-.7deg) translate3d(-.5%, 0, 0); }
+  41%  { transform: rotate(.4deg) translate3d(.3%, .2%, 0); }
+  63%  { transform: rotate(-1.1deg) translate3d(-.6%, .1%, 0); }
+  84%  { transform: rotate(.2deg) translate3d(.1%, 0, 0); }
+  100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+}
+
+@media (max-width: 760px) {
+  .museum-exterior__leaf-wall { width: 46%; bottom: 18%; }
+  .museum-exterior__leaf--a { opacity: .09; }
+  .museum-exterior__leaf--b { opacity: .065; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .museum-exterior__leaf { animation: none !important; }
+}
+
+/* ENTRANCE — the museum sign is set straight on the wall in dark ink, with no
+   panel behind it. */
+.museum-exterior__sign {
+  color: rgba(36, 30, 24, .9) !important;
+  text-shadow: 0 0 12px rgba(246, 238, 222, .55) !important;
+  background: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.museum-exterior__artist {
+  opacity: .78 !important;
+}
+
+/* ENTRANCE — Sound is the same quiet caption as on every other room, in dark
+   ink on the pale wall, upper right. */
+.ambient-sound-control.ambient-sound-control--global.ambient-sound-control--entrance-on {
+  color: rgba(32, 27, 22, .86) !important;
+  border-bottom-color: rgba(32, 27, 22, .38) !important;
+  text-shadow: 0 0 10px rgba(246, 238, 222, .7) !important;
+  font-size: .7rem !important;
+}
+
+.ambient-sound-control.ambient-sound-control--global.ambient-sound-control--entrance-on:hover,
+.ambient-sound-control.ambient-sound-control--global.ambient-sound-control--entrance-on:focus-visible {
+  border-bottom-color: currentColor !important;
+}
+
+/* ENTRANCE, version B (/?v=b) — the mushroom film from the Vestibule is cast
+   onto the pale wall either side of the door. It opens out from the door
+   toward the edges over the first few seconds; on a light wall it reads as a
+   faint print in the stone (multiply) rather than as projected light. */
+/* No z-index or opacity on the wrappers: either would isolate the film from
+   the photograph and stop it printing into the stone. */
+.museum-exterior__projection,
+.vestibule__projection-field--entrance {
+  position: absolute;
+  inset: 0;
+  z-index: auto !important;
+  pointer-events: none;
+}
+
+.museum-exterior__projection:not(.is-ready) {
+  visibility: hidden;
+}
+
+.vestibule__projection-field--entrance .vestibule__projection {
+  top: 6% !important;
+  bottom: 16% !important;
+  width: 38% !important;
+  opacity: .2 !important;
+  mix-blend-mode: multiply !important;
+  filter: grayscale(.55) sepia(.25) contrast(1.05) blur(1px) !important;
+  animation: entrance-projection-open 5.5s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+.vestibule__projection-field--entrance .vestibule__projection--left {
+  left: 1% !important;
+  right: auto !important;
+  --open-from: inset(0 0 0 100%);
+}
+
+.vestibule__projection-field--entrance .vestibule__projection--right {
+  right: 1% !important;
+  left: auto !important;
+  top: 6% !important;
+  --open-from: inset(0 100% 0 0);
+}
+
+@keyframes entrance-projection-open {
+  from { clip-path: var(--open-from); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@media (max-width: 760px) {
+  .vestibule__projection-field--entrance .vestibule__projection {
+    width: 44% !important;
+    opacity: .16 !important;
+  }
+}
+
+/* VESTIBULE (desktop, October 2026) — label placement from Abby's mockup:
+   Red Room low on the far left with its rule pointing out to the left;
+   Exhibition centred, with a vertical rule rising toward the doorways;
+   Water Room and Current stacked low on the right, rules pointing out to the
+   right. Labels are a touch larger and brighter so they hold on the stone. */
+@media (min-width: 701px) {
+  .vestibule__side-passages {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    pointer-events: none;
+  }
+
+  .vestibule__side-passages .architectural-link,
+  .vestibule__primary-passage .architectural-link {
+    font-size: 12.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: .16em !important;
+    color: rgba(255, 251, 242, .97) !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 2px rgba(10, 8, 6, .8), 0 0 14px rgba(10, 8, 6, .55) !important;
+  }
+
+  .vestibule__side-passages .architectural-link {
+    position: absolute !important;
+    width: max-content !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: .4rem 0 !important;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(1) {
+    left: 8.4vw !important;
+    right: auto !important;
+    top: 88.5% !important;
+    bottom: auto !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2) {
+    right: 13.8vw !important;
+    left: auto !important;
+    top: 89.6% !important;
+    bottom: auto !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(3) {
+    right: 12vw !important;
+    left: auto !important;
+    top: 93.2% !important;
+    bottom: auto !important;
+  }
+
+  .vestibule__side-passages .architectural-link::before {
+    top: 50% !important;
+    height: 1px !important;
+    background: rgba(255, 251, 242, .8) !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(1)::before {
+    right: calc(100% + 6px) !important;
+    left: auto !important;
+    width: 4vw !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2)::before {
+    left: calc(100% + 15px) !important;
+    right: auto !important;
+    width: 4vw !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(3)::before {
+    left: calc(100% + 18px) !important;
+    right: auto !important;
+    width: 6vw !important;
+  }
+
+  .vestibule__primary-passage {
+    left: 50% !important;
+    top: 88.6% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .vestibule__primary-passage .architectural-link::before {
+    width: 2px !important;
+    height: 7.4vh !important;
+    bottom: calc(100% + 10px) !important;
+    background: rgba(255, 251, 242, .85) !important;
+  }
+}
+
+/* TOP ROW on dark rooms — a little more legible over busy photographs. */
+.site-nav[data-tone="dark"] .site-nav__map {
+  background: rgba(14, 13, 11, .2) !important;
+  border-color: rgba(246, 240, 228, .78) !important;
+}
+
+.site-nav[data-tone="dark"] a,
+html[data-nav-tone="dark"] .ambient-sound-control--global {
+  color: rgba(250, 245, 235, .95) !important;
+  border-bottom-color: rgba(250, 245, 235, .5) !important;
+  text-shadow: 0 1px 2px rgba(10, 9, 8, .7), 0 0 12px rgba(10, 9, 8, .6) !important;
+}
+
+/* INDEX — colophon: how the museum was made, in small type at the foot. */
+.index-colophon {
+  width: min(1500px, 100%);
+  margin: 0 auto clamp(4rem, 8vh, 6rem);
+  max-width: 46rem;
+  margin-left: max(0px, calc((100% - 1500px) / 2));
+  font-size: .8rem;
+  line-height: 1.6;
+  opacity: .72;
+}
+
+.index-colophon p {
+  margin: 0 0 .55rem;
+}
+
+.index-colophon .index-work__meta {
+  margin-bottom: .8rem;
+}
+
+.index-page .index-archive-note {
+  margin-bottom: 2.4rem !important;
+}

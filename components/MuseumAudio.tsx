@@ -98,8 +98,9 @@ const UNIFORM_PAN_DEPTH = 0.14;
 
 // Bilateral panning, kept subtle: each room's sound plays as two layers of the
 // same recording. The main layer stays centred and steady; a quieter copy
-// drifts slowly left ↔ right on a sine wave, one full sweep every ~12.5 s.
-const BILATERAL_RATE_HZ = 0.08;
+// drifts left ↔ right on a sine wave at 0.25 cycles per second (one sweep every 4 s).
+const BILATERAL_RATE_HZ = 0.25;
+const SHOW_SOUND_INVITATION = false;
 const BILATERAL_DEPTH = 1;
 const STEADY_LAYER_GAIN = 0.78;
 const MOVING_LAYER_GAIN = 0.28;
@@ -631,7 +632,9 @@ export function MuseumAudio() {
       <audio ref={audioRefs[0]} aria-hidden="true" />
       <audio ref={audioRefs[1]} aria-hidden="true" />
 
-      {pathname === "/" && !soundOn ? (
+      {/* The Entrance uses the same quiet Sound caption as every room (the
+          boxed "Soundscape" invitation was retired, October 2026). */}
+      {SHOW_SOUND_INVITATION && pathname === "/" && !soundOn ? (
         <div className="soundscape-invitation" role="group" aria-label="Optional museum soundscape">
           <p className="soundscape-invitation__eyebrow">Soundscape</p>
           <p className="soundscape-invitation__copy">

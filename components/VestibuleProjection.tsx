@@ -131,9 +131,9 @@ function ProjectionLoop({
   );
 }
 
-export function VestibuleProjection() {
+export function VestibuleProjection({ place = "vestibule" }: { place?: "vestibule" | "entrance" }) {
   return (
-    <div className="vestibule__projection-field" aria-hidden="true">
+    <div className={`vestibule__projection-field vestibule__projection-field--${place}`} aria-hidden="true">
       <ProjectionLoop side="left" />
       <ProjectionLoop side="right" offsetFraction={0.06} />
     </div>

@@ -4,12 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ExteriorShadowPass } from "@/components/ExteriorShadowPass";
+import { ExteriorLeafShadows } from "@/components/ExteriorLeafShadows";
+import { VestibuleProjection } from "@/components/VestibuleProjection";
 
 export default function ExteriorPage() {
   const router = useRouter();
   const [imageReady, setImageReady] = useState(false);
   const [entering, setEntering] = useState(false);
+  // Trial (October 2026): "/?v=b" shows the mushroom projection on the wall
+  // instead of the tree shadows, so the two can be compared.
+  const [variant, setVariant] = useState<"a" | "b">("a");
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("v") === "b") setVariant("b");
+  }, []);
 
   useEffect(() => {
     router.prefetch("/vestibule?arrived=1");
@@ -32,6 +40,7 @@ export default function ExteriorPage() {
 
   return (
     <main
+      data-variant={variant}
       className={`museum-exterior${imageReady ? " is-image-ready" : ""}${entering ? " is-entering" : ""}`}
     >
       <Image
@@ -44,7 +53,13 @@ export default function ExteriorPage() {
         onLoad={() => setImageReady(true)}
       />
 
-      <ExteriorShadowPass ready={imageReady} />
+      {variant === "b" ? (
+        <div className={`museum-exterior__projection${imageReady ? " is-ready" : ""}`}>
+          <VestibuleProjection place="entrance" />
+        </div>
+      ) : (
+        <ExteriorLeafShadows ready={imageReady} />
+      )}
 
       <div className="museum-exterior__sign">
         Fruiting Body
