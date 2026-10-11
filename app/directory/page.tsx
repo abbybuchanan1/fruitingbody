@@ -92,7 +92,7 @@ export default function IndexPage() {
           from Epidemic Sound.
         </p>
         <p>
-          The concept, design and writing are the artist&rsquo;s own. AI was
+          The concept, design and writing, including the poems, are the artist&rsquo;s own. AI was
           used only as a tool: to write code to her wireframes and specifications, and to
           copy-edit her texts. No generative AI was used in the artworks or the
           artist&rsquo;s photographs.
