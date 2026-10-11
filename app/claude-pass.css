@@ -2956,3 +2956,9 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   display: block;
   margin-top: .2rem;
 }
+
+/* Each sentence of the entrance sound note on its own line. */
+.entrance-sound-note {
+  max-width: none !important;
+  white-space: nowrap;
+}
