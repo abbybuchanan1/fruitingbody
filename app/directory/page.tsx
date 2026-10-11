@@ -83,19 +83,18 @@ export default function IndexPage() {
           own footage.
         </p>
         <p>
-          Films by the artist: the mushrooms on the Entrance (Belknap Springs, Oregon, 2026),
-          the Water Room film (Columbia River Gorge, 2024), the Cloisters (Oregon, 2026) and the
-          Courtyard (Oregon City, 2026).
+          Films by the artist: mushrooms on Entrance walls (Belknap Springs, Oregon, 2026), the
+          Water Room film (Columbia River Gorge, 2024), the Cloisters (Portland, Oregon, 2026) and
+          the Courtyard (Oregon City, Oregon, 2026).
         </p>
         <p>
-          Sound assembled by the artist from her own recordings and licensed recordings
-          from Epidemic Sound.
+          Sound assembled by the artist from her own recordings and licensed recordings from
+          Epidemic Sound.
         </p>
         <p>
-          The concept, design and writing are the artist&rsquo;s own. AI was used only as a
-          tool: to write code to her wireframes and specifications, and as an editor on her
-          texts. In the poems it helped only with cuts and arrangement; every word is hers. No
-          generative AI was used in the artworks or the artist&rsquo;s photographs.
+          The concept, design and writing are the artist&rsquo;s own. AI was used only as a tool
+          to write code to her wireframes and specifications. No generative AI was used in the
+          artworks or the artist&rsquo;s photographs.
         </p>
       </section>
 
