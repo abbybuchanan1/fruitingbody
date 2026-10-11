@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ExteriorLeafShadows } from "@/components/ExteriorLeafShadows";
-import { VestibuleProjection } from "@/components/VestibuleProjection";
+import { EntranceFilm } from "@/components/EntranceFilm";
 
 export default function ExteriorPage() {
   const router = useRouter();
@@ -54,9 +54,7 @@ export default function ExteriorPage() {
       />
 
       {variant === "b" ? (
-        <div className={`museum-exterior__projection${imageReady ? " is-ready" : ""}`}>
-          <VestibuleProjection place="entrance" />
-        </div>
+        <EntranceFilm ready={imageReady} />
       ) : (
         <ExteriorLeafShadows ready={imageReady} />
       )}

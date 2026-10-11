@@ -2590,56 +2590,81 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   border-bottom-color: currentColor !important;
 }
 
-/* ENTRANCE, version B (/?v=b) — the mushroom film from the Vestibule is cast
-   onto the pale wall either side of the door. It opens out from the door
-   toward the edges over the first few seconds; on a light wall it reads as a
-   faint print in the stone (multiply) rather than as projected light. */
-/* No z-index or opacity on the wrappers: either would isolate the film from
+/* ENTRANCE, version B (/?v=b) — the mushroom film printed faintly into the
+   pale wall either side of the door. It opens out from the door toward the
+   edges over the first few seconds; the right side is mirrored, so the two
+   move outward. On a light wall it darkens (multiply) rather than lightens.
+   No z-index or opacity on the wrapper: either would isolate the film from
    the photograph and stop it printing into the stone. */
-.museum-exterior__projection,
-.vestibule__projection-field--entrance {
+.entrance-film {
   position: absolute;
   inset: 0;
-  z-index: auto !important;
   pointer-events: none;
-}
-
-.museum-exterior__projection:not(.is-ready) {
   visibility: hidden;
 }
 
-.vestibule__projection-field--entrance .vestibule__projection {
-  top: 6% !important;
-  bottom: 16% !important;
-  width: 38% !important;
-  opacity: .38 !important;
-  mix-blend-mode: multiply !important;
-  filter: grayscale(.55) sepia(.25) contrast(1.05) blur(1px) !important;
-  animation: entrance-projection-open 5.5s cubic-bezier(.22, .61, .36, 1) both;
+.entrance-film.is-ready {
+  visibility: visible;
 }
 
-.vestibule__projection-field--entrance .vestibule__projection--left {
-  left: 1% !important;
-  right: auto !important;
+.entrance-film__pane {
+  position: absolute;
+  top: 4%;
+  bottom: 14%;
+  width: 40%;
+  overflow: hidden;
+  opacity: .42;
+  mix-blend-mode: multiply;
+  filter: grayscale(.5) sepia(.2) contrast(1.08) blur(.8px);
+  -webkit-mask-image: radial-gradient(closest-side ellipse at 50% 50%, #000 0 38%, rgba(0,0,0,.6) 66%, transparent 100%);
+  mask-image: radial-gradient(closest-side ellipse at 50% 50%, #000 0 38%, rgba(0,0,0,.6) 66%, transparent 100%);
+  animation: entrance-film-open 5.5s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+.entrance-film__pane--left {
+  left: 1%;
   --open-from: inset(0 0 0 100%);
 }
 
-.vestibule__projection-field--entrance .vestibule__projection--right {
-  right: 1% !important;
-  left: auto !important;
-  top: 6% !important;
+.entrance-film__pane--right {
+  right: 1%;
   --open-from: inset(0 100% 0 0);
 }
 
-@keyframes entrance-projection-open {
+.entrance-film__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.35s linear;
+}
+
+.entrance-film__video.is-active {
+  opacity: 1;
+}
+
+.entrance-film__pane--right .entrance-film__video {
+  transform: scaleX(-1);
+  object-position: 48% 54%;
+}
+
+@keyframes entrance-film-open {
   from { clip-path: var(--open-from); }
   to   { clip-path: inset(0 0 0 0); }
 }
 
 @media (max-width: 760px) {
-  .vestibule__projection-field--entrance .vestibule__projection {
-    width: 44% !important;
-    opacity: .3 !important;
+  .entrance-film__pane {
+    width: 46%;
+    opacity: .34;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entrance-film__pane {
+    animation: none;
   }
 }
 
