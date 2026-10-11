@@ -2768,3 +2768,117 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
 .index-page .index-archive-note {
   margin-bottom: 2.4rem !important;
 }
+
+/* PHONE MAP — Index and Archive names sit centred in their rooms. */
+@media (max-width: 760px) {
+  .museum-map__room--canonical[data-room="index"] .museum-map__room-name {
+    transform: translateX(3px);
+  }
+
+  .museum-map__room--canonical[data-room="archive"] .museum-map__room-name {
+    transform: translateX(-3px);
+  }
+}
+
+/* PHONES — the top row (Sound · Map · Index) sits a little lower, clear of
+   the browser bar and the screen's rounded corners. */
+@media (max-width: 700px) {
+  .site-nav .site-nav__map {
+    top: 1.55rem !important;
+  }
+
+  .site-nav,
+  .ambient-sound-control.ambient-sound-control--global {
+    top: calc(1.55rem + .5rem) !important;
+  }
+}
+
+/* VESTIBULE (phone, October 2026) — placement from Abby's mockup: Exhibition
+   centred with a vertical rule above it; Red Room low left, its rule angled
+   down toward it from the wall; Water Room and Current stacked low right,
+   their rules running out to the right edge. */
+@media (max-width: 700px) {
+  .vestibule__side-passages {
+    position: absolute !important;
+    inset: 0 !important;
+    height: auto !important;
+    display: block !important;
+    pointer-events: none;
+  }
+
+  .vestibule__side-passages .architectural-link {
+    position: absolute !important;
+    width: max-content !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: .55rem 0 !important;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(1) {
+    left: 18.6% !important;
+    right: auto !important;
+    top: 81.8% !important;
+    bottom: auto !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2) {
+    right: 25.3% !important;
+    left: auto !important;
+    top: 86.3% !important;
+    bottom: auto !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(3) {
+    right: 25.5% !important;
+    left: auto !important;
+    top: 89.8% !important;
+    bottom: auto !important;
+    text-align: right !important;
+  }
+
+  .vestibule__side-passages .architectural-link::before {
+    top: 50% !important;
+    height: 1.5px !important;
+    background: rgba(255, 251, 242, .85) !important;
+  }
+
+  /* Red Room: a short rule angled down from the wall to the label. */
+  .vestibule__side-passages .architectural-link:nth-child(1)::before {
+    right: calc(100% + 8px) !important;
+    left: auto !important;
+    width: 36px !important;
+    transform-origin: 100% 50%;
+    transform: rotate(26deg);
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2)::before {
+    left: calc(100% + 20px) !important;
+    right: auto !important;
+    width: 34px !important;
+    transform: none;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(3)::before {
+    left: calc(100% + 21px) !important;
+    right: auto !important;
+    width: calc(25.5vw - 21px) !important;
+    transform: none;
+  }
+
+  .vestibule__primary-passage {
+    left: 50% !important;
+    top: 74% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    min-width: 0 !important;
+  }
+
+  .vestibule__primary-passage .architectural-link::before {
+    width: 1.5px !important;
+    height: 6.4vh !important;
+    bottom: calc(100% + 8px) !important;
+    background: rgba(255, 251, 242, .9) !important;
+  }
+}

@@ -15,14 +15,14 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   grotto: { x: 414, y: 204, w: 172, h: 150 },
   garden: { x: 414, y: 354, w: 172, h: 184 },
   "front-gallery": { x: 397, y: 556, w: 206, h: 48 },
-  "red-room": { x: 110, y: 190, w: 108, h: 374 },
-  "water-room": { x: 782, y: 190, w: 108, h: 374 },
+  "red-room": { x: 70, y: 190, w: 148, h: 440 },
+  "water-room": { x: 782, y: 190, w: 148, h: 440 },
   "film-room": { x: 806, y: 270, w: 44, h: 70, z: 10 },
-  current: { x: 768, y: 612, w: 203, h: 64, z: 9 },
-  vestibule: { x: 292, y: 630, w: 416, h: 50 },
+  current: { x: 868, y: 600, w: 126, h: 76, z: 9 },
+  vestibule: { x: 218, y: 630, w: 564, h: 50 },
   exterior: { x: 410, y: 680, w: 180, h: 20 },
   "exit-exterior": { x: 410, y: 4, w: 180, h: 20, z: 11 },
-  narthex: { x: 292, y: 30, w: 416, h: 88, z: 4 },
+  narthex: { x: 178, y: 30, w: 644, h: 88, z: 4 },
   "reading-room": { x: 310, y: 43, w: 122, h: 55, z: 10 },
   index: { x: 552, y: 43, w: 68, h: 55, z: 10 },
   archive: { x: 630, y: 43, w: 68, h: 55, z: 10 },
@@ -52,8 +52,10 @@ const mobileBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
 // Curved wings (flat side on the hall wall, widest at the middle).
 const WINGS = {
   desktop: {
-    red: "M218 190 Q2 377 218 564 Z",
-    water: "M782 190 Q998 377 782 564 Z",
+    // Each wing opens off the Narthex at the top and into the Vestibule at
+    // the bottom, as on the phone plan.
+    red: "M178 118 C40 240 40 560 218 680 V118 Z",
+    water: "M822 118 C960 240 960 560 782 680 V118 Z",
     cloisterLeft: "M372 206 Q304 371 372 536 Q360 371 372 206 Z",
     cloisterRight: "M628 206 Q696 371 628 536 Q640 371 628 206 Z",
   },
@@ -211,13 +213,14 @@ export function MuseumMap({
             <g className="museum-map__drawing-primary">
               <rect x="410" y="4" width="180" height="20" rx="2" />
               <path d="M500 24 V30" />
-              <path d="M292 30 H708 V118 H292 Z" />
-              <path d="M292 118 C246 118 218 149 218 192 V564 C218 608 245 630 292 630" />
-              <path d="M708 118 C754 118 782 149 782 192 V564 C782 608 755 630 708 630" />
-              <path d="M292 630 H708" />
+              {/* Narthex: open along the bottom where the wings meet it. */}
+              <path d="M178 118 V30 H822 V118" />
+              <path d="M218 118 H782 V630 H218 Z" />
 
-              <path d={WINGS.desktop.red} />
-              <path d={WINGS.desktop.water} />
+              {/* Wings drawn as their outer curve only: no wall where they
+                  open into the Narthex and the Vestibule. */}
+              <path d="M178 118 C40 240 40 560 218 680" />
+              <path d="M822 118 C960 240 960 560 782 680" />
 
               <path d="M397 136 H603 V184 H397 Z" />
               <path d="M414 204 H586 V538 H414 Z" />
@@ -228,12 +231,13 @@ export function MuseumMap({
               <path d={WINGS.desktop.cloisterLeft} />
               <path d={WINGS.desktop.cloisterRight} />
 
-              <path d="M292 630 H708 V680 H292 Z" />
+              {/* Vestibule: open at the sides into the wings. */}
+              <path d="M218 680 H782" />
               <path d="M454 630 C466 612 534 612 546 630" />
               <rect x="410" y="680" width="180" height="20" rx="2" />
 
-              <path d="M708 644 H768" />
-              <rect x="768" y="612" width="203" height="64" rx="2" />
+              <path d="M822 644 H868" />
+              <rect x="868" y="600" width="126" height="76" rx="2" />
 
               <rect x="806" y="270" width="44" height="70" rx="7" />
 
