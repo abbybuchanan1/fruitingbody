@@ -2479,19 +2479,22 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   opacity: 1 !important;
 }
 
+/* Each wall's shadows fade out completely before the edge of their panel
+   (the ellipse is sized to the panel's closest sides), so no line shows
+   around the door or along the top of the screen. */
 .museum-exterior__leaf-wall {
   position: absolute;
-  top: 2%;
-  bottom: 14%;
-  width: 40%;
+  top: -12%;
+  bottom: 4%;
+  width: 54%;
   overflow: hidden;
   filter: blur(2.6px);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 46%, #000 0 42%, rgba(0,0,0,.6) 66%, transparent 92%);
-  mask-image: radial-gradient(ellipse at 50% 46%, #000 0 42%, rgba(0,0,0,.6) 66%, transparent 92%);
+  -webkit-mask-image: radial-gradient(closest-side ellipse at 50% 50%, #000 0 34%, rgba(0,0,0,.62) 58%, rgba(0,0,0,.22) 80%, transparent 100%);
+  mask-image: radial-gradient(closest-side ellipse at 50% 50%, #000 0 34%, rgba(0,0,0,.62) 58%, rgba(0,0,0,.22) 80%, transparent 100%);
 }
 
-.museum-exterior__leaf-wall--left { left: -3%; }
-.museum-exterior__leaf-wall--right { right: -3%; top: 6%; }
+.museum-exterior__leaf-wall--left { left: -12%; }
+.museum-exterior__leaf-wall--right { right: -12%; top: -8%; }
 
 .museum-exterior__leaf {
   position: absolute;
@@ -2550,7 +2553,7 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
 }
 
 @media (max-width: 760px) {
-  .museum-exterior__leaf-wall { width: 46%; bottom: 18%; }
+  .museum-exterior__leaf-wall { width: 60%; bottom: 8%; }
   .museum-exterior__leaf--a { opacity: .09; }
   .museum-exterior__leaf--b { opacity: .065; }
 }
