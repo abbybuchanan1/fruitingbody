@@ -82,7 +82,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Front Gallery",
     year: "Ongoing",
     medium: "Self-portrait photography",
-    place: "Oregon",
+    place: "Various locations, Oregon",
     href: "/exhibition?jump=relative",
     statement:
       "Body and land, moved by the same forces.",
@@ -98,7 +98,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Garden",
     year: "2024-2025",
     medium: "Self-portrait photography and digital collage",
-    place: "Oregon",
+    place: "Portland, Oregon",
     href: "/exhibition?jump=garden",
     statement:
       "A cycle imposed and inhabited at the same time.",
@@ -118,7 +118,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Garden",
     year: "2025",
     medium: "Self-portrait photography",
-    place: "Oregon",
+    place: "Portland, Oregon",
     href: "/exhibition?jump=fear-not",
     statement:
       "Fear can still be present. The body moves anyway.",
@@ -150,7 +150,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Grotto",
     year: "2017",
     medium: "Self-portrait photography",
-    place: "Milwaukie, Oregon",
+    place: "Portland, Oregon",
     href: "/exhibition?jump=a-miscarriage",
     statement:
       "Witnessing myself inside an experience I could barely understand.",
@@ -182,7 +182,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Rear Gallery",
     year: "2025",
     medium: "Self-portrait photography",
-    place: "Oregon",
+    place: "Portland, Oregon",
     href: "/exhibition?jump=threshold",
     statement:
       "Transformation has begun but cannot yet be named.",
