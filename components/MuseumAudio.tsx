@@ -20,6 +20,8 @@ type Environment = {
   src: string;
   gain: number;
   panDepth: number;
+  /** Share of the panning layer in this room (1 = the usual amount). */
+  movingMix?: number;
 };
 
 const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
@@ -37,6 +39,9 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     src: "/media/audio/front-gallery-back-gallery-current.mp3",
     gain: 0.74,
     panDepth: 0.065,
+    // Relative and Threshold: the panning layer about half as present, so
+    // the movement is felt more than heard.
+    movingMix: 0.45,
   },
   garden: {
     src: "/media/audio/garden.mp3",
@@ -193,6 +198,8 @@ export function MuseumAudio() {
   const sourceNodesRef = useRef<Array<MediaElementAudioSourceNode | null>>([null, null]);
   const gainNodesRef = useRef<Array<GainNode | null>>([null, null]);
   const panNodesRef = useRef<Array<StereoPannerNode | null>>([null, null]);
+  const steadyNodesRef = useRef<Array<GainNode | null>>([null, null]);
+  const movingNodesRef = useRef<Array<GainNode | null>>([null, null]);
   const masterRef = useRef<GainNode | null>(null);
   const activeIndexRef = useRef<0 | 1>(0);
   const environmentRef = useRef<EnvironmentKey>("exterior");
@@ -238,6 +245,8 @@ export function MuseumAudio() {
       moving.connect(pan);
       pan.connect(master);
       lfoDepth.connect(pan.pan);
+      steadyNodesRef.current[index] = steady;
+      movingNodesRef.current[index] = moving;
       sourceNodesRef.current[index] = source;
       gainNodesRef.current[index] = gain;
       panNodesRef.current[index] = pan;
@@ -258,6 +267,15 @@ export function MuseumAudio() {
     const context = contextRef.current;
     const panNode = panNodesRef.current[index];
     if (!context || !panNode || !soundOnRef.current) return;
+
+    // Set this room's balance between the steady and panning layers, keeping
+    // the overall level the same.
+    const mix = ENVIRONMENTS[key].movingMix ?? 1;
+    const steadyNode = steadyNodesRef.current[index];
+    const movingNode = movingNodesRef.current[index];
+    const at = context.currentTime;
+    steadyNode?.gain.setTargetAtTime(STEADY_LAYER_GAIN + MOVING_LAYER_GAIN * (1 - mix), at, 1.2);
+    movingNode?.gain.setTargetAtTime(MOVING_LAYER_GAIN * mix, at, 1.2);
     // The bilateral sweep now does the moving; keep the base pan centred.
     if (BILATERAL_DEPTH > 0) {
       panNode.pan.cancelScheduledValues(context.currentTime);
