@@ -81,7 +81,7 @@ export default function ArchivePage() {
             <header className="archive-work__header">
               <p className="archive-work__room">{work.room}</p>
               <h2>{work.title}</h2>
-              <p className="archive-work__meta">{work.year} · {work.medium}</p>
+              <p className="archive-work__meta">{work.year} · {work.medium}{work.place ? ` · ${work.place}` : ""}</p>
               <p>{work.statement}</p>
               {work.archiveNote ? <p className="archive-work__history">{work.archiveNote}</p> : null}
               {work.reflection?.length ? (

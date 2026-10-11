@@ -34,6 +34,8 @@ export type MuseumWork = {
   question: string;
   exhibition: Artwork[];
   archive: Artwork[];
+  /** Where the work was made, shown after year and medium. */
+  place?: string;
   reflection?: string[];
   archiveNote?: string;
 };
@@ -80,6 +82,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Front Gallery",
     year: "2025",
     medium: "Self-portrait photography",
+    place: "Oregon",
     href: "/exhibition?jump=relative",
     statement:
       "Body and land, moved by the same forces.",
@@ -95,6 +98,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Garden",
     year: "2024-2025",
     medium: "Self-portrait photography and digital collage",
+    place: "Oregon",
     href: "/exhibition?jump=garden",
     statement:
       "A cycle imposed and inhabited at the same time.",
@@ -114,6 +118,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Garden",
     year: "2025",
     medium: "Self-portrait photography",
+    place: "Oregon",
     href: "/exhibition?jump=fear-not",
     statement:
       "Fear can still be present. The body moves anyway.",
@@ -129,6 +134,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Garden",
     year: "2026",
     medium: "Self-portrait photography",
+    place: "Oregon",
     href: "/exhibition?jump=taste-and-see",
     statement:
       "The body can be seen and still be allowed to want.",
@@ -144,6 +150,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Grotto",
     year: "2017",
     medium: "Self-portrait photography",
+    place: "Milwaukie, Oregon",
     href: "/exhibition?jump=a-miscarriage",
     statement:
       "Witnessing myself inside an experience I could barely understand.",
@@ -159,6 +166,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Grotto",
     year: "2024",
     medium: "Self-portrait photography",
+    place: "Stevenson, Washington",
     href: "/exhibition?jump=phase",
     statement:
       "Not “I am hopelessness,” but “I am experiencing hopelessness.”",
@@ -174,6 +182,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Rear Gallery",
     year: "2025",
     medium: "Self-portrait photography",
+    place: "Oregon",
     href: "/exhibition?jump=threshold",
     statement:
       "Transformation has begun but cannot yet be named.",
@@ -189,6 +198,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Red Room",
     year: "2024-2026",
     medium: "Self-portrait photography",
+    place: "Columbia River Gorge",
     href: "/red-room?jump=red-thread",
     statement:
       "Connection, held as visible tension.",
@@ -210,6 +220,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Red Room",
     year: "2025",
     medium: "Self-portrait photography",
+    place: "Columbia River Gorge",
     href: "/red-room?jump=membrane",
     statement:
       "The experience itself as the site of the photograph.",
@@ -229,6 +240,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Water Room",
     year: "2024-2026",
     medium: "Self-portrait photography",
+    place: "Columbia River Gorge",
     href: "/water-room?jump=water-room-start",
     statement:
       "The pleasure of a body that adopts the logic of water rather than resisting it.",
@@ -249,8 +261,9 @@ export const museumWorks: MuseumWork[] = [
     id: "maria",
     title: "Maria Burns Her Wedding Dress",
     room: "Current",
-    year: "2026",
+    year: "2025",
     medium: "Photography",
+    place: "Mt. Hood National Forest, Oregon",
     href: "/current",
     statement:
       "A ritual, witnessed rather than directed.",
