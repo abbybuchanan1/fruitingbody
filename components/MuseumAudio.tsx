@@ -668,6 +668,10 @@ export function MuseumAudio() {
           <span>{soundOn ? "Sound off" : "Sound"}</span>
         </button>
       )}
+
+      {pathname === "/" && !soundOn ? (
+        <p className="entrance-sound-note">Optional spatial sound accompanies the museum.</p>
+      ) : null}
     </>
   );
 }

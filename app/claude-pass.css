@@ -2910,3 +2910,38 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
     background: rgba(255, 251, 242, .9) !important;
   }
 }
+
+/* ENTRANCE — a quiet note under the Sound caption while sound is off. */
+.entrance-sound-note {
+  position: fixed;
+  z-index: 120;
+  top: calc(1.2rem + 1.75rem);
+  right: 1.2rem;
+  margin: 0;
+  max-width: 15rem;
+  text-align: right;
+  font: 400 .66rem/1.4 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .06em;
+  color: rgba(32, 27, 22, .7);
+  text-shadow: 0 0 10px rgba(246, 238, 222, .7);
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .entrance-sound-note {
+    top: calc(.9rem + 1.6rem);
+    right: .9rem;
+    max-width: 11rem;
+    font-size: .6rem;
+  }
+}
+
+/* PHONE MAP — the current room is shown only by the plan's own highlight,
+   which follows each room's shape (the curved wings included), not by a
+   rectangle behind its label. */
+@media (max-width: 760px) {
+  .museum-map__room--canonical[data-current="true"] {
+    background: none !important;
+    box-shadow: none !important;
+  }
+}
