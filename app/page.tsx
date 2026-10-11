@@ -11,12 +11,12 @@ export default function ExteriorPage() {
   const router = useRouter();
   const [imageReady, setImageReady] = useState(false);
   const [entering, setEntering] = useState(false);
-  // Trial (October 2026): "/?v=b" shows the mushroom projection on the wall
-  // instead of the tree shadows, so the two can be compared.
-  const [variant, setVariant] = useState<"a" | "b">("a");
+  // The Entrance shows the mushroom film on the wall ("b"). The tree-shadow
+  // version stays available at "/?v=a" for comparison.
+  const [variant, setVariant] = useState<"a" | "b">("b");
 
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("v") === "b") setVariant("b");
+    if (new URLSearchParams(window.location.search).get("v") === "a") setVariant("a");
   }, []);
 
   useEffect(() => {
