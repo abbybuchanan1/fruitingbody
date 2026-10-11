@@ -134,7 +134,7 @@ export const museumWorks: MuseumWork[] = [
     room: "Garden",
     year: "2026",
     medium: "Self-portrait photography",
-    place: "Oregon",
+    place: "Seaside, Oregon",
     href: "/exhibition?jump=taste-and-see",
     statement:
       "The body can be seen and still be allowed to want.",
