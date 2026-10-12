@@ -3788,3 +3788,67 @@ html { scroll-behavior: smooth; }
 @media (max-width: 700px) {
   .narthex-hall__link--quiet { font-size: 12px !important; }
 }
+
+/* NARTHEX — two rows of doors. High on the floor, the three paths that end
+   here, in map order (Red Room left, Exhibition centre, Water Room right),
+   each with a faint wash of its room's light; the one you came from scrolls
+   back up. Lower down, the way on: Reading Room, Courtyard, Archive. */
+.narthex-hall__link--back::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -3.2rem -4.5rem;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: .55;
+  pointer-events: none;
+  transition: opacity .5s ease;
+}
+
+.narthex-hall__link--back:hover::after,
+.narthex-hall__link--back:focus-visible::after {
+  opacity: .95;
+}
+
+.narthex-hall__link--red { left: 16%; top: 33%; }
+.narthex-hall__link--red::before {
+  right: calc(100% + 10px);
+  width: 4.2vw;
+  transform-origin: 100% 50%;
+  transform: rotate(30deg);
+}
+.narthex-hall__link--red::after { background: radial-gradient(closest-side, rgba(150, 32, 28, .55), transparent); }
+
+.narthex-hall__link--exhibition {
+  left: 50%;
+  top: 27%;
+  transform: translate(-50%, -50%);
+}
+.narthex-hall__link--exhibition::before {
+  top: auto;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  width: 2px;
+  height: 6.5vh;
+  transform: translateX(-50%);
+}
+.narthex-hall__link--exhibition::after { background: radial-gradient(closest-side, rgba(238, 228, 206, .5), transparent); }
+
+.narthex-hall__link--water { left: 74%; top: 33%; }
+.narthex-hall__link--water::before {
+  left: calc(100% + 12px);
+  width: 4.2vw;
+  transform-origin: 0 50%;
+  transform: rotate(-30deg);
+}
+.narthex-hall__link--water::after { background: radial-gradient(closest-side, rgba(70, 104, 96, .55), transparent); }
+
+@media (max-width: 700px) {
+  .narthex-hall__link--exhibition { top: 25%; }
+  .narthex-hall__link--exhibition::before { width: 1.5px; height: 5vh; }
+  .narthex-hall__link--red { left: 12%; top: 34%; }
+  .narthex-hall__link--red::before { width: 26px; }
+  .narthex-hall__link--water { left: 60%; top: 34%; }
+  .narthex-hall__link--water::before { width: 26px; }
+  .narthex-hall__link--back::after { inset: -2.2rem -2.6rem; }
+}

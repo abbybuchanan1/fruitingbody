@@ -35,7 +35,7 @@ export default function ExhibitionPage() {
 
       <ThresholdSection />
       <div id="threshold-end" className="return-anchor" aria-hidden="true" />
-      <NarthexHall />
+      <NarthexHall path="exhibition" />
     </main>
   );
 }

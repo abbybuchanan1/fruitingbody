@@ -43,7 +43,7 @@ export default function WaterRoomPage() {
 
       <div id="body-of-water-end" className="return-anchor" aria-hidden="true" />
       <WaterRoomJunction />
-      <NarthexHall />
+      <NarthexHall path="water" />
     </main>
   );
 }

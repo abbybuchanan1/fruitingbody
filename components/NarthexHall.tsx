@@ -1,4 +1,13 @@
 import Link from "next/link";
+import { ScrollBackLink } from "@/components/ScrollBackLink";
+
+// The three paths that end here, in map order (Red Room wing on the left,
+// the Rear Gallery in the middle, the Water Room wing on the right).
+const PATHS = [
+  { key: "red", label: "Red Room", href: "/red-room?jump=membrane-end&return=1", end: "membrane-end" },
+  { key: "exhibition", label: "Exhibition", href: "/exhibition?jump=threshold-end&return=1", end: "threshold-end" },
+  { key: "water", label: "Water Room", href: "/water-room?jump=body-of-water-end&return=1", end: "body-of-water-end" },
+] as const;
 
 // The Narthex as a room you walk into at the end of each path (Exhibition,
 // Red Room, Water Room) instead of being carried there by a film. Each path
@@ -9,9 +18,12 @@ import Link from "next/link";
 export function NarthexHall({
   variant = "scroll",
   from,
+  path,
 }: {
   variant?: "scroll" | "room";
   from?: "reading" | "courtyard" | "archive";
+  /** The path this copy ends: its door scrolls back up into it. */
+  path?: "red" | "exhibition" | "water";
 }) {
   const back = "#room-top";
   return (
@@ -28,6 +40,29 @@ export function NarthexHall({
 
       <div className="narthex-hall__room">
         <p className="room-label narthex-hall__label">Narthex</p>
+
+        {/* Back: the doors to the three paths, high on the floor. */}
+        <nav className="narthex-hall__back" aria-label="Back into the exhibition rooms">
+          {PATHS.map((p) =>
+            p.key === path ? (
+              <ScrollBackLink
+                key={p.key}
+                target={p.end}
+                className={`narthex-hall__link narthex-hall__link--back narthex-hall__link--${p.key}`}
+              >
+                {p.label}
+              </ScrollBackLink>
+            ) : (
+              <Link
+                key={p.key}
+                href={p.href}
+                className={`narthex-hall__link narthex-hall__link--back narthex-hall__link--${p.key}`}
+              >
+                {p.label}
+              </Link>
+            ),
+          )}
+        </nav>
 
         <nav className="narthex-hall__paths" aria-label="From the Narthex">
           <Link className="narthex-hall__link narthex-hall__link--reading" href={from === "reading" ? back : "/reading-room"}>

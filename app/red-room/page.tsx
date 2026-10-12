@@ -61,7 +61,7 @@ export default function RedRoomPage() {
         </section>
       </div>
 
-      <NarthexHall />
+      <NarthexHall path="red" />
     </Room>
   );
 }
