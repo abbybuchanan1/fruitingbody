@@ -9,6 +9,9 @@ export default function ExitPage() {
       <section className="exit-exterior" aria-label="Courtyard">
         <ExitFilmPlaylist />
         <div className="exit-exterior__veil" aria-hidden="true" />
+        {/* The light falls away at the foot of the Courtyard: walking back in
+            through the doors, before the Narthex floor appears. */}
+        <div className="exit-exterior__dusk" aria-hidden="true" />
         <div className="exit-exterior__ui">
           <p className="exit-exterior__label">Courtyard</p>
           <a className="exit-exterior__return" href="#narthex">Return to Narthex</a>

@@ -3651,3 +3651,59 @@ html { scroll-behavior: smooth; }
   filter: saturate(.6) blur(.6px);
   pointer-events: none;
 }
+
+/* COURTYARD (revision 2) — walking out through the doors. First a pause in
+   the dim, unlit stone of the Narthex (its own floor, nearly dark), then the
+   films arrive washed out with daylight and relax to their true colour, as
+   eyes adjust outdoors. */
+.exit-exterior::after {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(20,16,12,.25), rgba(5,4,3,.82) 100%),
+    url("/media/video/environment/narthex-arrival.jpg") center / cover no-repeat !important;
+  filter: brightness(.22) saturate(.35) contrast(1.1);
+  animation: courtyard-doors 2.4s ease-in forwards !important;
+}
+
+@keyframes courtyard-doors {
+  0%, 55% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.exit-exterior video {
+  animation: courtyard-daylight 4.6s cubic-bezier(.25, .1, .25, 1) 1.2s both !important;
+}
+
+@keyframes courtyard-daylight {
+  0% { filter: brightness(2.7) contrast(.55) saturate(.35); }
+  30% { filter: brightness(2) contrast(.68) saturate(.55); }
+  65% { filter: brightness(1.3) contrast(.9) saturate(.85); }
+  100% { filter: brightness(1) contrast(1) saturate(1); }
+}
+
+/* A longer walk back: the Courtyard falls into shadow at its foot, and the
+   Narthex floor rises out of that darkness further down. */
+.exit-exterior__dusk {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 38%;
+  background: linear-gradient(to bottom, rgba(5,4,3,0), rgba(5,4,3,.6) 55%, #050403);
+  pointer-events: none;
+}
+
+.exit-page .narthex-hall--scroll {
+  margin-top: 0 !important;
+  height: calc(100svh + 95vh) !important;
+}
+
+.exit-page .narthex-hall--scroll .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 24vh, rgba(0,0,0,.7) 46vh, #000 62vh) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 24vh, rgba(0,0,0,.7) 46vh, #000 62vh) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exit-exterior::after { animation: courtyard-doors 1s ease-in forwards !important; }
+  .exit-exterior video { animation: none !important; }
+}
