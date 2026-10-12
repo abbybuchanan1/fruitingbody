@@ -49,9 +49,9 @@ const redThreadDevelopment = [
   },
 ] as const;
 
-// Only works whose archive differs from the Index are kept here; the rest are
-// shown in full on the Index.
-const ARCHIVE_IDS = ["red-thread", "membrane", "body-of-water", "maria"];
+// Only works whose archive differs from the Index are kept here (the rest are
+// shown in full on the Index). Daffodils and Fear Not now carry further work.
+const ARCHIVE_IDS = ["daffodils", "fear-not", "red-thread", "membrane", "body-of-water", "maria"];
 const archiveWorks = museumWorks.filter((work) => ARCHIVE_IDS.includes(work.id));
 
 export default function ArchivePage() {

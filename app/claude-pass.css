@@ -3633,3 +3633,21 @@ html { scroll-behavior: smooth; }
   .archive-entrance { height: 125vh; }
   .archive-page .archive-title-card { margin-top: -66vh !important; }
 }
+
+/* ARCHIVE — the painted canvas from the entrance carries on, very faintly,
+   as a texture behind the whole room. */
+.archive-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.archive-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("/media/architecture/archive-entrance.jpg") center / cover no-repeat;
+  opacity: .09;
+  filter: saturate(.6) blur(.6px);
+  pointer-events: none;
+}
