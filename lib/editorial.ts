@@ -9,6 +9,7 @@ export const artistStatement = [
   "I return often to agency inside conditions that cannot be fully controlled. Agency may look like choosing, witnessing, tending, or deciding how to inhabit what cannot simply be escaped. Myth gives me a structure for entering those questions without turning the photographs into illustrations of a story.",
   "Landscape works in a similar way. Bodies and landscapes are shaped by many of the same processes: gravity, erosion, growth, permeability, decay, and seasonal change. I think of that relationship as kinship.",
   "Making these photographs has paralleled my own movement toward a more integrated sense of self, one that can hold motherhood, neurodivergence, artistic practice, and repeated cycles of descent and emergence without needing them to resolve into one stable version of me.",
+  "I hope my work helps viewers feel more curious about themselves and less alone in the world.",
 ];
 
 export const processStatement = [
