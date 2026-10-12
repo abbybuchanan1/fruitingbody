@@ -30,7 +30,11 @@ export function GrottoSection() {
 
         <div className="grotto-transition grotto-transition--miscarriage-phase" aria-hidden="true">
           {/* Votive lamps (Kathmandu, 2013) rising out of the stone into Phase. */}
-          <div className="grotto-transition__votives" />
+          <div className="grotto-transition__votives">
+            {/* Two faint glow layers on unrelated rhythms: the flames flicker. */}
+            <span className="grotto-transition__flicker grotto-transition__flicker--a" />
+            <span className="grotto-transition__flicker grotto-transition__flicker--b" />
+          </div>
         </div>
 
         <section id="phase" className="grotto-section grotto-section--phase">

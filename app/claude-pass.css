@@ -3228,3 +3228,178 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 16%, #000 36%, #000 78%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 16%, #000 36%, #000 78%, transparent 100%);
 }
+
+/* GROTTO (revision) — the votive lamps arrive later and stay longer: the
+   passage is taller, the lamps only begin a third of the way down, and Phase's
+   title waits further below. */
+.exhibition-scroll .grotto-transition--miscarriage-phase {
+  height: 165vh !important;
+}
+
+.exhibition-scroll .grotto-section--phase {
+  padding-top: 44vh !important;
+}
+
+.grotto-transition__votives {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 22%, rgba(0,0,0,.35) 36%, #000 52%, #000 84%, transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0%, transparent 22%, rgba(0,0,0,.35) 36%, #000 52%, #000 84%, transparent 100%) !important;
+}
+
+/* Flicker: a brighter copy of the photograph, glowing only where the flames
+   are (screen blend leaves the dark bowls untouched), breathing on two
+   irregular rhythms in different parts of the frame. */
+.grotto-transition__flicker {
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: brightness(1.6) saturate(1.15) blur(1.4px);
+  mix-blend-mode: screen;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.grotto-transition__flicker--a {
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 30% 55%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 30% 55%, #000, transparent 75%);
+  animation: votive-flicker-a 3.7s steps(1, end) infinite, votive-drift-a 5.3s ease-in-out infinite;
+}
+
+.grotto-transition__flicker--b {
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 72% 60%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 72% 60%, #000, transparent 75%);
+  animation: votive-flicker-b 4.9s steps(1, end) infinite, votive-drift-b 6.1s ease-in-out infinite;
+}
+
+@keyframes votive-flicker-a {
+  0% { opacity: .06; } 9% { opacity: .14; } 17% { opacity: .05; } 26% { opacity: .11; }
+  38% { opacity: .17; } 44% { opacity: .07; } 57% { opacity: .12; } 63% { opacity: .04; }
+  74% { opacity: .15; } 82% { opacity: .08; } 91% { opacity: .13; } 100% { opacity: .06; }
+}
+
+@keyframes votive-flicker-b {
+  0% { opacity: .1; } 12% { opacity: .04; } 21% { opacity: .15; } 33% { opacity: .08; }
+  41% { opacity: .12; } 52% { opacity: .05; } 66% { opacity: .16; } 71% { opacity: .07; }
+  85% { opacity: .11; } 93% { opacity: .03; } 100% { opacity: .1; }
+}
+
+/* The flames lean a hair, as if in a draught. */
+@keyframes votive-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(.12%, -.18%, 0); }
+}
+
+@keyframes votive-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-.1%, -.14%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grotto-transition__flicker { animation: none; opacity: .08; }
+}
+
+/* NARTHEX (revision) — a longer walk into it: the floor shows for longer
+   before the room's labels arrive, and the labels sit lower on the floor. */
+.narthex-hall--scroll {
+  height: calc(100svh + 75vh) !important;
+  margin-top: -32vh !important;
+}
+
+.narthex-hall--scroll .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.3) 14vh, rgba(0,0,0,.8) 26vh, #000 34vh) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.3) 14vh, rgba(0,0,0,.8) 26vh, #000 34vh) !important;
+}
+
+.narthex-hall__link--reading { top: 60% !important; }
+.narthex-hall__link--courtyard { top: 60% !important; }
+.narthex-hall__link--index { top: 58.1% !important; }
+.narthex-hall__link--archive { top: 61.1% !important; }
+
+@media (max-width: 700px) {
+  .narthex-hall__link--courtyard { top: 52% !important; }
+  .narthex-hall__link--reading { top: 63% !important; }
+  .narthex-hall__link--index { top: 71% !important; }
+  .narthex-hall__link--archive { top: 75.5% !important; }
+}
+
+/* WATER ROOM (revision) — the end of the room. The Film Room's film plays
+   faintly on the right half (no label on it); a "Film Room" label with a
+   short rule sits above, in the Vestibule's style. The left half is already
+   the Narthex's stained-glass floor, which runs on into the Narthex below. */
+.water-room-junction--walk {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 92vh;
+  margin-top: 10vh;
+  padding-top: 0 !important;
+  background: none !important;
+}
+
+.water-room-junction__floor {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, #000 78%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, #000 78%, transparent);
+  mask-composite: intersect;
+}
+
+.water-room-junction__floor img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 20% 60%;
+  filter: blur(.2px) saturate(.84) contrast(.91) brightness(.9);
+}
+
+.water-room-junction__film {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 80%, transparent);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 80%, transparent);
+}
+
+.water-room-junction__film:hover .water-room-junction__moving-glimpse,
+.water-room-junction__film:focus-visible .water-room-junction__moving-glimpse {
+  opacity: .32;
+  filter: grayscale(1) contrast(1.05) brightness(.62) blur(.2px);
+}
+
+/* The label: centred near the top, its rule angled down toward the film. */
+.water-room-junction__label {
+  position: absolute;
+  z-index: 3;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .4rem 0;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 500 12.5px/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .16em;
+  color: rgba(255, 251, 242, .97);
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .8), 0 0 14px rgba(10, 8, 6, .55);
+}
+
+.water-room-junction__label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 12px);
+  width: 4.5vw;
+  height: 2px;
+  background: rgba(255, 251, 242, .85);
+  box-shadow: 0 0 6px rgba(10, 8, 6, .3);
+  transform-origin: 0 50%;
+  transform: rotate(30deg);
+}
+
+@media (max-width: 700px) {
+  .water-room-junction--walk { min-height: 80vh; }
+  .water-room-junction__label { font-size: 12px; top: 10%; }
+  .water-room-junction__label::before { width: 30px; height: 1.5px; }
+}
