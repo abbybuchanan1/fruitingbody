@@ -247,11 +247,13 @@ export const museumWorks: MuseumWork[] = [
       "The experience itself as the site of the photograph.",
     question: "What must pass through us in order for us to become?",
     exhibition: artworkSets.membrane,
-    // Trimmed to nine: near-repeats of the veil over the head were removed.
-    archive: archiveSequence(
+    // Archive: the installed six, then the further frames (the archive set
+    // was trimmed earlier of near-repeats of the veil over the head).
+    archive: artworkSets.membrane,
+    archiveExtra: archiveSequence(
       "membrane",
-      ["01", "03", "04", "05", "07", "09", "10", "12", "15"].map((n) => `membrane-index-${n}.jpg`),
-      "Membrane",
+      ["01", "03", "05", "07", "10"].map((n) => `membrane-index-${n}.jpg`),
+      "Membrane, further work",
     ),
     reflection: reflections.membrane,
   },
@@ -268,14 +270,13 @@ export const museumWorks: MuseumWork[] = [
     question:
       "What happens when we stop resisting transformation and begin moving with it?",
     exhibition: bodyOfWaterWorks,
-    // Archive: the underwater light frame (12) opens the second row.
-    archive: archiveSequence(
+    // Archive: the installed seven, then the further frames.
+    archive: bodyOfWaterWorks,
+    archiveExtra: archiveSequence(
       "body-of-water",
-      ["01", "02", "04", "05", "06", "12", "07", "08", "09", "10", "11"].map(
-        (n) => `body-of-water-index-${n}.jpg`,
-      ),
-      "Body of Water",
-    ).map((work) => (work.src.endsWith("-12.jpg") ? { ...work, breakBefore: true } : work)),
+      ["02", "05", "12", "10", "11"].map((n) => `body-of-water-index-${n}.jpg`),
+      "Body of Water, further work",
+    ),
     reflection: reflections["body-of-water"],
   },
   {
@@ -290,7 +291,9 @@ export const museumWorks: MuseumWork[] = [
       "A ritual, witnessed rather than directed.",
     question: "Can a deliberate act of witnessing transform identity?",
     exhibition: artworkSets.maria,
-    archive: mariaWorks,
+    // Archive: the installed five, then the rest of the witnessed sequence.
+    archive: artworkSets.maria,
+    archiveExtra: [3, 4, 6, 9, 10, 11].map((n) => mariaWorks[n - 1]),
     reflection: reflections.maria,
   },
 ];

@@ -3772,3 +3772,19 @@ html { scroll-behavior: smooth; }
 }
 
 .exit-page .exit-exterior__dusk { display: none; }
+
+/* ARCHIVE — every work follows the same pattern: "Installed work", then
+   "Further work" (or, for Red Thread, its original edits). */
+.archive-installed-label {
+  margin: 0 0 1.4rem;
+}
+
+/* NARTHEX — all room labels one size (the Archive label no longer smaller). */
+.narthex-hall__link--quiet {
+  font-size: 12.5px !important;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .narthex-hall__link--quiet { font-size: 12px !important; }
+}

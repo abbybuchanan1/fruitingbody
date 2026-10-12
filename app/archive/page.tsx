@@ -103,6 +103,7 @@ export default function ArchivePage() {
               <Link href={work.href}>View installed work</Link>
             </header>
 
+            <p className="archive-historical-edit__label archive-installed-label">Installed work</p>
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
             {work.archiveExtra?.length ? (
               <section className="archive-further" aria-label={`${work.title}: further work`}>
