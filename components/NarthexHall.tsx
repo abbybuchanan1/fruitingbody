@@ -4,7 +4,16 @@ import Link from "next/link";
 // Red Room, Water Room) instead of being carried there by a film. Each path
 // ends in its own copy, so visitors can scroll back out the way they came;
 // the Map's Narthex is the same room on its own page.
-export function NarthexHall({ variant = "scroll" }: { variant?: "scroll" | "room" }) {
+// "from" names the side room this copy of the Narthex sits below: its label
+// then scrolls back up into that room instead of reloading it.
+export function NarthexHall({
+  variant = "scroll",
+  from,
+}: {
+  variant?: "scroll" | "room";
+  from?: "reading" | "courtyard" | "archive";
+}) {
+  const back = "#room-top";
   return (
     <section
       id="narthex"
@@ -21,15 +30,15 @@ export function NarthexHall({ variant = "scroll" }: { variant?: "scroll" | "room
         <p className="room-label narthex-hall__label">Narthex</p>
 
         <nav className="narthex-hall__paths" aria-label="From the Narthex">
-          <Link className="narthex-hall__link narthex-hall__link--reading" href="/reading-room">
+          <Link className="narthex-hall__link narthex-hall__link--reading" href={from === "reading" ? back : "/reading-room"}>
             Reading Room
           </Link>
-          <Link className="narthex-hall__link narthex-hall__link--courtyard" href="/exit">
+          <Link className="narthex-hall__link narthex-hall__link--courtyard" href={from === "courtyard" ? back : "/exit"}>
             Courtyard
           </Link>
           {/* Archive: a side room, labelled more quietly than the two doors.
               (Index lives in the top row on every page.) */}
-          <Link className="narthex-hall__link narthex-hall__link--archive narthex-hall__link--quiet" href="/archive">
+          <Link className="narthex-hall__link narthex-hall__link--archive narthex-hall__link--quiet" href={from === "archive" ? back : "/archive"}>
             Archive
           </Link>
         </nav>

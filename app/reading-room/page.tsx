@@ -5,7 +5,7 @@ import { poems } from "@/lib/poems";
 
 export default function ReadingRoomPage() {
   return (
-    <main className="reading-room-page" data-museum-location="reading-room">
+    <main id="room-top" className="reading-room-page" data-museum-location="reading-room">
       <div className="reading-room-page__image" aria-hidden="true" />
       <div className="reading-room-page__veil" aria-hidden="true" />
 
@@ -42,7 +42,7 @@ export default function ReadingRoomPage() {
 
 
       </section>
-      <NarthexHall />
+      <NarthexHall from="reading" />
     </main>
   );
 }

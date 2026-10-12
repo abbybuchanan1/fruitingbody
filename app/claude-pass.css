@@ -3707,3 +3707,68 @@ html { scroll-behavior: smooth; }
   .exit-exterior::after { animation: courtyard-doors 1s ease-in forwards !important; }
   .exit-exterior video { animation: none !important; }
 }
+
+/* COURTYARD (revision 3) — full bleed again: the films are pinned to the
+   window as before; the page scrolls over them. Below the first screen, the
+   way back in darkens like the shade by the doors, and the Narthex floor rises
+   out of that darkness; scrolling up walks back out into the light. */
+.exit-page {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
+
+.exit-page .exit-exterior {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100dvw !important;
+  min-width: 100dvw !important;
+  height: 100dvh !important;
+  min-height: 100dvh !important;
+}
+
+.exit-page .exit-exterior__split {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100dvw !important;
+  height: 100dvh !important;
+}
+
+.exit-page .exit-exterior__veil,
+.exit-page .exit-exterior__video-stack {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.exit-page__open-air {
+  height: 100svh;
+  pointer-events: none;
+}
+
+.exit-page__doors {
+  position: relative;
+  z-index: 1;
+  height: 60vh;
+  background: linear-gradient(to bottom, rgba(5,4,3,0), rgba(5,4,3,.55) 45%, rgba(5,4,3,.9) 80%, #050403);
+  pointer-events: none;
+}
+
+.exit-page .narthex-hall--scroll {
+  z-index: 1;
+  margin-top: 0 !important;
+  height: calc(100svh + 70vh) !important;
+  background: #050403;
+}
+
+.exit-page .narthex-hall--scroll .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 20vh, rgba(0,0,0,.7) 40vh, #000 56vh) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 20vh, rgba(0,0,0,.7) 40vh, #000 56vh) !important;
+}
+
+.exit-page .exit-exterior__dusk { display: none; }

@@ -56,7 +56,7 @@ const archiveWorks = museumWorks.filter((work) => ARCHIVE_IDS.includes(work.id))
 
 export default function ArchivePage() {
   return (
-    <main className="archive-page">
+    <main id="room-top" className="archive-page">
       <OpenDetailsFromHash />
       <NarthexThreshold />
       {/* The Archive's entrance: a detail of the artist's painting (2010),
@@ -139,7 +139,7 @@ export default function ArchivePage() {
         ))}
       </section>
 
-      <NarthexHall />
+      <NarthexHall from="archive" />
     </main>
   );
 }
