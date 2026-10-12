@@ -17,9 +17,11 @@ const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
 // The Red Room and Water Room each end in their own Narthex: the plan shows
 // the Narthex once the visitor has scrolled into it.
 function narthexReached() {
-  const narthex = document.querySelector<HTMLElement>("#narthex .narthex-hall__room");
-  if (!narthex) return false;
-  return narthex.getBoundingClientRect().top <= window.innerHeight * 0.38;
+  const probe = window.innerHeight * 0.38;
+  return Array.from(document.querySelectorAll<HTMLElement>(".narthex-hall__room")).some((room) => {
+    const rect = room.getBoundingClientRect();
+    return rect.top <= probe && rect.bottom > probe;
+  });
 }
 
 // Rooms whose walls are dark: the Map and Index cards switch to light

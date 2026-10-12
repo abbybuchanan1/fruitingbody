@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { NarthexHall } from "@/components/NarthexHall";
-import { NarthexThreshold } from "@/components/NarthexThreshold";
+import { RoomStart } from "@/components/RoomStart";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
 import { FilmThumbnail } from "@/components/FilmThumbnail";
@@ -56,9 +56,10 @@ const archiveWorks = museumWorks.filter((work) => ARCHIVE_IDS.includes(work.id))
 
 export default function ArchivePage() {
   return (
-    <main id="room-top" className="archive-page">
+    <main className="archive-page">
       <OpenDetailsFromHash />
-      <NarthexThreshold />
+      <NarthexHall variant="above" from="archive" />
+      <RoomStart />
       {/* The Archive's entrance: a detail of the artist's painting (2010),
           like a canvas kept under a dust sheet, with the room's title card. */}
       <section className="archive-entrance" aria-label="Archive">

@@ -3852,3 +3852,107 @@ html { scroll-behavior: smooth; }
   .narthex-hall__link--water::before { width: 26px; }
   .narthex-hall__link--back::after { inset: -2.2rem -2.6rem; }
 }
+
+/* SIDE ROOMS (revision) — the Reading Room and Archive open below a full
+   Narthex: the page arrives at the start of the room, and scrolling up walks
+   back into the Narthex (its labels and all), whose floor fades down into
+   the room. */
+.narthex-hall--above {
+  position: relative;
+  z-index: 1;
+  height: calc(100svh + 45vh);
+  margin-bottom: -38vh;
+}
+
+.narthex-hall--above .narthex-hall__room {
+  top: 0;
+  bottom: auto;
+}
+
+.narthex-hall--above .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 4vh), rgba(0,0,0,.55) calc(100svh + 16vh), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 4vh), rgba(0,0,0,.55) calc(100svh + 16vh), transparent 100%);
+}
+
+.archive-page .narthex-hall--above {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: calc(-1 * clamp(6rem, 12vh, 10rem));
+}
+
+.room-start {
+  display: block;
+  height: 0;
+}
+
+/* NARTHEX (revision) — spokes. "Narthex" sits at the centre of the floor and
+   the six doors radiate around it in the same order: the three paths above
+   (Red Room, Exhibition, Water Room), the way on below (Reading Room,
+   Courtyard, Archive). Each rule points in toward the centre. */
+.narthex-hall__label {
+  top: 47% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 1.02rem !important;
+}
+
+.narthex-hall__link--red,
+.narthex-hall__link--water,
+.narthex-hall__link--reading,
+.narthex-hall__link--archive {
+  transform: translateY(-50%) !important;
+}
+
+.narthex-hall__link--red { left: 20% !important; right: auto !important; top: 34% !important; }
+.narthex-hall__link--water { left: auto !important; right: 20% !important; top: 34% !important; }
+.narthex-hall__link--reading { left: 20% !important; right: auto !important; top: 60% !important; }
+.narthex-hall__link--archive { left: auto !important; right: 20% !important; top: 60% !important; }
+.narthex-hall__link--exhibition { left: 50% !important; top: 25% !important; transform: translate(-50%, -50%) !important; }
+.narthex-hall__link--courtyard { left: 50% !important; top: 70% !important; transform: translate(-50%, -50%) !important; }
+
+/* Spokes: left doors point right toward the centre, right doors point left. */
+.narthex-hall__link--red::before,
+.narthex-hall__link--reading::before {
+  left: calc(100% + 12px) !important;
+  right: auto !important;
+  width: 4.5vw !important;
+  transform-origin: 0 50% !important;
+}
+.narthex-hall__link--red::before { transform: rotate(24deg) !important; }
+.narthex-hall__link--reading::before { transform: rotate(-24deg) !important; }
+
+.narthex-hall__link--water::before,
+.narthex-hall__link--archive::before {
+  right: calc(100% + 12px) !important;
+  left: auto !important;
+  width: 4.5vw !important;
+  transform-origin: 100% 50% !important;
+}
+.narthex-hall__link--water::before { transform: rotate(-24deg) !important; }
+.narthex-hall__link--archive::before { transform: rotate(24deg) !important; }
+
+/* Exhibition's spoke drops toward the centre; Courtyard's rises to it. */
+.narthex-hall__link--exhibition::before {
+  top: calc(100% + 8px) !important;
+  bottom: auto !important;
+  height: 5.5vh !important;
+}
+
+.narthex-hall__link--courtyard::before {
+  height: 5.5vh !important;
+}
+
+@media (max-width: 700px) {
+  .narthex-hall__label { top: 49% !important; font-size: .86rem !important; }
+  .narthex-hall__link--exhibition { top: 31% !important; }
+  .narthex-hall__link--courtyard { top: 68% !important; }
+  .narthex-hall__link--red { left: 6% !important; top: 40% !important; }
+  .narthex-hall__link--water { right: 6% !important; top: 40% !important; }
+  .narthex-hall__link--reading { left: 6% !important; top: 58% !important; }
+  .narthex-hall__link--archive { right: 6% !important; top: 58% !important; }
+  .narthex-hall__link--red::before,
+  .narthex-hall__link--reading::before,
+  .narthex-hall__link--water::before,
+  .narthex-hall__link--archive::before { width: 18px !important; }
+  .narthex-hall__link--exhibition::before,
+  .narthex-hall__link--courtyard::before { height: 4vh !important; }
+}

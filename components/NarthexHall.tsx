@@ -20,15 +20,15 @@ export function NarthexHall({
   from,
   path,
 }: {
-  variant?: "scroll" | "room";
+  variant?: "scroll" | "room" | "above";
   from?: "reading" | "courtyard" | "archive";
   /** The path this copy ends: its door scrolls back up into it. */
   path?: "red" | "exhibition" | "water";
 }) {
-  const back = "#room-top";
+  const back = "#room-start";
   return (
     <section
-      id="narthex"
+      id={variant === "above" ? "narthex-above" : "narthex"}
       className={`narthex-hall narthex-hall--${variant}`}
       data-audio-zone="red-water-narthex"
       aria-label="Narthex"

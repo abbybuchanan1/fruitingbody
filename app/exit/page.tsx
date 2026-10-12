@@ -6,7 +6,7 @@ import { NarthexHall } from "@/components/NarthexHall";
 // darkness by the doors and into the Narthex, and up again goes back out.
 export default function ExitPage() {
   return (
-    <main id="room-top" className="exit-page" data-museum-location="exit-exterior">
+    <main id="room-start" className="exit-page" data-museum-location="exit-exterior">
       <section className="exit-exterior" aria-label="Courtyard">
         <ExitFilmPlaylist />
         <div className="exit-exterior__veil" aria-hidden="true" />
