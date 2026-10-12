@@ -118,12 +118,20 @@ export const membraneWorks = exhibitionSequence(
   };
 });
 
-export const redThreadWorks = exhibitionSequence(
-  "red-thread",
-  "red-thread",
-  10,
-  "Red Thread",
-);
+// Red Thread closes on the Unravel frame (leaving, the thread stretched
+// across the sand) in place of frame 10, which moves to the Archive.
+const redThreadFrames = exhibitionSequence("red-thread", "red-thread", 10, "Red Thread");
+export const redThreadWorks: Artwork[] = [
+  ...redThreadFrames.slice(0, 9),
+  {
+    src: "/art/archive/unravel-original/unravel-original-05.jpg",
+    alt: "Red Thread, image 10 of 10.",
+  },
+];
+export const redThreadRetired: Artwork = {
+  ...redThreadFrames[9],
+  alt: "Red Thread, earlier closing frame: the figure dissolving as the thread runs toward the camera.",
+};
 
 // Body of Water: frame 03 is withdrawn (its background was repaired with
 // generative AI). The remaining seven keep their original file numbers.
