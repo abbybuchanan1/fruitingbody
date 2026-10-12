@@ -3549,3 +3549,23 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   .exit-exterior::after { animation-duration: .6s; }
   .exit-exterior video { animation: none; }
 }
+
+/* ARCHIVE — "Further work": images beyond the installed edit, under a small
+   label after it. */
+.archive-further {
+  margin-top: clamp(3.5rem, 7vh, 5.5rem);
+}
+
+.archive-further > .archive-historical-edit__label {
+  margin-bottom: 1.4rem;
+}
+
+/* FEAR NOT (trial) — the closing serpent portrait is 3:4, so it is sized
+   wider to stand about as tall as the 9:16 frames before it. */
+.garden-section--fear-not .artwork-image:nth-child(5) {
+  width: min(64vh, 86vw, 44rem) !important;
+}
+
+@media (max-width: 680px) {
+  .garden-section--fear-not .artwork-image:nth-child(5) { width: 86vw !important; }
+}

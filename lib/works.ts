@@ -34,6 +34,8 @@ export type MuseumWork = {
   question: string;
   exhibition: Artwork[];
   archive: Artwork[];
+  /** In the Archive, shown after the installed edit under "Further work". */
+  archiveExtra?: Artwork[];
   /** Where the work was made, shown after year and medium. */
   place?: string;
   reflection?: string[];
@@ -110,6 +112,15 @@ export const museumWorks: MuseumWork[] = [
       const work = artworkSets.daffodils[i];
       return i === 2 || i === 5 ? { ...work, stack: "fall-return" } : work;
     }),
+    archiveExtra: [
+      { src: "/art/archive/daffodils/daffodils-further-01.jpg", alt: "This Morning I Was Gathering Daffodils, further work. A hand in pomegranate seeds, sparks of light." },
+      { src: "/art/archive/daffodils/daffodils-further-02.jpg", alt: "This Morning I Was Gathering Daffodils, further work. The pomegranate broken open, very close." },
+      { src: "/art/archive/daffodils/daffodils-further-03.jpg", alt: "This Morning I Was Gathering Daffodils, further work. Lying in the dark by a root, a hand on the pomegranate." },
+      { src: "/art/archive/daffodils/daffodils-further-04.jpg", alt: "This Morning I Was Gathering Daffodils, further work. Upside down in the sun, red fruit in hand." },
+      { src: "/art/archive/daffodils/daffodils-further-05.jpg", alt: "This Morning I Was Gathering Daffodils, further work. A profile in window shadow on a red wall." },
+      { src: "/art/archive/daffodils/daffodils-further-06.jpg", alt: "This Morning I Was Gathering Daffodils, further work. A face beside its own shadow on a red wall." },
+      { src: "/art/archive/daffodils/daffodils-further-07.jpg", alt: "This Morning I Was Gathering Daffodils, further work. A face blurred among bright green leaves." },
+    ],
     reflection: reflections.daffodils,
   },
   {
@@ -126,6 +137,16 @@ export const museumWorks: MuseumWork[] = [
       "What becomes possible when curiosity matters more than certainty?",
     exhibition: artworkSets.fearNot,
     archive: artworkSets.fearNot,
+    archiveExtra: [
+      { src: "/art/fear-not/fear-not-05.jpg", alt: "Fear Not, further work. Facing the camera with a direct gaze, holding the eaten core of the apple." },
+      { src: "/art/archive/fear-not/fear-not-further-01.jpg", alt: "Fear Not, further work. Hair whipping through the lit vines, the face turned away." },
+      { src: "/art/archive/fear-not/fear-not-further-02.jpg", alt: "Fear Not, further work. Head thrown back, vines across the body." },
+      { src: "/art/archive/fear-not/fear-not-further-03.jpg", alt: "Fear Not, further work. Close, biting the apple." },
+      { src: "/art/archive/fear-not/fear-not-further-04.jpg", alt: "Fear Not, further work. The face nearly lost among lit leaves, eyes closed." },
+      { src: "/art/archive/fear-not/fear-not-further-05.jpg", alt: "Fear Not, further work. Holding the apple out toward the camera." },
+      { src: "/art/archive/fear-not/fear-not-further-06.jpg", alt: "Fear Not, further work. Hands blurred in motion before the face, eyes closed." },
+      { src: "/art/archive/fear-not/fear-not-further-07.jpg", alt: "Fear Not, further work. A direct gaze among the leaves, a green stem in hand." },
+    ],
     reflection: reflections["fear-not"],
   },
   {

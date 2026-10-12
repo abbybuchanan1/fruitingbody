@@ -104,6 +104,12 @@ export default function ArchivePage() {
             </header>
 
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
+            {work.archiveExtra?.length ? (
+              <section className="archive-further" aria-label={`${work.title}: further work`}>
+                <p className="archive-historical-edit__label">Further work</p>
+                <ArtworkLightboxGrid images={work.archiveExtra} mode="archive" />
+              </section>
+            ) : null}
             {work.id === "body-of-water" ? <FilmThumbnail /> : null}
 
             {work.id === "red-thread" ? (

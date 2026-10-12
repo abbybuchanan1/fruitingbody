@@ -1,6 +1,21 @@
 // Pixel size of every image under public/art, used by the Index and Archive
 // catalog to keep each photograph's shape. Regenerate when images change.
 export const imageSizes: Record<string, [number, number]> = {
+  "/art/archive/fear-not/fear-not-further-01.jpg": [608, 1080],
+  "/art/archive/fear-not/fear-not-further-02.jpg": [1126, 2000],
+  "/art/archive/fear-not/fear-not-further-03.jpg": [1126, 2000],
+  "/art/archive/fear-not/fear-not-further-04.jpg": [503, 910],
+  "/art/archive/fear-not/fear-not-further-05.jpg": [1126, 2000],
+  "/art/archive/fear-not/fear-not-further-06.jpg": [1267, 742],
+  "/art/archive/fear-not/fear-not-further-07.jpg": [2000, 1125],
+  "/art/fear-not/fear-not-06.jpg": [1500, 2000],
+  "/art/archive/daffodils/daffodils-further-01.jpg": [1600, 2000],
+  "/art/archive/daffodils/daffodils-further-02.jpg": [2000, 1294],
+  "/art/archive/daffodils/daffodils-further-03.jpg": [2000, 1250],
+  "/art/archive/daffodils/daffodils-further-04.jpg": [2000, 1100],
+  "/art/archive/daffodils/daffodils-further-05.jpg": [1320, 1800],
+  "/art/archive/daffodils/daffodils-further-06.jpg": [1800, 1080],
+  "/art/archive/daffodils/daffodils-further-07.jpg": [1920, 1080],
   "/art/archive/body-of-water/body-of-water-index-01.jpg": [1997, 1500],
   "/art/archive/body-of-water/body-of-water-index-02.jpg": [1500, 2000],
   "/art/archive/body-of-water/body-of-water-index-03.jpg": [1920, 1080],

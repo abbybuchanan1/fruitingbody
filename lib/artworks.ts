@@ -174,11 +174,16 @@ const fearNotAlts = [
   "Fear Not, 2 of 5. Back turned, looking over the shoulder toward the camera, vines at the waist.",
   "Fear Not, 3 of 5. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves.",
   "Fear Not, 4 of 5. Biting a green apple among the vines, eyes raised, one hand low against the body.",
-  "Fear Not, 5 of 5. Facing the camera with a direct gaze, holding the eaten core of the apple.",
+  "Fear Not, 5 of 5. A close portrait among the leaves, a direct gaze, a metal serpent necklace at the throat.",
 ];
 
+// Trial (October 2026): the serpent portrait (fear-not-06) closes the
+// installed work; the earlier closing frame (fear-not-05) moves to the
+// Archive's further work.
+const fearNotFiles = ["01", "02", "03", "04", "06"];
+
 export const fearNotWorks: Artwork[] = fearNotAlts.map((alt, i) => ({
-  src: `/art/fear-not/fear-not-0${i + 1}.jpg`,
+  src: `/art/fear-not/fear-not-${fearNotFiles[i]}.jpg`,
   alt,
 }));
 
