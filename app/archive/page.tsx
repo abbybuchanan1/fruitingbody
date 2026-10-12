@@ -52,6 +52,16 @@ const redThreadDevelopment = [
 // Only works whose archive differs from the Index are kept here (the rest are
 // shown in full on the Index). Daffodils and Fear Not now carry further work.
 const ARCHIVE_IDS = ["daffodils", "fear-not", "red-thread", "membrane", "body-of-water", "maria"];
+// A separate work from the Daffodils material, titled from the Pádraig Ó
+// Tuama passage quoted in the Daffodils reflection.
+const oneYearCollage: Artwork[] = [
+  {
+    src: "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg",
+    alt: "One Year. Fifty. Five Hundred. Forever. A kaleidoscopic digital collage of bodies, pale flowers and earth, mirrored around a dark centre.",
+    title: "One Year. Fifty. Five Hundred. Forever.",
+  },
+];
+
 const archiveWorks = museumWorks.filter((work) => ARCHIVE_IDS.includes(work.id));
 
 export default function ArchivePage() {
@@ -77,15 +87,18 @@ export default function ArchivePage() {
         </p>
 
         <nav className="archive-menu" aria-label="Archive works">
-          {archiveWorks.map((work) => (
-            <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>
-          ))}
+          {archiveWorks.map((work) => [
+            <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>,
+            work.id === "daffodils" ? (
+              <a href="#archive-one-year" key="one-year">One Year. Fifty. Five Hundred. Forever.</a>
+            ) : null,
+          ])}
         </nav>
       </header>
 
 
       <section className="archive-works" aria-label="Full finished bodies of work">
-        {archiveWorks.map((work) => (
+        {archiveWorks.map((work) => [
           <article id={`archive-${work.id}`} className="archive-work" data-work-id={work.id} key={work.id}>
             <header className="archive-work__header">
               <p className="archive-work__room">{work.room}</p>
@@ -137,8 +150,19 @@ export default function ArchivePage() {
                 ))}
               </section>
             ) : null}
-          </article>
-        ))}
+          </article>,
+          work.id === "daffodils" ? (
+            <article id="archive-one-year" className="archive-work" data-work-id="one-year" key="one-year">
+              <header className="archive-work__header">
+                <p className="archive-work__room">Garden</p>
+                <h2>One Year. Fifty. Five Hundred. Forever.</h2>
+                <p className="archive-work__meta">2025 · Digital collage</p>
+                <p>After Pádraig Ó Tuama.</p>
+              </header>
+              <ArtworkLightboxGrid images={oneYearCollage} mode="archive" />
+            </article>
+          ) : null,
+        ])}
       </section>
 
       <NarthexHall from="archive" />
