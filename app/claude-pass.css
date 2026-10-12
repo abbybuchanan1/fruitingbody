@@ -4025,3 +4025,28 @@ html { scroll-behavior: smooth; }
   left: 50%;
   transform: translateX(-50%);
 }
+
+/* COURTYARD (revision 4) — the Narthex is above as well as below. Arriving,
+   the page opens on the Courtyard; scrolling up walks back through the dark by
+   the doors into the Narthex, and so does scrolling down. */
+.exit-page .narthex-hall--above {
+  z-index: 1;
+  margin-bottom: 0;
+  background: #050403;
+}
+
+.exit-page .narthex-hall--above .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 4vh), rgba(0,0,0,.4) calc(100svh + 20vh), transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 4vh), rgba(0,0,0,.4) calc(100svh + 20vh), transparent 100%) !important;
+}
+
+.exit-page__doors--above {
+  background: linear-gradient(to bottom, #050403, rgba(5,4,3,.9) 20%, rgba(5,4,3,.55) 55%, rgba(5,4,3,0)) !important;
+}
+
+/* CURRENT — the Vestibule above and the Narthex below, full width. */
+.current-exhibition .vestibule-hall,
+.current-exhibition .narthex-hall--scroll {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}

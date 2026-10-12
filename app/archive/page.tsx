@@ -45,7 +45,7 @@ const redThreadDevelopment = [
       "Blur and movement loosen the figure.",
     question:
       "What emerges when we stop trying to manage the process of becoming?",
-    images: numberedImages("unravel-original", "unravel-original", 4, "Unravel"),
+    images: numberedImages("unravel-original", "unravel-original", 5, "Unravel"),
   },
 ] as const;
 

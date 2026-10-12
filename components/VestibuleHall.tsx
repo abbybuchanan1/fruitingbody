@@ -5,7 +5,7 @@ import { ScrollBackLink } from "@/components/ScrollBackLink";
 // the page opens at the start of the path, and scrolling up walks back into
 // the Vestibule, whose floor fades down into the path. The path's own label
 // glides back down into it; the others lead to the start of their paths.
-export function VestibuleHall({ path }: { path: "exhibition" | "red" | "water" }) {
+export function VestibuleHall({ path }: { path: "exhibition" | "red" | "water" | "current" }) {
   const door = (key: typeof path, href: string, label: string) =>
     key === path ? (
       <ScrollBackLink target="room-start" offset={0} className="architectural-link architectural-link--default">
@@ -32,7 +32,7 @@ export function VestibuleHall({ path }: { path: "exhibition" | "red" | "water" }
         <nav className="vestibule__side-passages" aria-label="Paths from the vestibule">
           {door("red", "/red-room", "Red Room")}
           {door("water", "/water-room", "Water Room")}
-          <ArchitecturalLink href="/current">Current</ArchitecturalLink>
+          {door("current", "/current", "Current")}
         </nav>
       </div>
     </section>

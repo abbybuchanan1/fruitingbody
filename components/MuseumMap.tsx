@@ -117,15 +117,13 @@ function highlightShape(room: MuseumRoomId, key: string, mode: "desktop" | "mobi
       </g>
     );
   }
+  if (room === "index") return null;
   if (room === "red-room") return <path key={key} d={wings.red} />;
   if (room === "water-room") return <path key={key} d={wings.water} />;
 
   if (mode === "desktop") {
     if (room === "reading-room") {
       return <path key={key} d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />;
-    }
-    if (room === "index") {
-      return <path key={key} d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />;
     }
     if (room === "archive") {
       return <path key={key} d="M568 53 Q568 43 580 43 H678 Q690 43 690 53 V98 H568 Z" />;
