@@ -18,6 +18,7 @@ export default async function VestibulePage({ searchParams }: Props) {
       <div className="vestibule__light" aria-hidden="true" />
 
       <section className="vestibule__space" aria-label="Vestibule">
+        <p className="room-label vestibule__room-label">Vestibule</p>
         <div className="vestibule__quiet-mark" aria-hidden="true">
           Arrival
         </div>

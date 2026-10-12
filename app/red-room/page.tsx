@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { EnvironmentalPanelSequence } from "@/components/EnvironmentalPanelSequence";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
-import { NarthexTransition } from "@/components/NarthexTransition";
+import { NarthexHall } from "@/components/NarthexHall";
 import { Room } from "@/components/Room";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
@@ -61,7 +61,7 @@ export default function RedRoomPage() {
         </section>
       </div>
 
-      <Suspense fallback={null}><NarthexTransition from="red-room" /></Suspense>
+      <NarthexHall />
     </Room>
   );
 }

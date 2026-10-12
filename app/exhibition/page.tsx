@@ -3,7 +3,7 @@ import { RelativeSection } from "@/components/RelativeSection";
 import { GardenSection } from "@/components/GardenSection";
 import { GrottoSection } from "@/components/GrottoSection";
 import { ThresholdSection } from "@/components/ThresholdSection";
-import { NarthexTransition } from "@/components/NarthexTransition";
+import { NarthexHall } from "@/components/NarthexHall";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 
 export default function ExhibitionPage() {
@@ -35,9 +35,7 @@ export default function ExhibitionPage() {
 
       <ThresholdSection />
       <div id="threshold-end" className="return-anchor" aria-hidden="true" />
-      <Suspense fallback={null}>
-        <NarthexTransition from="exhibition" />
-      </Suspense>
+      <NarthexHall />
     </main>
   );
 }

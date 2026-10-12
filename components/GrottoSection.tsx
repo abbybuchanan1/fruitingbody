@@ -28,7 +28,10 @@ export function GrottoSection() {
           <MiscarriageVotiveSequence artworks={miscarriage.archive} />
         </section>
 
-        <div className="grotto-transition grotto-transition--miscarriage-phase" aria-hidden="true" />
+        <div className="grotto-transition grotto-transition--miscarriage-phase" aria-hidden="true">
+          {/* Votive lamps (Kathmandu, 2013) rising out of the stone into Phase. */}
+          <div className="grotto-transition__votives" />
+        </div>
 
         <section id="phase" className="grotto-section grotto-section--phase">
           <div className="room-opening room-opening--secondary">

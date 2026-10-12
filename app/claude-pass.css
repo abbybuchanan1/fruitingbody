@@ -2962,3 +2962,269 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   max-width: none !important;
   white-space: nowrap;
 }
+
+/* ============================================================
+   NARTHEX IN THE SCROLL (October 2026)
+   Each path (Exhibition, Red Room, Water Room) now ends in its own copy of
+   the Narthex, reached by scrolling, with no film jump; scrolling back up
+   returns to the room you came from. The Map's Narthex is the same room on
+   its own page. Labels follow the Vestibule's style. The previous build is
+   saved on the branch backup/live-before-narthex.
+   ============================================================ */
+
+/* Room names under the Map (Narthex, Vestibule). */
+.room-label {
+  position: absolute;
+  z-index: 4;
+  top: 4.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font: 400 .92rem/1 Georgia, "Times New Roman", serif;
+  letter-spacing: .34em;
+  text-indent: .34em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(250, 245, 236, .94);
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .55), 0 0 14px rgba(10, 8, 6, .4);
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .room-label {
+    top: 5.2rem;
+    font-size: .8rem;
+    letter-spacing: .3em;
+    text-indent: .3em;
+  }
+}
+
+.narthex-hall {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.narthex-hall--room {
+  height: 100svh;
+  background: #8f868a;
+}
+
+/* In a path, the Narthex rises out of the bottom of the room before it. */
+.narthex-hall--scroll {
+  height: calc(100svh + 26vh);
+  margin-top: -26vh;
+}
+
+.narthex-hall__environment {
+  position: absolute;
+  inset: 0;
+}
+
+.narthex-hall--scroll .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 12vh, #000 26vh);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) 12vh, #000 26vh);
+}
+
+.narthex-hall__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: blur(.2px) saturate(.84) contrast(.91) brightness(.9);
+}
+
+.narthex-hall__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 64% 58% at 50% 50%, rgba(34,30,27,0), rgba(30,27,25,.24) 92%),
+    linear-gradient(to bottom, rgba(31,28,26,.04), rgba(31,28,26,.17));
+}
+
+.narthex-hall__room {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100svh;
+}
+
+.narthex-hall__link {
+  position: absolute;
+  padding: .4rem 0;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 500 12.5px/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .16em;
+  color: rgba(255, 251, 242, .97);
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .8), 0 0 14px rgba(10, 8, 6, .55);
+}
+
+.narthex-hall__link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  background: rgba(255, 251, 242, .85);
+  box-shadow: 0 0 6px rgba(10, 8, 6, .3);
+}
+
+.narthex-hall__link:hover,
+.narthex-hall__link:focus-visible {
+  color: #fff;
+}
+
+/* Reading Room: left, its rule rising to the upper left. */
+.narthex-hall__link--reading { left: 25.8%; top: 36.8%; }
+.narthex-hall__link--reading::before {
+  right: calc(100% + 10px);
+  width: 4.8vw;
+  transform-origin: 100% 50%;
+  transform: rotate(30deg);
+}
+
+/* Courtyard: centred, a vertical rule above. */
+.narthex-hall__link--courtyard {
+  left: 50%;
+  top: 36.8%;
+  transform: translate(-50%, -50%);
+}
+.narthex-hall__link--courtyard::before {
+  top: auto;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  width: 2px;
+  height: 7.3vh;
+  transform: translateX(-50%);
+}
+
+/* Index and Archive: stacked on the right, rules running out to the right. */
+.narthex-hall__link--index { left: 66.8%; top: 34.9%; }
+.narthex-hall__link--index::before {
+  left: calc(100% + 12px);
+  width: 4vw;
+  transform-origin: 0 50%;
+  transform: rotate(-30deg);
+}
+
+.narthex-hall__link--archive { left: 66.8%; top: 37.9%; }
+.narthex-hall__link--archive::before {
+  left: calc(100% + 6px);
+  width: 5.9vw;
+}
+
+@media (max-width: 700px) {
+  .narthex-hall__link { font-size: 12px; }
+  .narthex-hall__link::before { height: 1.5px; }
+
+  .narthex-hall__link--courtyard { top: 38%; }
+  .narthex-hall__link--courtyard::before { width: 1.5px; height: 6vh; }
+
+  .narthex-hall__link--reading { left: 15%; top: 50%; }
+  .narthex-hall__link--reading::before { width: 32px; }
+
+  .narthex-hall__link--index { left: 56%; top: 58%; }
+  .narthex-hall__link--index::before { width: 30px; }
+
+  .narthex-hall__link--archive { left: 56%; top: 62.5%; }
+  .narthex-hall__link--archive::before { width: calc(44vw - 92px); }
+}
+
+/* CONTACT — a quiet line under Index on every room; it opens a small card
+   with the email and a note on representation, exhibitions and prints. */
+.site-nav__contact-wrap {
+  position: absolute;
+  top: calc(100% + .5rem);
+  right: 0;
+  text-align: right;
+}
+
+.site-nav__contact {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: 400 .56rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+}
+
+.site-nav[data-tone="light"] .site-nav__contact {
+  color: rgba(28, 25, 23, .66);
+  text-shadow: 0 0 10px rgba(250, 246, 238, .7);
+}
+
+.site-nav[data-tone="dark"] .site-nav__contact {
+  color: rgba(250, 245, 235, .8);
+  text-shadow: 0 1px 2px rgba(10, 9, 8, .7), 0 0 12px rgba(10, 9, 8, .6);
+}
+
+.site-nav__contact:hover,
+.site-nav__contact:focus-visible,
+.site-nav__contact[aria-expanded="true"] {
+  text-decoration: underline;
+  text-underline-offset: .35em;
+}
+
+.site-contact {
+  position: absolute;
+  top: calc(100% + .7rem);
+  right: 0;
+  width: 15.5rem;
+  padding: .95rem 1.05rem 1rem;
+  text-align: left;
+  background: rgba(246, 241, 232, .95);
+  color: rgba(30, 26, 22, .9);
+  box-shadow: 0 10px 30px rgba(10, 8, 6, .18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font: 400 .8rem/1.5 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+.site-contact__name {
+  margin: 0 0 .3rem;
+  font-size: .64rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.site-nav .site-contact a.site-contact__email,
+.site-nav[data-tone] .site-contact a.site-contact__email {
+  display: inline;
+  padding: 0 !important;
+  border: 0 !important;
+  font: inherit !important;
+  letter-spacing: .02em !important;
+  text-transform: none !important;
+  color: inherit !important;
+  text-shadow: none !important;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.site-contact__note {
+  margin: .65rem 0 0;
+  color: rgba(30, 26, 22, .75);
+}
+
+/* GROTTO — votive lamps (Kathmandu, 2013) rise out of the stone between A
+   Miscarriage and Phase and sink away behind Phase's title. */
+.grotto-transition__votives {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: url("/media/architecture/environments/grotto/votives-kathmandu.jpg") center 62% / cover no-repeat;
+  opacity: .8;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 16%, #000 36%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 16%, #000 36%, #000 78%, transparent 100%);
+}

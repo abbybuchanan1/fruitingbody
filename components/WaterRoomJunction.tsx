@@ -1,22 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { NarthexTransition } from "@/components/NarthexTransition";
 
 export function WaterRoomJunction() {
-  const [goToNarthex, setGoToNarthex] = useState(false);
-
-  useEffect(() => {
-    if (!goToNarthex) return;
-    const timer = window.setTimeout(() => {
-      document.getElementById("water-narthex-transition")?.scrollIntoView({
-        behavior: "auto",
-        block: "start",
-      });
-    }, 40);
-    return () => window.clearTimeout(timer);
-  }, [goToNarthex]);
+  const goToNarthex = () => {
+    document.getElementById("narthex")?.scrollIntoView({ behavior: "smooth", block: "end" });
+  };
 
   return (
     <section className="water-room-junction" aria-label="Water Room passages">
@@ -26,7 +15,7 @@ export function WaterRoomJunction() {
         <button
           type="button"
           className="water-room-junction__choice water-room-junction__choice--narthex"
-          onClick={() => setGoToNarthex(true)}
+          onClick={goToNarthex}
         >
           <video
             className="water-room-junction__moving-glimpse"
@@ -56,10 +45,6 @@ export function WaterRoomJunction() {
           <span className="water-room-junction__choice-label">Films</span>
         </Link>
       </div>
-
-      {goToNarthex ? (
-        <NarthexTransition from="water-room" startImmediately id="water-narthex-transition" />
-      ) : null}
     </section>
   );
 }

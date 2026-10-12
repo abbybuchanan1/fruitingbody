@@ -77,8 +77,9 @@ export default function IndexPage() {
           The artworks are the artist&rsquo;s own photographs.
         </p>
         <p>
-          Rooms: the Entrance (London, 2013), Vestibule (Kathmandu, 2013) and Narthex
-          (San Francisco, 2024) are the artist&rsquo;s photographs. The Garden, Red Room and
+          Rooms: the Entrance (London, 2013), Vestibule (Kathmandu, 2013), Narthex
+          (San Francisco, 2024) and the votive lamps between A Miscarriage and Phase
+          (Kathmandu, 2013) are the artist&rsquo;s photographs. The Garden, Red Room and
           Water Room are collages by the artist, combining licensed stock imagery with her
           own footage.
         </p>

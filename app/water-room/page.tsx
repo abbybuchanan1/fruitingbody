@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { WaterRoomJunction } from "@/components/WaterRoomJunction";
+import { NarthexHall } from "@/components/NarthexHall";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
@@ -42,6 +43,7 @@ export default function WaterRoomPage() {
 
       <div id="body-of-water-end" className="return-anchor" aria-hidden="true" />
       <WaterRoomJunction />
+      <NarthexHall />
     </main>
   );
 }

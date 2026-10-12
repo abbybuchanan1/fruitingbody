@@ -11,7 +11,16 @@ const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
   { id: "garden", room: "garden" },
   { id: "grotto", room: "grotto" },
   { id: "threshold", room: "rear-gallery" },
+  { id: "narthex", room: "narthex" },
 ];
+
+// The Red Room and Water Room each end in their own Narthex: the plan shows
+// the Narthex once the visitor has scrolled into it.
+function narthexReached() {
+  const narthex = document.querySelector<HTMLElement>("#narthex .narthex-hall__room");
+  if (!narthex) return false;
+  return narthex.getBoundingClientRect().top <= window.innerHeight * 0.38;
+}
 
 // Rooms whose walls are dark: the Map and Index cards switch to light
 // lettering on a faint dark glass there, and to dark lettering elsewhere.
@@ -41,6 +50,18 @@ function useExhibitionLocation(pathname: string) {
   const [location, setLocation] = useState<MuseumRoomId | undefined>();
 
   useEffect(() => {
+    if (pathname === "/red-room" || pathname === "/water-room") {
+      const fallback: MuseumRoomId = pathname === "/red-room" ? "red-room" : "water-room";
+      const update = () => setLocation(narthexReached() ? "narthex" : fallback);
+      update();
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      return () => {
+        window.removeEventListener("scroll", update);
+        window.removeEventListener("resize", update);
+      };
+    }
+
     if (pathname !== "/exhibition") {
       setLocation(undefined);
       return;
@@ -90,11 +111,31 @@ function useExhibitionLocation(pathname: string) {
 export function SiteNav() {
   const pathname = usePathname();
   const [mapOpen, setMapOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
+
+  useEffect(() => {
+    if (!contactOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setContactOpen(false);
+    };
+    const onPointer = (event: PointerEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target?.closest(".site-nav__contact-wrap")) setContactOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", onPointer);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", onPointer);
+    };
+  }, [contactOpen]);
+
+  useEffect(() => setContactOpen(false), [pathname]);
   const exhibitionLocation = useExhibitionLocation(pathname);
 
   const currentLocation =
-    pathname === "/exhibition"
-      ? exhibitionLocation
+    pathname === "/exhibition" || pathname === "/red-room" || pathname === "/water-room"
+      ? exhibitionLocation ?? getRouteLocation(pathname)
       : getRouteLocation(pathname);
   const tone = currentLocation && DARK_ROOMS.includes(currentLocation) ? "dark" : "light";
 
@@ -126,6 +167,28 @@ export function SiteNav() {
         </button>
 
         <Link href="/directory">Index</Link>
+
+        {/* Contact: a quiet line under Index on every room. */}
+        <div className="site-nav__contact-wrap">
+          <button
+            type="button"
+            className="site-nav__contact"
+            onClick={() => setContactOpen((open) => !open)}
+            aria-expanded={contactOpen}
+            aria-controls="site-contact"
+          >
+            Contact
+          </button>
+          {contactOpen ? (
+            <div id="site-contact" className="site-contact" role="dialog" aria-label="Contact">
+              <p className="site-contact__name">Abby Buchanan</p>
+              <a className="site-contact__email" href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+              <p className="site-contact__note">
+                Open to representation, exhibitions and print inquiries.
+              </p>
+            </div>
+          ) : null}
+        </div>
       </nav>
 
       <MuseumMap
