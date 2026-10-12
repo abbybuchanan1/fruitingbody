@@ -3956,3 +3956,72 @@ html { scroll-behavior: smooth; }
   .narthex-hall__link--exhibition::before,
   .narthex-hall__link--courtyard::before { height: 4vh !important; }
 }
+
+/* VESTIBULE AT THE TOP OF EACH PATH — every path is a corridor from the
+   Vestibule to the Narthex. The page opens at the start of the path; above
+   it is the Vestibule (its photograph and doors), whose floor fades down into
+   the path. */
+.vestibule-hall {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(100svh + 45vh);
+  margin-bottom: -38vh;
+  overflow: hidden;
+  pointer-events: none;
+  background: transparent;
+}
+
+.vestibule-hall__environment {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 4vh), rgba(0,0,0,.55) calc(100svh + 16vh), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 4vh), rgba(0,0,0,.55) calc(100svh + 16vh), transparent 100%);
+}
+
+.vestibule-hall__environment .vestibule__stone,
+.vestibule-hall__environment .vestibule__shadow {
+  position: absolute !important;
+  inset: 0 !important;
+  height: 100svh !important;
+  bottom: auto !important;
+}
+
+/* Below the photograph's first screen, its floor carries on (the lower edge
+   of the image, stretched into the fade). */
+.vestibule-hall__environment::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100svh;
+  bottom: 0;
+  background: url("/media/architecture/vestibule-arch-desktop.jpg") center bottom / 100% 300% no-repeat;
+  filter: saturate(.9) brightness(.8) blur(6px);
+}
+
+@media (max-width: 700px) {
+  .vestibule-hall__environment::after {
+    background-image: url("/media/architecture/vestibule-arch-mobile.jpg");
+  }
+}
+
+.vestibule-hall__room {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100svh !important;
+  min-height: 0 !important;
+  pointer-events: none;
+}
+
+.vestibule-hall__room a {
+  pointer-events: auto;
+}
+
+.exhibition-scroll .vestibule-hall {
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}

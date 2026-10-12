@@ -7,6 +7,7 @@ import { MuseumMap } from "@/components/MuseumMap";
 import type { MuseumRoomId } from "@/lib/museum";
 
 const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
+  { id: "vestibule-hall", room: "vestibule" },
   { id: "relative", room: "front-gallery" },
   { id: "garden", room: "garden" },
   { id: "grotto", room: "grotto" },
@@ -16,6 +17,15 @@ const exhibitionRooms: Array<{ id: string; room: MuseumRoomId }> = [
 
 // The Red Room and Water Room each end in their own Narthex: the plan shows
 // the Narthex once the visitor has scrolled into it.
+// Each path also opens below its own Vestibule.
+function vestibuleReached() {
+  const room = document.querySelector<HTMLElement>(".vestibule-hall__room");
+  if (!room) return false;
+  const rect = room.getBoundingClientRect();
+  const probe = window.innerHeight * 0.38;
+  return rect.top <= probe && rect.bottom > probe;
+}
+
 function narthexReached() {
   const probe = window.innerHeight * 0.38;
   return Array.from(document.querySelectorAll<HTMLElement>(".narthex-hall__room")).some((room) => {
@@ -61,7 +71,8 @@ function useExhibitionLocation(pathname: string) {
     };
     if (sideRooms[pathname]) {
       const fallback = sideRooms[pathname];
-      const update = () => setLocation(narthexReached() ? "narthex" : fallback);
+      const update = () =>
+        setLocation(narthexReached() ? "narthex" : vestibuleReached() ? "vestibule" : fallback);
       update();
       window.addEventListener("scroll", update, { passive: true });
       window.addEventListener("resize", update);

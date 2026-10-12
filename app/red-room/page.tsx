@@ -3,6 +3,8 @@ import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { EnvironmentalPanelSequence } from "@/components/EnvironmentalPanelSequence";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { NarthexHall } from "@/components/NarthexHall";
+import { VestibuleHall } from "@/components/VestibuleHall";
+import { RoomStart } from "@/components/RoomStart";
 import { Room } from "@/components/Room";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
@@ -27,6 +29,8 @@ export default function RedRoomPage() {
   return (
     <Room eyebrow="Continuous exhibition" title="Red Room" environment="textile">
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
+      <VestibuleHall path="red" />
+      <RoomStart />
       <div id="red-room-start" className="route-start-anchor" aria-hidden="true" />
       <EnvironmentalPanelSequence panels={redRoomEnvironment} className="red-room-environment" />
 

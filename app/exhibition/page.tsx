@@ -4,11 +4,15 @@ import { GardenSection } from "@/components/GardenSection";
 import { GrottoSection } from "@/components/GrottoSection";
 import { ThresholdSection } from "@/components/ThresholdSection";
 import { NarthexHall } from "@/components/NarthexHall";
+import { VestibuleHall } from "@/components/VestibuleHall";
+import { RoomStart } from "@/components/RoomStart";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 
 export default function ExhibitionPage() {
   return (
     <main className="exhibition-scroll">
+      <VestibuleHall path="exhibition" />
+      <RoomStart />
       <Suspense fallback={null}>
         <HashScrollRestorer />
       </Suspense>

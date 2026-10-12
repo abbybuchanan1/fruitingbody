@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { ArtworkSequence } from "@/components/ArtworkSequence";
 import { WaterRoomJunction } from "@/components/WaterRoomJunction";
 import { NarthexHall } from "@/components/NarthexHall";
+import { VestibuleHall } from "@/components/VestibuleHall";
+import { RoomStart } from "@/components/RoomStart";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
@@ -15,6 +17,8 @@ export default function WaterRoomPage() {
   return (
     <main id="water-room-start" className="water-room" data-museum-location="water-room">
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
+      <VestibuleHall path="water" />
+      <RoomStart />
 
       <div className="water-room__environment" aria-hidden="true">
         {panels.map((panel, index) => (
