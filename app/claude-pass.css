@@ -4050,3 +4050,177 @@ html { scroll-behavior: smooth; }
   width: 100vw;
   margin-left: calc(50% - 50vw);
 }
+
+/* PHONES — TOP ROW, ONE TREATMENT (October 12). Plain small capitals, one
+   size, no box and no underlines, on one line and balanced: Contact on the
+   left, Map in the centre, Index on the right with Sound as its icon alone
+   beside it. The room's name below is then the first thing read. (The
+   Entrance keeps its own Sound caption and note.) */
+@media (max-width: 700px) {
+  .site-nav,
+  .ambient-sound-control.ambient-sound-control--global:not(.ambient-sound-control--entrance-on) {
+    top: 1.55rem !important;
+  }
+
+  .site-nav {
+    right: 2.75rem !important;
+    align-items: center !important;
+  }
+
+  .site-nav .site-nav__map,
+  .site-nav[data-tone] .site-nav__map,
+  .site-nav a,
+  .site-nav[data-tone] a,
+  .site-nav__contact,
+  .site-nav[data-tone] .site-nav__contact {
+    padding: .5rem 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    font: 400 .62rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif !important;
+    letter-spacing: .26em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+  }
+
+  .site-nav .site-nav__map {
+    top: 1.55rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .34em !important;
+    text-indent: .34em !important;
+  }
+
+  .site-nav[data-tone="dark"] .site-nav__contact,
+  .site-nav[data-tone="dark"] .site-nav__map {
+    color: rgba(250, 245, 235, .95) !important;
+  }
+
+  .site-nav[data-tone="light"] .site-nav__contact,
+  .site-nav[data-tone="light"] .site-nav__map {
+    color: rgba(28, 25, 23, .86) !important;
+  }
+
+  .site-nav__contact-wrap {
+    position: fixed !important;
+    top: 1.55rem !important;
+    left: 1rem !important;
+    right: auto !important;
+    text-align: left !important;
+  }
+
+  .site-nav__contact-wrap .site-contact {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  .site-nav__contact[aria-expanded="true"] {
+    text-decoration: underline !important;
+    text-underline-offset: .4em !important;
+  }
+
+  /* Sound: the icon alone at the far right (the word stays for screen
+     readers). Off, its sound waves are faint; on, they show. */
+  .ambient-sound-control.ambient-sound-control--global:not(.ambient-sound-control--entrance-on) {
+    left: auto !important;
+    right: .85rem !important;
+    padding: .5rem .2rem !important;
+    border: 0 !important;
+  }
+
+  .ambient-sound-control--global:not(.ambient-sound-control--entrance-on) span:not(.ambient-sound-control__icon) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+  }
+
+  .ambient-sound-control--global:not(.ambient-sound-control--entrance-on) .ambient-sound-control__icon {
+    width: .95rem !important;
+    height: .95rem !important;
+  }
+
+  .ambient-sound-control--global[aria-pressed="false"]:not(.ambient-sound-control--entrance-on) .ambient-sound-control__icon path + path {
+    opacity: .35;
+  }
+}
+
+/* PHONES — VESTIBULE FLOOR, TWO TIERS. Exhibition keeps its place and its
+   vertical rule. The side passages are one quieter set, drawn like the
+   Narthex: Red Room and Water Room a mirrored pair on one line, Current under
+   Water Room, each with the same short angled rule toward its wall. */
+@media (max-width: 700px) {
+  .vestibule__side-passages .architectural-link {
+    font-size: 11px !important;
+    letter-spacing: .16em !important;
+    opacity: .86 !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(1) {
+    left: 14% !important;
+    right: auto !important;
+    top: 84.5% !important;
+    text-align: left !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2) {
+    right: 14% !important;
+    left: auto !important;
+    top: 84.5% !important;
+    text-align: right !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(3) {
+    right: 14% !important;
+    left: auto !important;
+    top: 89.5% !important;
+    text-align: right !important;
+  }
+
+  .vestibule__side-passages .architectural-link::before {
+    width: 24px !important;
+    height: 1.5px !important;
+    background: rgba(255, 251, 242, .8) !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(1)::before {
+    right: calc(100% + 10px) !important;
+    left: auto !important;
+    transform-origin: 100% 50%;
+    transform: rotate(24deg) !important;
+  }
+
+  .vestibule__side-passages .architectural-link:nth-child(2)::before,
+  .vestibule__side-passages .architectural-link:nth-child(3)::before {
+    left: calc(100% + 10px) !important;
+    right: auto !important;
+    transform-origin: 0 50%;
+    transform: rotate(-24deg) !important;
+  }
+}
+
+/* ENTRANCE (phones) — the door steps down a little so the title and the
+   sound note sit on plain wall, clear of the finial. The whole doorway moves
+   together (photograph, door, film, shadows; the film's panes move, not its
+   wrapper, so they still print into the stone); the strip it leaves at the top
+   is the wall's own colour, and the photograph's top edge fades into it. */
+@media (max-width: 700px) and (orientation: portrait) {
+  .museum-exterior {
+    background: rgb(203, 196, 190) !important;
+  }
+
+  .museum-exterior__image,
+  .museum-exterior__door,
+  .museum-exterior .entrance-film__pane,
+  .museum-exterior__shadow-field {
+    translate: 0 6svh;
+  }
+
+  .museum-exterior__image {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5svh);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 5svh);
+  }
+}
