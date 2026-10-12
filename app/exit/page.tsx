@@ -1,15 +1,20 @@
-import Link from "next/link";
 import { ExitFilmPlaylist } from "@/components/ExitFilmPlaylist";
+import { NarthexHall } from "@/components/NarthexHall";
 
+// The Courtyard: the films fill the first screen; scrolling down walks back
+// into the Narthex (the same room every path ends in).
 export default function ExitPage() {
   return (
-    <main className="exit-exterior" data-museum-location="exit-exterior">
-      <ExitFilmPlaylist />
-      <div className="exit-exterior__veil" aria-hidden="true" />
-      <div className="exit-exterior__ui">
-        <p className="exit-exterior__label">Courtyard</p>
-        <Link className="exit-exterior__return" href="/narthex?arrived=1">Return to Narthex</Link>
-      </div>
+    <main className="exit-page" data-museum-location="exit-exterior">
+      <section className="exit-exterior" aria-label="Courtyard">
+        <ExitFilmPlaylist />
+        <div className="exit-exterior__veil" aria-hidden="true" />
+        <div className="exit-exterior__ui">
+          <p className="exit-exterior__label">Courtyard</p>
+          <a className="exit-exterior__return" href="#narthex">Return to Narthex</a>
+        </div>
+      </section>
+      <NarthexHall />
     </main>
   );
 }

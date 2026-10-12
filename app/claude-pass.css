@@ -3569,3 +3569,67 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
 @media (max-width: 680px) {
   .garden-section--fear-not .artwork-image:nth-child(5) { width: 86vw !important; }
 }
+
+/* COURTYARD (revision) — the films fill the first screen and the page now
+   scrolls on into the Narthex, so the Courtyard is left the way the other
+   rooms are. The full-screen layers are pinned to the first screen instead of
+   to the window. */
+html { scroll-behavior: smooth; }
+
+.exit-page {
+  position: relative;
+  background: #050403;
+}
+
+.exit-page .exit-exterior {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+}
+
+.exit-page .exit-exterior__split,
+.exit-page .exit-exterior__veil,
+.exit-page .exit-exterior__video-stack {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.exit-page .narthex-hall--scroll {
+  margin-top: -38vh !important;
+}
+
+/* ARCHIVE (revision) — a longer, softer blend from the Narthex floor into
+   the painted canvas. */
+.archive-page .narthex-threshold {
+  height: 125vh;
+  margin-bottom: -72vh;
+}
+
+.archive-page .narthex-threshold img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 26%, rgba(0,0,0,.7) 48%, rgba(0,0,0,.3) 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 26%, rgba(0,0,0,.7) 48%, rgba(0,0,0,.3) 72%, transparent 100%);
+}
+
+.archive-entrance {
+  height: 135vh;
+  margin-top: 0;
+}
+
+.archive-entrance__image {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 16%, rgba(0,0,0,.7) 32%, #000 46%, #000 74%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 16%, rgba(0,0,0,.7) 32%, #000 46%, #000 74%, transparent 100%);
+}
+
+.archive-page .archive-title-card {
+  margin-top: -74vh !important;
+}
+
+@media (max-width: 700px) {
+  .archive-entrance { height: 125vh; }
+  .archive-page .archive-title-card { margin-top: -66vh !important; }
+}

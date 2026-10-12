@@ -55,6 +55,7 @@ function useExhibitionLocation(pathname: string) {
       "/water-room": "water-room",
       "/reading-room": "reading-room",
       "/archive": "archive",
+      "/exit": "exit-exterior",
     };
     if (sideRooms[pathname]) {
       const fallback = sideRooms[pathname];
@@ -140,7 +141,7 @@ export function SiteNav() {
   const exhibitionLocation = useExhibitionLocation(pathname);
 
   const currentLocation =
-    ["/exhibition", "/red-room", "/water-room", "/reading-room", "/archive"].includes(pathname)
+    ["/exhibition", "/red-room", "/water-room", "/reading-room", "/archive", "/exit"].includes(pathname)
       ? exhibitionLocation ?? getRouteLocation(pathname)
       : getRouteLocation(pathname);
   const tone = currentLocation && DARK_ROOMS.includes(currentLocation) ? "dark" : "light";
