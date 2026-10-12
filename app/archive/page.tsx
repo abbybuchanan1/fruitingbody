@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { NarthexHall } from "@/components/NarthexHall";
+import { NarthexThreshold } from "@/components/NarthexThreshold";
 import { ArtworkLightboxGrid } from "@/components/ArtworkLightboxGrid";
 import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
 import { FilmThumbnail } from "@/components/FilmThumbnail";
@@ -56,7 +58,13 @@ export default function ArchivePage() {
   return (
     <main className="archive-page">
       <OpenDetailsFromHash />
-      <header className="utility-header archive-header">
+      <NarthexThreshold />
+      {/* The Archive's entrance: a detail of the artist's painting (2010),
+          like a canvas kept under a dust sheet, with the room's title card. */}
+      <section className="archive-entrance" aria-label="Archive">
+        <img className="archive-entrance__image" src="/media/architecture/archive-entrance.jpg" alt="" aria-hidden="true" />
+      </section>
+      <header className="utility-header archive-header archive-title-card">
         <p className="utility-header__eyebrow">Research Room</p>
         <h1>Archive</h1>
         <p>
@@ -125,9 +133,7 @@ export default function ArchivePage() {
         ))}
       </section>
 
-      <Link className="utility-return-to-narthex" href="/narthex?arrived=1">
-        Return to Narthex
-      </Link>
+      <NarthexHall />
     </main>
   );
 }

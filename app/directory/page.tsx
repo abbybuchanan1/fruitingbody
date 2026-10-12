@@ -78,8 +78,9 @@ export default function IndexPage() {
         </p>
         <p>
           Rooms: the Entrance (London, 2013), Vestibule (Kathmandu, 2013), Narthex
-          (San Francisco, 2024) and the votive lamps between A Miscarriage and Phase
-          (Kathmandu, 2013) are the artist&rsquo;s photographs. The Garden, Red Room and
+          (San Francisco, 2024), Reading Room (Portland, Oregon, 2016) and the votive lamps
+          between A Miscarriage and Phase (Kathmandu, 2013) are the artist&rsquo;s photographs.
+          The Archive opens on a detail of the artist&rsquo;s painting (2010, photographed 2018). The Garden, Red Room and
           Water Room are collages by the artist, combining licensed stock imagery with her
           own footage.
         </p>

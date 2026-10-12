@@ -1,3 +1,5 @@
+import { NarthexHall } from "@/components/NarthexHall";
+import { NarthexThreshold } from "@/components/NarthexThreshold";
 import Link from "next/link";
 import { poems } from "@/lib/poems";
 
@@ -7,6 +9,7 @@ export default function ReadingRoomPage() {
       <div className="reading-room-page__image" aria-hidden="true" />
       <div className="reading-room-page__veil" aria-hidden="true" />
 
+      <NarthexThreshold />
       <section className="reading-room-page__content">
         <header className="reading-room-title-card">
           <p className="reading-room-title-card__room">Reading Room</p>
@@ -37,10 +40,9 @@ export default function ReadingRoomPage() {
           ))}
         </div>
 
-        <Link className="utility-return-to-narthex reading-room-page__return" href="/narthex?arrived=1">
-          Return to Narthex
-        </Link>
+
       </section>
+      <NarthexHall />
     </main>
   );
 }

@@ -24,8 +24,7 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   "exit-exterior": { x: 410, y: 4, w: 180, h: 20, z: 11 },
   narthex: { x: 178, y: 30, w: 644, h: 88, z: 4 },
   "reading-room": { x: 310, y: 43, w: 122, h: 55, z: 10 },
-  index: { x: 552, y: 43, w: 68, h: 55, z: 10 },
-  archive: { x: 630, y: 43, w: 68, h: 55, z: 10 },
+  archive: { x: 568, y: 43, w: 122, h: 55, z: 10 },
 };
 
 // The phone plan: the same building redrawn for a tall screen (viewBox
@@ -34,9 +33,8 @@ const roomBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
 const mobileBoxes: Partial<Record<MuseumRoomId, MapBox>> = {
   "exit-exterior": { x: 140, y: 6, w: 120, h: 30, z: 11 },
   narthex: { x: 70, y: 46, w: 260, h: 104, z: 4 },
-  "reading-room": { x: 78, y: 58, w: 122, h: 60, z: 10 },
-  index: { x: 206, y: 58, w: 58, h: 60, z: 10 },
-  archive: { x: 268, y: 58, w: 56, h: 60, z: 10 },
+  "reading-room": { x: 78, y: 58, w: 118, h: 60, z: 10 },
+  archive: { x: 204, y: 58, w: 118, h: 60, z: 10 },
   "rear-gallery": { x: 130, y: 170, w: 140, h: 55 },
   grotto: { x: 140, y: 245, w: 120, h: 157 },
   garden: { x: 140, y: 402, w: 120, h: 158 },
@@ -130,7 +128,7 @@ function highlightShape(room: MuseumRoomId, key: string, mode: "desktop" | "mobi
       return <path key={key} d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />;
     }
     if (room === "archive") {
-      return <path key={key} d="M630 53 Q630 43 642 43 H686 Q698 43 698 53 V98 H630 Z" />;
+      return <path key={key} d="M568 53 Q568 43 580 43 H678 Q690 43 690 53 V98 H568 Z" />;
     }
   }
 
@@ -242,8 +240,9 @@ export function MuseumMap({
               <rect x="806" y="270" width="44" height="70" rx="7" />
 
               <path d="M310 53 Q310 43 322 43 H420 Q432 43 432 53 V98 H310 Z" />
-              <path d="M552 53 Q552 43 564 43 H608 Q620 43 620 53 V98 H552 Z" />
-              <path d="M630 53 Q630 43 642 43 H686 Q698 43 698 53 V98 H630 Z" />
+              {/* Archive: a side room off the Narthex, mirroring the Reading Room.
+                  (Index is a list of works, not a room, so it is not drawn.) */}
+              <path d="M568 53 Q568 43 580 43 H678 Q690 43 690 53 V98 H568 Z" />
             </g>
           </svg>
 
@@ -265,9 +264,8 @@ export function MuseumMap({
               <path d="M200 36 V46" />
               {/* Narthex: open along the bottom where the wings meet it. */}
               <path d="M70 150 V46 H330 V150" />
-              <rect x="78" y="58" width="122" height="60" rx="6" />
-              <rect x="206" y="58" width="58" height="60" rx="6" />
-              <rect x="268" y="58" width="56" height="60" rx="6" />
+              <rect x="78" y="58" width="118" height="60" rx="6" />
+              <rect x="204" y="58" width="118" height="60" rx="6" />
 
               <path d="M110 150 H290 V660 H110 Z" />
 

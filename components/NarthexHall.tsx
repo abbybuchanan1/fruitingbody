@@ -27,10 +27,9 @@ export function NarthexHall({ variant = "scroll" }: { variant?: "scroll" | "room
           <Link className="narthex-hall__link narthex-hall__link--courtyard" href="/exit">
             Courtyard
           </Link>
-          <Link className="narthex-hall__link narthex-hall__link--index" href="/directory">
-            Index
-          </Link>
-          <Link className="narthex-hall__link narthex-hall__link--archive" href="/archive">
+          {/* Archive: a side room, labelled more quietly than the two doors.
+              (Index lives in the top row on every page.) */}
+          <Link className="narthex-hall__link narthex-hall__link--archive narthex-hall__link--quiet" href="/archive">
             Archive
           </Link>
         </nav>

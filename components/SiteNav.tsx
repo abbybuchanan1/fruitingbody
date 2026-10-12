@@ -50,8 +50,14 @@ function useExhibitionLocation(pathname: string) {
   const [location, setLocation] = useState<MuseumRoomId | undefined>();
 
   useEffect(() => {
-    if (pathname === "/red-room" || pathname === "/water-room") {
-      const fallback: MuseumRoomId = pathname === "/red-room" ? "red-room" : "water-room";
+    const sideRooms: Record<string, MuseumRoomId> = {
+      "/red-room": "red-room",
+      "/water-room": "water-room",
+      "/reading-room": "reading-room",
+      "/archive": "archive",
+    };
+    if (sideRooms[pathname]) {
+      const fallback = sideRooms[pathname];
       const update = () => setLocation(narthexReached() ? "narthex" : fallback);
       update();
       window.addEventListener("scroll", update, { passive: true });
@@ -134,7 +140,7 @@ export function SiteNav() {
   const exhibitionLocation = useExhibitionLocation(pathname);
 
   const currentLocation =
-    pathname === "/exhibition" || pathname === "/red-room" || pathname === "/water-room"
+    ["/exhibition", "/red-room", "/water-room", "/reading-room", "/archive"].includes(pathname)
       ? exhibitionLocation ?? getRouteLocation(pathname)
       : getRouteLocation(pathname);
   const tone = currentLocation && DARK_ROOMS.includes(currentLocation) ? "dark" : "light";
