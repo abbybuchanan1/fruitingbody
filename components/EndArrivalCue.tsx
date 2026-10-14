@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 // Arriving at the end of a path from the Narthex (?return=1), a quiet line
 // appears at the top for a few seconds: the visitor learns they have come in
@@ -35,12 +36,15 @@ export function EndArrivalCue({ room }: { room: string }) {
     window.scrollTo({ top: start.getBoundingClientRect().top + window.scrollY, behavior: "smooth" });
   };
 
-  return (
+  // Rendered at the top of the page (outside the room), so no layer of the
+  // room's installation can sit over it and catch its clicks.
+  return createPortal(
     <div className={`end-arrival-cue${state === "gone" ? " is-gone" : ""}`} role="status">
       <p className="end-arrival-cue__line">You&apos;ve come in at the end of the {room}.</p>
       <button type="button" className="end-arrival-cue__begin" onClick={begin} tabIndex={state === "gone" ? -1 : 0}>
         Begin at the start <span aria-hidden="true">↑</span>
       </button>
-    </div>
+    </div>,
+    document.body,
   );
 }
