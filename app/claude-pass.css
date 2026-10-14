@@ -4560,3 +4560,41 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
     font-size: 1.36rem !important;
   }
 }
+
+/* TOP ROW (wider screens, October 14, trial) — one system. Map drops its
+   panel and takes the same hairline underline as Sound and Index, on the
+   same line; it stays centred and a touch heavier. It now looks the same in
+   every room, light or dark. */
+@media (min-width: 701px) {
+  .site-nav .site-nav__map,
+  .site-nav[data-tone] .site-nav__map,
+  .site-nav[data-tone] .site-nav__map:hover,
+  .site-nav[data-tone] .site-nav__map:focus-visible {
+    top: calc(.9rem + .62rem) !important;
+    padding: .3rem 0 .26rem !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 0 !important;
+    border-bottom: 1px solid !important;
+    font-size: .7rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .34em !important;
+    text-indent: .34em !important;
+  }
+
+  .site-nav[data-tone="dark"] .site-nav__map {
+    border-bottom-color: rgba(250, 245, 235, .5) !important;
+    text-shadow: 0 1px 2px rgba(10, 9, 8, .7), 0 0 12px rgba(10, 9, 8, .6) !important;
+  }
+
+  .site-nav[data-tone="light"] .site-nav__map {
+    border-bottom-color: rgba(22, 19, 17, .42) !important;
+    text-shadow: 0 0 10px rgba(250, 246, 238, .7) !important;
+  }
+
+  .site-nav[data-tone] .site-nav__map:hover,
+  .site-nav[data-tone] .site-nav__map:focus-visible {
+    border-bottom-color: currentColor !important;
+  }
+}
