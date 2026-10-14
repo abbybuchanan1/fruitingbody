@@ -1247,7 +1247,16 @@ she is.`,
 // unchanged; take a slug out of this list to show the poem again.
 const HIDDEN_POEMS = ["for-c", "that-it-was"];
 
-export const poems: Poem[] = allPoems.filter((poem) => !HIDDEN_POEMS.includes(poem.slug));
+// Shelf order: Rosary before Evidence, so Evidence's feathers lead into Joy.
+const SHELF_ORDER = ["for-c", "may-2024", "that-it-was", "two-days", "rosary", "evidence", "joy"];
+const shelfIndex = (slug: string) => {
+  const i = SHELF_ORDER.indexOf(slug);
+  return i === -1 ? SHELF_ORDER.length : i;
+};
+
+export const poems: Poem[] = allPoems
+  .filter((poem) => !HIDDEN_POEMS.includes(poem.slug))
+  .sort((a, b) => shelfIndex(a.slug) - shelfIndex(b.slug));
 
 export function getPoem(slug: string) {
   return poems.find((poem) => poem.slug === slug);
