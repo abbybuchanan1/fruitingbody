@@ -3,6 +3,7 @@ import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
 import { QuestionPrompt } from "@/components/QuestionPrompt";
 import { MiscarriageVotiveSequence } from "@/components/MiscarriageVotiveSequence";
+import { GrottoCloisters } from "@/components/GrottoCloisters";
 
 export function GrottoSection() {
   const miscarriage = museumWorksById.miscarriage;
@@ -28,13 +29,16 @@ export function GrottoSection() {
           <MiscarriageVotiveSequence artworks={miscarriage.archive} />
         </section>
 
-        <div className="grotto-transition grotto-transition--miscarriage-phase" aria-hidden="true">
+        <div className="grotto-transition grotto-transition--miscarriage-phase">
           {/* Votive lamps (Kathmandu, 2013) rising out of the stone into Phase. */}
-          <div className="grotto-transition__votives">
+          <div className="grotto-transition__votives" aria-hidden="true">
             {/* Two faint glow layers on unrelated rhythms: the flames flicker. */}
             <span className="grotto-transition__flicker grotto-transition__flicker--a" />
             <span className="grotto-transition__flicker grotto-transition__flicker--b" />
           </div>
+          {/* Where the Cloisters return a visitor: the votives, in view. */}
+          <span id="grotto-cloisters" className="grotto-cloisters__anchor" aria-hidden="true" />
+          <GrottoCloisters />
         </div>
 
         <section id="phase" className="grotto-section grotto-section--phase">

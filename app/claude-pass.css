@@ -4216,12 +4216,12 @@ html { scroll-behavior: smooth; }
   .museum-exterior__door,
   .museum-exterior .entrance-film__pane,
   .museum-exterior__shadow-field {
-    translate: 0 6svh;
+    translate: 0 10svh;
   }
 
   .museum-exterior__image {
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5svh);
-    mask-image: linear-gradient(to bottom, transparent 0, #000 5svh);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7svh);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7svh);
   }
 }
 
@@ -4679,4 +4679,184 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
 @keyframes entrance-late-clue {
   from { opacity: 0; }
   to { opacity: .72; }
+}
+
+/* GROTTO → CLOISTERS (October 14, trial). Either side of the votive lamps the
+   Cloisters film shows faintly through the edge of the wall, flickering like
+   the lamps; a quiet "Cloisters" label with a rule toward the wall names the
+   way through. Opens on a click or tap only. */
+.grotto-cloisters {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.grotto-cloisters__anchor {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.grotto-cloisters__passage {
+  position: absolute;
+  top: 40%;
+  height: 34%;
+  width: 16vw;
+  display: block;
+  pointer-events: auto;
+  color: rgba(255, 251, 242, .86);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grotto-cloisters__passage--left { left: 0; }
+.grotto-cloisters__passage--right { right: 0; }
+
+.grotto-cloisters__glimpse {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  opacity: .22;
+  filter: grayscale(.35) brightness(.85) blur(.6px);
+  animation: cloister-glimpse-flicker 5.3s steps(1, end) infinite;
+  transition: opacity .6s ease;
+}
+
+.grotto-cloisters__passage--left .grotto-cloisters__glimpse {
+  -webkit-mask-image: radial-gradient(ellipse 100% 52% at 0% 50%, #000 28%, rgba(0,0,0,.45) 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 100% 52% at 0% 50%, #000 28%, rgba(0,0,0,.45) 62%, transparent 100%);
+}
+
+.grotto-cloisters__passage--right .grotto-cloisters__glimpse {
+  -webkit-mask-image: radial-gradient(ellipse 100% 52% at 100% 50%, #000 28%, rgba(0,0,0,.45) 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 100% 52% at 100% 50%, #000 28%, rgba(0,0,0,.45) 62%, transparent 100%);
+  animation-delay: -2.1s;
+}
+
+.grotto-cloisters__glimpse video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grotto-cloisters__passage:hover .grotto-cloisters__glimpse,
+.grotto-cloisters__passage:focus-visible .grotto-cloisters__glimpse {
+  animation: none;
+  opacity: .5;
+}
+
+@keyframes cloister-glimpse-flicker {
+  0% { opacity: .2; } 11% { opacity: .29; } 19% { opacity: .17; } 31% { opacity: .26; }
+  42% { opacity: .33; } 49% { opacity: .19; } 61% { opacity: .27; } 70% { opacity: .15; }
+  82% { opacity: .3; } 91% { opacity: .21; } 100% { opacity: .2; }
+}
+
+.grotto-cloisters__label {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  padding: .5rem 0;
+  font: 500 12px/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .8), 0 0 14px rgba(10, 8, 6, .6);
+  transition: color .25s ease, text-shadow .35s ease;
+}
+
+.grotto-cloisters__passage--left .grotto-cloisters__label { left: calc(1.4rem + 40px); }
+.grotto-cloisters__passage--right .grotto-cloisters__label { right: calc(1.4rem + 40px); }
+
+.grotto-cloisters__label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1.5px;
+  background: rgba(255, 251, 242, .75);
+}
+
+.grotto-cloisters__passage--left .grotto-cloisters__label::before { right: calc(100% + 10px); }
+.grotto-cloisters__passage--right .grotto-cloisters__label::before { left: calc(100% + 10px); }
+
+.grotto-cloisters__passage:hover .grotto-cloisters__label,
+.grotto-cloisters__passage:active .grotto-cloisters__label,
+.grotto-cloisters__passage:focus-visible .grotto-cloisters__label {
+  color: #fffdf6;
+  text-shadow:
+    0 0 2px rgba(255, 250, 238, .55),
+    0 0 12px rgba(255, 244, 222, .55),
+    0 0 26px rgba(255, 240, 214, .32);
+}
+
+.grotto-cloisters__passage:focus-visible { outline: none; }
+.grotto-cloisters__passage:focus-visible .grotto-cloisters__label {
+  text-decoration: underline;
+  text-underline-offset: .55em;
+}
+
+@media (max-width: 700px) {
+  .grotto-cloisters__passage { width: 24vw; }
+  .grotto-cloisters__label { font-size: 10.5px; }
+  .grotto-cloisters__passage--left .grotto-cloisters__label { left: calc(.8rem + 26px); }
+  .grotto-cloisters__passage--right .grotto-cloisters__label { right: calc(.8rem + 26px); }
+  .grotto-cloisters__label::before { width: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grotto-cloisters__glimpse { animation: none; opacity: .24; }
+}
+
+/* CLOISTERS — both edges of the walkway lead back to the Grotto. */
+.cloisters-return {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  translate: 0 -50%;
+  padding: .6rem 0;
+  color: rgba(250, 245, 235, .9);
+  text-decoration: none;
+  font: 500 12px/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .8), 0 0 14px rgba(10, 8, 6, .6);
+  transition: text-shadow .35s ease, color .25s ease;
+}
+
+.cloisters-return--left { left: calc(1.4rem + 40px); }
+.cloisters-return--right { right: calc(1.4rem + 40px); }
+
+.cloisters-return::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1.5px;
+  background: rgba(255, 251, 242, .75);
+}
+
+.cloisters-return--left::before { right: calc(100% + 10px); }
+.cloisters-return--right::before { left: calc(100% + 10px); }
+
+.cloisters-return:hover,
+.cloisters-return:focus-visible {
+  outline: none;
+  color: #fffdf6;
+  text-shadow:
+    0 0 2px rgba(255, 250, 238, .55),
+    0 0 12px rgba(255, 244, 222, .55),
+    0 0 26px rgba(255, 240, 214, .32);
+}
+
+@media (max-width: 700px) {
+  .cloisters-return { font-size: 10.5px; }
+  .cloisters-return--left { left: calc(.8rem + 26px); }
+  .cloisters-return--right { right: calc(.8rem + 26px); }
+  .cloisters-return::before { width: 20px; }
 }

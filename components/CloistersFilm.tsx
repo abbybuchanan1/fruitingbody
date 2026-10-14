@@ -4,7 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 const CROSSFADE_SECONDS = 0.8;
 
-export function CloistersFilm() {
+// The Cloisters film (Abby's footage, 2026). Arriving through one of the
+// Grotto's side passages, the film opens at that passage's own point, so the
+// two sides show different light; otherwise it opens somewhere at random.
+export function CloistersFilm({ startAt }: { startAt?: number }) {
   const firstRef = useRef<HTMLVideoElement | null>(null);
   const secondRef = useRef<HTMLVideoElement | null>(null);
   const [active, setActive] = useState<0 | 1>(0);
@@ -22,7 +25,9 @@ export function CloistersFilm() {
       const duration = first.duration;
       if (!Number.isFinite(duration) || duration < 12) return;
 
-      first.currentTime = Math.random() * Math.max(1, duration - 10);
+      first.currentTime = startAt !== undefined
+        ? Math.min(startAt, Math.max(0, duration - 10))
+        : Math.random() * Math.max(1, duration - 10);
       second.currentTime = 0;
       void first.play().catch(() => undefined);
     };
@@ -65,14 +70,14 @@ export function CloistersFilm() {
       first.removeEventListener("timeupdate", handleTime);
       second.removeEventListener("timeupdate", handleTime);
     };
-  }, []);
+  }, [startAt]);
 
   return (
     <div className="cloisters-film__video-stack" aria-hidden="true">
       <video
         ref={firstRef}
         className={`cloisters-film__video${active === 0 ? " is-active" : ""}`}
-        src="/media/films/cloister-film-1.mp4"
+        src="/media/films/cloister-film-2.mp4"
         muted
         playsInline
         preload="auto"
@@ -80,7 +85,7 @@ export function CloistersFilm() {
       <video
         ref={secondRef}
         className={`cloisters-film__video${active === 1 ? " is-active" : ""}`}
-        src="/media/films/cloister-film-1.mp4"
+        src="/media/films/cloister-film-2.mp4"
         muted
         playsInline
         preload="auto"

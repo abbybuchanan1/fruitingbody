@@ -144,7 +144,7 @@ function environmentForJump(pathname: string, jumpTarget: string | null): Enviro
   if (pathname.startsWith("/exhibition")) {
     if (jumpTarget === "relative") return "gallery";
     if (jumpTarget === "garden" || jumpTarget === "daffodils" || jumpTarget === "fear-not" || jumpTarget === "taste-and-see") return "garden";
-    if (jumpTarget === "grotto" || jumpTarget === "a-miscarriage" || jumpTarget === "phase") return "grotto";
+    if (jumpTarget === "grotto" || jumpTarget === "a-miscarriage" || jumpTarget === "phase" || jumpTarget === "grotto-cloisters") return "grotto";
     if (jumpTarget === "threshold" || jumpTarget === "threshold-end") return "gallery";
   }
 
