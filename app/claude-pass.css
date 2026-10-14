@@ -4860,3 +4860,32 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   .cloisters-return--right { right: calc(.8rem + 26px); }
   .cloisters-return::before { width: 20px; }
 }
+
+/* CLOISTERS (new film, October 14) — the whole frame, as shot: no
+   enlargement and no shift. The film fills the screen with the least
+   possible trim (only what a screen of a different shape must lose). */
+.cloisters-film__video-stack .cloisters-film__video,
+.cloisters-film__video-stack .cloisters-film__video.is-active {
+  inset: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* The Grotto glimpses breathe rather than flash: the same range of light,
+   eased between levels on a slower, uneven cycle. */
+.grotto-cloisters__glimpse {
+  animation: cloister-glimpse-breathe 11s ease-in-out infinite;
+}
+
+.grotto-cloisters__passage--right .grotto-cloisters__glimpse {
+  animation-duration: 13s;
+  animation-delay: -4.5s;
+}
+
+@keyframes cloister-glimpse-breathe {
+  0% { opacity: .2; } 14% { opacity: .29; } 27% { opacity: .18; } 41% { opacity: .31; }
+  55% { opacity: .22; } 68% { opacity: .33; } 81% { opacity: .19; } 100% { opacity: .2; }
+}
