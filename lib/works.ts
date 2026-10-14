@@ -5,7 +5,6 @@ import {
   miscarriageWorks,
   phaseFrames,
   mariaWorks,
-  redThreadRetired,
   relativePairs,
   thresholdPairs,
 } from "@/lib/artworks";
@@ -234,8 +233,7 @@ export const museumWorks: MuseumWork[] = [
     })),
     reflection: reflections["red-thread"],
     archiveNote:
-      "The current edit combines work originally developed as Red Thread, Unravel, and It Was Shelter Before It Was a Lie.",    archiveExtra: [redThreadRetired],
-  },
+      "The current edit combines work originally developed as Red Thread, Unravel, and It Was Shelter Before It Was a Lie.",  },
   {
     id: "membrane",
     title: "Membrane",

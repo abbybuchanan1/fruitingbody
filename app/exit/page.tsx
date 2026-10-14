@@ -16,8 +16,8 @@ export default function ExitPage() {
         </div>
       </section>
       <NarthexHall variant="above" from="courtyard" />
-      <div className="exit-page__doors exit-page__doors--above" aria-hidden="true" />
-      <RoomStart />
+      <div id="courtyard-threshold" className="exit-page__doors exit-page__doors--above" aria-hidden="true" />
+      <RoomStart threshold="courtyard-threshold" />
       <div className="exit-page__open-air" aria-hidden="true" />
       <div className="exit-page__doors" aria-hidden="true" />
       <NarthexHall from="courtyard" />

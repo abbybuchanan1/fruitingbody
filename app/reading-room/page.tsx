@@ -10,9 +10,9 @@ export default function ReadingRoomPage() {
       <div className="reading-room-page__veil" aria-hidden="true" />
 
       <NarthexHall variant="above" from="reading" />
-      <RoomStart />
+      <RoomStart title="reading-room-title" />
       <section className="reading-room-page__content">
-        <header className="reading-room-title-card">
+        <header id="reading-room-title" className="reading-room-title-card">
           <p className="reading-room-title-card__room">Reading Room</p>
           <h1>Poems</h1>
         </header>

@@ -6,7 +6,7 @@ import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
 import { FilmThumbnail } from "@/components/FilmThumbnail";
 import { showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
-import type { Artwork } from "@/lib/artworks";
+import { redThreadRetired, type Artwork } from "@/lib/artworks";
 
 
 function numberedImages(folder: string, prefix: string, count: number, title: string): Artwork[] {
@@ -45,14 +45,18 @@ const redThreadDevelopment = [
       "Blur and movement loosen the figure.",
     question:
       "What emerges when we stop trying to manage the process of becoming?",
-    images: numberedImages("unravel-original", "unravel-original", 4, "Unravel"),
+    // Ends on the frame that closed Red Thread before the October 2026 edit.
+    images: [
+      ...numberedImages("unravel-original", "unravel-original", 4, "Unravel"),
+      { ...redThreadRetired, alt: "Unravel, the figure dissolving as the red thread runs toward the camera." },
+    ] as Artwork[],
   },
 ] as const;
 
 // Only works whose archive differs from the Index are kept here (the rest are
 // shown in full on the Index). Daffodils and Fear Not now carry further work.
 const ARCHIVE_IDS = ["daffodils", "fear-not", "red-thread", "membrane", "body-of-water", "maria"];
-// A separate work from the Daffodils material, titled from the Pádraig Ó
+// Part of the Daffodils archive: a collage from the same material, titled from the Pádraig Ó
 // Tuama passage quoted in the Daffodils reflection.
 const oneYearCollage: Artwork[] = [
   {
@@ -69,13 +73,13 @@ export default function ArchivePage() {
     <main className="archive-page">
       <OpenDetailsFromHash />
       <NarthexHall variant="above" from="archive" />
-      <RoomStart />
+      <RoomStart title="archive-title" />
       {/* The Archive's entrance: a detail of the artist's painting (2010),
           like a canvas kept under a dust sheet, with the room's title card. */}
       <section className="archive-entrance" aria-label="Archive">
         <img className="archive-entrance__image" src="/media/architecture/archive-entrance.jpg" alt="" aria-hidden="true" />
       </section>
-      <header className="utility-header archive-header archive-title-card">
+      <header id="archive-title" className="utility-header archive-header archive-title-card">
         <p className="utility-header__eyebrow">Research Room</p>
         <h1>Archive</h1>
         <p>
@@ -87,18 +91,15 @@ export default function ArchivePage() {
         </p>
 
         <nav className="archive-menu" aria-label="Archive works">
-          {archiveWorks.map((work) => [
-            <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>,
-            work.id === "daffodils" ? (
-              <a href="#archive-one-year" key="one-year">One Year. Fifty. Five Hundred. Forever.</a>
-            ) : null,
-          ])}
+          {archiveWorks.map((work) => (
+            <a href={`#archive-${work.id}`} key={work.id}>{work.title}</a>
+          ))}
         </nav>
       </header>
 
 
       <section className="archive-works" aria-label="Full finished bodies of work">
-        {archiveWorks.map((work) => [
+        {archiveWorks.map((work) => (
           <article id={`archive-${work.id}`} className="archive-work" data-work-id={work.id} key={work.id}>
             <header className="archive-work__header">
               <p className="archive-work__room">{work.room}</p>
@@ -119,13 +120,21 @@ export default function ArchivePage() {
 
             <p className="archive-historical-edit__label archive-installed-label">Installed work</p>
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
+            {work.id === "body-of-water" ? <FilmThumbnail /> : null}
             {work.archiveExtra?.length ? (
               <section className="archive-further" aria-label={`${work.title}: further work`}>
                 <p className="archive-historical-edit__label">Further work</p>
                 <ArtworkLightboxGrid images={work.archiveExtra} mode="archive" />
               </section>
             ) : null}
-            {work.id === "body-of-water" ? <FilmThumbnail /> : null}
+            {work.id === "daffodils" ? (
+              <section id="archive-one-year" className="archive-further archive-further--titled" aria-label="One Year. Fifty. Five Hundred. Forever.">
+                <p className="archive-historical-edit__label">Digital collage</p>
+                <h3>One Year. Fifty. Five Hundred. Forever.</h3>
+                <p className="archive-work__meta">2025 · After Pádraig Ó Tuama</p>
+                <ArtworkLightboxGrid images={oneYearCollage} mode="archive" />
+              </section>
+            ) : null}
 
             {work.id === "red-thread" ? (
               <section className="archive-historical-edits" aria-label="Red Thread developmental archive">
@@ -150,19 +159,8 @@ export default function ArchivePage() {
                 ))}
               </section>
             ) : null}
-          </article>,
-          work.id === "daffodils" ? (
-            <article id="archive-one-year" className="archive-work" data-work-id="one-year" key="one-year">
-              <header className="archive-work__header">
-                <p className="archive-work__room">Garden</p>
-                <h2>One Year. Fifty. Five Hundred. Forever.</h2>
-                <p className="archive-work__meta">2025 · Digital collage</p>
-                <p>After Pádraig Ó Tuama.</p>
-              </header>
-              <ArtworkLightboxGrid images={oneYearCollage} mode="archive" />
-            </article>
-          ) : null,
-        ])}
+          </article>
+        ))}
       </section>
 
       <NarthexHall from="archive" />

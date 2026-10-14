@@ -65,15 +65,15 @@ export function NarthexHall({
         </nav>
 
         <nav className="narthex-hall__paths" aria-label="From the Narthex">
-          <Link className="narthex-hall__link narthex-hall__link--reading" href={from === "reading" ? back : "/reading-room"}>
+          <Link className="narthex-hall__link narthex-hall__link--reading" href={from === "reading" ? back : "/reading-room?at=threshold"}>
             Reading Room
           </Link>
-          <Link className="narthex-hall__link narthex-hall__link--courtyard" href={from === "courtyard" ? back : "/exit"}>
+          <Link className="narthex-hall__link narthex-hall__link--courtyard" href={from === "courtyard" ? back : "/exit?at=threshold"}>
             Courtyard
           </Link>
           {/* Archive: a side room, labelled more quietly than the two doors.
               (Index lives in the top row on every page.) */}
-          <Link className="narthex-hall__link narthex-hall__link--archive narthex-hall__link--quiet" href={from === "archive" ? back : "/archive"}>
+          <Link className="narthex-hall__link narthex-hall__link--archive narthex-hall__link--quiet" href={from === "archive" ? back : "/archive?at=threshold"}>
             Archive
           </Link>
         </nav>

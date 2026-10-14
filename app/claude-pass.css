@@ -4224,3 +4224,123 @@ html { scroll-behavior: smooth; }
     mask-image: linear-gradient(to bottom, transparent 0, #000 5svh);
   }
 }
+
+/* SIDE ROOMS — the threshold (October 14). A Narthex door (Reading Room,
+   Archive, Courtyard) now lands on the passage between the Narthex and the
+   room, not on a copy of the Narthex. The room's texture reaches further up
+   into that passage: the Narthex above fades out sooner, so on arrival the
+   screen is mostly the new room, with the Narthex floor only at its top edge. */
+.narthex-hall--above .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 24vh), rgba(0,0,0,.45) calc(100svh - 4vh), transparent calc(100svh + 25vh)) !important;
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 24vh), rgba(0,0,0,.45) calc(100svh - 4vh), transparent calc(100svh + 25vh)) !important;
+}
+
+/* Courtyard: the dark by the doors begins sooner and lasts longer. */
+.exit-page .narthex-hall--above .narthex-hall__environment {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 24vh), rgba(0,0,0,.35) calc(100svh - 2vh), transparent calc(100svh + 22vh)) !important;
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100svh - 24vh), rgba(0,0,0,.35) calc(100svh - 2vh), transparent calc(100svh + 22vh)) !important;
+}
+
+.exit-page__doors--above {
+  height: 80vh !important;
+  background: linear-gradient(to bottom, #050403, #050403 18%, rgba(5,4,3,.82) 42%, rgba(5,4,3,.45) 68%, rgba(5,4,3,0)) !important;
+}
+
+/* Archive: the painted canvas starts under the fading Narthex floor. */
+.archive-page .archive-entrance {
+  margin-top: -24vh !important;
+}
+
+.archive-page .archive-entrance__image {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.45) 10%, rgba(0,0,0,.85) 24%, #000 34%, #000 74%, transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.45) 10%, rgba(0,0,0,.85) 24%, #000 34%, #000 74%, transparent 100%) !important;
+}
+
+/* VESTIBULE LINKS — no boxes (October 14). The Vestibule above each path is
+   a second copy of the room, and its labels had fallen back to the default
+   bordered button, so after choosing a room every label showed a white
+   rectangle. Both copies now share one treatment: bare labels that glow
+   softly when pointed at, pressed or focused. Keyboard focus adds a fine
+   underline instead of a box. */
+.vestibule-hall .architectural-link,
+.vestibule .architectural-link {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .25s ease, text-shadow .35s ease, opacity .25s ease !important;
+}
+
+.vestibule-hall .architectural-link {
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 10px 4px !important;
+  text-decoration: none;
+}
+
+.vestibule-hall .architectural-link:hover,
+.vestibule-hall .architectural-link:active,
+.vestibule-hall .architectural-link:focus-visible,
+.vestibule .architectural-link:hover,
+.vestibule .architectural-link:active,
+.vestibule .architectural-link:focus-visible {
+  color: #fffdf6 !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  text-shadow:
+    0 0 2px rgba(255, 250, 238, .55),
+    0 0 12px rgba(255, 244, 222, .55),
+    0 0 26px rgba(255, 240, 214, .32) !important;
+}
+
+.vestibule-hall .architectural-link:focus-visible,
+.vestibule .architectural-link:focus-visible {
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: .55em !important;
+}
+
+.vestibule-hall .architectural-link:focus:not(:focus-visible),
+.vestibule .architectural-link:focus:not(:focus-visible) {
+  text-shadow: none;
+}
+
+/* CONTACT (wider screens) — centred under Index rather than set in under it. */
+@media (min-width: 701px) {
+  .site-nav__contact-wrap {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+    text-align: center !important;
+    white-space: nowrap;
+  }
+
+  .site-nav__contact {
+    padding-left: .26em !important;
+  }
+
+  /* The card still hangs from the right, so it stays on screen. */
+  .site-nav__contact-wrap .site-contact {
+    left: auto !important;
+    right: 0 !important;
+  }
+}
+
+/* ARCHIVE — the Daffodils collage sits inside Daffodils, after its further
+   work, with its own small title (like Red Thread's original edits). */
+.archive-further--titled > .archive-historical-edit__label {
+  margin-bottom: .7rem;
+}
+
+.archive-further--titled h3 {
+  margin: 0 0 .35rem;
+  font: 500 clamp(1.05rem, 1.5vw, 1.35rem)/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .01em;
+  color: rgba(43, 38, 33, .82);
+}
+
+.archive-further--titled .archive-work__meta {
+  margin: 0 0 1.4rem;
+}
