@@ -4,6 +4,7 @@ import { WaterRoomJunction } from "@/components/WaterRoomJunction";
 import { NarthexHall } from "@/components/NarthexHall";
 import { VestibuleHall } from "@/components/VestibuleHall";
 import { RoomStart } from "@/components/RoomStart";
+import { EndArrivalCue } from "@/components/EndArrivalCue";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
@@ -19,6 +20,7 @@ export default function WaterRoomPage() {
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
       <VestibuleHall path="water" />
       <RoomStart />
+      <EndArrivalCue room="Water Room" />
 
       <div className="water-room__environment" aria-hidden="true">
         {panels.map((panel, index) => (

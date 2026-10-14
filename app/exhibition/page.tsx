@@ -6,6 +6,7 @@ import { ThresholdSection } from "@/components/ThresholdSection";
 import { NarthexHall } from "@/components/NarthexHall";
 import { VestibuleHall } from "@/components/VestibuleHall";
 import { RoomStart } from "@/components/RoomStart";
+import { EndArrivalCue } from "@/components/EndArrivalCue";
 import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 
 export default function ExhibitionPage() {
@@ -13,6 +14,7 @@ export default function ExhibitionPage() {
     <main className="exhibition-scroll">
       <VestibuleHall path="exhibition" />
       <RoomStart />
+      <EndArrivalCue room="Exhibition" />
       <Suspense fallback={null}>
         <HashScrollRestorer />
       </Suspense>

@@ -4344,3 +4344,73 @@ html { scroll-behavior: smooth; }
 .archive-further--titled .archive-work__meta {
   margin: 0 0 1.4rem;
 }
+
+/* END OF A PATH — arriving from the Narthex at the end of the Red Room,
+   Exhibition or Water Room, one quiet line appears under the top row for a
+   few seconds, with a way up to the start. It drifts in and out. */
+.end-arrival-cue {
+  position: fixed;
+  z-index: 60;
+  top: 4.4rem;
+  left: 50%;
+  translate: -50% 0;
+  width: max-content;
+  max-width: calc(100vw - 2.5rem);
+  padding: .7rem 1.15rem .75rem;
+  text-align: center;
+  color: rgba(252, 248, 240, .96);
+  background: rgba(22, 19, 16, .34);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font: 400 .66rem/1.5 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .5);
+  animation: end-arrival-cue-in 1.4s ease both;
+  transition: opacity 1.6s ease, translate 1.6s ease;
+}
+
+.end-arrival-cue.is-gone {
+  opacity: 0;
+  translate: -50% -.4rem;
+  pointer-events: none;
+}
+
+.end-arrival-cue__line {
+  margin: 0 0 .35rem;
+}
+
+.end-arrival-cue__begin {
+  appearance: none;
+  padding: .25rem .2rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .5em;
+  transition: text-shadow .3s ease;
+}
+
+.end-arrival-cue__begin:hover,
+.end-arrival-cue__begin:focus-visible {
+  outline: none;
+  text-shadow: 0 0 10px rgba(255, 244, 222, .7);
+}
+
+@keyframes end-arrival-cue-in {
+  from { opacity: 0; translate: -50% -.4rem; }
+  to { opacity: 1; translate: -50% 0; }
+}
+
+@media (max-width: 700px) {
+  .end-arrival-cue {
+    top: 4rem;
+    font-size: .6rem;
+    letter-spacing: .12em;
+  }
+}

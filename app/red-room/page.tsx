@@ -5,6 +5,7 @@ import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { NarthexHall } from "@/components/NarthexHall";
 import { VestibuleHall } from "@/components/VestibuleHall";
 import { RoomStart } from "@/components/RoomStart";
+import { EndArrivalCue } from "@/components/EndArrivalCue";
 import { Room } from "@/components/Room";
 import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { museumWorksById } from "@/lib/works";
@@ -31,6 +32,7 @@ export default function RedRoomPage() {
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
       <VestibuleHall path="red" />
       <RoomStart />
+      <EndArrivalCue room="Red Room" />
       <div id="red-room-start" className="route-start-anchor" aria-hidden="true" />
       <EnvironmentalPanelSequence panels={redRoomEnvironment} className="red-room-environment" />
 
