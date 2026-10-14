@@ -1245,7 +1245,7 @@ she is.`,
 
 // Temporarily withheld from the Reading Room (October 2026). They stay here,
 // unchanged; take a slug out of this list to show the poem again.
-const HIDDEN_POEMS = ["for-c", "that-it-was"];
+const HIDDEN_POEMS = ["that-it-was"];
 
 // Shelf order: Rosary before Evidence, so Evidence's feathers lead into Joy.
 const SHELF_ORDER = ["for-c", "may-2024", "that-it-was", "two-days", "rosary", "evidence", "joy"];
