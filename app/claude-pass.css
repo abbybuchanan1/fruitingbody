@@ -4414,3 +4414,29 @@ html { scroll-behavior: smooth; }
     letter-spacing: .12em;
   }
 }
+
+/* CONTACT CARD — the card keeps its own type (the top row's capitals and
+   no-wrap stop at its edge), and the card is a little more transparent. */
+.site-nav .site-contact {
+  white-space: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  text-align: left !important;
+  background: rgba(246, 241, 232, .8) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.site-nav .site-contact__name {
+  text-transform: uppercase !important;
+  letter-spacing: .18em !important;
+}
+
+.site-nav .site-contact__note {
+  margin: .6rem 0 0 !important;
+  font-size: .74rem !important;
+  line-height: 1.5 !important;
+  letter-spacing: .02em !important;
+  text-transform: none !important;
+  color: rgba(30, 26, 22, .78) !important;
+}
