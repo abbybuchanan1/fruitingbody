@@ -11,11 +11,18 @@ export function EndArrivalCue({ room }: { room: string }) {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("return") !== "1") return;
-    const show = window.setTimeout(() => setState("shown"), 900);
-    const hide = window.setTimeout(() => setState("gone"), 10500);
+    const show = window.setTimeout(() => setState((s) => (s === "hidden" ? "shown" : s)), 900);
+    const hide = window.setTimeout(() => setState("gone"), 6500);
+    // Gone as soon as the visitor reaches the start, however they get there.
+    const onScroll = () => {
+      const start = document.getElementById("room-start");
+      if (start && start.getBoundingClientRect().top > -window.innerHeight * 0.6) setState("gone");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.clearTimeout(show);
       window.clearTimeout(hide);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
