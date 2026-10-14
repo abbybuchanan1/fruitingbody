@@ -4440,3 +4440,42 @@ html { scroll-behavior: smooth; }
   text-transform: none !important;
   color: rgba(30, 26, 22, .78) !important;
 }
+
+/* WIDER SCREENS — MAP AS A SOFT PANEL (October 14, trial). The white outline
+   gives way to a translucent, lightly blurred panel, so Map stays easy to
+   find without outshining the room's name; and the Vestibule's name drops
+   onto the lintel, clear of the top row. */
+@media (min-width: 701px) {
+  .site-nav .site-nav__map,
+  .site-nav[data-tone] .site-nav__map {
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: background-color .3s ease, text-shadow .3s ease !important;
+  }
+
+  .site-nav[data-tone="dark"] .site-nav__map {
+    background: rgba(22, 19, 16, .32) !important;
+    color: rgba(250, 245, 235, .96) !important;
+  }
+
+  .site-nav[data-tone="light"] .site-nav__map {
+    background: rgba(250, 246, 238, .42) !important;
+    color: rgba(28, 25, 23, .9) !important;
+  }
+
+  .site-nav[data-tone="dark"] .site-nav__map:hover,
+  .site-nav[data-tone="dark"] .site-nav__map:focus-visible {
+    background: rgba(22, 19, 16, .5) !important;
+  }
+
+  .site-nav[data-tone="light"] .site-nav__map:hover,
+  .site-nav[data-tone="light"] .site-nav__map:focus-visible {
+    background: rgba(250, 246, 238, .62) !important;
+  }
+
+  .vestibule__room-label {
+    top: 6.9rem !important;
+  }
+}
