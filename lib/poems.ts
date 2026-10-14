@@ -7,7 +7,7 @@ export type Poem = {
   body: string;
 };
 
-export const poems: Poem[] = [
+const allPoems: Poem[] = [
   {
     slug: "for-c",
     title: "For C",
@@ -1242,6 +1242,12 @@ she is.`,
   },
 
 ];
+
+// Temporarily withheld from the Reading Room (October 2026). They stay here,
+// unchanged; take a slug out of this list to show the poem again.
+const HIDDEN_POEMS = ["for-c", "that-it-was"];
+
+export const poems: Poem[] = allPoems.filter((poem) => !HIDDEN_POEMS.includes(poem.slug));
 
 export function getPoem(slug: string) {
   return poems.find((poem) => poem.slug === slug);
