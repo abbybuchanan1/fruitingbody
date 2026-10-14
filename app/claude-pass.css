@@ -4889,3 +4889,25 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   0% { opacity: .2; } 14% { opacity: .29; } 27% { opacity: .18; } 41% { opacity: .31; }
   55% { opacity: .22; } 68% { opacity: .33; } 81% { opacity: .19; } 100% { opacity: .2; }
 }
+
+/* MAP — Cloisters curve off the Grotto (October 14): their names sit inside
+   the curves on both plans. */
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+  top: 30.571% !important;
+  height: 18.571% !important;
+  width: 3.4% !important;
+}
+
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage--left { left: 38% !important; }
+.museum-map__cloisters-group--canonical .museum-map__cloister-passage--right { left: 58.6% !important; }
+
+@media (max-width: 760px) {
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage {
+    top: 31.875% !important;
+    height: 17.125% !important;
+    width: 5.5% !important;
+  }
+
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--left { left: 29.5% !important; }
+  .museum-map__cloisters-group--canonical .museum-map__cloister-passage--right { left: 65% !important; }
+}

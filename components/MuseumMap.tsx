@@ -54,16 +54,18 @@ const WINGS = {
     // the bottom, as on the phone plan.
     red: "M178 118 C40 240 40 560 218 680 V118 Z",
     water: "M822 118 C960 240 960 560 782 680 V118 Z",
-    cloisterLeft: "M372 206 Q304 371 372 536 Q360 371 372 206 Z",
-    cloisterRight: "M628 206 Q696 371 628 536 Q640 371 628 206 Z",
+    // Cloisters curve off the Grotto's side walls (open into it, no wall
+    // between), deep enough to hold their name.
+    cloisterLeft: "M414 214 Q342 279 414 344 Z",
+    cloisterRight: "M586 214 Q658 279 586 344 Z",
   },
   mobile: {
     // Phone plan: each wing opens off the Narthex at the top and into the
     // Vestibule at the bottom, so the walk through it reads on the plan.
     red: "M70 150 C-20 270 -20 620 110 735 V150 Z",
     water: "M330 150 C420 270 420 620 290 735 V150 Z",
-    cloisterLeft: "M136 250 Q96 405 136 560 Q126 405 136 250 Z",
-    cloisterRight: "M264 250 Q304 405 264 560 Q274 405 264 250 Z",
+    cloisterLeft: "M140 255 Q92 323 140 392 Z",
+    cloisterRight: "M260 255 Q308 323 260 392 Z",
   },
 } as const;
 
@@ -219,13 +221,16 @@ export function MuseumMap({
               <path d="M822 118 C960 240 960 560 782 680" />
 
               <path d="M397 136 H603 V184 H397 Z" />
-              <path d="M414 204 H586 V538 H414 Z" />
+              {/* Grotto and Garden: the Grotto's side walls open into the Cloisters. */}
+              <path d="M414 214 V204 H586 V214" />
+              <path d="M586 344 V538 H414 V344" />
               <path d="M414 354 H586" />
               <path d="M397 556 H603 V604 H397 Z" />
 
-              {/* Cloisters: slim curved wings either side of the Garden and Grotto. */}
-              <path d={WINGS.desktop.cloisterLeft} />
-              <path d={WINGS.desktop.cloisterRight} />
+              {/* Cloisters: curved walks off either side of the Grotto, drawn as
+                  their outer curve only. */}
+              <path d="M414 214 Q342 279 414 344" />
+              <path d="M586 214 Q658 279 586 344" />
 
               {/* Vestibule: open at the sides into the wings. */}
               <path d="M218 680 H782" />
@@ -274,9 +279,10 @@ export function MuseumMap({
               <rect x="322" y="300" width="28" height="80" rx="6" />
 
               <rect x="130" y="170" width="140" height="55" rx="2" />
-              <path d={WINGS.mobile.cloisterLeft} />
-              <path d={WINGS.mobile.cloisterRight} />
-              <path d="M140 245 H260 V560 H140 Z" />
+              <path d="M140 255 Q92 323 140 392" />
+              <path d="M260 255 Q308 323 260 392" />
+              <path d="M140 255 V245 H260 V255" />
+              <path d="M260 392 V560 H140 V392" />
               <path d="M140 402 H260" />
               <rect x="130" y="580" width="140" height="55" rx="2" />
 
