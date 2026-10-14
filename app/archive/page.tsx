@@ -6,7 +6,7 @@ import { OpenDetailsFromHash } from "@/components/OpenDetailsFromHash";
 import { FilmThumbnail } from "@/components/FilmThumbnail";
 import { showInterpretiveQuestions } from "@/lib/editorial";
 import { museumWorks } from "@/lib/works";
-import { redThreadRetired, type Artwork } from "@/lib/artworks";
+import type { Artwork } from "@/lib/artworks";
 
 
 function numberedImages(folder: string, prefix: string, count: number, title: string): Artwork[] {
@@ -45,11 +45,12 @@ const redThreadDevelopment = [
       "Blur and movement loosen the figure.",
     question:
       "What emerges when we stop trying to manage the process of becoming?",
-    // Ends on the frame that closed Red Thread before the October 2026 edit.
-    images: [
-      ...numberedImages("unravel-original", "unravel-original", 4, "Unravel"),
-      { ...redThreadRetired, alt: "Unravel, the figure dissolving as the red thread runs toward the camera." },
-    ] as Artwork[],
+    // Original order: 01, 02, 03, then 05 (the frame that now closes the
+    // installed Red Thread) as the fourth, then 04.
+    images: ["01", "02", "03", "05", "04"].map((n, i) => ({
+      src: `/art/archive/unravel-original/unravel-original-${n}.jpg`,
+      alt: `Unravel, original edit, image ${i + 1} of 5.`,
+    })) as Artwork[],
   },
 ] as const;
 
