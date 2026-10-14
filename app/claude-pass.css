@@ -4479,3 +4479,60 @@ html { scroll-behavior: smooth; }
     top: 6.9rem !important;
   }
 }
+
+/* NARTHEX (October 14, trial) — a tighter star. The four side doors come in
+   toward the centre so their spokes end near the name; all six spokes are
+   one length; and "Narthex" is a step larger, so the hub anchors the room. */
+.narthex-hall__label {
+  font-size: 1.24rem !important;
+}
+
+.narthex-hall__link--red,
+.narthex-hall__link--reading { left: 29% !important; }
+.narthex-hall__link--water,
+.narthex-hall__link--archive { right: 29% !important; }
+
+.narthex-hall__link--red::before,
+.narthex-hall__link--reading::before,
+.narthex-hall__link--water::before,
+.narthex-hall__link--archive::before { width: 48px !important; }
+
+.narthex-hall__link--exhibition::before,
+.narthex-hall__link--courtyard::before { height: 48px !important; }
+
+@media (max-width: 700px) {
+  .narthex-hall__label { font-size: .98rem !important; }
+  .narthex-hall__link--red,
+  .narthex-hall__link--reading { left: 6% !important; }
+  .narthex-hall__link--water,
+  .narthex-hall__link--archive { right: 6% !important; }
+  .narthex-hall__link--red::before,
+  .narthex-hall__link--reading::before,
+  .narthex-hall__link--water::before,
+  .narthex-hall__link--archive::before { width: 24px !important; }
+  .narthex-hall__link--exhibition::before,
+  .narthex-hall__link--courtyard::before { height: 24px !important; }
+}
+
+/* TOP ROW on light rooms (wider screens) — the Map panel is a lighter haze,
+   and Sound, Index and Contact carry a little more contrast. */
+@media (min-width: 701px) {
+  .site-nav[data-tone="light"] .site-nav__map {
+    background: rgba(250, 246, 238, .2) !important;
+  }
+
+  .site-nav[data-tone="light"] .site-nav__map:hover,
+  .site-nav[data-tone="light"] .site-nav__map:focus-visible {
+    background: rgba(250, 246, 238, .4) !important;
+  }
+}
+
+.site-nav[data-tone="light"] a,
+html[data-nav-tone="light"] .ambient-sound-control--global {
+  color: rgba(22, 19, 17, .92) !important;
+  border-bottom-color: rgba(22, 19, 17, .42) !important;
+}
+
+.site-nav[data-tone="light"] .site-nav__contact {
+  color: rgba(22, 19, 17, .86) !important;
+}
