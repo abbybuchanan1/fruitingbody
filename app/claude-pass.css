@@ -4536,3 +4536,27 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
 .site-nav[data-tone="light"] .site-nav__contact {
   color: rgba(22, 19, 17, .86) !important;
 }
+
+/* HIERARCHY (October 14, trial) — two tiers, clearly apart. The top row is
+   navigation: Map joins Sound, Index and Contact at caption size (a touch
+   heavier, on its small panel). The room's name is the title: larger serif,
+   the one thing at the top that reads as a heading. */
+@media (min-width: 701px) {
+  .site-nav .site-nav__map,
+  .site-nav[data-tone] .site-nav__map {
+    padding: .5rem 1.5rem .5rem calc(1.5rem + .34em) !important;
+    font-size: .7rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .34em !important;
+  }
+
+  .vestibule__room-label {
+    font-size: 1.24rem !important;
+    letter-spacing: .32em !important;
+    text-indent: .32em !important;
+  }
+
+  .narthex-hall__label {
+    font-size: 1.36rem !important;
+  }
+}
