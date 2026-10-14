@@ -17,9 +17,7 @@ export default async function CloistersPage({ searchParams }: Props) {
     <main className="cloisters-film" data-museum-location="cloisters">
       <CloistersFilm startAt={startAt} />
       <div className="cloisters-film__veil" aria-hidden="true" />
-      <header className="cloisters-film__label">
-        <p>Cloisters</p>
-      </header>
+      <p className="room-label cloisters-film__room-label">Cloisters</p>
       <nav className="cloisters-returns" aria-label="Back to the Grotto">
         <Link className="cloisters-return cloisters-return--left" href={back}>Grotto</Link>
         <Link className="cloisters-return cloisters-return--right" href={back}>Grotto</Link>
