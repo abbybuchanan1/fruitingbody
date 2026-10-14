@@ -4598,3 +4598,85 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
     border-bottom-color: currentColor !important;
   }
 }
+
+/* CLOSED ROOM (not found) — a dark, quiet room with a way back. */
+.not-found-room {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 6rem 1.5rem;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(70, 62, 52, .55), transparent 62%),
+    #15120f;
+  color: rgba(246, 240, 228, .92);
+  text-align: center;
+}
+
+.not-found-room__label {
+  margin: 0 0 1.4rem;
+  font: 400 .62rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+.not-found-room h1 {
+  margin: 0 0 .9rem;
+  font: 400 clamp(1.3rem, 2.4vw, 1.8rem)/1.25 Georgia, "Times New Roman", serif;
+  letter-spacing: .02em;
+}
+
+.not-found-room__note {
+  margin: 0 0 2.6rem;
+  font-size: .95rem;
+  opacity: .72;
+}
+
+.not-found-room__ways {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+}
+
+.not-found-room__ways a {
+  padding: .3rem 0 .26rem;
+  border-bottom: 1px solid rgba(246, 240, 228, .45);
+  color: inherit;
+  text-decoration: none;
+  font: 400 .66rem/1 var(--font-wayfinding), "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  transition: text-shadow .3s ease, border-color .3s ease;
+}
+
+.not-found-room__ways a:hover,
+.not-found-room__ways a:focus-visible {
+  outline: none;
+  border-bottom-color: currentColor;
+  text-shadow: 0 0 10px rgba(255, 244, 222, .6);
+}
+
+/* ENTRANCE (pointer screens) — a late clue. The door has no label at first;
+   if it hasn't been found after about six seconds, a faint "Enter" surfaces
+   low on the door. Explorers find the door before it appears; anyone still
+   waiting for a button gets one. */
+@media (hover: hover) and (pointer: fine) {
+  .museum-exterior .museum-exterior__enter {
+    display: block !important;
+    opacity: 0;
+  }
+
+  .museum-exterior.is-image-ready .museum-exterior__enter {
+    animation: entrance-late-clue 2.4s ease 6s both;
+  }
+
+  .museum-exterior.is-entering .museum-exterior__enter {
+    animation: none;
+  }
+}
+
+@keyframes entrance-late-clue {
+  from { opacity: 0; }
+  to { opacity: .72; }
+}

@@ -15,7 +15,7 @@ const nextConfig = {
       { source: "/grotto", destination: "/exhibition?jump=grotto", permanent: false },
       { source: "/threshold", destination: "/exhibition?jump=threshold", permanent: false },
       { source: "/membrane", destination: "/red-room?jump=membrane", permanent: false },
-      { source: "/courtyard", destination: "/cloisters", permanent: false },
+      { source: "/courtyard", destination: "/exit", permanent: false },
       { source: "/back-corridor", destination: "/narthex", permanent: false },
       { source: "/collections", destination: "/directory", permanent: false },
       { source: "/collections/:slug", destination: "/directory", permanent: false },

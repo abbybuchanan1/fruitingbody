@@ -11,7 +11,8 @@ export function EndArrivalCue({ room }: { room: string }) {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("return") !== "1") return;
+    // Not when stepping back out of the Film Room: that visitor knows where they are.
+    if (params.get("return") !== "1" || params.get("from") === "film-room") return;
     const show = window.setTimeout(() => setState((s) => (s === "hidden" ? "shown" : s)), 900);
     const hide = window.setTimeout(() => setState("gone"), 6500);
     // Gone as soon as the visitor reaches the start, however they get there.

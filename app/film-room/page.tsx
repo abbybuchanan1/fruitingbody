@@ -20,7 +20,7 @@ export default function FilmRoomPage() {
       </section>
 
       <div className="film-room__return-wrap">
-        <Link className="film-room__return" href="/water-room?jump=body-of-water-end&return=1">
+        <Link className="film-room__return" href="/water-room?jump=body-of-water-end&return=1&from=film-room">
           Return to Water Room
         </Link>
       </div>
