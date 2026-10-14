@@ -4937,3 +4937,18 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
 @media (max-width: 700px) {
   .cloisters-return { font-size: 10.5px !important; }
 }
+
+/* COURTYARD — its name is the room's title, like every other room: serif,
+   centred under the top row (not a small caption at the foot). */
+.exit-exterior__room-label {
+  z-index: 4 !important;
+}
+
+@media (min-width: 701px) {
+  .exit-exterior__room-label {
+    top: 6.9rem !important;
+    font-size: 1.24rem !important;
+    letter-spacing: .32em !important;
+    text-indent: .32em !important;
+  }
+}

@@ -11,9 +11,7 @@ export default function ExitPage() {
       <section className="exit-exterior" aria-label="Courtyard">
         <ExitFilmPlaylist />
         <div className="exit-exterior__veil" aria-hidden="true" />
-        <div className="exit-exterior__ui">
-          <p className="exit-exterior__label">Courtyard</p>
-        </div>
+        <p className="room-label exit-exterior__room-label">Courtyard</p>
       </section>
       <NarthexHall variant="above" from="courtyard" />
       <div id="courtyard-threshold" className="exit-page__doors exit-page__doors--above" aria-hidden="true" />
