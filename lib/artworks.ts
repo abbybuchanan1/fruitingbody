@@ -133,12 +133,13 @@ export const redThreadRetired: Artwork = {
   alt: "Red Thread, earlier closing frame: the figure dissolving as the thread runs toward the camera.",
 };
 
-// Body of Water: frame 03 is withdrawn (its background was repaired with
-// generative AI). The remaining seven keep their original file numbers.
-export const bodyOfWaterWorks: Artwork[] = ["01", "02", "04", "05", "06", "07", "08"].map(
+// Body of Water: the first frame 03 was withdrawn (it had been upscaled).
+// 03-v2 is the artist's re-edit from a file that was never upscaled,
+// hung in the same position (October 2026).
+export const bodyOfWaterWorks: Artwork[] = ["01", "02", "03-v2", "04", "05", "06", "07", "08"].map(
   (n, i) => ({
     src: `/art/body-of-water/body-of-water-${n}.jpg`,
-    alt: `Body of Water, image ${i + 1} of 7.`,
+    alt: `Body of Water, image ${i + 1} of 8.`,
   }),
 );
 
