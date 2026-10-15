@@ -35,6 +35,11 @@ export function NarthexHall({
     >
       <div className="narthex-hall__environment" aria-hidden="true">
         <img className="narthex-hall__image" src="/media/video/environment/narthex-arrival.jpg" alt="" />
+        {/* The stained-glass light alone, lifted from the same photograph, on
+            two slow, unrelated rhythms: the floor stays still while the light
+            on it brightens, softens and shifts, as when clouds pass. */}
+        <img className="narthex-hall__light narthex-hall__light--a" src="/media/video/environment/narthex-light.png" alt="" />
+        <img className="narthex-hall__light narthex-hall__light--b" src="/media/video/environment/narthex-light.png" alt="" />
         <div className="narthex-hall__veil" />
       </div>
 

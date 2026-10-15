@@ -5060,3 +5060,45 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
 @media (prefers-reduced-motion: reduce) {
   .exhibition-seam--garden-grotto::after { animation: none; }
 }
+
+/* NARTHEX — moving light on a still floor. The coloured light is lifted from
+   the photograph into its own layer and laid back over it (screen blend), on
+   two slow cycles: it swells and fades, drifts a few pixels and softens, the
+   way window light moves when clouds cross the sun. The floor never moves. */
+.narthex-hall__light {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+.narthex-hall__light--a {
+  animation: narthex-light-a 17s ease-in-out infinite alternate;
+}
+
+.narthex-hall__light--b {
+  animation: narthex-light-b 23s ease-in-out -9s infinite alternate;
+}
+
+@keyframes narthex-light-a {
+  0%   { opacity: .08; transform: translate3d(0, 0, 0) scale(1); filter: blur(2px); }
+  35%  { opacity: .34; transform: translate3d(.4%, -.2%, 0) scale(1.006); filter: blur(4px); }
+  70%  { opacity: .18; transform: translate3d(-.2%, .3%, 0) scale(1.01); filter: blur(7px); }
+  100% { opacity: .4;  transform: translate3d(.6%, .1%, 0) scale(1.004); filter: blur(3px); }
+}
+
+@keyframes narthex-light-b {
+  0%   { opacity: .22; transform: translate3d(-.3%, .2%, 0) scale(1.012); filter: blur(10px); }
+  45%  { opacity: .05; transform: translate3d(.2%, -.1%, 0) scale(1.004); filter: blur(5px); }
+  100% { opacity: .28; transform: translate3d(-.5%, -.2%, 0) scale(1.016); filter: blur(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .narthex-hall__light { animation: none; opacity: .15; }
+}
