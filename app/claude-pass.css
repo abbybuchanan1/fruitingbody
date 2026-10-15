@@ -5023,7 +5023,21 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
 
 /* Grotto (Phase) → Rear Gallery: Phase's deep green. */
 .exhibition-seam--grotto-threshold::before {
-  background: linear-gradient(to bottom, rgb(4, 14, 13) 0, rgb(4, 14, 13) 12%, rgba(4, 14, 13, .55) 45%, rgba(4, 14, 13, .18) 75%, rgba(4, 14, 13, 0) 100%);
+  /* A long, eased fade (no point where the change speeds up), so the green
+     gives way to the passage without a visible step. */
+  height: 70vh !important;
+  background: linear-gradient(to bottom,
+    rgb(4, 14, 13) 0,
+    rgba(4, 14, 13, .97) 8%,
+    rgba(4, 14, 13, .9) 16%,
+    rgba(4, 14, 13, .79) 25%,
+    rgba(4, 14, 13, .65) 35%,
+    rgba(4, 14, 13, .5) 45%,
+    rgba(4, 14, 13, .35) 55%,
+    rgba(4, 14, 13, .21) 65%,
+    rgba(4, 14, 13, .1) 76%,
+    rgba(4, 14, 13, .03) 88%,
+    rgba(4, 14, 13, 0) 100%);
 }
 
 
@@ -5078,14 +5092,9 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   overflow-y: visible !important;
 }
 
-.exhibition-scroll .garden-page--embedded .garden-environment {
-  height: calc(100% + 42vh + 44vh) !important;
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.08) 10%, rgba(0,0,0,.24) 22%, rgba(0,0,0,.48) 38%, rgba(0,0,0,.72) 56%, rgba(0,0,0,.9) 74%, #000 90%, #000 100%),
-    linear-gradient(to top, transparent 0, rgba(0,0,0,.5) 20vh, #000 44vh) !important;
-  -webkit-mask-composite: source-in !important;
-  mask-image:
-    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.08) 10%, rgba(0,0,0,.24) 22%, rgba(0,0,0,.48) 38%, rgba(0,0,0,.72) 56%, rgba(0,0,0,.9) 74%, #000 90%, #000 100%),
-    linear-gradient(to top, transparent 0, rgba(0,0,0,.5) 20vh, #000 44vh) !important;
-  mask-composite: intersect !important;
+.exhibition-scroll .garden-page .garden-environment {
+  bottom: auto !important;
+  height: calc(100% + 44vh) !important;
+  -webkit-mask-image: linear-gradient(to top, transparent 0, rgba(0,0,0,.5) 20vh, #000 44vh) !important;
+  mask-image: linear-gradient(to top, transparent 0, rgba(0,0,0,.5) 20vh, #000 44vh) !important;
 }
