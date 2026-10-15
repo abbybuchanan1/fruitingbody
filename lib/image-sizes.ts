@@ -1,8 +1,7 @@
 // Pixel size of every image under public/art, used by the Index and Archive
 // catalog to keep each photograph's shape. Regenerate when images change.
 export const imageSizes: Record<string, [number, number]> = {
-  "/art/archive/red-thread/red-thread-further-01.jpg": [1920, 1080],
-  "/art/archive/red-thread/red-thread-further-02.jpg": [1574, 2000],
+  "/art/archive/red-thread/red-thread-further-01b.jpg": [1999, 1125],
   "/art/archive/red-thread/red-thread-further-03.jpg": [1127, 2000],
   "/art/archive/red-thread/red-thread-further-04.jpg": [2000, 1333],
   "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg": [1024, 1372],
