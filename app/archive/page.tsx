@@ -63,7 +63,7 @@ const oneYearCollage: Artwork[] = [
   {
     src: "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg",
     alt: "One Year. Fifty. Five Hundred. Forever. A kaleidoscopic digital collage of bodies, pale flowers and earth, mirrored around a dark centre.",
-    title: "One Year. Fifty. Five Hundred. Forever.",
+    title: "One Year. Fifty. Five Hundred. Forever. Digital collage, 2025",
   },
 ];
 
@@ -123,17 +123,9 @@ export default function ArchivePage() {
             <ArtworkLightboxGrid images={work.archive} mode="archive" />
             {work.id === "body-of-water" ? <FilmThumbnail /> : null}
             {work.archiveExtra?.length ? (
-              <section className="archive-further" aria-label={`${work.title}: further work`}>
+              <section id={work.id === "daffodils" ? "archive-one-year" : undefined} className="archive-further" aria-label={`${work.title}: further work`}>
                 <p className="archive-historical-edit__label">Further work</p>
-                <ArtworkLightboxGrid images={work.archiveExtra} mode="archive" />
-              </section>
-            ) : null}
-            {work.id === "daffodils" ? (
-              <section id="archive-one-year" className="archive-further archive-further--titled" aria-label="One Year. Fifty. Five Hundred. Forever.">
-                <p className="archive-historical-edit__label">Digital collage</p>
-                <h3>One Year. Fifty. Five Hundred. Forever.</h3>
-                <p className="archive-work__meta">2025 · After Pádraig Ó Tuama</p>
-                <ArtworkLightboxGrid images={oneYearCollage} mode="archive" />
+                <ArtworkLightboxGrid images={work.id === "daffodils" ? [...work.archiveExtra, ...oneYearCollage] : work.archiveExtra} mode="archive" />
               </section>
             ) : null}
 
