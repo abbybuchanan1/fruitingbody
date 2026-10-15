@@ -16,14 +16,20 @@ export function EndArrivalCue({ room }: { room: string }) {
     const show = window.setTimeout(() => setState((s) => (s === "hidden" ? "shown" : s)), 900);
     const hide = window.setTimeout(() => setState("gone"), 6500);
     // Gone as soon as the visitor reaches the start, however they get there.
+    // Only watched once the arrival has settled: while the page is being
+    // placed at the end of the room it passes the start on the way, and that
+    // must not count.
     const onScroll = () => {
       const start = document.getElementById("room-start");
       if (start && start.getBoundingClientRect().top > -window.innerHeight * 0.6) setState("gone");
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const arm = window.setTimeout(() => {
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }, 1400);
     return () => {
       window.clearTimeout(show);
       window.clearTimeout(hide);
+      window.clearTimeout(arm);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
