@@ -4972,7 +4972,8 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   right: 0;
   top: -2px;
   height: 34vh;
-  background: linear-gradient(to bottom, #101211 0, #101211 76%, rgba(16, 18, 17, 0) 100%);
+  /* Phase's deep green at its lower edge, so the colour runs on unbroken. */
+  background: linear-gradient(to bottom, rgb(4, 18, 17) 0, rgb(4, 18, 17) 76%, rgba(4, 18, 17, 0) 100%);
 }
 
 /* GROTTO — the votives fade down longer. Phase's green chamber used to start
