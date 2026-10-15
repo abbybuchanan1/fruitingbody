@@ -47,9 +47,18 @@ export const metadata: Metadata = {
   },
 };
 
+// The building's light follows the visitor's own time of day: mid-morning,
+// golden hour or blue hour. It is read once, before the first paint, and holds
+// for the whole visit so the light never shifts while someone is looking.
+// ?light=morning|golden|blue previews a state.
+const daylightScript = `(function(){try{var q=new URLSearchParams(location.search).get("light");var d=new Date();var h=d.getHours()+d.getMinutes()/60;var s=(q==="morning"||q==="golden"||q==="blue")?q:(h>=6&&h<16?"morning":(h>=16&&h<19.5?"golden":"blue"));document.documentElement.setAttribute("data-daylight",s);}catch(e){}})();`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={wayfinding.variable}>
+    <html lang="en" data-scroll-behavior="smooth" className={wayfinding.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: daylightScript }} />
+      </head>
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <SiteNav />

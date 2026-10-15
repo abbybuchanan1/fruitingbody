@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 const TARGET_VOLUME = 0.18;
 const FADE_MS = 3000;
 
-export function FilmPlayer({ src, className }: { src: string; className?: string }) {
+export function FilmPlayer({ src, className, describedBy }: { src: string; className?: string; describedBy?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -64,6 +64,8 @@ export function FilmPlayer({ src, className }: { src: string; className?: string
       ref={ref}
       className={className}
       src={src}
+      aria-label="Body of Water, film"
+      aria-describedby={describedBy}
       controls
       playsInline
       preload="metadata"

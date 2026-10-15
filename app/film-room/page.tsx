@@ -8,6 +8,7 @@ export default function FilmRoomPage() {
         <p className="film-room__eyebrow">Films</p>
         <h1>Body of Water</h1>
         <p className="film-room__note">Moving-image work from the Water Room.</p>
+        <p className="film-room__note">No spoken words. The sound is the river, recorded underwater.</p>
       </header>
 
       <section className="film-installation" aria-label="Body of Water film">
@@ -15,7 +16,13 @@ export default function FilmRoomPage() {
           <FilmPlayer
             className="film-installation__video"
             src="/media/films/body-of-water-film.mp4"
+            describedBy="body-of-water-film-description"
           />
+          <p id="body-of-water-film-description" className="visually-hidden">
+            A film without words. In and under the river, the artist&apos;s body moves
+            with the water through haze and shifting light. The only sound is the river
+            itself, recorded underwater.
+          </p>
         </div>
       </section>
 

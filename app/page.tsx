@@ -53,6 +53,9 @@ export default function ExteriorPage() {
         onLoad={() => setImageReady(true)}
       />
 
+      {/* Time-of-day light on the wall (see the DAYLIGHT rules in museum.css). */}
+      <div className="museum-exterior__daylight" aria-hidden="true" />
+
       {variant === "b" ? (
         <EntranceFilm ready={imageReady} />
       ) : (
