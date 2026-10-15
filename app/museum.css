@@ -17393,3 +17393,105 @@ html[data-daylight="blue"] .vestibule-daylight__lamps { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .vestibule-daylight__leaves { animation: none !important; }
 }
+
+/* REAR GALLERY — as the Front Gallery: warm window light at golden hour, a
+   cool evening room at blue hour. The photographs are never touched. */
+html[data-daylight="golden"] .exhibition-scroll .threshold-environment {
+  filter: sepia(.2) saturate(1.12) brightness(.96) contrast(1.05);
+}
+
+html[data-daylight="blue"] .exhibition-scroll .threshold-environment {
+  filter: sepia(.2) hue-rotate(185deg) saturate(.6) brightness(.93) contrast(.92);
+}
+
+/* GARDEN — the indoor/outdoor room, so a stronger hand. Mid-morning is the
+   room as it was made. At golden hour the sun comes in low and warm: the
+   leaf shadows deepen and their lit gaps turn gold. At blue hour there is no
+   sun, so the leaf shadows all but go, and the room takes the cool evening. */
+html[data-daylight="golden"] .garden-environment {
+  filter: sepia(.16) saturate(1.12) brightness(.95) contrast(1.08);
+}
+
+html[data-daylight="golden"] .garden-environment::before {
+  opacity: .82 !important;
+  filter: contrast(1.12) sepia(.6) saturate(1.8) brightness(1.04);
+}
+
+html[data-daylight="blue"] .garden-environment {
+  filter: sepia(.22) hue-rotate(180deg) saturate(.55) brightness(.84) contrast(1.02);
+}
+
+html[data-daylight="blue"] .garden-environment::before {
+  opacity: .12 !important;
+}
+
+/* CLOISTERS — the film as shot is the blue hour. Mid-morning brightens it;
+   golden hour deepens the leaf shadows and turns the lit stone gold. */
+html[data-daylight="morning"] .cloisters-film__video-stack {
+  filter: brightness(1.2) contrast(.94) saturate(1.06);
+}
+
+html[data-daylight="golden"] .cloisters-film__video-stack {
+  filter: sepia(.4) hue-rotate(-8deg) saturate(1.45) contrast(1.32) brightness(.98);
+}
+
+/* COURTYARD — the films were shot in morning light, so morning is as shot.
+   Golden hour: warmer, lower light, a little more depth. Blue hour: the
+   garden at dusk, lit softly from above by a landscape lamp that falls from
+   where the room's name hangs. */
+html[data-daylight="golden"] .exit-exterior__pane {
+  filter: sepia(.38) saturate(1.28) contrast(1.1) brightness(.92);
+}
+
+/* Blue is laid over the films by the veil (multiply), so the flowers keep
+   their own colours, only dimmer and cooler. */
+html[data-daylight="blue"] .exit-exterior__pane {
+  filter: saturate(.76) brightness(.84) contrast(1.06);
+}
+
+/* The dusk is a shade (multiply): cool and dark everywhere except a soft,
+   warm pool of lamplight falling from where the room's name hangs. */
+html[data-daylight="blue"] .exit-exterior__veil {
+  position: fixed !important;
+  background:
+    radial-gradient(ellipse min(30vw, 26rem) 62vh at 50% 6.5rem, rgb(250, 230, 200) 0%, rgba(250, 230, 200, .7) 32%, rgba(250, 230, 200, 0) 100%),
+    linear-gradient(to bottom, rgb(104, 116, 158), rgb(86, 96, 134)) !important;
+  mix-blend-mode: multiply;
+}
+
+/* NARTHEX — the stained-glass light as it is reads as mid-morning. Golden
+   hour: deeper and glowing, the coloured light warmer and fuller, the edges
+   of the room falling into shade. Blue hour: the whole room darker and cooler. */
+html[data-daylight="golden"] .narthex-hall__environment {
+  filter: sepia(.2) saturate(1.22) contrast(1.08) brightness(.92);
+}
+
+html[data-daylight="golden"] .narthex-hall__environment::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 66% 58% at 50% 44%, rgba(255, 164, 80, .36), rgba(255, 150, 70, .12) 60%, rgba(255, 150, 70, 0) 100%);
+  mix-blend-mode: screen;
+}
+
+html[data-daylight="golden"] .narthex-hall__veil {
+  background:
+    radial-gradient(ellipse 60% 54% at 50% 50%, rgba(34, 24, 16, 0), rgba(30, 20, 12, .36) 92%),
+    linear-gradient(to bottom, rgba(31, 22, 14, .06), rgba(31, 22, 14, .24));
+}
+
+/* Blue multiplies over the room, so the glass keeps its own colours. */
+html[data-daylight="blue"] .narthex-hall__environment {
+  filter: saturate(.82) brightness(.8) contrast(1.04);
+}
+
+html[data-daylight="blue"] .narthex-hall__environment::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgb(160, 174, 214);
+  mix-blend-mode: multiply;
+}
