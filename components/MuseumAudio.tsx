@@ -22,6 +22,9 @@ type Environment = {
   panDepth: number;
   /** Share of the panning layer in this room (1 = the usual amount). */
   movingMix?: number;
+  /** The room's sound at blue hour, when the building's light is set to
+      evening (see the daylight script in app/layout.tsx). */
+  night?: { src: string; gain: number };
 };
 
 const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
@@ -29,6 +32,9 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     src: "/media/audio/exterior-new.mp3",
     gain: 0.86,
     panDepth: 0.055,
+    // Crickets at night, low rumble and distant traffic (Epidemic Sound),
+    // looped without a seam and levelled to sit where the day sound does.
+    night: { src: "/media/audio/blue-hour-night.mp3", gain: 0.76 },
   },
   vestibule: {
     src: "/media/audio/vestibule.mp3",
@@ -91,8 +97,18 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     src: "/media/audio/courtyard.mp3",
     gain: 0.76,
     panDepth: 0.055,
+    // The same night as the Entrance, a little quieter than the day.
+    night: { src: "/media/audio/blue-hour-night.mp3", gain: 0.9 },
   },
 };
+
+// At blue hour a room with a night sound uses it in place of its day sound.
+function environmentFor(key: EnvironmentKey): Environment {
+  const environment = ENVIRONMENTS[key];
+  const evening =
+    typeof document !== "undefined" && document.documentElement.getAttribute("data-daylight") === "blue";
+  return evening && environment.night ? { ...environment, ...environment.night } : environment;
+}
 
 const MASTER_GAIN = 0.48;
 
@@ -270,7 +286,7 @@ export function MuseumAudio() {
 
     // Set this room's balance between the steady and panning layers, keeping
     // the overall level the same.
-    const mix = ENVIRONMENTS[key].movingMix ?? 1;
+    const mix = environmentFor(key).movingMix ?? 1;
     const steadyNode = steadyNodesRef.current[index];
     const movingNode = movingNodesRef.current[index];
     const at = context.currentTime;
@@ -340,7 +356,7 @@ export function MuseumAudio() {
     await context.resume();
 
     const currentIndex = activeIndexRef.current;
-    const nextEnvironment = ENVIRONMENTS[nextKey];
+    const nextEnvironment = environmentFor(nextKey);
     const currentAudio = audioRefs[currentIndex].current;
     const currentGain = gainNodesRef.current[currentIndex];
 
@@ -409,7 +425,7 @@ export function MuseumAudio() {
     audioRefs.forEach((ref, index) => {
       const audio = ref.current;
       if (!audio || index === activeIndexRef.current) return;
-      if (!audio.getAttribute("src")) audio.src = ENVIRONMENTS[environmentRef.current].src;
+      if (!audio.getAttribute("src")) audio.src = environmentFor(environmentRef.current).src;
       const attempt = audio.play();
       void attempt?.then(() => {
         if (index !== activeIndexRef.current) audio.pause();
@@ -436,7 +452,7 @@ export function MuseumAudio() {
     const pan = panNodesRef.current[index];
     if (!audio || !gain) return;
 
-    const environment = ENVIRONMENTS[key];
+    const environment = environmentFor(key);
     audio.src = environment.src;
     audio.loop = true;
     audio.currentTime = 0;
@@ -469,7 +485,7 @@ export function MuseumAudio() {
       const index = activeIndexRef.current;
       const audio = audioRefs[index].current;
       const gain = gainNodesRef.current[index];
-      const environment = ENVIRONMENTS[environmentRef.current];
+      const environment = environmentFor(environmentRef.current);
       if (audio && !audio.getAttribute("src")) {
         audio.src = environment.src;
         audio.loop = true;
