@@ -5104,3 +5104,51 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   -webkit-mask-image: linear-gradient(to top, transparent 0, rgba(0,0,0,.5) 20vh, #000 44vh) !important;
   mask-image: linear-gradient(to top, transparent 0, rgba(0,0,0,.5) 20vh, #000 44vh) !important;
 }
+
+/* PATH STARTS — the Map's "start of the room" anchors sit where the room
+   begins (just below the Vestibule above it), not at the top of the page. */
+.route-start-anchor {
+  position: relative !important;
+  top: auto !important;
+  display: block;
+  height: 0 !important;
+}
+
+/* RED ROOM — wall panel joins. Each panel used to fade in over a fifth of
+   its own height but overlap the one above by only 30vh, so for most of the
+   fade the plain page showed through as a pale band. Now each panel overlaps
+   by 44vh and fades in entirely within that overlap, on an eased curve. */
+.red-room-environment .environmental-panel-sequence__panel-wrap + .environmental-panel-sequence__panel-wrap {
+  margin-top: -44vh !important;
+}
+
+.red-room-environment .environmental-panel-sequence__panel-wrap:not(:first-child) {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.08) 6vh, rgba(0,0,0,.25) 13vh, rgba(0,0,0,.5) 21vh, rgba(0,0,0,.75) 29vh, rgba(0,0,0,.92) 37vh, #000 44vh) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.08) 6vh, rgba(0,0,0,.25) 13vh, rgba(0,0,0,.5) 21vh, rgba(0,0,0,.75) 29vh, rgba(0,0,0,.92) 37vh, #000 44vh) !important;
+}
+
+/* GARDEN → GROTTO — the passage photograph, reworked: its warm haze now
+   eases into the stone (the firm band is gone), and soft leaf-shadow light
+   is laid into the haze itself, fading out before the stone. */
+.exhibition-transition--garden-grotto {
+  background-image: url("/media/architecture/garden-grotto-transition-v3.jpg") !important;
+}
+
+/* VESTIBULE ABOVE EACH PATH — the floor below the photograph is now a
+   reflection of it (the photograph mirrored at its own lower edge, so the
+   join has no line), softening and dimming as it recedes. Browsers without
+   reflections (Firefox) keep the earlier stretched floor. */
+@supports (-webkit-box-reflect: below 0) {
+  .vestibule-hall__environment .vestibule__stone,
+  .vestibule-hall__environment .vestibule__shadow {
+    -webkit-box-reflect: below 0 linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,.55) 82%, #000 100%);
+  }
+  .vestibule-hall__environment::after {
+    background: none !important;
+    filter: none !important;
+    backdrop-filter: blur(6px) brightness(.8);
+    -webkit-backdrop-filter: blur(6px) brightness(.8);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 24vh);
+    mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 24vh);
+  }
+}

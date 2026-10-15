@@ -16,11 +16,12 @@ export default function WaterRoomPage() {
   const work = museumWorksById["body-of-water"];
 
   return (
-    <main id="water-room-start" className="water-room" data-museum-location="water-room">
+    <main className="water-room" data-museum-location="water-room">
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
       <VestibuleHall path="water" />
       <RoomStart />
       <EndArrivalCue room="Water Room" />
+      <div id="water-room-start" className="route-start-anchor" aria-hidden="true" />
 
       <div className="water-room__environment" aria-hidden="true">
         {panels.map((panel, index) => (
