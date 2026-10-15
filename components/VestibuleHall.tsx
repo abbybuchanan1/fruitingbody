@@ -1,5 +1,6 @@
 import { ArchitecturalLink } from "@/components/ArchitecturalLink";
 import { ScrollBackLink } from "@/components/ScrollBackLink";
+import { VestibuleDaylight } from "@/components/VestibuleDaylight";
 
 // The Vestibule at the top of each path (Exhibition, Red Room, Water Room):
 // the page opens at the start of the path, and scrolling up walks back into
@@ -18,7 +19,9 @@ export function VestibuleHall({ path }: { path: "exhibition" | "red" | "water" |
   return (
     <section id="vestibule-hall" className="vestibule-hall" data-audio-zone="vestibule" aria-label="Vestibule">
       <div className="vestibule-hall__environment" aria-hidden="true">
-        <div className="vestibule__stone" />
+        <div className="vestibule__stone">
+          <VestibuleDaylight />
+        </div>
         <div className="vestibule__shadow" />
       </div>
 

@@ -1,6 +1,7 @@
 import { ArchitecturalLink } from "@/components/ArchitecturalLink";
 import { VestibuleArrivalShell } from "@/components/VestibuleArrivalShell";
 import { VestibuleProjection } from "@/components/VestibuleProjection";
+import { VestibuleDaylight } from "@/components/VestibuleDaylight";
 
 type Props = {
   searchParams: Promise<{ arrived?: string | string[] }>;
@@ -12,7 +13,9 @@ export default async function VestibulePage({ searchParams }: Props) {
 
   return (
     <VestibuleArrivalShell arriving={arriving}>
-      <div className="vestibule__stone" aria-hidden="true" />
+      <div className="vestibule__stone" aria-hidden="true">
+        <VestibuleDaylight />
+      </div>
       <div className="vestibule__shadow" aria-hidden="true" />
       <VestibuleProjection />
       <div className="vestibule__light" aria-hidden="true" />
