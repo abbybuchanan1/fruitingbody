@@ -4974,3 +4974,12 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   height: 34vh;
   background: linear-gradient(to bottom, #101211 0, #101211 76%, rgba(16, 18, 17, 0) 100%);
 }
+
+/* GROTTO — the votives fade down longer. Phase's green chamber used to start
+   on a hard top edge over the lamps; its layers now rise out of nothing over
+   the first stretch, so the lamps dissolve into Phase instead of being cut. */
+.exhibition-scroll .grotto-section--phase::before,
+.exhibition-scroll .grotto-section--phase::after {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 12vh, rgba(0,0,0,.6) 26vh, #000 44vh);
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 12vh, rgba(0,0,0,.6) 26vh, #000 44vh);
+}
