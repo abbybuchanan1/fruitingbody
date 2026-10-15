@@ -238,6 +238,7 @@ export const museumWorks: MuseumWork[] = [
       { src: "/art/archive/red-thread/red-thread-further-01.jpg", alt: "Red Thread, further work. Eyes lowered by the river, red thread across the brow, goldenrod and dock in the foreground." },
       { src: "/art/archive/red-thread/red-thread-further-02.jpg", alt: "Red Thread, further work. A close portrait in low gold light, red thread drawn across the face and through the lips." },
       { src: "/art/archive/red-thread/red-thread-further-03.jpg", alt: "Red Thread, further work. Standing against an eroded sand bank among exposed roots, wound in red thread and roses." },
+      { src: "/art/archive/red-thread/red-thread-further-04.jpg", alt: "It Was Shelter Before It Was a Lie. Standing knee-deep in the Columbia under a wide sky, red cloth drawn across the body, white shell-like forms at the hip." },
     ],
   },
   {
