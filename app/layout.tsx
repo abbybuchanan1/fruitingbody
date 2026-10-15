@@ -1,9 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
-import "./globals.css";
-import "./next-pass.css";
-import "./claude-pass.css";
+import "./museum.css";
 import { SiteNav } from "@/components/SiteNav";
 import { MuseumAudio } from "@/components/MuseumAudio";
 import { RoomImageViewer } from "@/components/RoomImageViewer";
