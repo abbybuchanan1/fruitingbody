@@ -84,6 +84,9 @@ const ENVIRONMENTS: Record<EnvironmentKey, Environment> = {
     // Room it sits between; bring it down to sit with them.
     gain: 0.25,
     panDepth: 0.075,
+    // Crickets on a quiet street, distant traffic (Epidemic Sound), looped
+    // without a seam and levelled to the day sound.
+    night: { src: "/media/audio/cloisters-night.mp3", gain: 0.43 },
   },
   "film-room": {
     src: "/media/audio/red-room-water-room-narthex.mp3",
