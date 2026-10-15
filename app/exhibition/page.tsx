@@ -34,6 +34,9 @@ export default function ExhibitionPage() {
 
       <GrottoSection />
 
+      {/* The Grotto's dark carries on beneath the fading-in passage, so no
+          lighter page shows through at the Grotto's lower edge. */}
+      <div className="exhibition-seam exhibition-seam--grotto-threshold" aria-hidden="true" />
       <div
         className="exhibition-transition exhibition-transition--grotto-threshold"
         aria-hidden="true"

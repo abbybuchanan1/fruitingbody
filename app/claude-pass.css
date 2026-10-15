@@ -4952,3 +4952,25 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
     text-indent: .32em !important;
   }
 }
+
+/* GROTTO → REAR GALLERY — under the passage's fade-in, the Grotto's own
+   charcoal continues (instead of the page's lighter ground), so the end of the
+   Grotto has no edge. Zero height: it only paints beneath the passage. */
+.exhibition-seam--grotto-threshold {
+  position: relative;
+  height: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.exhibition-seam--grotto-threshold::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  height: 34vh;
+  background: linear-gradient(to bottom, #101211 0, #101211 76%, rgba(16, 18, 17, 0) 100%);
+}
