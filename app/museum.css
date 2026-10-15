@@ -17352,17 +17352,42 @@ html[data-daylight="golden"] .vestibule__stone {
   filter: saturate(.98) brightness(.95) contrast(1.02) !important;
 }
 
-/* Blue hour: no sun, so no dapple; the openings hold the last cool light and
-   the stone around them goes dim. */
-html[data-daylight="blue"] .vestibule-daylight { --vestibule-tint: rgb(196, 208, 236); }
+/* Blue hour: no sun, so no dapple. The stone goes dark and cool, and the
+   halls beyond are lit by lamps: warm light gathered down the corridor of
+   arches and spilling out across the passage floor. */
+html[data-daylight="blue"] .vestibule-daylight { --vestibule-tint: rgb(172, 186, 222); }
 html[data-daylight="blue"] .vestibule-daylight__pool { display: none; }
 
 html[data-daylight="blue"] .vestibule__stone {
-  filter: saturate(.6) brightness(.8) contrast(1.02) !important;
+  filter: saturate(.62) brightness(.78) contrast(1.1) !important;
 }
 
 html[data-daylight="blue"] .vestibule__shadow {
-  background: linear-gradient(to bottom, rgba(64, 80, 122, .22) 0%, rgba(56, 70, 108, .2) 50%, rgba(18, 24, 42, .32) 100%) !important;
+  background: linear-gradient(to bottom, rgba(10, 14, 30, .26) 0%, rgba(12, 16, 32, .12) 40%, rgba(6, 8, 18, .32) 100%) !important;
+}
+
+.vestibule-daylight__lamps {
+  display: none;
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse 7% 14% at 29.7% 53%, rgba(255, 188, 112, .66), rgba(255, 170, 96, 0) 100%),
+    radial-gradient(ellipse 17% 30% at 30.5% 52%, rgba(255, 174, 98, .4), rgba(255, 160, 90, 0) 100%),
+    radial-gradient(ellipse 16% 14% at 34% 92%, rgba(255, 170, 100, .36), rgba(255, 160, 90, 0) 100%),
+    radial-gradient(ellipse 4% 22% at 21% 58%, rgba(255, 176, 104, .14), rgba(255, 160, 90, 0) 100%);
+}
+
+html[data-daylight="blue"] .vestibule-daylight__lamps { display: block; }
+
+@media (max-width: 700px) {
+  .vestibule-daylight__lamps {
+    background:
+      radial-gradient(ellipse 9% 9% at 40% 47.5%, rgba(255, 188, 112, .62), rgba(255, 170, 96, 0) 100%),
+      radial-gradient(ellipse 22% 18% at 40% 48%, rgba(255, 174, 98, .4), rgba(255, 160, 90, 0) 100%),
+      radial-gradient(ellipse 24% 11% at 42% 70%, rgba(255, 170, 100, .36), rgba(255, 160, 90, 0) 100%),
+      radial-gradient(ellipse 5% 16% at 24.5% 50%, rgba(255, 176, 104, .14), rgba(255, 160, 90, 0) 100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

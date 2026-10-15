@@ -5,11 +5,13 @@
 // from Abby's own footage (the shadows also used on the Entrance).
 // The layer is laid out over the photograph itself (same cover crop), so the
 // light stays on the doorway at any screen size. What it looks like, or
-// whether there is sun at all, follows the time of day: see DAYLIGHT in
+// whether there is sun at all, follows the time of day. At blue hour the
+// halls beyond are lamp-lit instead, warm against the cool stone: see DAYLIGHT in
 // museum.css.
 export function VestibuleDaylight() {
   return (
     <div className="vestibule-daylight" aria-hidden="true">
+      <div className="vestibule-daylight__lamps" />
       <div className="vestibule-daylight__pool vestibule-daylight__pool--floor">
         <span className="vestibule-daylight__leaves vestibule-daylight__leaves--a" />
         <span className="vestibule-daylight__leaves vestibule-daylight__leaves--b" />
