@@ -16984,3 +16984,26 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
     mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 24vh);
   }
 }
+
+/* ARCHIVE — Unravel's source footage, after its original edit: small,
+   silent, looping, like a study pinned beside the prints. */
+.archive-source-footage {
+  margin: 2.2rem 0 0;
+  width: min(15rem, 60vw);
+}
+
+.archive-source-footage video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: rgba(43, 38, 33, .06);
+}
+
+.archive-source-footage figcaption {
+  margin-top: .6rem;
+  font: 400 .7rem/1.45 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .02em;
+  color: rgba(43, 38, 33, .62);
+}

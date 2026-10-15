@@ -156,6 +156,21 @@ export default function ArchivePage() {
                     <p className="archive-historical-edit__statement">{set.statement}</p>
                     {showInterpretiveQuestions ? <p className="archive-historical-edit__question">{set.question}</p> : null}
                     <ArtworkLightboxGrid images={set.images} mode="archive" />
+                    {set.title === "Unravel" ? (
+                      <figure className="archive-source-footage">
+                        <video
+                          src="/media/films/unravel-source-footage.mp4"
+                          poster="/media/films/unravel-source-footage-poster.jpg"
+                          muted
+                          playsInline
+                          autoPlay
+                          loop
+                          preload="metadata"
+                          aria-label="Unravel source footage: walking away across the sand as the wind lifts the red tulle."
+                        />
+                        <figcaption>Source footage. The Unravel frames were drawn from this movement.</figcaption>
+                      </figure>
+                    ) : null}
                   </article>
                 ))}
               </section>
