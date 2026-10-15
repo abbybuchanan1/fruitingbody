@@ -177,19 +177,20 @@ export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, sl
   medium,
 }));
 
-// Fear Not: five frames from night video in the vines.
+// Fear Not: six frames from night video and photographs in the vines.
 const fearNotAlts = [
-  "Fear Not, 1 of 5. Standing in dark vines at night, both hands covering the face.",
-  "Fear Not, 2 of 5. Back turned, looking over the shoulder toward the camera, vines at the waist.",
-  "Fear Not, 3 of 5. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves.",
-  "Fear Not, 4 of 5. Biting a green apple among the vines, eyes raised, one hand low against the body.",
-  "Fear Not, 5 of 5. A close portrait among the leaves, a direct gaze, a metal serpent necklace at the throat.",
+  "Fear Not, 1 of 6. Standing in dark vines at night, both hands covering the face.",
+  "Fear Not, 2 of 6. Back turned, looking over the shoulder toward the camera, vines at the waist.",
+  "Fear Not, 3 of 6. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves.",
+  "Fear Not, 4 of 6. Biting a green apple among the vines, eyes raised, one hand low against the body.",
+  "Fear Not, 5 of 6. Close, deep in the vines, an arm raised over the bowed head, a hand in the foreground holding a small snake.",
+  "Fear Not, 6 of 6. A close portrait among the leaves, a direct gaze, a metal serpent necklace at the throat.",
 ];
 
 // Trial (October 2026): the serpent portrait (fear-not-06) closes the
-// installed work; the earlier closing frame (fear-not-05) moves to the
-// Archive's further work.
-const fearNotFiles = ["01", "02", "03", "04", "06"];
+// installed work, with the snake frame (fear-not-07) just before it; the
+// earlier closing frame (fear-not-05) is in the Archive's further work.
+const fearNotFiles = ["01", "02", "03", "04", "07", "06"];
 
 export const fearNotWorks: Artwork[] = fearNotAlts.map((alt, i) => ({
   src: `/art/fear-not/fear-not-${fearNotFiles[i]}.jpg`,

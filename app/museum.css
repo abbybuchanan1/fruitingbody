@@ -15488,14 +15488,16 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
   margin-bottom: 1.4rem;
 }
 
-/* FEAR NOT (trial) — the closing serpent portrait is 3:4, so it is sized
-   wider to stand about as tall as the 9:16 frames before it. */
-.garden-section--fear-not .artwork-image:nth-child(5) {
+/* FEAR NOT (trial) — the snake frame and the closing serpent portrait are
+   about 3:4, so they are sized wider to stand about as tall as the 9:16 frames. */
+.garden-section--fear-not .artwork-image:nth-child(5),
+.garden-section--fear-not .artwork-image:nth-child(6) {
   width: min(64vh, 86vw, 44rem) !important;
 }
 
 @media (max-width: 680px) {
-  .garden-section--fear-not .artwork-image:nth-child(5) { width: 86vw !important; }
+  .garden-section--fear-not .artwork-image:nth-child(5),
+  .garden-section--fear-not .artwork-image:nth-child(6) { width: 86vw !important; }
 }
 
 /* COURTYARD (revision) — the films fill the first screen and the page now

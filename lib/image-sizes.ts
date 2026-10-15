@@ -131,6 +131,7 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/body-of-water/body-of-water-02.jpg": [2000, 1500],
   "/art/body-of-water/body-of-water-03.jpg": [1920, 1080],
   "/art/body-of-water/body-of-water-03-v2.jpg": [1723, 926],
+  "/art/fear-not/fear-not-07.jpg": [1548, 2001],
   "/art/body-of-water/body-of-water-04.jpg": [1417, 2576],
   "/art/body-of-water/body-of-water-05.jpg": [1997, 1333],
   "/art/body-of-water/body-of-water-06.jpg": [1920, 1080],
