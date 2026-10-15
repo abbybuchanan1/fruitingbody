@@ -27,6 +27,9 @@ export default function ExhibitionPage() {
 
       <GardenSection />
 
+      {/* The Garden's warm light carries on over the start of the passage,
+          dappled by leaf shadow, so the Garden has no lower edge. */}
+      <div className="exhibition-seam exhibition-seam--garden-grotto" aria-hidden="true" />
       <div
         className="exhibition-transition exhibition-transition--garden-grotto"
         aria-hidden="true"

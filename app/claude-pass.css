@@ -4997,3 +4997,66 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
     radial-gradient(ellipse 58% 18% at 50% 2%, rgba(45,31,19,.08), transparent 76%),
     linear-gradient(to bottom, #050505 0, #050505 calc(100% - 48vh), rgba(5,5,5,.6) calc(100% - 22vh), rgba(5,5,5,0) 100%) !important;
 }
+
+/* SEAMS (October 14, revised) — where a room ends, its own colour now lies
+   OVER the start of the next passage and thins away, instead of the page's
+   lighter ground showing through beneath it. The colour at the join is the
+   colour just above it, so there is no edge. */
+.exhibition-seam {
+  position: relative;
+  z-index: 3;
+  height: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.exhibition-seam::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  height: 42vh;
+}
+
+/* Grotto (Phase) → Rear Gallery: Phase's deep green. */
+.exhibition-seam--grotto-threshold::before {
+  background: linear-gradient(to bottom, rgb(4, 14, 13) 0, rgb(4, 14, 13) 12%, rgba(4, 14, 13, .55) 45%, rgba(4, 14, 13, .18) 75%, rgba(4, 14, 13, 0) 100%);
+}
+
+/* Garden → Grotto: the Garden's warm ground, with its dappled leaf light
+   drifting on across the join. */
+.exhibition-seam--garden-grotto::before {
+  height: 46vh;
+  background: linear-gradient(to bottom, rgb(148, 128, 110) 0, rgb(148, 128, 110) 10%, rgba(148, 128, 110, .58) 42%, rgba(148, 128, 110, .2) 72%, rgba(148, 128, 110, 0) 100%);
+}
+
+.exhibition-seam--garden-grotto::after {
+  content: "";
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  top: -10vh;
+  height: 62vh;
+  background:
+    radial-gradient(ellipse 22% 16% at 26% 38%, rgba(255, 244, 222, .32), transparent 70%),
+    radial-gradient(ellipse 18% 13% at 64% 52%, rgba(255, 244, 222, .26), transparent 70%),
+    radial-gradient(ellipse 15% 11% at 82% 34%, rgba(255, 244, 222, .22), transparent 70%),
+    url("/media/atmosphere/leaf-shadow-a.png") 20% 40% / 62% auto no-repeat,
+    url("/media/atmosphere/leaf-shadow-b.png") 85% 60% / 58% auto no-repeat;
+  opacity: .5;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 55%, transparent 100%);
+  animation: seam-dapple-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes seam-dapple-drift {
+  from { transform: translate3d(-1.2%, 0, 0); opacity: .42; }
+  to { transform: translate3d(1.2%, .6vh, 0); opacity: .56; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exhibition-seam--garden-grotto::after { animation: none; }
+}
