@@ -4983,3 +4983,16 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 12vh, rgba(0,0,0,.6) 26vh, #000 44vh);
   mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.25) 12vh, rgba(0,0,0,.6) 26vh, #000 44vh);
 }
+
+/* GROTTO — A Miscarriage's black no longer stops on a straight line above the
+   votive passage: it thins out over its last stretch, so the stone of the
+   passage emerges out of the dark. */
+.grotto-section--miscarriage {
+  background: linear-gradient(to bottom, #050505 0, #050505 calc(100% - 48vh), rgba(5,5,5,.6) calc(100% - 22vh), rgba(5,5,5,0) 100%) !important;
+}
+
+.miscarriage-votive-sequence {
+  background:
+    radial-gradient(ellipse 58% 18% at 50% 2%, rgba(45,31,19,.08), transparent 76%),
+    linear-gradient(to bottom, #050505 0, #050505 calc(100% - 48vh), rgba(5,5,5,.6) calc(100% - 22vh), rgba(5,5,5,0) 100%) !important;
+}
