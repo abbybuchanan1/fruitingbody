@@ -5,6 +5,7 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/red-thread/red-thread-further-02.jpg": [1574, 2000],
   "/art/archive/red-thread/red-thread-further-03.jpg": [1127, 2000],
   "/art/archive/red-thread/red-thread-further-04.jpg": [2000, 1333],
+  "/art/archive/body-of-water-floating.jpg": [1086, 612],
   "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg": [1024, 1372],
   "/art/archive/unravel-original/unravel-original-05.jpg": [1125, 2000],
   "/art/archive/fear-not/fear-not-further-01.jpg": [608, 1080],

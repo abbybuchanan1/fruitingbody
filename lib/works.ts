@@ -278,11 +278,17 @@ export const museumWorks: MuseumWork[] = [
     exhibition: bodyOfWaterWorks,
     // Archive: the installed seven, then the further frames.
     archive: bodyOfWaterWorks,
-    archiveExtra: archiveSequence(
-      "body-of-water",
-      ["02", "05", "12", "10", "11"].map((n) => `body-of-water-index-${n}.jpg`),
-      "Body of Water, further work",
-    ),
+    archiveExtra: [
+      {
+        src: "/art/archive/body-of-water-floating.jpg",
+        alt: "Body of Water, further work. Floating on the back in dark water, face and breast just above the surface, hills behind.",
+      },
+      ...archiveSequence(
+        "body-of-water",
+        ["02", "05", "12", "10", "11"].map((n) => `body-of-water-index-${n}.jpg`),
+        "Body of Water, further work",
+      ),
+    ],
     reflection: reflections["body-of-water"],
   },
   {
