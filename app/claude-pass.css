@@ -4370,10 +4370,16 @@ html { scroll-behavior: smooth; }
   transition: opacity .9s ease, translate .9s ease;
 }
 
+/* Leaving: its own fade-out (the fade-in animation would otherwise hold it
+   visible). */
 .end-arrival-cue.is-gone {
-  opacity: 0;
-  translate: -50% -.4rem;
+  animation: end-arrival-cue-out .8s ease forwards;
   pointer-events: none;
+}
+
+@keyframes end-arrival-cue-out {
+  from { opacity: 1; translate: -50% 0; }
+  to { opacity: 0; translate: -50% -.4rem; }
 }
 
 .end-arrival-cue__line {

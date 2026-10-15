@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 // appears at the top for a few seconds: the visitor learns they have come in
 // backwards, and can glide up to the start to see the work in order.
 export function EndArrivalCue({ room }: { room: string }) {
-  const [state, setState] = useState<"hidden" | "shown" | "gone">("hidden");
+  const [state, setState] = useState<"hidden" | "shown" | "gone" | "removed">("hidden");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -34,7 +34,14 @@ export function EndArrivalCue({ room }: { room: string }) {
     };
   }, []);
 
-  if (state === "hidden") return null;
+  // Once faded, it leaves the page entirely.
+  useEffect(() => {
+    if (state !== "gone") return;
+    const t = window.setTimeout(() => setState("removed"), 1000);
+    return () => window.clearTimeout(t);
+  }, [state]);
+
+  if (state === "hidden" || state === "removed") return null;
 
   const begin = () => {
     setState("gone");
