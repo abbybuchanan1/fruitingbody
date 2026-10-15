@@ -47,7 +47,8 @@ export function EndArrivalCue({ room }: { room: string }) {
     setState("gone");
     const start = document.getElementById("room-start");
     if (!start) return;
-    window.scrollTo({ top: start.getBoundingClientRect().top + window.scrollY, behavior: "smooth" });
+    const lead = Number(start.dataset.lead ?? 0) * window.innerHeight;
+    window.scrollTo({ top: start.getBoundingClientRect().top + window.scrollY - lead, behavior: "smooth" });
   };
 
   // Rendered at the top of the page (outside the room), so no layer of the

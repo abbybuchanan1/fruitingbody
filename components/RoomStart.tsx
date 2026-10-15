@@ -16,6 +16,7 @@ export function RoomStart({
   title,
   threshold = "room-start",
   titleOffset = 0.14,
+  lead = 0,
 }: {
   /** id of the room's title card. */
   title?: string;
@@ -23,6 +24,9 @@ export function RoomStart({
   threshold?: string;
   /** Where the title card sits on arrival, as a fraction of the screen from the top. */
   titleOffset?: number;
+  /** How much of what lies above the start to keep in view, as a fraction of
+      the screen (the paths keep the Vestibule's reflected floor in view). */
+  lead?: number;
 }) {
   useLayoutEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -30,7 +34,7 @@ export function RoomStart({
 
     const atThreshold = params.get("at") === "threshold";
     const targetId = atThreshold ? threshold : title ?? "room-start";
-    const offset = atThreshold || !title ? 0 : titleOffset;
+    const offset = atThreshold ? 0 : title ? titleOffset : lead;
 
     let stopped = false;
     const stop = () => {
@@ -60,7 +64,7 @@ export function RoomStart({
       timers.forEach((timer) => window.clearTimeout(timer));
       events.forEach((name) => window.removeEventListener(name, stop));
     };
-  }, [title, threshold, titleOffset]);
+  }, [title, threshold, titleOffset, lead]);
 
-  return <span id="room-start" className="room-start" aria-hidden="true" />;
+  return <span id="room-start" className="room-start" data-lead={lead} aria-hidden="true" />;
 }

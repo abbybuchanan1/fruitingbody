@@ -8,7 +8,7 @@ import { ScrollBackLink } from "@/components/ScrollBackLink";
 export function VestibuleHall({ path }: { path: "exhibition" | "red" | "water" | "current" }) {
   const door = (key: typeof path, href: string, label: string) =>
     key === path ? (
-      <ScrollBackLink target="room-start" offset={0} className="architectural-link architectural-link--default">
+      <ScrollBackLink target="room-start" offset={0.3} className="architectural-link architectural-link--default">
         {label}
       </ScrollBackLink>
     ) : (

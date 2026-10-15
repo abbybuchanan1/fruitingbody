@@ -14,7 +14,7 @@ export default function CurrentPage() {
   return (
     <main className="current-exhibition" data-museum-location="current">
       <VestibuleHall path="current" />
-      <RoomStart />
+      <RoomStart lead={0.3} />
       <div className="current-exhibition__inner">
         <div className="room-opening">
           <WorkIntroCard

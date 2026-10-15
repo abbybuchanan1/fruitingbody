@@ -16980,8 +16980,9 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
     filter: none !important;
     backdrop-filter: blur(6px) brightness(.8);
     -webkit-backdrop-filter: blur(6px) brightness(.8);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 24vh);
-    mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 24vh);
+    /* in and back out: the softening never ends on a line */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 22vh, rgba(0,0,0,.6) 32vh, transparent 43vh);
+    mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.6) 10vh, #000 22vh, rgba(0,0,0,.6) 32vh, transparent 43vh);
   }
 }
 
@@ -17006,4 +17007,71 @@ html[data-nav-tone="light"] .ambient-sound-control--global {
   font: 400 .7rem/1.45 "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: .02em;
   color: rgba(43, 38, 33, .62);
+}
+
+/* WATER ROOM — wall panel joins, as in the Red Room: each panel overlaps the
+   one above by 44vh and fades in entirely within that overlap (its fade used
+   to run four times longer than the overlap, so the plain page showed
+   through as a band). */
+.water-room__environment-panel {
+  margin-top: -44vh !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.08) 6vh, rgba(0,0,0,.25) 13vh, rgba(0,0,0,.5) 21vh, rgba(0,0,0,.75) 29vh, rgba(0,0,0,.92) 37vh, #000 44vh) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.08) 6vh, rgba(0,0,0,.25) 13vh, rgba(0,0,0,.5) 21vh, rgba(0,0,0,.75) 29vh, rgba(0,0,0,.92) 37vh, #000 44vh) !important;
+}
+
+.water-room__environment-panel:first-child {
+  margin-top: 0 !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* PATH STARTS from the Map: the same view as arriving from the Vestibule,
+   with the reflected floor above the room's first card. */
+.route-start-anchor {
+  top: -24vh !important;
+}
+
+/* CONTACT CARD — glass that matches the room: dark and translucent over
+   dark rooms (light text), pale and translucent over light ones. */
+.site-nav[data-tone="dark"] .site-contact {
+  background: rgba(22, 19, 16, .52) !important;
+  color: rgba(250, 245, 235, .94) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25) !important;
+}
+
+.site-nav[data-tone="dark"] .site-contact__note {
+  color: rgba(250, 245, 235, .78) !important;
+}
+
+.site-nav[data-tone="dark"] .site-contact a.site-contact__email {
+  color: rgba(250, 245, 235, .96) !important;
+}
+
+.site-nav[data-tone="light"] .site-contact {
+  background: rgba(246, 241, 232, .66) !important;
+}
+
+.site-nav .site-contact {
+  backdrop-filter: blur(14px) saturate(1.05) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.05) !important;
+}
+
+/* CLOISTERS — no black wait: a dimmed still of the opening frame holds the
+   room while the film loads; the film then fades in over it. */
+.cloisters-film__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(.58) saturate(.9);
+}
+
+.cloisters-film__video-stack:not(.is-ready) .cloisters-film__video {
+  opacity: 0 !important;
+}
+
+.cloisters-film__video-stack.is-ready .cloisters-film__video.is-active {
+  transition: opacity 1.4s ease !important;
 }

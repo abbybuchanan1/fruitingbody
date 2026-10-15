@@ -19,7 +19,7 @@ export default function WaterRoomPage() {
     <main className="water-room" data-museum-location="water-room">
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
       <VestibuleHall path="water" />
-      <RoomStart />
+      <RoomStart lead={0.3} />
       <EndArrivalCue room="Water Room" />
       <div id="water-room-start" className="route-start-anchor" aria-hidden="true" />
 

@@ -13,7 +13,7 @@ export default function ExhibitionPage() {
   return (
     <main className="exhibition-scroll">
       <VestibuleHall path="exhibition" />
-      <RoomStart />
+      <RoomStart lead={0.3} />
       <EndArrivalCue room="Exhibition" />
       <Suspense fallback={null}>
         <HashScrollRestorer />

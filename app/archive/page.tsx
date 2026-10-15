@@ -166,9 +166,9 @@ export default function ArchivePage() {
                           autoPlay
                           loop
                           preload="metadata"
-                          aria-label="Unravel source footage: walking away across the sand as the wind lifts the red tulle."
+                          aria-label="Unravel, raw footage from the shoot: walking away across the sand as the wind lifts the red tulle."
                         />
-                        <figcaption>Source footage. The Unravel frames were drawn from this movement.</figcaption>
+                        <figcaption>Raw footage from the shoot. The Unravel frames were drawn from this movement.</figcaption>
                       </figure>
                     ) : null}
                   </article>

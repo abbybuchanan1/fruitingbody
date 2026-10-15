@@ -12,7 +12,7 @@ import { museumWorksById } from "@/lib/works";
 import { QuestionPrompt } from "@/components/QuestionPrompt";
 
 const redRoomEnvironment = [
-  { src: "/media/architecture/red-room-alt-01.jpg" },
+  { src: "/media/architecture/red-room-alt-01-soft.jpg" },
   { src: "/media/architecture/red-room-environment-composite-B.jpg" },
   { src: "/media/architecture/red-room-environment-composite-C.jpg" },
   { src: "/media/architecture/red-room-environment-composite-D.jpg" },
@@ -31,7 +31,7 @@ export default function RedRoomPage() {
     <Room eyebrow="Continuous exhibition" title="Red Room" environment="textile">
       <Suspense fallback={null}><HashScrollRestorer /></Suspense>
       <VestibuleHall path="red" />
-      <RoomStart />
+      <RoomStart lead={0.3} />
       <EndArrivalCue room="Red Room" />
       <div id="red-room-start" className="route-start-anchor" aria-hidden="true" />
       <EnvironmentalPanelSequence panels={redRoomEnvironment} className="red-room-environment" />
