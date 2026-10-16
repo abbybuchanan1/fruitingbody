@@ -188,9 +188,9 @@ const fearNotAlts = [
 ];
 
 // Trial (October 2026): the serpent portrait (fear-not-06) closes the
-// installed work, with the snake frame (fear-not-07) just before it; the
+// installed work, with the snake frame (fear-not-07b) just before it; the
 // earlier closing frame (fear-not-05) is in the Archive's further work.
-const fearNotFiles = ["01", "02", "03", "04", "07", "06"];
+const fearNotFiles = ["01", "02", "03", "04", "07b", "06"];
 
 export const fearNotWorks: Artwork[] = fearNotAlts.map((alt, i) => ({
   src: `/art/fear-not/fear-not-${fearNotFiles[i]}.jpg`,

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useDialogFocus } from "@/lib/useDialogFocus";
 import { imageSizes } from "@/lib/image-sizes";
 
 type LightboxImage = {
@@ -123,6 +124,8 @@ export function ArtworkLightboxGrid({
   mode: "index" | "archive";
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(dialogRef, openIndex !== null);
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -210,6 +213,7 @@ export function ArtworkLightboxGrid({
 
       {image ? (
         <div
+          ref={dialogRef}
           className="artwork-lightbox"
           role="dialog"
           aria-modal="true"

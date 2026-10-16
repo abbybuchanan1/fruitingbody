@@ -7056,7 +7056,9 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.72rem;
-  color: rgba(39, 36, 31, 0.66);
+  /* .78, not .66: keeps 4.5:1 contrast on the card even when the room
+     behind it is in blue-hour light. */
+  color: rgba(39, 36, 31, 0.78);
 }
 
 .work-intro-card h1,
@@ -12582,16 +12584,17 @@ h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
 }
 
 /* FEAR NOT — five-frame edit (October 2026).
-   All frames are 9:16 video stills, sized by height so each fits the screen.
+   All frames are 9:16 video stills, sized by height so each fits the screen
+   (the rem caps only stop them growing past the screen on very large monitors).
    3, the hinge, is slightly larger; 5, the closing gaze, nearly so. */
 .garden-section--fear-not .artwork-image:nth-child(n) {
-  width: min(52vh, 80vw, 36rem) !important;
+  width: min(52vh, 80vw, 46rem) !important;
   max-width: none !important;
   margin-inline: auto !important;
 }
 
 .garden-section--fear-not .artwork-image:nth-child(3) {
-  width: min(56vh, 84vw, 38rem) !important;
+  width: min(56vh, 84vw, 49rem) !important;
 }
 
 .garden-section--fear-not .artwork-image img {
@@ -15492,7 +15495,7 @@ html[data-nav-tone="dark"] .ambient-sound-control--global {
    about 3:4, so they are sized wider to stand about as tall as the 9:16 frames. */
 .garden-section--fear-not .artwork-image:nth-child(5),
 .garden-section--fear-not .artwork-image:nth-child(6) {
-  width: min(64vh, 86vw, 44rem) !important;
+  width: min(64vh, 86vw, 58rem) !important;
 }
 
 @media (max-width: 680px) {
@@ -17494,4 +17497,26 @@ html[data-daylight="blue"] .narthex-hall__environment::after {
   pointer-events: none;
   background: rgb(160, 174, 214);
   mix-blend-mode: multiply;
+}
+
+/* CLOISTERS — the pale title stays readable when the film is at its
+   brightest (mid-morning and golden hour lift it further). */
+.cloisters-film__room-label {
+  text-shadow: 0 1px 3px rgba(12, 14, 12, .55), 0 0 18px rgba(12, 14, 12, .45) !important;
+}
+
+/* ACCESSIBILITY — works that open in the viewer can be reached with Tab; the
+   ring reads on both pale and dark walls. */
+[data-viewer-ready] {
+  cursor: zoom-in;
+}
+
+[data-viewer-ready]:focus {
+  outline: none;
+}
+
+[data-viewer-ready]:focus-visible {
+  outline: 2px solid rgba(255, 252, 244, .95);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(18, 16, 14, .55);
 }

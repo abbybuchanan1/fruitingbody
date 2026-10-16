@@ -8,10 +8,11 @@ import { useLayoutEffect } from "react";
 // another room, never while they are in one: if the hour has turned on a long
 // visit, the next room is in the new light, but nothing shifts in front of
 // them. A ?light= preview holds for the whole visit.
-export function daylightNow(): "morning" | "golden" | "blue" {
-  const d = new Date();
-  const h = d.getHours() + d.getMinutes() / 60;
-  return h >= 6 && h < 16 ? "morning" : h >= 16 && h < 19.5 ? "golden" : "blue";
+// The clock itself lives in the script in app/layout.tsx (so the first paint
+// is already in the right light); it is shared here as window.__fbDaylight.
+function daylightNow(): string {
+  const read = (window as unknown as { __fbDaylight?: () => string }).__fbDaylight;
+  return read ? read() : "morning";
 }
 
 export function DaylightClock() {
