@@ -19,7 +19,7 @@ export function WaterRoomJunction() {
       >
         <video
           className="water-room-junction__moving-glimpse water-room-junction__moving-glimpse--film"
-          src="/media/films/body-of-water-film.mp4"
+          src="/media/films/body-of-water-film-v2.mp4"
           muted
           playsInline
           autoPlay

@@ -15,7 +15,7 @@ export default function FilmRoomPage() {
         <div className="film-installation__screen">
           <FilmPlayer
             className="film-installation__video"
-            src="/media/films/body-of-water-film.mp4"
+            src="/media/films/body-of-water-film-v2.mp4"
             describedBy="body-of-water-film-description"
           />
           <p id="body-of-water-film-description" className="visually-hidden">
