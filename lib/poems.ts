@@ -743,7 +743,9 @@ and we’d run to the water.
 
 Your buttons
 my zipper
-wade in
+clothes slumped in the sand
+like we’d been raptured.
+But we’d wade in
 face the current.
 
 We’d turn our backs on it
@@ -753,10 +755,8 @@ beading on my throat.
 
 We’d stand
 still
-in the ocean
-feet sinking deeper in the sand
-as each wave
-came for us.
+feet sinking deeper
+let the waves come for us.
 
 Salt in my mouth.
 
@@ -775,7 +775,7 @@ my map
 to the place where
 the water gathers.
 
-You’d ask me to draw the map
+You’d ask me to draw it
 on your palm,
 prove I’d remember.
 
