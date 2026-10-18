@@ -972,8 +972,8 @@ what if she’s the only one
 who knows she won’t live forever?
 
 That no amount of pleading,
-restraint,
-or negotiation
+new tech,
+or face cream
 can make this form immortal?
 
 She knows that she’s made
@@ -1098,7 +1098,7 @@ less gatekeeper,
 guard,
 or a tyrannical toddler king—
 
-the awe seeps in.
+the real fun begins.
 
 Sometimes I pretend
 I don’t care
@@ -1193,7 +1193,7 @@ who is learning
 not to be so hard on herself,
 
 who is splitting the difference
-between Nothing and Everything,
+between nothing and everything,
 
 who sometimes remembers
 
