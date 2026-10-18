@@ -780,8 +780,9 @@ my map
 to the place where
 the water gathers.
 
-You’d ask me to trace it on your palm
-to show you I remember.
+You’d ask me to draw the map
+on your palm,
+prove I’d remember.
 
 I’d feed you
 an olive
