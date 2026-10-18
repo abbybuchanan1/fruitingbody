@@ -17254,9 +17254,9 @@ html[data-daylight="blue"] .museum-exterior::after {
   }
 }
 
-/* The colour of the hour is set on the stone photograph itself (its filter,
-   below), not as a blended layer: Safari on iPhone does not blend a layer
-   inside a filtered element, and showed the tint as a solid sheet. */
+/* The colour of the hour is set in the room's shade layer (below), not as a
+   blended layer: Safari on iPhone does not blend a layer inside a filtered
+   element, and showed the tint as a solid sheet. */
 
 /* Sun through leaves. Light falls between the leaf shadows. */
 .vestibule-daylight__pool {
@@ -17342,8 +17342,14 @@ html[data-daylight="golden"] .vestibule-daylight__pool--jamb { opacity: .55; }
   html[data-daylight="golden"] .vestibule-daylight__pool--floor { left: 18%; width: 50%; top: 56%; height: 40%; }
 }
 
-html[data-daylight="golden"] .vestibule__stone {
-  filter: sepia(.2) saturate(1.12) brightness(.95) contrast(1.03) !important;
+/* The hour's colour lies in the room's shade layer (plain transparency, which
+   every browser draws the same and which the Vestibule's reflected floor
+   carries too). A filter on the stone photograph broke the reflection's join
+   on iPhone, leaving a hard line and hiding the doorway. */
+html[data-daylight="golden"] .vestibule__shadow {
+  background:
+    linear-gradient(to bottom, rgba(7, 14, 12, .04) 0%, rgba(8, 16, 14, .08) 45%, rgba(4, 10, 8, .22) 100%),
+    linear-gradient(rgba(255, 158, 76, .13), rgba(255, 158, 76, .13)) !important;
 }
 
 /* Blue hour: no sun, so no dapple. The stone goes dark and cool, and the
@@ -17351,12 +17357,10 @@ html[data-daylight="golden"] .vestibule__stone {
    arches and spilling out across the passage floor. */
 html[data-daylight="blue"] .vestibule-daylight__pool { display: none; }
 
-html[data-daylight="blue"] .vestibule__stone {
-  filter: sepia(.3) hue-rotate(185deg) saturate(.6) brightness(.72) contrast(1.1) !important;
-}
-
 html[data-daylight="blue"] .vestibule__shadow {
-  background: linear-gradient(to bottom, rgba(10, 14, 30, .26) 0%, rgba(12, 16, 32, .12) 40%, rgba(6, 8, 18, .32) 100%) !important;
+  background:
+    linear-gradient(to bottom, rgba(10, 14, 30, .26) 0%, rgba(12, 16, 32, .12) 40%, rgba(6, 8, 18, .32) 100%),
+    linear-gradient(rgba(26, 38, 78, .4), rgba(26, 38, 78, .4)) !important;
 }
 
 .vestibule-daylight__lamps {
@@ -17527,4 +17531,24 @@ html[data-daylight="blue"] .narthex-hall__environment::after {
   max-width: 100% !important;
   max-height: 82vh !important;
   object-fit: contain !important;
+}
+
+/* VESTIBULE arrival — the still the visitor walks in on carries the same
+   hour's colour as the room, so there is no flash of the daytime room first. */
+html[data-daylight="golden"] .vestibule-arrival::after,
+html[data-daylight="blue"] .vestibule-arrival::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+html[data-daylight="golden"] .vestibule-arrival::after {
+  background: linear-gradient(rgba(255, 158, 76, .13), rgba(255, 158, 76, .13));
+}
+
+html[data-daylight="blue"] .vestibule-arrival::after {
+  background:
+    linear-gradient(to bottom, rgba(10, 14, 30, .26) 0%, rgba(12, 16, 32, .12) 40%, rgba(6, 8, 18, .32) 100%),
+    linear-gradient(rgba(26, 38, 78, .4), rgba(26, 38, 78, .4));
 }
