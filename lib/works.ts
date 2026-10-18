@@ -139,6 +139,7 @@ export const museumWorks: MuseumWork[] = [
     archive: artworkSets.fearNot,
     archiveExtra: [
       { src: "/art/fear-not/fear-not-05.jpg", alt: "Fear Not, further work. Facing the camera with a direct gaze, holding the eaten core of the apple." },
+      { src: "/art/fear-not/fear-not-03.jpg", alt: "Fear Not, further work. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves." },
       { src: "/art/archive/fear-not/fear-not-further-01.jpg", alt: "Fear Not, further work. Hair whipping through the lit vines, the face turned away." },
       { src: "/art/archive/fear-not/fear-not-further-02.jpg", alt: "Fear Not, further work. Head thrown back, vines across the body." },
       { src: "/art/archive/fear-not/fear-not-further-03.jpg", alt: "Fear Not, further work. Close, biting the apple." },

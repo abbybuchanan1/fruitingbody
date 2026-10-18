@@ -181,7 +181,7 @@ export const daffodilsCurrentWorks: Artwork[] = daffodilsTitles.map(([number, sl
 const fearNotAlts = [
   "Fear Not, 1 of 6. Standing in dark vines at night, both hands covering the face.",
   "Fear Not, 2 of 6. Back turned, looking over the shoulder toward the camera, vines at the waist.",
-  "Fear Not, 3 of 6. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves.",
+  "Fear Not, 3 of 6. Deep in the night vines, eyes closed, face and shoulders blurred in warm light, honeysuckle above.",
   "Fear Not, 4 of 6. Biting a green apple among the vines, eyes raised, one hand low against the body.",
   "Fear Not, 5 of 6. Close, deep in the vines, an arm raised over the bowed head, a hand in the foreground holding a small snake.",
   "Fear Not, 6 of 6. A close portrait among the leaves, a direct gaze, a metal serpent necklace at the throat.",
@@ -190,7 +190,9 @@ const fearNotAlts = [
 // Trial (October 2026): the serpent portrait (fear-not-06) closes the
 // installed work, with the snake frame (fear-not-07b) just before it; the
 // earlier closing frame (fear-not-05) is in the Archive's further work.
-const fearNotFiles = ["01", "02", "03", "04", "07b", "06"];
+// October 17: fear-not-08 replaces the soft glowing frame (fear-not-03),
+// which moves to the Archive's further work.
+const fearNotFiles = ["01", "02", "08", "04", "07b", "06"];
 
 export const fearNotWorks: Artwork[] = fearNotAlts.map((alt, i) => ({
   src: `/art/fear-not/fear-not-${fearNotFiles[i]}.jpg`,
