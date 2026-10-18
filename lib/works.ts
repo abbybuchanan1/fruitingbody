@@ -226,8 +226,9 @@ export const museumWorks: MuseumWork[] = [
       "Connection, held as visible tension.",
     question: "What binds us?",
     exhibition: artworkSets.redThread,
-    // Catalog: three rows of one height each (1–4, 5–7, 8–10).
-    archive: artworkSets.redThread.map((work, i) => ({
+    // Catalog: three rows of one height each (1–4, 5–7, 8–10). The room's
+    // opening image closes the catalog (the artist's order, October 17).
+    archive: [...artworkSets.redThread.slice(1), artworkSets.redThread[0]].map((work, i) => ({
       ...work,
       sameHeight: true,
       breakBefore: i === 4 || i === 7,
