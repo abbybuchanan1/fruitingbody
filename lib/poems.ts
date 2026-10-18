@@ -741,7 +741,7 @@ it was two days
 I’d take your hand
 and we’d run to the water.
 
-your buttons
+Your buttons
 my zipper
 wade in
 face the current.
@@ -754,12 +754,7 @@ beading on my throat.
 We’d stand
 still
 in the ocean
-
-sinking
-deeper
-into
-the
-sand
+feet sinking deeper in the sand
 as each wave
 came for us.
 
