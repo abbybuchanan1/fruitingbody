@@ -17515,3 +17515,16 @@ html[data-daylight="blue"] .narthex-hall__environment::after {
   outline-offset: 4px;
   box-shadow: 0 0 0 6px rgba(18, 16, 14, .55);
 }
+
+/* ARCHIVE — an opened image is always shown large. The viewer is drawn inside
+   the section it was opened from, so the small-thumbnail rules of some
+   sections (the original edits of Red Thread, Shelter and Unravel capped
+   images at 235px) were shrinking it too. */
+.artwork-lightbox .artwork-lightbox__figure img:not([src$="daffodils-index-11.jpg"]) {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 82vh !important;
+  object-fit: contain !important;
+}
