@@ -1,4 +1,5 @@
 import type { RelativePair } from "@/lib/artworks";
+import { holdShape } from "@/lib/image-sizes";
 
 export function RelativeDiptychSequence({
   pairs,
@@ -19,6 +20,7 @@ export function RelativeDiptychSequence({
               <img
                 src={pair.a.src}
                 alt={pair.a.alt}
+                style={holdShape(pair.a.src)}
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
               />
@@ -28,6 +30,7 @@ export function RelativeDiptychSequence({
               <img
                 src={pair.b.src}
                 alt={pair.b.alt}
+                style={holdShape(pair.b.src)}
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
               />

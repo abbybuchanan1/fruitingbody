@@ -1,4 +1,5 @@
 import type { Artwork } from "@/lib/artworks";
+import { holdShape } from "@/lib/image-sizes";
 
 type Props = {
   artworks: Artwork[];
@@ -16,6 +17,7 @@ export function ArtworkSequence({ artworks, label, mode = "standard", eagerFirst
           <img
             src={artwork.src}
             alt={artwork.alt}
+            style={holdShape(artwork.src)}
             loading={eagerFirst && index === 0 ? "eager" : "lazy"}
             decoding="async"
           />

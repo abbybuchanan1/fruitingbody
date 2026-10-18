@@ -29,8 +29,17 @@ export function HashScrollRestorer() {
       window.scrollTo({ top: Math.max(0, y - offset), left: 0, behavior: "auto" });
     };
 
+    // Placed again for a moment while the room settles (photographs and
+    // fonts arriving can move the target), until the visitor scrolls or
+    // touches the page themselves.
+    const stop = () => {
+      cancelled = true;
+    };
+    const events = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
+    events.forEach((name) => window.addEventListener(name, stop, { passive: true }));
+
     place();
-    const timers = [40, 180, 520].map((delay) => window.setTimeout(place, delay));
+    const timers = [40, 180, 520, 900, 1500].map((delay) => window.setTimeout(place, delay));
     const raf = window.requestAnimationFrame(place);
 
     return () => {
@@ -38,6 +47,7 @@ export function HashScrollRestorer() {
       html.style.scrollBehavior = previousBehavior;
       timers.forEach((timer) => window.clearTimeout(timer));
       window.cancelAnimationFrame(raf);
+      events.forEach((name) => window.removeEventListener(name, stop));
     };
   }, [pathname, jumpTarget, returning]);
 

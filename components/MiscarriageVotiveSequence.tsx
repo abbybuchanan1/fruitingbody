@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Artwork } from "@/lib/artworks";
+import { holdShape } from "@/lib/image-sizes";
 
 function VotiveWork({ work, index }: { work: Artwork; index: number }) {
   const figureRef = useRef<HTMLElement | null>(null);
@@ -33,7 +34,7 @@ function VotiveWork({ work, index }: { work: Artwork; index: number }) {
       className={`miscarriage-votive miscarriage-votive--${index + 1}${lit ? " is-lit" : ""}`}
     >
       <div className="miscarriage-votive__light" aria-hidden="true" />
-      <img src={work.src} alt={work.alt} loading="lazy" decoding="async" />
+      <img src={work.src} alt={work.alt} loading="lazy" decoding="async" style={holdShape(work.src)} />
       {work.title ? (
         <figcaption className="miscarriage-votive__title">{work.title}</figcaption>
       ) : null}

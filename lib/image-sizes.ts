@@ -1,26 +1,8 @@
 // Pixel size of every image under public/art, used by the Index and Archive
-// catalog to keep each photograph's shape. Regenerate when images change.
+// catalog to keep each photograph's shape, and by the rooms to hold each
+// photograph's space before it loads (so landings do not drift).
+// Regenerate when images change.
 export const imageSizes: Record<string, [number, number]> = {
-  "/art/archive/red-thread/red-thread-further-01b.jpg": [1999, 1125],
-  "/art/archive/red-thread/red-thread-further-03.jpg": [1127, 2000],
-  "/art/archive/red-thread/red-thread-further-04.jpg": [2000, 1333],
-  "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg": [1024, 1372],
-  "/art/archive/unravel-original/unravel-original-05.jpg": [1125, 2000],
-  "/art/archive/fear-not/fear-not-further-01.jpg": [608, 1080],
-  "/art/archive/fear-not/fear-not-further-02.jpg": [1126, 2000],
-  "/art/archive/fear-not/fear-not-further-03.jpg": [1126, 2000],
-  "/art/archive/fear-not/fear-not-further-04.jpg": [503, 910],
-  "/art/archive/fear-not/fear-not-further-05.jpg": [1126, 2000],
-  "/art/archive/fear-not/fear-not-further-06.jpg": [1267, 742],
-  "/art/archive/fear-not/fear-not-further-07.jpg": [2000, 1125],
-  "/art/fear-not/fear-not-06.jpg": [1500, 2000],
-  "/art/archive/daffodils/daffodils-further-01.jpg": [1600, 2000],
-  "/art/archive/daffodils/daffodils-further-02.jpg": [2400, 1553],
-  "/art/archive/daffodils/daffodils-further-03.jpg": [2400, 1500],
-  "/art/archive/daffodils/daffodils-further-04.jpg": [2000, 1100],
-  "/art/archive/daffodils/daffodils-further-05.jpg": [1760, 2400],
-  "/art/archive/daffodils/daffodils-further-06.jpg": [2400, 1440],
-  "/art/archive/daffodils/daffodils-further-07.jpg": [1920, 1080],
   "/art/archive/body-of-water/body-of-water-index-01.jpg": [1997, 1500],
   "/art/archive/body-of-water/body-of-water-index-02.jpg": [1500, 2000],
   "/art/archive/body-of-water/body-of-water-index-03.jpg": [1920, 1080],
@@ -33,6 +15,13 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/body-of-water/body-of-water-index-10.jpg": [1996, 1330],
   "/art/archive/body-of-water/body-of-water-index-11.jpg": [2000, 1600],
   "/art/archive/body-of-water/body-of-water-index-12.jpg": [1080, 1920],
+  "/art/archive/daffodils/daffodils-further-01.jpg": [1600, 2000],
+  "/art/archive/daffodils/daffodils-further-02.jpg": [2400, 1553],
+  "/art/archive/daffodils/daffodils-further-03.jpg": [2400, 1500],
+  "/art/archive/daffodils/daffodils-further-04.jpg": [2000, 1100],
+  "/art/archive/daffodils/daffodils-further-05.jpg": [1760, 2400],
+  "/art/archive/daffodils/daffodils-further-06.jpg": [2400, 1440],
+  "/art/archive/daffodils/daffodils-further-07.jpg": [1920, 1080],
   "/art/archive/daffodils/daffodils-index-01.jpg": [1728, 3072],
   "/art/archive/daffodils/daffodils-index-02.jpg": [1600, 2000],
   "/art/archive/daffodils/daffodils-index-03.jpg": [1728, 3072],
@@ -55,6 +44,14 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/daffodils/daffodils-index-20.jpg": [2000, 1125],
   "/art/archive/daffodils/daffodils-index-21.jpg": [1600, 2000],
   "/art/archive/daffodils/daffodils-index-22.jpg": [1600, 2000],
+  "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg": [1024, 1372],
+  "/art/archive/fear-not/fear-not-further-01.jpg": [608, 1080],
+  "/art/archive/fear-not/fear-not-further-02.jpg": [1126, 2000],
+  "/art/archive/fear-not/fear-not-further-03.jpg": [1126, 2000],
+  "/art/archive/fear-not/fear-not-further-04.jpg": [503, 910],
+  "/art/archive/fear-not/fear-not-further-05.jpg": [1126, 2000],
+  "/art/archive/fear-not/fear-not-further-06.jpg": [1267, 742],
+  "/art/archive/fear-not/fear-not-further-07.jpg": [2000, 1125],
   "/art/archive/fear-not/fear-not-index-01.jpg": [1600, 2000],
   "/art/archive/fear-not/fear-not-index-02.jpg": [1728, 2304],
   "/art/archive/fear-not/fear-not-index-03.jpg": [1125, 2000],
@@ -93,6 +90,9 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/red-thread-original/red-thread-original-06.jpg": [1920, 1080],
   "/art/archive/red-thread-original/red-thread-original-07.jpg": [1728, 3072],
   "/art/archive/red-thread-original/red-thread-original-08.jpg": [1326, 1999],
+  "/art/archive/red-thread/red-thread-further-01b.jpg": [1999, 1125],
+  "/art/archive/red-thread/red-thread-further-03.jpg": [1127, 2000],
+  "/art/archive/red-thread/red-thread-further-04.jpg": [2000, 1333],
   "/art/archive/relative/relative-index-01.jpg": [1920, 1080],
   "/art/archive/relative/relative-index-03.jpg": [1920, 1080],
   "/art/archive/relative/relative-index-04.jpg": [1600, 2000],
@@ -126,11 +126,11 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/unravel-original/unravel-original-02.jpg": [1125, 2000],
   "/art/archive/unravel-original/unravel-original-03.jpg": [1125, 2000],
   "/art/archive/unravel-original/unravel-original-04.jpg": [1254, 2000],
+  "/art/archive/unravel-original/unravel-original-05.jpg": [1125, 2000],
   "/art/body-of-water/body-of-water-01.jpg": [2000, 1500],
   "/art/body-of-water/body-of-water-02.jpg": [2000, 1500],
-  "/art/body-of-water/body-of-water-03.jpg": [1920, 1080],
   "/art/body-of-water/body-of-water-03-v2.jpg": [1723, 926],
-  "/art/fear-not/fear-not-07b.jpg": [1544, 1998],
+  "/art/body-of-water/body-of-water-03.jpg": [1920, 1080],
   "/art/body-of-water/body-of-water-04.jpg": [1417, 2576],
   "/art/body-of-water/body-of-water-05.jpg": [1997, 1333],
   "/art/body-of-water/body-of-water-06.jpg": [1920, 1080],
@@ -175,6 +175,8 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/fear-not/fear-not-03.jpg": [1216, 2160],
   "/art/fear-not/fear-not-04.jpg": [1213, 2160],
   "/art/fear-not/fear-not-05.jpg": [1216, 2160],
+  "/art/fear-not/fear-not-06.jpg": [1500, 2000],
+  "/art/fear-not/fear-not-07b.jpg": [1544, 1998],
   "/art/maria/01.webp": [1125, 1500],
   "/art/maria/02.webp": [1125, 1500],
   "/art/maria/03.webp": [1125, 1500],
@@ -339,3 +341,11 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/unravel/06.webp": [499, 756],
   "/art/unravel/07.webp": [501, 602],
 };
+
+/** The photograph's shape as an inline style, so its space is held before it
+    loads. aspect-ratio only acts where the layout leaves a side to "auto", so
+    it never changes how a work is sized once it has loaded. */
+export function holdShape(src: string): { aspectRatio: string } | undefined {
+  const size = imageSizes[src];
+  return size ? { aspectRatio: `${size[0]} / ${size[1]}` } : undefined;
+}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Artwork } from "@/lib/artworks";
+import { holdShape } from "@/lib/image-sizes";
 
 function EmberWork({ work, index }: { work: Artwork; index: number }) {
   const figureRef = useRef<HTMLElement | null>(null);
@@ -30,7 +31,7 @@ function EmberWork({ work, index }: { work: Artwork; index: number }) {
       className={`current-ember-work current-ember-work--${index + 1}${lit ? " is-lit" : ""}`}
     >
       <div className="current-ember-work__glow" aria-hidden="true" />
-      <img src={work.src} alt={work.alt} loading="lazy" decoding="async" />
+      <img src={work.src} alt={work.alt} loading="lazy" decoding="async" style={holdShape(work.src)} />
     </figure>
   );
 }

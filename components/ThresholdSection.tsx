@@ -2,6 +2,7 @@ import { WorkIntroCard } from "@/components/WorkIntroCard";
 import { thresholdPairs } from "@/lib/artworks";
 import { museumWorksById } from "@/lib/works";
 import { QuestionPrompt } from "@/components/QuestionPrompt";
+import { holdShape } from "@/lib/image-sizes";
 
 export function ThresholdSection() {
   const work = museumWorksById.threshold;
@@ -25,10 +26,10 @@ export function ThresholdSection() {
             {thresholdPairs.map((pair) => (
               <figure className={`threshold-pair threshold-pair--${pair.id}`} key={pair.id}>
                 <div className="threshold-pair__image threshold-pair__image--a">
-                  <img src={pair.a.src} alt={pair.a.alt} loading="lazy" decoding="async" />
+                  <img src={pair.a.src} alt={pair.a.alt} loading="lazy" decoding="async" style={holdShape(pair.a.src)} />
                 </div>
                 <div className="threshold-pair__image threshold-pair__image--b">
-                  <img src={pair.b.src} alt={pair.b.alt} loading="lazy" decoding="async" />
+                  <img src={pair.b.src} alt={pair.b.alt} loading="lazy" decoding="async" style={holdShape(pair.b.src)} />
                 </div>
               </figure>
             ))}

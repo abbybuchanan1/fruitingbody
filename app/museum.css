@@ -17254,16 +17254,9 @@ html[data-daylight="blue"] .museum-exterior::after {
   }
 }
 
-/* The colour of the hour, laid over the whole photograph by multiplying:
-   it shows most where the room is bright (the openings, the lit stone) and
-   hardly at all in the dark stone, the way coloured light behaves. */
-.vestibule-daylight::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--vestibule-tint, transparent);
-  mix-blend-mode: multiply;
-}
+/* The colour of the hour is set on the stone photograph itself (its filter,
+   below), not as a blended layer: Safari on iPhone does not blend a layer
+   inside a filtered element, and showed the tint as a solid sheet. */
 
 /* Sun through leaves. Light falls between the leaf shadows. */
 .vestibule-daylight__pool {
@@ -17334,7 +17327,6 @@ html[data-daylight="blue"] .museum-exterior::after {
 
 /* Mid-morning: the sun is high, so it only just reaches in: a small patch on
    the passage floor and a little on the jamb. Clear, neutral light. */
-html[data-daylight="morning"] .vestibule-daylight { --vestibule-tint: rgb(255, 252, 244); }
 html[data-daylight="morning"] .vestibule-daylight__pool--floor { opacity: .42; }
 html[data-daylight="morning"] .vestibule-daylight__pool--jamb { opacity: .3; }
 
@@ -17342,7 +17334,6 @@ html[data-daylight="morning"] .vestibule-daylight__pool--jamb { opacity: .3; }
    the floor stretches toward the room and the jamb is raked with light. */
 html[data-daylight="golden"] .vestibule-daylight {
   --vestibule-sun: rgb(255, 204, 146);
-  --vestibule-tint: rgb(255, 222, 184);
 }
 html[data-daylight="golden"] .vestibule-daylight__pool--floor { opacity: .6; left: 20%; width: 34%; top: 74%; height: 30%; }
 html[data-daylight="golden"] .vestibule-daylight__pool--jamb { opacity: .55; }
@@ -17352,17 +17343,16 @@ html[data-daylight="golden"] .vestibule-daylight__pool--jamb { opacity: .55; }
 }
 
 html[data-daylight="golden"] .vestibule__stone {
-  filter: saturate(.98) brightness(.95) contrast(1.02) !important;
+  filter: sepia(.2) saturate(1.12) brightness(.95) contrast(1.03) !important;
 }
 
 /* Blue hour: no sun, so no dapple. The stone goes dark and cool, and the
    halls beyond are lit by lamps: warm light gathered down the corridor of
    arches and spilling out across the passage floor. */
-html[data-daylight="blue"] .vestibule-daylight { --vestibule-tint: rgb(172, 186, 222); }
 html[data-daylight="blue"] .vestibule-daylight__pool { display: none; }
 
 html[data-daylight="blue"] .vestibule__stone {
-  filter: saturate(.62) brightness(.78) contrast(1.1) !important;
+  filter: sepia(.3) hue-rotate(185deg) saturate(.6) brightness(.72) contrast(1.1) !important;
 }
 
 html[data-daylight="blue"] .vestibule__shadow {
@@ -17410,9 +17400,14 @@ html[data-daylight="blue"] .exhibition-scroll .threshold-environment {
 /* GARDEN — the indoor/outdoor room, so a stronger hand. Mid-morning is the
    room as it was made. At golden hour the sun comes in low and warm: the
    leaf shadows deepen and their lit gaps turn gold. At blue hour there is no
-   sun, so the leaf shadows all but go, and the room takes the cool evening. */
-html[data-daylight="golden"] .garden-environment {
-  filter: sepia(.16) saturate(1.12) brightness(.95) contrast(1.08);
+   sun, so the leaf shadows all but go, and the room takes the cool evening.
+   The colour is laid on with the room's own shade layer (::after, plain
+   transparency) rather than a filter on the room, so the blended leaf layer
+   inside it still blends in Safari on iPhone. */
+html[data-daylight="golden"] .garden-environment::after {
+  background:
+    linear-gradient(to bottom, rgba(10, 12, 9, .5) 0%, rgba(10, 12, 9, .42) 12%, rgba(10, 12, 9, .24) 19%, rgba(10, 12, 9, .12) 34%, rgba(10, 12, 9, .08) 68%, rgba(10, 12, 9, .03) 100%),
+    linear-gradient(rgba(255, 150, 60, .16), rgba(255, 150, 60, .16)) !important;
 }
 
 html[data-daylight="golden"] .garden-environment::before {
@@ -17420,8 +17415,10 @@ html[data-daylight="golden"] .garden-environment::before {
   filter: contrast(1.12) sepia(.6) saturate(1.8) brightness(1.04);
 }
 
-html[data-daylight="blue"] .garden-environment {
-  filter: sepia(.22) hue-rotate(180deg) saturate(.55) brightness(.84) contrast(1.02);
+html[data-daylight="blue"] .garden-environment::after {
+  background:
+    linear-gradient(to bottom, rgba(10, 12, 9, .52) 0%, rgba(10, 12, 9, .46) 12%, rgba(10, 12, 9, .28) 19%, rgba(10, 12, 9, .16) 34%, rgba(10, 12, 9, .11) 68%, rgba(10, 12, 9, .04) 100%),
+    linear-gradient(rgba(34, 46, 84, .32), rgba(34, 46, 84, .32)) !important;
 }
 
 html[data-daylight="blue"] .garden-environment::before {
@@ -17464,9 +17461,11 @@ html[data-daylight="blue"] .exit-exterior__veil {
 
 /* NARTHEX — the stained-glass light as it is reads as mid-morning. Golden
    hour: deeper and glowing, the coloured light warmer and fuller, the edges
-   of the room falling into shade. Blue hour: the whole room darker and cooler. */
-html[data-daylight="golden"] .narthex-hall__environment {
-  filter: sepia(.2) saturate(1.22) contrast(1.08) brightness(.92);
+   of the room falling into shade. Blue hour: the whole room darker and cooler.
+   The floor photograph takes the filter, not the room, so the coloured light
+   above it keeps its screen blend in Safari on iPhone. */
+html[data-daylight="golden"] .narthex-hall__image {
+  filter: blur(.2px) sepia(.2) saturate(1.05) contrast(1) brightness(.84);
 }
 
 html[data-daylight="golden"] .narthex-hall__environment::after {
@@ -17474,9 +17473,7 @@ html[data-daylight="golden"] .narthex-hall__environment::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 66% 58% at 50% 44%, rgba(255, 164, 80, .36), rgba(255, 150, 70, .12) 60%, rgba(255, 150, 70, 0) 100%);
-  mix-blend-mode: screen;
+  background: radial-gradient(ellipse 66% 58% at 50% 44%, rgba(255, 164, 80, .22), rgba(255, 150, 70, .08) 60%, rgba(255, 150, 70, 0) 100%);
 }
 
 html[data-daylight="golden"] .narthex-hall__veil {
@@ -17485,9 +17482,8 @@ html[data-daylight="golden"] .narthex-hall__veil {
     linear-gradient(to bottom, rgba(31, 22, 14, .06), rgba(31, 22, 14, .24));
 }
 
-/* Blue multiplies over the room, so the glass keeps its own colours. */
-html[data-daylight="blue"] .narthex-hall__environment {
-  filter: saturate(.82) brightness(.8) contrast(1.04);
+html[data-daylight="blue"] .narthex-hall__image {
+  filter: blur(.2px) saturate(.7) contrast(.95) brightness(.72);
 }
 
 html[data-daylight="blue"] .narthex-hall__environment::after {
@@ -17495,8 +17491,7 @@ html[data-daylight="blue"] .narthex-hall__environment::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgb(160, 174, 214);
-  mix-blend-mode: multiply;
+  background: rgba(30, 42, 82, .34);
 }
 
 /* CLOISTERS — the pale title stays readable when the film is at its

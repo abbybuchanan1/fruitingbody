@@ -7,10 +7,12 @@ import { useDialogFocus } from "@/lib/useDialogFocus";
 // In the rooms, a work can be opened on its own and closed again — no
 // previous/next, so the installation is never turned into a slideshow.
 // Relative is left out on purpose: its pairs are meant to be seen together.
+// Threshold's pairs open one image at a time (the artist's choice).
 // A Miscarriage is left out too: its frames are near full-bleed already and
 // the votive light is part of the work.
 const WORK_SELECTOR = [
   ".art-sequence .artwork-image",
+  ".threshold-pair__image",
   ".current-ember-work",
   ".membrane-plane",
 ].join(", ");
