@@ -950,14 +950,11 @@ Never a moment
 my fingers couldn’t find her
 in the dark.
 
-She has never missed a beat
-or a breath.
-
 She is pigment,
 paper,
 eyes and hands.
 
-And maybe I am the impulse.
+And maybe I am the artist.
 
 But maybe I’m not.
 
@@ -968,15 +965,15 @@ one more heartbeat.
 She will always attempt
 one more breath.
 
-Of all the animated creatures and beings
-that form and populate the earth,
+Of all the forms
+that populate the earth,
 
 what if she’s the only one
 who knows she won’t live forever?
 
 That no amount of pleading,
-new tech,
-or face cream
+restraint,
+or negotiation
 can make this form immortal?
 
 She knows that she’s made
@@ -1022,7 +1019,7 @@ chlorophyll
 become eyelids, organs, bone.
 
 Where her canyons and bark and ivory
-are now utterly singular
+are now singular
 swirls and grooves
 on the pads of her fingertips,
 
@@ -1041,10 +1038,6 @@ That she’s waited this long,
 indulged my heat and recklessness,
 borne with my ignorance.
 
-I wonder how many other creatures
-think they’re immortal
-when they’re not?
-
 I have the strange honor
 of being the place
 where she meets a soul
@@ -1060,7 +1053,7 @@ The hell of it is
 we are all underprepared.
 
 And the only way to learn
-is to put them through the wringer.
+is to put them both through the wringer.
 
 Which I do.
 
@@ -1071,12 +1064,6 @@ to think you are invincible.
 Good thing they know
 when enough is enough.
 
-Of all the shapes
-I could have taken,
-
-this one is
-interesting.
-
 I like the power
 I think I have.
 
@@ -1085,13 +1072,6 @@ that she’s submitted to me
 all these years.
 
 And then I do.
-
-I like to think
-I’m in control of these two
-vast beings
-
-like I got to decide
-when and how they met.
 
 But they are teaching me.
 
@@ -1104,12 +1084,6 @@ for my turn.
 
 And in the moments
 I forget I exist—
-or really,
-in the moments
-I know I am
-everything and nothing,
-both empty and full,
-
 when I soften
 and stretch open,
 
@@ -1124,23 +1098,13 @@ less gatekeeper,
 guard,
 or a tyrannical toddler king—
 
-the real fun begins.
-
-I am so happy
-I get to participate.
+the awe seeps in.
 
 Sometimes I pretend
 I don’t care
 
 so I don’t implode
 or incinerate.
-
-I can’t believe
-I’m the reason
-they get to merge
-
-here,
-in this place and time.
 
 I am not the teacher
 or the student.
@@ -1165,7 +1129,7 @@ by the way gravity and time
 can’t touch me
 the way they touch her,
 
-at the way I feel infinite
+by the way I feel infinite
 and the way that’s almost true.
 
 But then
@@ -1190,8 +1154,6 @@ She will go on
 with or without me.
 
 They both will.
-
-And we all know this.
 
 But this fragile meeting—
 
@@ -1231,7 +1193,7 @@ who is learning
 not to be so hard on herself,
 
 who is splitting the difference
-between nothing and everything,
+between Nothing and Everything,
 
 who sometimes remembers
 
