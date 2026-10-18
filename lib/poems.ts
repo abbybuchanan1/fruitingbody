@@ -734,81 +734,64 @@ who is listening`,
     slug: "two-days",
     title: "Two Days",
     year: "2025",
-    preview: ["If I knew I only had two days with you", "I’d take your hand", "and we’d run to the water."],
-    body: `If I knew I only had two days with you
+    preview: ["If I knew", "it was two days", "I’d take your hand", "and we’d run to the water."],
+    body: `
+If I knew
+it was two days
 I’d take your hand
-and we’d
-run
-to
-the
-water.
+and we’d run to the water.
 
-We’d peel off our clothes
-and wade in
-to face the current.
+your buttons
+my zipper
+wade in
+face the current.
 
-We’d turn again
-to face each other
-and
+We’d turn our backs on it
+to face each other,
 your breath
-would
-be
-a
-warm
-wind
-against
-my throat.
-
-I’d heat
-oil
-between my
-palms
-let
-it
-drip
-into
-your
-bath
-
-We’d climb in
-sit
-knee to knee.
-
-I’d memorize the lines
-around the corners of your eyes
-a map
-to the place where
-the water gathers.
+beading on my throat.
 
 We’d stand
 still
 in the ocean
-feet
+
 sinking
 deeper
 into
 the
 sand
-as
-each
-wave
-came
-for us.
+as each wave
+came for us.
 
-Your tears would dry in the sun.
+Salt in my mouth.
 
-I’d lick the salt
-from your lips.
+•
 
-I’d feed you an
-olive
+I’d heat oil between my palms
+and let it drip into your bath,
+
+then we’d climb in
+sit
+knee to knee.
+
+I’d memorize the lines
+around the corners of your eyes
+my map
+to the place where
+the water gathers.
+
+You’d ask me to trace it on your palm
+to show you I remember.
+
+I’d feed you
+an olive
 then
 crush the rest
 in my fist.
 
-A tiny rivulet of brine
-streams down my forearm,
-burning.`,
+A rivulet of brine
+runs down my forearm,
+burning`,
   },
   {
     slug: "evidence",
