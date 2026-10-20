@@ -16,6 +16,7 @@ export default function IndexPage() {
         <p>
           A fast view of the installed work. Image order follows the museum rooms.
         </p>
+        <p className="utility-header__note">Some works contain nudity and close studies of the human body.</p>
         <p className="utility-header__contact">
           <span className="utility-header__contact-who">
             Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
