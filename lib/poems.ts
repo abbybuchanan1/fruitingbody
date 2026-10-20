@@ -1001,9 +1001,11 @@ she is.`,
 
 // Temporarily withheld from the Reading Room (October 2026). They stay here,
 // unchanged; take a slug out of this list to show the poem again.
-const HIDDEN_POEMS = ["that-it-was"];
+// Hidden: That It Was (awaiting consent); Rosary (being reworked, October 19).
+const HIDDEN_POEMS = ["that-it-was", "rosary"];
 
-// Shelf order: Rosary before Evidence, so Evidence's feathers lead into Joy.
+// Shelf order: For C opens the room ("Hi."); the poems then run by year,
+// and Evidence's feathers lead into Joy. (Rosary sits before Evidence when it returns.)
 const SHELF_ORDER = ["for-c", "may-2024", "that-it-was", "two-days", "rosary", "evidence", "joy"];
 const shelfIndex = (slug: string) => {
   const i = SHELF_ORDER.indexOf(slug);
