@@ -652,7 +652,7 @@ a ziplock bag of feathers in her hand`,
   {
     slug: "rosary",
     title: "Rosary",
-    year: "2025",
+    year: "2026",
     preview: ["Earth rotating like a bead", "The bead orbiting a silk cord", "Who is the mantra for—", "Lakshmi or me?"],
     body: `Earth rotating like a bead
 The bead orbiting a silk cord
@@ -661,7 +661,7 @@ Lakshmi or me?
 
 My feet have worn grooves
 around the house
-Where I orbit
+walking the stations
 Up for school
 Out the door
 7:05
@@ -670,17 +670,17 @@ Pick you up
 Snack time
 
 Your bedtime songs have
-morphed
-I know this because I haven’t sung them in years
+drifted
+I haven’t sung them in years
 But I’m sure I never stopped
 Like stepping outside at night
-then realizing the sun is up
-and you barely noticed it rise
+then realizing the sun is in my eyes
+though I barely noticed it rise
 
-Nose against Monet’s pond
-The underside of a tapestry
-The Grand Canyon through a telescope
-Made from an empty paper towel roll
+My nose against Monet’s pond
+The Grand Canyon
+through an empty paper towel tube
+pressed to my eye
 
 Smooth in my hand
 Over and over
@@ -689,6 +689,7 @@ Fitting my palm
 Eyelashes grazing
 your round cheeks
 while you sleep
+
 Asking me why
 108 times
 Hug, kiss
@@ -698,15 +699,16 @@ Strange to be spinning
 and never feel it
 Strange how still we are
 With matched velocity
-Mirrored parabolas
-Hurling through space
 
 I’ve looked at the same maple
 Every day for ten years
 Never seen it grow
-Yet it towers now
-Dropping its leaves
+Yet she towers now
+Drops her gold leaves
 Extravagantly
+
+Who is the mantra for—
+Lakshmi or me?
 
 You were a baby when we moved in
 Now my chin barely rests on your head
@@ -715,16 +717,11 @@ Who turns the Earth
 Absently in her palm?
 Devoted, distracted—
 Is she keeping count?
-108?
-324?
 
-Repetition is a form of change
-Nothing lasts forever
 If I hold the peach too long
 It bruises
 So I bite
 Juice down my chin
-
 Small, fuzzy planet
 Your duckling head
 I kiss you mid-orbit
@@ -1001,11 +998,11 @@ she is.`,
 
 // Temporarily withheld from the Reading Room (October 2026). They stay here,
 // unchanged; take a slug out of this list to show the poem again.
-// Hidden: That It Was (awaiting consent); Rosary (being reworked, October 19).
-const HIDDEN_POEMS = ["that-it-was", "rosary"];
+// Hidden: That It Was (awaiting consent).
+const HIDDEN_POEMS = ["that-it-was"];
 
 // Shelf order: For C opens the room ("Hi."); the poems then run by year,
-// and Evidence's feathers lead into Joy. (Rosary sits before Evidence when it returns.)
+// with Rosary before Evidence, and Evidence's feathers leading into Joy.
 const SHELF_ORDER = ["for-c", "may-2024", "that-it-was", "two-days", "rosary", "evidence", "joy"];
 const shelfIndex = (slug: string) => {
   const i = SHELF_ORDER.indexOf(slug);
