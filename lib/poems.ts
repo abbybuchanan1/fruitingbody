@@ -201,7 +201,6 @@ knowing it is both
 the most
 and the least
 I can do.
-
 She gets her first loose tooth.
 He gets his first pimple.
 
@@ -210,7 +209,6 @@ I see my mother
 look genuinely happy
 in a photo
 for the first time.
-
 When the largest solar storm
 since 2003
 erupts above us,
@@ -265,7 +263,6 @@ hauls away
 of trash and debris,
 unearthing, presenting:
 the yard.
-
 The yard where my mother
 plants flowers.
 Where we gather on Mother’s Day
@@ -291,7 +288,6 @@ every week,
 IV in my left arm,
 as iron is pumped back
 into my watery blood.
-
 It is the month
 I exhume
 imprints
@@ -301,7 +297,6 @@ embedded in my body.
 Gold
 in my veins
 when the light hits just right.
-
 It is the month
 I remember I love sex.
 The month I bleed with the full moon.
@@ -321,7 +316,6 @@ blood of my blood,
 takes my hand
 unprompted
 as we walk through the park.
-
 The month
 my five-year-old,
 bone of my bone,
@@ -345,7 +339,6 @@ seen through a telescope.
 The month
 the nymph surrenders.
 The mother emerges.
-
 The month
 I finally wade
 out
@@ -354,7 +347,6 @@ the river,
 offering my exhausted attempts
 at control
 to her swift current.
-
 At least for today.`,
   },
   {
