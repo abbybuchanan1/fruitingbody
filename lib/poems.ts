@@ -165,7 +165,7 @@ Cicada broods XIII and XIX
 co-emerge
 from the ground
 for the first time in
-221 years.
+two hundred twenty-one years.
 Seven states
 across the Midwest and Southeast
 will reverberate with cicada song
@@ -210,7 +210,7 @@ look genuinely happy
 in a photo
 for the first time.
 When the largest solar storm
-since 2003
+since two thousand three
 erupts above us,
 we wake the kids at midnight,
 run down to the riverbank,
@@ -259,7 +259,7 @@ But it is the month
 my brother,
 intrepid archaeologist,
 hauls away
-2,500 pounds
+twenty-five hundred pounds
 of trash and debris,
 unearthing, presenting:
 the yard.
@@ -272,7 +272,7 @@ My Dear One
 hears a story stir
 deep underground,
 a story buried with our friend
-after the car accident in 2000.
+after the car accident in two thousand.
 She sings it
 back to the surface
 with the cicadas,
