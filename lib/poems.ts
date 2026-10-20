@@ -171,11 +171,9 @@ across the Midwest and Southeast
 will reverberate with cicada song
 until mid-June,
 when the mothers lay their eggs
-on the ends
+in the ends
 of tree branches.
-The newly minted nymphs hatch
-one month later.
-They chew through the branches,
+The newly minted nymphs hatch,
 free-fall to the roots,
 feast on sap,
 then follow
@@ -188,8 +186,12 @@ to burrow,
 incubate,
 wait.
 
-Jupiter enters Gemini
-for the first time in twelve years.
+It is the month
+I sit in the back of a cab
+and wonder
+if I can write a poem
+after thirty years.
+
 Rafah is on fire.
 I rage,
 make calls,
@@ -211,10 +213,10 @@ for the first time.
 
 When the largest solar storm
 since 2003
-erupts above us.
-We wake the kids at midnight,
-run down to the riverbank—
-pajamas and bare feet—
+erupts above us,
+we wake the kids at midnight,
+run down to the riverbank,
+pajamas and bare feet,
 to gawk at the aurora.
 They are hard to see
 with the naked eye,
@@ -222,15 +224,11 @@ but strangely brilliant
 through my iPhone’s lens:
 pink, green, gold.
 
-We visit the Field Museum in Chicago.
 We sit on a bench in front of Sue,
-the world’s largest
-fully intact T-rex fossil.
-She dominates an entire wing
-of the top floor.
-We stare silently for
-thirty minutes,
-then hold up photos
+the world’s largest,
+most complete
+T-rex fossil.
+We hold up photos
 of chicken skeletons,
 then human skeletons,
 comparing them to Sue’s.
@@ -247,69 +245,21 @@ She is smaller than I anticipated,
 not much bigger than a large child.
 I fall in love
 with the wide gold wings
-gilding her chest,
-glinting in the late afternoon light.
+gilding her chest.
 I wonder
 how her afterlife is going.
 And whether it is disgust or fascination
 rippling through my belly
 when I see her
 partially exposed
-Maxilla.
-
-On a sunny Tuesday
-at the Shedd Aquarium
-I pet a stingray
-with my bare hands.
-Its skin is impossibly smooth.
-Tears spring unexpectedly
-when I see
-the white beluga whales
-somersault
-through the blue water.
-And again
-when I realize:
-my boy is crying too.
-
-We gather
-three generations of relatives
-for a family reunion
-in rural Illinois.
-Forty of us emerge
-from both coasts.
-We swarm the platform
-at my uncle’s tiny church.
-We sing How Great Thou Art
-for the local congregation
-of twenty-three souls.
-We learn our great-great-grandmother
-used to sneak cigarettes and magazines.
-I get called a cheater during trivia.
-We debate parenting philosophies
-with the cousins.
-Then we fly home.
-
-It is the month
-I start taking voice lessons again.
-
-The month I sit in the clinic
-every week,
-IV in my left arm,
-as iron is pumped back
-into my watery blood.
-
-It is the month
-I remember I love sex.
-
-The month I bleed with the full moon.
-I hear that makes me a red witch.
+maxilla.
 
 It is not
 the month we finish construction
 on our house.
 But it is the month
-my brother—
-intrepid archaeologist—
+my brother,
+intrepid archaeologist,
 hauls away
 2,500 pounds
 of trash and debris,
@@ -318,91 +268,63 @@ the yard.
 
 The yard where my mother
 plants flowers.
-Where my sister hangs
-window boxes.
 Where we gather on Mother’s Day
 with old and new loves.
 
-And my Beloveds?
-
-She moves back to the Rockies
-and prepares to give birth again—
-this time at forty-five—
-weeks after her eldest
-returns home from college.
-The cycle begins again.
-
-My Love up north
-marks both her parents’ passings:
-mother ten years ago,
-father this time last year.
-She schedules the surgery.
-She makes herself a promise.
-
 My Dear One
 hears a story stir
-deep underground—
-a story buried with him
+deep underground,
+a story buried with our friend
 after the car accident in 2000.
 She sings it
 back to the surface
-with the cicadas.
-Sings it with her whole chest
-for the people,
+with the cicadas,
+sings it with her whole chest
 to the cameras.
 Then sings him
 back to sleep
 so he can finally rest.
 
+It is the month
+I sit in the clinic
+every week,
+IV in my left arm,
+as iron is pumped back
+into my watery blood.
+
+It is the month
+I exhume
+imprints
+of both
+abuser and abused
+embedded in my body.
+Gold
+in my veins
+when the light hits just right.
+
+It is the month
+I remember I love sex.
+The month I bleed with the full moon.
+
 He and I
 see a prick of light
 pierce our familiar dark.
-We realize
-maybe we have been
-in a tunnel all along—
-dark inside
-what is, in fact,
-a swelling cocoon,
-not a tomb,
-not the bottom of a well
+Maybe we have been
+in a swelling cocoon
+all along,
+not a tomb
 as we feared.
 
-We begin to imagine
-in earnest
-what it would be
-to emerge
-from survival
-into something
-more sustainable,
-more vibrant—
-something we recognize,
-something we love.
-
-It is the month
-I uncover ancient runes
-embedded in my body:
-fossils,
-relics,
-imprints
-of abuser and abused
-I must exhume
-and alchemize.
-And I do—
-into gold
-shimmering in my veins
-like the Nile or Thames
-when the light hits just right.
-
 May is the month
-my nine-year-old—
-blood of my blood—
+my nine-year-old,
+blood of my blood,
 takes my hand
 unprompted
 as we walk through the park.
 
 The month
-my five-year-old—
-bone of my bone—
+my five-year-old,
+bone of my bone,
 falls asleep on my chest,
 her head heavy
 on my sternum,
@@ -416,8 +338,8 @@ It is the month
 I realize
 human ashes,
 viewed under a microscope,
-are indistinguishable
-from nebulae
+resemble
+nebulae
 seen through a telescope.
 
 The month
@@ -430,22 +352,10 @@ out
 into
 the river,
 offering my exhausted attempts
-at control—
-my pretense,
-my projections,
-denials,
-fantasies,
-and waning light—
+at control
 to her swift current.
 
-At least for today.
-
-It is the month
-hope returns.
-
-The month
-I wonder
-if I can write a poem.`,
+At least for today.`,
   },
   {
     slug: "that-it-was",
