@@ -680,7 +680,6 @@ though I barely noticed it rise
 My nose against Monet’s pond
 The Grand Canyon
 through an empty paper towel tube
-pressed to my eye
 
 Smooth in my hand
 Over and over
