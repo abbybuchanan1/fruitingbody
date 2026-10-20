@@ -12,14 +12,12 @@ const allPoems: Poem[] = [
     slug: "for-c",
     title: "For C",
     year: "2024",
-    preview: ["Hi.", "Hello.", "Nice to meet you.", "Let’s be friends."],
+    preview: ["Hi.", "Nice to meet you.", "Let’s be friends."],
     body: `Hi.
-Hello.
 Nice to meet you.
 Let’s be friends.
 
 You remind me of someone
-I know
 I’ve known before
 but
 can’t
@@ -28,23 +26,11 @@ place
 from
 when.
 
-Maybe
-it’s my friend from the old country?
-The one I made the crossing with
-but never saw again?
-
-Or
-is it my midwife?
-
-Or
-the queen I once served?
-
-No.
 I think it’s my best friend—
 the little girl I played pretend with,
 who was motherless like me,
 whose lunch I packed
-while she packed mine,
+while she packed mine.
 Then we taught ourselves to be pretty,
 to wear makeup,
 to buy bras,
@@ -53,92 +39,40 @@ so we’d be ready
 to help our real moms stop crying
 if they ever got up off the floor.
 
-You remind me of
-the Blazing Star
-I shared a wordless conversation with
-once:
-before we had bodies,
-when we were only light.
-Making plans.
-Agreements.
-“I’ll meet you there.”
-
 Wait.
-I think it’s the orca I swam beside for years
-raised together in the icy water.
-We shared currents,
-borrowing each other’s momentum,
-till we became the matriarchs
-and the pod was ours to guide.
-
 You do remind me of
 the girl I hated in 5th grade.
-The bossy one I could never compete with
+The bossy one I could never compete with,
 with better roller skates
 and older friends.
 
-Or it could be
-the girl I stood with
+Or maybe
+it’s the girl I stood with
 in a tiny church
 outside Alamogordo
 flanking our friend,
 the teenage bride.
-There to witness
-the beginning of the end.
-That entire wedding party was too young to vote!
-And we all stood a little too close to the altar
+That entire wedding party was too young to vote.
+And we all stood a little too close to the altar,
 our hairspray-laden updos
 starting to smoke
 the closer we got to the
 flames.
 
-Or maybe
-it’s the one I cried with
-when we realized
-our childhoods had ended.
-The one I plotted with because
-our childhoods had ended.
-
-You remind me of
-the friend
-who lived in the house
-where I had my first kiss.
-
-No!
-You look just like the monk I saw once
-in the courtyard of a mountain-top temple
-wrapped in an orange robe,
-clouds crowning
-her freshly shaved head,
-eyes filled with a world
-we had yet to behold.
-
-Or maybe
-you remind me of the wave that formed
-next to me
-even as I was forming:
-two distinct moments
-inside the same sea.
-
 You remind me of
 a roommate I had once.
-The one
-I tormented
-nightly
-with my band practice.
 The one
 I held tight
 as we hurled ourselves
 into adulthood.
 
-Or
-the one who was waiting up for me
+The one who was waiting up for me
 when I came home in the middle of the night
 drunk on oxytocin
-and beer
+and beer,
 neck rubbed raw
 from my new boyfriend’s stubble,
-the one I’d marry 8 months later that year.
+the one I’d marry 8 months later.
 
 Nevermind.
 
@@ -146,8 +80,6 @@ You remind me of a woman
 I knew when our boys were tiny.
 We would talk for hours on the couch
 about how to keep our babies alive,
-how exhausted we were,
-how much we loved them,
 how we couldn’t remember life
 before them.
 How we knew our lives were too small
@@ -155,84 +87,65 @@ but it was ok—
 mostly because
 it had to be.
 
-No, I know.
-
-You were the one
-I met in the dark forest.
-A fellow witch
-combing the underbrush, rivers, and streams
-outrunning the soldiers,
-dodging the priests,
-gathering medicine
-so our people could see.
-
 Or maybe
 it’s the woman in the restaurant.
 The one who saved my life with
 a dinner knife and
 a swift cut to the trachea.
-Unmedicated,
-Brave Love.
-Something was stuck and I was choking to death.
+The words were stuck.
+I was choking to death.
 So she cut.
 Decisive,
 even though I know her hands were shaking.
-And it hurt like hell but I did not die.
-I am here to tell the tale
-so much more alive
-than I ever was before.
+And it hurt like hell
+but I did not die.
 
 You remind me of
-the
-woman
-who
-jumped
-first.
-The one who capsized the boat
-and swam for her life,
+the one who capsized the boat
+first,
 eyes fixed
-unflinchingly
-forward.
-Always forward.
-Never back.
+on the churning horizon,
+pulling herself forward.
 
 The one
-who strapped herself into a
-rocket
-and
-flew
+who strapped herself into a rocket
+and flew
 until all that remained
 was a faint glow,
-the soft outline a space
+the soft outline of a space
 she’d once inhabited.
 
 Or maybe
 you remind me
 of the woman I knew last fall.
-The one who rebuilt her entire life
-from the grit beneath her nails.
 She made it look like
 sorcery,
 forming a new world
-from nothing but dust.
+from nothing but dust
+and the grit beneath her nails.
 Assembling and animating it
-with only her breath,
-her trust.
+with her breath.
 
 But I heard her crying in the RV at night.
 And I knew
-it was all too immense
-to defile with words,
-and she’d asked for her privacy,
+she’d asked for her privacy,
 and the pain was hers not mine,
 so I cried
 and cried
-with her each day
+with her
 standing just outside.
 
+Wait.
+I think it’s the orca I swam beside for years,
+raised together in the icy water.
+We shared currents,
+borrowing each other’s momentum,
+till we became the matriarchs,
+the pod in our wake.
+
 No.
-It’s definitely Joan of Arc.
-who reminds me of you!
+It’s definitely Joan of Arc
+who reminds me of you.
 The one who liberated herself and showed me how.
 The one who couldn’t wait for me
 but never stopped leaving signs,
