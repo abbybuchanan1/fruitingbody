@@ -54,7 +54,7 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/archive/fear-not/fear-not-further-08.jpg": [608, 1080],
   "/art/archive/fear-not/fear-not-further-09.jpg": [608, 1080],
   "/art/archive/fear-not/fear-not-further-05.jpg": [1126, 2000],
-  "/art/archive/fear-not/fear-not-further-05b.jpg": [1216, 2160],
+  "/art/archive/fear-not/fear-not-further-05c.jpg": [1216, 2160],
   "/art/archive/fear-not/fear-not-further-06.jpg": [1267, 742],
   "/art/archive/fear-not/fear-not-further-07.jpg": [2000, 1125],
   "/art/archive/fear-not/fear-not-index-01.jpg": [1600, 2000],

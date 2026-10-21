@@ -145,7 +145,7 @@ export const museumWorks: MuseumWork[] = [
       { src: "/art/archive/fear-not/fear-not-further-08.jpg", alt: "Fear Not, further work. Eyes lowered, side-lit, the body wrapped in glowing vines." },
       { src: "/art/archive/fear-not/fear-not-further-03.jpg", alt: "Fear Not, further work. Close, biting the apple." },
       { src: "/art/archive/fear-not/fear-not-further-04b.jpg", alt: "Fear Not, further work. The face nearly lost among lit leaves, eyes closed." },
-      { src: "/art/archive/fear-not/fear-not-further-05b.jpg", alt: "Fear Not, further work. Holding the apple out toward the camera." },
+      { src: "/art/archive/fear-not/fear-not-further-05c.jpg", alt: "Fear Not, further work. Holding the apple out toward the camera." },
       { src: "/art/archive/fear-not/fear-not-further-06.jpg", alt: "Fear Not, further work. Hands blurred in motion before the face, eyes closed." },
       { src: "/art/archive/fear-not/fear-not-further-07.jpg", alt: "Fear Not, further work. A direct gaze among the leaves, a green stem in hand." },
     ],
