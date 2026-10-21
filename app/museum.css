@@ -17624,3 +17624,12 @@ html[data-daylight="blue"] .vestibule-arrival::after {
     margin-bottom: 2.2rem !important;
   }
 }
+
+/* INDEX (phone) — contact as three short lines: name / email / links. */
+@media (max-width: 700px) {
+  .index-page .utility-header__contact-email {
+    display: block;
+    width: max-content;
+    margin-top: .45rem;
+  }
+}

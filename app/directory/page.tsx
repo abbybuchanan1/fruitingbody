@@ -19,7 +19,8 @@ export default function IndexPage() {
         <p className="utility-header__note">Some works contain nudity and close studies of the human body.</p>
         <p className="utility-header__contact">
           <span className="utility-header__contact-who">
-            Abby Buchanan · <a href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
+            Abby Buchanan<span className="utility-header__contact-sep" aria-hidden="true">{" · "}</span>
+            <a className="utility-header__contact-email" href="mailto:abby@fruitingbody.works">abby@fruitingbody.works</a>
           </span>
           <span className="utility-header__contact-sep" aria-hidden="true">{" · "}</span>
           <span className="utility-header__contact-links">
