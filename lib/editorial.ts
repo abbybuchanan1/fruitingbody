@@ -93,7 +93,7 @@ export const reflections: Record<string, string[]> = {
   ],
   "fear-not": [
     "Fear Not began with Eve, and with curiosity. I kept coming back to how often a woman opening her own eyes is told as the beginning of ruin.",
-    "In these photographs curiosity is something the body does: reaching, tasting, looking, and letting what I see change me. The body moves through fear into something new.",
+    "In these photographs curiosity is something the body does: reaching, tasting, looking, and letting what I see change me. The body moves through fear into knowing.",
   ],
   "taste-and-see": [
     "The first images began with Venus imagery and the long visual history of arranging feminine beauty for a viewer. Appetite gradually moved to the center of the work.",
