@@ -136,7 +136,9 @@ export const redThreadRetired: Artwork = {
 // Body of Water: the first frame 03 was withdrawn (it had been upscaled).
 // 03-v2 is the artist's re-edit from a file that was never upscaled,
 // hung in the same position (October 2026).
-export const bodyOfWaterWorks: Artwork[] = ["01", "02", "03-v2", "04", "05", "06", "07", "08"].map(
+// October 20: 01, 05 and 07 replaced with the artist's re-exports closer to the
+// originals (the earlier files showed upscaler/denoise texture at full size).
+export const bodyOfWaterWorks: Artwork[] = ["01-v2", "02", "03-v2", "04", "05-v2", "06", "07-v2", "08"].map(
   (n, i) => ({
     src: `/art/body-of-water/body-of-water-${n}.jpg`,
     alt: `Body of Water, image ${i + 1} of 8.`,
