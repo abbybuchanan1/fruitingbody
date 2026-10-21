@@ -31,7 +31,7 @@ export const fruitingBodyStatement = [
 ];
 
 export const artistBio = [
-  "Abby Buchanan is a photographic artist based in Portland, Oregon, working primarily in self-portraiture.",
+  "Abby Buchanan is an interdisciplinary artist based in Portland, Oregon, working primarily in self-portrait photography, alongside film, sound and writing.",
   "After two decades as a licensed massage therapist and bodyworker, she began using photography as a form of embodied inquiry. Her work draws on motherhood, neurodivergence, myth, and the natural world.",
 ];
 
