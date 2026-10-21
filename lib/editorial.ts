@@ -8,7 +8,7 @@ export const artistStatement = [
   "In the photographs my body becomes landscape, and sometimes a membrane, a place where things meet. Water, cloth, myth, and grief leave their marks, and who I am shifts with them.",
   "Much of the work is about agency inside conditions I can’t control. Sometimes that means choosing. Sometimes it means witnessing, tending, or deciding how to live inside what I can’t leave. Myth gives me a way into those questions without turning the photographs into illustrations of a story.",
   "Bodies and landscapes are shaped by the same slow forces, like erosion and growth. I think of that as kinship.",
-  "Making this work has helped me hold motherhood, neurodivergence, art, and my own cycles of descent and emergence without needing them to settle into one version of me.",
+  "Making this work has given me a more solid sense of self, one that can hold motherhood, neurodivergence, art, and my cycles of descent and emergence. Part of my nature is that I’m always changing, and I’m learning to come home to that.",
   "I hope it leaves you more curious about yourself, and less alone.",
 ];
 
