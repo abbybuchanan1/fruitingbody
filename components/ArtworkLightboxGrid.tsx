@@ -8,6 +8,7 @@ type LightboxImage = {
   src: string;
   alt: string;
   title?: string;
+  medium?: string;
   group?: string;
   groupTitle?: string;
   breakBefore?: boolean;
@@ -85,7 +86,7 @@ function isUniform(images: LightboxImage[]) {
   return Math.max(...ratios) / Math.min(...ratios) < 1.08;
 }
 
-type Block = { key: string; title?: string; breakBefore?: boolean; stack?: boolean; items: Array<{ image: LightboxImage; index: number }> };
+type Block = { key: string; title?: string; medium?: string; breakBefore?: boolean; stack?: boolean; items: Array<{ image: LightboxImage; index: number }> };
 
 // Consecutive images that share a group (a Relative or Threshold pair) are
 // kept together on one row with one caption.
@@ -110,6 +111,7 @@ function toBlocks(images: LightboxImage[]): Block[] {
       key: image.group ? `g-${image.group}` : `i-${index}`,
       breakBefore: image.breakBefore,
       title: image.group ? image.groupTitle : image.title,
+      medium: image.group ? undefined : image.medium,
       items: [{ image, index }],
     });
   });
@@ -209,7 +211,12 @@ export function ArtworkLightboxGrid({
                   </button>
                 ))}
               </div>
-              {block.title ? <figcaption className="catalog-block__title">{block.title}</figcaption> : null}
+              {block.title ? (
+                <figcaption className="catalog-block__title">
+                  {block.title}
+                  {block.medium ? <span className="catalog-block__medium">{block.medium}</span> : null}
+                </figcaption>
+              ) : null}
             </figure>,
           ];
         })}

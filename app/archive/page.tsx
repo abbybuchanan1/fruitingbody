@@ -63,7 +63,8 @@ const oneYearCollage: Artwork[] = [
   {
     src: "/art/archive/daffodils/one-year-fifty-five-hundred-forever.jpg",
     alt: "One Year. Fifty. Five Hundred. Forever. A kaleidoscopic digital collage of bodies, pale flowers and earth, mirrored around a dark centre.",
-    title: "One Year. Fifty. Five Hundred. Forever. Digital collage, 2025",
+    title: "One Year. Fifty. Five Hundred. Forever.",
+    medium: "Digital collage, 2025",
   },
 ];
 

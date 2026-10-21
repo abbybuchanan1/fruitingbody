@@ -17667,3 +17667,21 @@ html[data-daylight="blue"] .vestibule-arrival::after {
     max-height: min(82vh, calc(100dvh - 11rem)) !important;
   }
 }
+
+/* ARCHIVE — the One Year collage: title centred under the image, the medium
+   on its own quieter line, so the caption sits below the work rather than
+   competing with the room and work headings that follow. */
+.archive-further .catalog-block__title {
+  text-align: center;
+  font-size: .64rem !important;
+  line-height: 1.45 !important;
+  opacity: .72;
+}
+
+.catalog-block__medium {
+  display: block;
+  margin-top: .3rem;
+  font-size: .56rem;
+  letter-spacing: .14em;
+  opacity: .8;
+}
