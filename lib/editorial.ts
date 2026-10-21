@@ -4,12 +4,12 @@
 export const showInterpretiveQuestions = false;
 
 export const artistStatement = [
-  "I use self-portraiture to investigate what it means to inhabit a body that is singular and also embedded in larger systems: ecological, relational, biological, inherited, and temporal.",
-  "Across the work, the body becomes landscape, threshold, archive, membrane, and site of encounter. Identity is not fixed here. It forms, dissolves, and reorganizes through contact with water and land, myth, cloth and ritual objects, grief, desire, lineage, and time.",
-  "I return often to agency inside conditions that cannot be fully controlled. Agency may look like choosing, witnessing, tending, or deciding how to inhabit what cannot simply be escaped. Myth gives me a structure for entering those questions without turning the photographs into illustrations of a story.",
-  "Landscape works in a similar way. Bodies and landscapes are shaped by many of the same processes: gravity, erosion, growth, permeability, decay, and seasonal change. I think of that relationship as kinship.",
-  "Making these photographs has paralleled my own movement toward a more integrated sense of self, one that can hold motherhood, neurodivergence, artistic practice, and repeated cycles of descent and emergence without needing them to resolve into one stable version of me.",
-  "I hope my work helps viewers feel more curious about themselves and less alone in the world.",
+  "I make self-portraits to understand what it’s like to live in one body that is also part of something larger: the land, the people I love, what I’ve inherited, and time.",
+  "In the photographs my body becomes landscape, and sometimes a membrane, a place where things meet. Water, cloth, myth, and grief leave their marks, and who I am shifts with them.",
+  "Much of the work is about agency inside conditions I can’t control. Sometimes that means choosing. Sometimes it means witnessing, tending, or deciding how to live inside what I can’t leave. Myth gives me a way into those questions without turning the photographs into illustrations of a story.",
+  "Bodies and landscapes are shaped by the same slow forces, like erosion and growth. I think of that as kinship.",
+  "Making this work has helped me hold motherhood, neurodivergence, art, and my own cycles of descent and emergence without needing them to settle into one version of me.",
+  "I hope it leaves you more curious about yourself, and less alone.",
 ];
 
 export const processStatement = [
