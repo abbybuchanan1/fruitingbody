@@ -126,6 +126,10 @@ export function ArtworkLightboxGrid({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   useDialogFocus(dialogRef, openIndex !== null);
+  // Phones: a horizontal swipe on the opened image moves to the next or previous one.
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const step = (delta: number) =>
+    setOpenIndex((current) => (current === null ? null : (current + delta + images.length) % images.length));
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -220,6 +224,19 @@ export function ArtworkLightboxGrid({
           aria-label={image.title ?? image.alt}
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setOpenIndex(null);
+          }}
+          onTouchStart={(event) => {
+            const t = event.touches[0];
+            touchStart.current = event.touches.length === 1 ? { x: t.clientX, y: t.clientY } : null;
+          }}
+          onTouchEnd={(event) => {
+            const start = touchStart.current;
+            touchStart.current = null;
+            if (!start || images.length < 2) return;
+            const t = event.changedTouches[0];
+            const dx = t.clientX - start.x;
+            const dy = t.clientY - start.y;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
           }}
         >
           <button className="artwork-lightbox__close" type="button" onClick={() => setOpenIndex(null)}>

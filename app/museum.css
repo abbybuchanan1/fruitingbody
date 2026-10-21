@@ -17641,3 +17641,29 @@ html[data-daylight="blue"] .vestibule-arrival::after {
   width: 0;
   min-width: 100%;
 }
+
+/* VIEWER (phone) — Previous and Next were 12px-tall targets sitting in the
+   strip where the browser's own bottom bar appears, so taps were often lost.
+   They are now full-size touch targets, lifted clear of that strip. */
+@media (max-width: 760px) {
+  .artwork-lightbox__nav {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 1.6rem) !important;
+    min-width: 44px;
+    min-height: 44px;
+    padding: .9rem 1rem !important;
+    display: flex;
+    align-items: center;
+    touch-action: manipulation;
+  }
+
+  .artwork-lightbox__nav--prev { left: .5rem !important; }
+  .artwork-lightbox__nav--next { right: .5rem !important; justify-content: flex-end; }
+
+  .artwork-lightbox {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5rem) !important;
+  }
+
+  .artwork-lightbox .artwork-lightbox__figure img:not([src$="daffodils-index-11.jpg"]) {
+    max-height: min(82vh, calc(100dvh - 11rem)) !important;
+  }
+}
