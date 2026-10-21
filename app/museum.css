@@ -17633,3 +17633,11 @@ html[data-daylight="blue"] .vestibule-arrival::after {
     margin-top: .45rem;
   }
 }
+
+/* ARCHIVE — a further-work caption wraps under its own image instead of
+   widening the block, so the One Year collage hangs on the row with the
+   red-wall frames rather than dropping to a line of its own. */
+.archive-further .catalog-block__title {
+  width: 0;
+  min-width: 100%;
+}
