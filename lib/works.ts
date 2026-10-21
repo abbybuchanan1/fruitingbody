@@ -139,9 +139,10 @@ export const museumWorks: MuseumWork[] = [
     archive: artworkSets.fearNot,
     archiveExtra: [
       { src: "/art/fear-not/fear-not-05.jpg", alt: "Fear Not, further work. Facing the camera with a direct gaze, holding the eaten core of the apple." },
-      { src: "/art/fear-not/fear-not-03b.jpg", alt: "Fear Not, further work. Soft and glowing, eyes lowered, the figure half-dissolved in light among the leaves." },
       { src: "/art/archive/fear-not/fear-not-further-01b.jpg", alt: "Fear Not, further work. Hair whipping through the lit vines, the face turned away." },
       { src: "/art/archive/fear-not/fear-not-further-02.jpg", alt: "Fear Not, further work. Head thrown back, vines across the body." },
+      { src: "/art/archive/fear-not/fear-not-further-09.jpg", alt: "Fear Not, further work. Eyes closed, chin raised, one hand gripping a vine across the body." },
+      { src: "/art/archive/fear-not/fear-not-further-08.jpg", alt: "Fear Not, further work. Eyes lowered, side-lit, the body wrapped in glowing vines." },
       { src: "/art/archive/fear-not/fear-not-further-03.jpg", alt: "Fear Not, further work. Close, biting the apple." },
       { src: "/art/archive/fear-not/fear-not-further-04b.jpg", alt: "Fear Not, further work. The face nearly lost among lit leaves, eyes closed." },
       { src: "/art/archive/fear-not/fear-not-further-05.jpg", alt: "Fear Not, further work. Holding the apple out toward the camera." },
