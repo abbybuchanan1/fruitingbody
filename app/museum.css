@@ -17563,3 +17563,64 @@ html[data-daylight="blue"] .vestibule-arrival::after {
   line-height: 1.5 !important;
   color: rgba(39, 36, 31, .72) !important;
 }
+
+/* INDEX (phone) — hierarchy. Fewer competing tracked capitals, captions that
+   break only between their parts, and tighter spacing so each label sits
+   with what it names: Index → intro → note, room → work → statement. */
+.index-work__meta-part {
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .index-page .utility-header h1 {
+    margin: .35rem 0 .9rem !important;
+  }
+
+  .index-page .utility-header > p:not([class]) {
+    font-size: 1.12rem !important;
+    line-height: 1.5 !important;
+    text-wrap: pretty;
+  }
+
+  .utility-header__note {
+    margin-top: .7rem !important;
+    font-size: .84rem !important;
+    text-wrap: pretty;
+  }
+
+  .index-page .utility-header .utility-header__contact {
+    margin-top: 1.6rem !important;
+  }
+
+  .index-room-group {
+    padding-top: 1.6rem !important;
+  }
+
+  .index-room-group > h2 {
+    margin-bottom: 1.9rem !important;
+    letter-spacing: .3em !important;
+  }
+
+  .index-work__meta {
+    letter-spacing: .14em !important;
+    line-height: 1.75 !important;
+  }
+
+  /* Place always takes its own line on a phone: year · medium / place. */
+  .index-work__meta-place {
+    display: block;
+  }
+
+  .index-work__meta-sep {
+    display: none;
+  }
+
+  .index-work__header h3 {
+    margin: .3rem 0 .9rem !important;
+    font-size: 2.1rem !important;
+  }
+
+  .index-work__header {
+    margin-bottom: 2.2rem !important;
+  }
+}

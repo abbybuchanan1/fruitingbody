@@ -44,7 +44,16 @@ export default function IndexPage() {
                 <article className="index-work" data-work-id={work.id} key={work.id}>
                   <header className="index-work__header">
                     <div className="index-work__identity">
-                      <p className="index-work__meta">{work.year} · {work.medium}{work.place ? ` · ${work.place}` : ""}</p>
+                      <p className="index-work__meta">
+                        <span className="index-work__meta-part">{work.year}</span>
+                        {" · "}<span className="index-work__meta-part">{work.medium}</span>
+                        {work.place ? (
+                          <span className="index-work__meta-place">
+                            <span className="index-work__meta-sep">{" · "}</span>
+                            <span className="index-work__meta-part">{work.place}</span>
+                          </span>
+                        ) : null}
+                      </p>
                       <h3><Link href={work.href}>{work.title}</Link></h3>
                       <p className="index-work__statement">{work.statement}</p>
                       {showInterpretiveQuestions ? <p className="index-work__question">{work.question}</p> : null}
