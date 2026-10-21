@@ -132,7 +132,7 @@ export const museumWorks: MuseumWork[] = [
     place: "Portland, Oregon",
     href: "/exhibition?jump=fear-not",
     statement:
-      "Fear can still be present. The body moves anyway.",
+      "Fear is present; the body moves anyway.",
     question:
       "What becomes possible when curiosity matters more than certainty?",
     exhibition: artworkSets.fearNot,
