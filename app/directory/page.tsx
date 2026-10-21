@@ -105,6 +105,11 @@ export default function IndexPage() {
           Epidemic Sound.
         </p>
         <p>
+          The building keeps the visitor&rsquo;s time. Its light moves from morning to golden
+          hour to blue hour with your clock and the season, and the Entrance, Cloisters and
+          Courtyard sound different after dark.
+        </p>
+        <p>
           The concept, design and writing are the artist&rsquo;s own. AI was used to write code
           to her wireframes and specifications. No generative AI was used in the
           artworks or the artist&rsquo;s photographs.
