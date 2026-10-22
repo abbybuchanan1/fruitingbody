@@ -208,7 +208,7 @@ export const museumWorks: MuseumWork[] = [
     place: "Portland, Oregon",
     href: "/exhibition?jump=threshold",
     statement:
-      "Transformation has begun but cannot yet be named.",
+      "Light coming in, breath coming up.",
     question:
       "What occurs in the space between what has ended and what has not yet emerged?",
     exhibition: flattenPairs(thresholdPairs),

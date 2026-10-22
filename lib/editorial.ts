@@ -91,8 +91,8 @@ export const reflections: Record<string, string[]> = {
     "Across them, connection persists as visible tension. Thread binds and traces. Protection hardens into identity. Blur and movement loosen the figure. Seen together, the three bodies move through entanglement, shelter, release, and becoming.",
   ],
   threshold: [
-    "Threshold began with the sense that my body is itself a threshold. Light comes through my skin the color of blood. My mouth breaks the surface of the water to breathe. Each pair holds two edges: the skin between blood and water, and the waterline between water and air. I feel them spiritually as well. They are doorways.",
-    "As I worked, anatomy began behaving like architecture. Folds became passages, openings became rooms, and the body became a spatial boundary that could be approached from either side.",
+    "Threshold began with the sense that my body is itself a threshold. Light passing through my skin turns the color of blood; a mouth breaks the surface of the water to breathe. Each pair holds two edges: the skin between blood and light, and the waterline between breath and depth. I feel these edges as doorways, spiritually as much as physically.",
+    "As I worked, anatomy began behaving like architecture. Folds became passages, openings became rooms, and the body became a boundary that could be approached from either side.",
   ],
   "fear-not": [
     "Fear Not began with Lilith and Eve. I kept coming back to the old warning that ruin awaits the woman who opens her own eyes.",
