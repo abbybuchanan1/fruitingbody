@@ -63,8 +63,9 @@ export const artistCv: Array<{ heading: string; entries: Array<{ year: string; t
 
 export const reflections: Record<string, string[]> = {
   phase: [
-    "These images began as synesthetic translations of emotional states experienced during the winter of 2024. For much of my life, an emotional state could feel total: not I feel hopeless, but I am hopelessness.",
-    "This series marks a shift toward distance without disavowal: I am experiencing hopelessness. The photographs stay with the unstable interval where one state has loosened and another has not yet become recognizable. Winter keeps only what survives the cold.",
+    "These images began as synesthetic translations of emotional states I lived through in the winter of 2024. For much of my life, an emotional state could feel total. Not I feel hopeless, but I am hopelessness.",
+    "This series marks a shift toward distance without disavowal. What if an emotional state is weather moving across me, rather than the ground I stand on?",
+    "The photographs stay with the unstable interval, after one state has loosened and before the next has become recognizable.",
   ],
   relative: [
     "The series was first called My Body Is the Land I’m From. It began with a thought: our bodies may be the only land we ever truly own, and even then only for a while, before they change shape again. My body is my home, and land that is mine to steward for as long as I have it.",
