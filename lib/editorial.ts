@@ -67,8 +67,9 @@ export const reflections: Record<string, string[]> = {
     "This series marks a shift toward distance without disavowal: I am experiencing hopelessness. The photographs stay with the unstable interval where one state has loosened and another has not yet become recognizable. Winter keeps only what survives the cold.",
   ],
   relative: [
-    "The series was first called My Body Is the Land I’m From. It began with the thought that our bodies may be the only land we can ever actually own, even if only temporarily before they change shape again. They are the one place we inhabit from the inside, and therefore something we are responsible for tending. I was also reckoning with years of body shame and dysmorphia. Seeing waistbands as sediment lines, stretch marks as bark, and skin as terrain gave me another way to look.",
-    "Over time the pairing became more literal to me. Body and land are both shaped by pressure, weather, history, use, repair, gravity, and time. The photographs place them beside one another as related material.",
+    "The series was first called My Body Is the Land I’m From. It began with a thought: our bodies may be the only land we ever truly own, and even then only for a while, before they change shape again. My body is my home, and land that is mine to steward for as long as I have it.",
+    "After years of body shame and dysmorphia, that idea shifted something that had been stuck for a very long time. Seeing waistbands as sediment lines, stretch marks as bark, and skin as terrain gave me another way to look.",
+    "Over time the pairing became more literal. Body and land are both shaped by weather, use, repair, and time. The photographs place them side by side as related material.",
   ],
   daffodils: [
     "I came to Persephone as a way to think about power inside a cycle that cannot simply be escaped. Her movement between worlds is imposed and inhabited at the same time. That led to an exploration of what it might look like to find agency within circumstances we cannot fully control.",
