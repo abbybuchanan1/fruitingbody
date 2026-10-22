@@ -192,7 +192,7 @@ export const museumWorks: MuseumWork[] = [
     place: "Stevenson, Washington",
     href: "/exhibition?jump=phase",
     statement:
-      "Not “I am hopelessness,” but “I am experiencing hopelessness.”",
+      "Winter keeps only what survives the cold.",
     question:
       "Who are we while we are becoming someone we cannot yet recognize?",
     exhibition: artworkSets.phase,
