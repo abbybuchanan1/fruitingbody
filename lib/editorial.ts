@@ -72,8 +72,9 @@ export const reflections: Record<string, string[]> = {
     "Over time the pairing became more literal. Body and land are both shaped by weather, use, repair, and time. The photographs place them side by side as related material.",
   ],
   daffodils: [
-    "I came to Persephone as a way to think about power inside a cycle that cannot simply be escaped. Her movement between worlds is imposed and inhabited at the same time. That led to an exploration of what it might look like to find agency within circumstances we cannot fully control.",
-    "The phrase “powerful and powerless” gave me a way to stay inside the tension without resolving it into victimhood or triumph.",
+    "I came to Persephone as a way to think about power inside a cycle that can’t simply be escaped. Her movement between worlds is imposed and inhabited at the same time. She didn’t choose the descent. But some tellings say she chose the pomegranate.",
+    "That is the line I keep tracing in my own life: what is mine to control and what isn’t. Bodies, seasons and circumstances change without asking. What I can shape is my response, my choices and the frameworks I use to make meaning.",
+    "The phrase “powerful and powerless” gave me a way to stay inside that tension without resolving it into victimhood or triumph.",
     "“(Persephone) was winter, she was spring. When she ascended, the world awoke. When she descended, it lamented. She left; she returned. One year. Fifty. Five hundred. Forever. Powerful and powerless was she.” — Pádraig Ó Tuama, In a Garden by a Gate",
   ],
   miscarriage: [
