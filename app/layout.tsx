@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
   authors: [{ name: "Abby Buchanan" }],
+  // Pages may be found in search; the photographs on them may not.
+  robots: { index: true, follow: true, noimageindex: true },
   openGraph: {
     title: siteTitle,
     description: siteDescription,

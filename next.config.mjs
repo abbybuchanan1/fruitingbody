@@ -2,6 +2,18 @@
 const nextConfig = {
   poweredByHeader: false,
 
+  // The artworks stay out of image search: a photograph found on its own in
+  // search results loses the room around it. Pages can still be found, links
+  // still preview (the share image is left alone), and visitors see no change.
+  async headers() {
+    const noImageIndex = [{ key: "X-Robots-Tag", value: "noindex, noimageindex" }];
+    return [
+      { source: "/art/:path*", headers: noImageIndex },
+      { source: "/media/:path*", headers: noImageIndex },
+      { source: "/_next/image", headers: noImageIndex },
+    ];
+  },
+
   // Earlier prototype rooms are kept in the codebase for reference, but anyone
   // who reaches their old addresses is sent to the room that replaced them.
   // Temporary (307) so these can change as the museum is rehung.
