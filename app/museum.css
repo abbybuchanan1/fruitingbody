@@ -17718,3 +17718,21 @@ html[data-daylight="blue"] .vestibule-arrival::after {
   .water-room-installation .art-sequence .artwork-image:nth-child(6) { transform: translateY(-3vh) !important; }
   .water-room-installation .art-sequence .artwork-image:nth-child(7) { transform: none !important; }
 }
+
+/* BODY OF WATER — the seven installed frames (all landscape, so each is one
+   long edge wide) hang four to a row, 4 + 3, in the Index and the Archive.
+   The long edge shrinks just enough for four to fit across. */
+@media (min-width: 681px) {
+  .index-work[data-work-id="body-of-water"] .catalog-grid,
+  .archive-work[data-work-id="body-of-water"] > .catalog-grid {
+    container-type: inline-size;
+    --edge: min(310px, calc((100cqw - 3 * 1.1rem - 4px) / 4)) !important;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1100px) {
+  .index-work[data-work-id="body-of-water"] .catalog-grid,
+  .archive-work[data-work-id="body-of-water"] > .catalog-grid {
+    --edge: min(260px, calc((100cqw - 3 * 1.1rem - 4px) / 4)) !important;
+  }
+}
