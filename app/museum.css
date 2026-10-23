@@ -17685,3 +17685,36 @@ html[data-daylight="blue"] .vestibule-arrival::after {
   letter-spacing: .14em;
   opacity: .8;
 }
+
+/* BODY OF WATER — seven frames (October 22). The underwater frame moved to
+   the Archive, so every position from 4 on now holds a different photograph:
+   4 the splash (3:2), 5 wet hair (16:9), 6 laughing (16:9), 7 the closing
+   frame (3:2). The old frame-4 portrait sizing and the per-position edge
+   shaves are cleared; the closing frame keeps its shave by file. */
+.water-room-installation .art-sequence .artwork-image[data-artwork-index] img {
+  clip-path: none !important;
+}
+
+.water-room-installation .art-sequence .artwork-image img[src$="body-of-water-08.jpg"] {
+  clip-path: inset(.72%) !important;
+}
+
+@media (min-width: 681px) {
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="4"] { width: min(88vw, 82rem) !important; transform: translateX(6vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="5"] { width: min(70vw, 64rem) !important; transform: translateX(-8vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="6"] { width: min(94vw, 90rem) !important; transform: translateX(1vw) !important; }
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="7"] { width: min(82vw, 76rem) !important; transform: translateX(-4vw) !important; }
+}
+
+@media (max-width: 680px) {
+  .water-room-installation .art-sequence .artwork-image[data-artwork-index="4"] {
+    width: 88vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .water-room-installation .art-sequence .artwork-image:nth-child(4) { transform: translateY(-10vh) !important; }
+  .water-room-installation .art-sequence .artwork-image:nth-child(5) { transform: translateY(-6vh) !important; }
+  .water-room-installation .art-sequence .artwork-image:nth-child(6) { transform: translateY(-3vh) !important; }
+  .water-room-installation .art-sequence .artwork-image:nth-child(7) { transform: none !important; }
+}

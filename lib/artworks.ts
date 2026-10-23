@@ -138,10 +138,12 @@ export const redThreadRetired: Artwork = {
 // hung in the same position (October 2026).
 // October 20: 01, 05 and 07 replaced with the artist's re-exports closer to the
 // originals (the earlier files showed upscaler/denoise texture at full size).
-export const bodyOfWaterWorks: Artwork[] = ["01-v2", "02", "03-v2", "04", "05-v2", "06", "07-v2", "08"].map(
+// October 22: the underwater frame (04) moves to the Archive's further work;
+// with Threshold now about the waterline seen from below, it belongs there.
+export const bodyOfWaterWorks: Artwork[] = ["01-v2", "02", "03-v2", "05-v2", "06", "07-v2", "08"].map(
   (n, i) => ({
     src: `/art/body-of-water/body-of-water-${n}.jpg`,
-    alt: `Body of Water, image ${i + 1} of 8.`,
+    alt: `Body of Water, image ${i + 1} of 7.`,
   }),
 );
 
