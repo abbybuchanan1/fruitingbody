@@ -100,7 +100,7 @@ export const reflections: Record<string, string[]> = {
   ],
   "taste-and-see": [
     "Taste and See began with Venus and the long history of arranging a woman’s beauty for consumption. I wanted the opposite: not to be beautiful, but to be in beauty.",
-    "Honey, flowers, and anointing let the body become the one experiencing. This beauty isn’t coded by age or made for anyone’s gaze. When someone is immersed in beauty rather than performing it, their eyes change. The series begins with a closed eye and ends with an open one.",
+    "Honey, flowers, and anointing let the body become the one receiving. This beauty isn’t coded by age or made for anyone’s gaze. When someone is immersed in beauty rather than performing it, their eyes change. The series begins with a closed eye and ends with an open one.",
   ],
   membrane: [
     "Membrane was the first work I made in the river using the process that now underlies much of my practice: carrying something into the water, moving with a material, and letting video frames or a fast shutter reveal what I could not previsualize.",
