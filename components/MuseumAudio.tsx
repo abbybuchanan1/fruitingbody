@@ -224,6 +224,9 @@ export function MuseumAudio() {
   const environmentRef = useRef<EnvironmentKey>("exterior");
   const soundOnRef = useRef(false);
   const panTimerRef = useRef<number | null>(null);
+  // When the active element last changed; the watchdog leaves the outgoing
+  // room alone until its crossfade has had time to finish.
+  const lastSwitchRef = useRef(0);
   const [soundOn, setSoundOn] = useState(false);
 
   const ensureGraph = () => {
@@ -409,6 +412,7 @@ export function MuseumAudio() {
       const duration = immediate ? 0.45 : transitionDuration(previousKey, nextKey);
       nextGain.gain.linearRampToValueAtTime(nextEnvironment.gain, context.currentTime + duration);
       activeIndexRef.current = nextIndex;
+      lastSwitchRef.current = Date.now();
       silenceInactive(duration);
       armGestureResume();
       return;
@@ -418,6 +422,7 @@ export function MuseumAudio() {
     nextGain.gain.linearRampToValueAtTime(nextEnvironment.gain, now + duration);
 
     activeIndexRef.current = nextIndex;
+    lastSwitchRef.current = Date.now();
     silenceInactive(duration);
     schedulePanDrift(nextIndex, nextKey);
   };
@@ -495,7 +500,9 @@ export function MuseumAudio() {
       }
       void context.resume().then(() => {
         if (!audio) return;
+        if (index !== activeIndexRef.current) return;
         void audio.play().then(() => {
+          if (index !== activeIndexRef.current) return;
           if (gain) {
             const now = context.currentTime;
             gain.gain.cancelScheduledValues(now);
@@ -656,6 +663,34 @@ export function MuseumAudio() {
       window.removeEventListener("focus", resumeIfNeeded);
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
+  }, []);
+
+  // Watchdog: only one room may sound at a time. If an outgoing room is
+  // still playing once its crossfade is over (a tap, a tab switch or a map
+  // jump can race a transition), fade it out and stop it.
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      if (!soundOnRef.current) return;
+      if (Date.now() - lastSwitchRef.current < (GARDEN_GROTTO_CROSSFADE_SECONDS + 1) * 1000) return;
+      const context = contextRef.current;
+      audioRefs.forEach((ref, index) => {
+        if (index === activeIndexRef.current) return;
+        const audio = ref.current;
+        if (!audio || audio.paused) return;
+        const gain = gainNodesRef.current[index];
+        if (context && gain) {
+          const now = context.currentTime;
+          gain.gain.cancelScheduledValues(now);
+          gain.gain.setValueAtTime(gain.gain.value, now);
+          gain.gain.linearRampToValueAtTime(0, now + 0.6);
+        }
+        window.setTimeout(() => {
+          if (index === activeIndexRef.current) return;
+          audio.pause();
+        }, 700);
+      });
+    }, 1500);
+    return () => window.clearInterval(timer);
   }, []);
 
   useEffect(() => () => {

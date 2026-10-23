@@ -285,13 +285,15 @@ export const museumWorks: MuseumWork[] = [
     exhibition: bodyOfWaterWorks,
     // Archive: the installed seven, then the further frames.
     archive: bodyOfWaterWorks,
+    // Further work (the artist's order, October 22): the surface portrait, then
+    // the three underwater frames; the laughing frame and the wide shot below.
     archiveExtra: [
+      { src: "/art/archive/body-of-water/body-of-water-index-02.jpg", alt: "Body of Water, further work. Eyes lowered, shoulders at the surface, her reflection broken below." },
       { src: "/art/body-of-water/body-of-water-04.jpg", alt: "Body of Water, further work. Seen from under the water, the face at the surface." },
-      ...archiveSequence(
-        "body-of-water",
-        ["02", "05", "12", "10", "11"].map((n) => `body-of-water-index-${n}.jpg`),
-        "Body of Water, further work",
-      ),
+      { src: "/art/archive/body-of-water/body-of-water-index-05.jpg", alt: "Body of Water, further work. Under the water, the body lit by moving light." },
+      { src: "/art/archive/body-of-water/body-of-water-index-12.jpg", alt: "Body of Water, further work. Light through the surface, from below." },
+      { src: "/art/archive/body-of-water/body-of-water-index-10.jpg", alt: "Body of Water, further work. Laughing in the river, a white cloth at the shoulders.", breakBefore: true },
+      { src: "/art/archive/body-of-water/body-of-water-index-11.jpg", alt: "Body of Water, further work. Low on the water, the gorge and clouds behind." },
     ],
     reflection: reflections["body-of-water"],
   },
