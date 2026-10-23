@@ -95,7 +95,7 @@ export const reflections: Record<string, string[]> = {
     "As I worked, anatomy began behaving like architecture. Folds became passages, openings became rooms, and the body became a boundary that could be approached from either side.",
   ],
   "fear-not": [
-    "Fear Not began with Lilith and Eve. I kept coming back to the old warning that ruin awaits the woman who opens her own eyes.",
+    "Fear Not began with Lilith, Eve, and the old warning that ruin awaits the woman who chooses to open her own eyes.",
     "In these photographs curiosity is something the body does: reaching, tasting, looking, and letting what I see change me. The body moves through fear into knowing.",
   ],
   "taste-and-see": [
