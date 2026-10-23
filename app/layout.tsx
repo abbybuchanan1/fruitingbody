@@ -19,7 +19,7 @@ const wayfinding = Jost({
 
 const siteTitle = "Fruiting Body — Abby Buchanan";
 const siteDescription =
-  "Fruiting Body is a digital museum of photographic work and poetry by Abby Buchanan, a Portland, Oregon artist working in self-portraiture.";
+  "A digital museum of self-portrait photography and poetry by Abby Buchanan, an interdisciplinary artist in Portland, Oregon.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.fruitingbody.works"),
