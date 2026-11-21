@@ -271,7 +271,7 @@ export const imageSizes: Record<string, [number, number]> = {
   "/art/relative/relative-03-gravity-a.jpg": [1021, 1500],
   "/art/relative/relative-03-gravity-b.jpg": [1021, 1500],
   "/art/relative/relative-04-striation-a.jpg": [1021, 1500],
-  "/art/relative/relative-04-striation-b.jpg": [1023, 1495],
+  "/art/relative/relative-04-striation-b.jpg": [1021, 1500],
   "/art/relative/relative-04A.jpg": [909, 885],
   "/art/relative/relative-04B.jpg": [909, 885],
   "/art/relative/relative-05-ramification-a.jpg": [1022, 1500],
